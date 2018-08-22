@@ -2,14 +2,14 @@
 
 ## The Table Assignment Assignment
 
-What is the minimum number of meals so that each of the `n` conference participants can share at least one meal with every other participant when eating at tables of at most `k` persons? We call this number `T(n,k)`.
+**The Problem Statement**: What is the minimum number of meals so that each of the `n` conference participants can share at least one meal with every other participant when eating at tables of at most `k` persons? We call this number `T(n,k)`.
 
 In particular, we have an unlimited number of tables, and we do not require that any two participants have a meal together exactly once, or that every table is fully occupied.
 
 ## Dagstuhl's Table Table
 
 | n / k |  2       |   3        |   4        |   5        |   6        |   7        |  8
-|-------|----------|------------|------------|------------|------------|------------|-------
+|:-----:|----------|------------|------------|------------|------------|------------|-------
 |   1   |  **0**   |  **0**     |  **0**     |  **0**     |  **0**     |  **0**     |  **0**
 |   2   |  **1**   |  1         |  1         |  1         |  1         |  1         |  1
 |   3   |  3       |  **1**     |  1         |  1         |  1         |  1         |  1
