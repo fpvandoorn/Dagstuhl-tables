@@ -16,21 +16,21 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   4   |  3  |  3  cd|  1    |  1    |  1
 |   5   |  5  |  3   E|  3  d |  1    |  1
 |   6   |  5  |  4  e |  3    |  3  d |  1
-|   7   |  7  |  4    |  3    |  3    |  3  d
+|   7   |  7  |  4    |  3    |  3    |  3   d
 |   8   |  7  |  4    |  3   B|  3    |  3  
 |   9   |  9  |  4   A|  4  c |  3   C|  3  
-|   10  |  9  | 6-7 c |  4-5  |       |  3   
-|   11  | 11  | 6-7   |  4-5  |       |  3
-|   12  | 11  | 6-7   |  4-5  |  4+ a |  3  B
-|   13  | 13  | 7   a |  5  a |       |  3-4 B
-|   14  | 13  | 7     |  5    |       |  
-|   15  | 15  | 7    F|  5    |       |  
-|   16  | 15  | 9   c |  5   F|  5+ c |  
-|   17  | 17  | 9     | 6-9 a |       |  
-|   18  | 17  | 9    G| 7-9 a |       |  3-4 B
-|   19  | 19  | 10  a |7-9    |       |  
-|   20  | 19  | 10    |7-9 B  |       |  3-7 B
-|   21  | 21  | 10   F|8-10 c |  6+ a |  
+|   10  |  9  | 6-7 c |  4-5  | 3-5   |  3   
+|   11  | 11  | 6-7   |  4-5  | 3-5   |  3
+|   12  | 11  | 6-7   |  4-5  | 4-5 a |  3   B
+|   13  | 13  | 7   a |  5  a | 4-5   |  3-4
+|   14  | 13  | 7     |  5    | 4-5   |  3-4
+|   15  | 15  | 7    F|  5    | 4-5   |  4   a
+|   16  | 15  | 9   c |  5   F|  5  c |  4
+|   17  | 17  | 9     | 6-9 a | 5-9   |  4
+|   18  | 17  | 9    G| 7-9 a | 5-9   |  4   B
+|   19  | 19  | 10  a | 7-9   |5-10   |  5-7 a
+|   20  | 19  | 10    | 7-9 B |5-10   |  5-7 B
+|   21  | 21  | 10   F|8-10 c |6-10 a | 5-10
 
 Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`E` to justify upper bounds, which are explained below. 
 No explanation is given when `n <= k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) >= T(n,k) >= T(n,k+1)`.
