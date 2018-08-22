@@ -2,7 +2,7 @@
 
 ## The Table Assignment Assignment
 
-What is the minimum number of meals so that each of the `n` conference participants can share at least one meal with every other participant when eating at tables of at most `t` persons? We call this number `T(n,k)`
+What is the minimum number of meals so that each of the `n` conference participants can share at least one meal with every other participant when eating at tables of at most `k` persons? We call this number `T(n,k)`
 
 In particular, we have an unlimited number of tables, and we do not require that any two participants have a meal together exactly once, or that every table is fully occupied.
 
@@ -19,15 +19,15 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   7   |  7  |  4    |  3    |  3    |  3  d
 |   8   |  7  |  4    |  3   B|  3    |  3  
 |   9   |  9  |  4   A|  4  c |  3   C|  3  
-|   10  |  9  | 6-7 c |  4-5  |       |  3   B
-|   11  | 11  | 6-7   |  4-5  |       |  
-|   12  | 11  | 6-7   |  4-5  |  4+ a |  
-|   13  | 13  | 7   a |  5  a |       |  
+|   10  |  9  | 6-7 c |  4-5  |       |  3   
+|   11  | 11  | 6-7   |  4-5  |       |  3
+|   12  | 11  | 6-7   |  4-5  |  4+ a |  3  B
+|   13  | 13  | 7   a |  5  a |       |  3-4 B
 |   14  | 13  | 7     |  5    |       |  
 |   15  | 15  | 7    F|  5    |       |  
 |   16  | 15  | 9   c |  5   F|  5+ c |  
 |   17  | 17  | 9     | 6-9 a |       |  
-|   18  | 17  | 9    G| 7-9 a |       |  
+|   18  | 17  | 9    G| 7-9 a |       |  3-4 B
 |   19  | 19  | 10  a |7-10   |       |  
 |   20  | 19  | 10    |7-10   |       |  
 |   21  | 21  | 10   F|8-10 c |  6+ a |  
