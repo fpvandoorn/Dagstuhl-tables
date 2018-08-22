@@ -3,22 +3,22 @@
 ## Dagstuhl's Table Table
 
 | n / k |  2  |  3    |  4    |  5    |  6
-|-------|-----|-------|-------|-------|----
+|-------|-----|-------|-------|-------|-------
 |   1   |  0  |  0    |  0    |  0    |  0
 |   2   |  1  |  1    |  1    |  1    |  1
 |   3   |  3  |  1    |  1    |  1    |  1
 |   4   |  3  |  3  c |  1    |  1    |  1
-|   5   |  5  |  3   E|  3  d |  1    |  1
-|   6   |  5  |  4  e |  3    |  3  d |  1
-|   7   |  7  |  4    |  3    |  3    |  3  d
+|   5   |  5  |  3   E|  3  c |  1    |  1
+|   6   |  5  |  4  e |  3    |  3  c |  1
+|   7   |  7  |  4    |  3    |  3    |  3  c
 |   8   |  7  |  4    |  3   B|  3    |  3  
 |   9   |  9  |  4   A|  4  c |  3   C|  3  
-|   10  |  9  | 6-8 c |       |       |  3   B
-|   11  | 11  | 6-8   |       |       |  
-|   12  | 11  | 6-8   |       |  4+ a |  
-|   13  | 13  | 7-8 a |  5+ a |       |  
-|   14  | 13  | 7-8   |       |       |  
-|   15  | 15  | 7-8  A|       |       |  
+|   10  |  9  | 6-7 c |       |       |  3   B
+|   11  | 11  | 6-7   |       |       |  
+|   12  | 11  | 6-7   |       |  4+ a |  
+|   13  | 13  | 7   a |  5+ a |       |  
+|   14  | 13  | 7     |       |       |  
+|   15  | 15  | 7   fA|       |       |  
 |   16  | 15  | 9-11c |       |  5+ c |  
 |   17  | 17  | 9-11  |  6+ a |       |  
 |   18  | 17  | 9-11  |  7+ a |       |  
@@ -75,6 +75,7 @@ What is the minimum number of meals so that each of the `n` conference participa
   (2) Nobody can meet the same person twice
   This means that after every meal, the number of participants participant A has met is divisible by `k-1`, so it can never equal `n-1`.
 * `e`: proven by hand
+* `f`: this follows from the solution of the social golfer's problem, found [here](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/).
 
 Upper bounds:
 * `A`: `T(km,k) <= T(m,k) + m` if `m` is coprime with `(k-1)!`
