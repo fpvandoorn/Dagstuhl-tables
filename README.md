@@ -35,11 +35,11 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   23  | 23       |  12        | 8-9        |  6         |  5-6       |            |
 |   24  | **23**   |  12  G     | 8-9        |  6         |  5-6       | 5-6 a      |  
 |   25  | 25       |  13  a     |  9  a      |  **6**  AH |  6   c     |            |
-|   26  | **25**   |  13        |  9         |7-?  a      |  6-7       |            |
-|   27  | 27       | **13**  AH |  9         |7-?         |  6-7       |            |  5   a
-|   28  | **27**   |15-?  c     | **9**  F   |8-?  a      |  6-7       |            |  5
-|   29  | 29       |15-?        |10-11 a     |8-?         |  6-7       |            |  5
-|   30  | **29**   |15-?        |  11  a G   |8-?         |  6-7 B     |            |  5   B
+|   26  | **25**   |  13        |  9         |7-9  a      |  6-7       |            |
+|   27  | 27       | **13**  AH |  9         |7-9         |  6-7       |            |  5   a
+|   28  | **27**   |15-?  c     | **9**  F   |8-9  a      |  6-7       |            |  5
+|   29  | 29       |15-?        |10-11 a     |8-11        |  6-7       |            |  5
+|   30  | **29**   |15-?        |  11  a G   |8-11        |  6-7 B     |            |  5   B
 
 Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`H` to justify upper bounds, which are explained below. 
 No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
