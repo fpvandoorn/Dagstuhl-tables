@@ -8,41 +8,50 @@ In particular, we have an unlimited number of tables, and we do not require that
 
 ## Dagstuhl's Table Table
 
-| n / k |  2  |   3   |   4   |   5   |   6   |   7   |  8
-|-------|-----|-------|-------|-------|-------|-------|-------
-|   1   |  0  |  0    |  0    |  0    |  0    |  0    |  0 
-|   2   |  1  |  1    |  1    |  1    |  1    |  1    |  1
-|   3   |  3  |  1    |  1    |  1    |  1    |  1    |  1
-|   4   |  3  |  3  cd|  1    |  1    |  1    |  1    |  1
-|   5   |  5  |  3   E|  3  d |  1    |  1    |  1    |  1
-|   6   |  5  |  4  e |  3    |  3  d |  1    |  1    |  1
-|   7   |  7  |  4    |  3    |  3    |  3   d|  1    |  1
-|   8   |  7  |  4    |  3   B|  3    |  3    |  3 d  |  1
-|   9   |  9  |  4   A|  4  c |  3   C|  3    |  3    |  3 d
-|   10  |  9  | 6-7 c |  4-5  | 3-5   |  3    |  3    |  3 
-|   11  | 11  | 6-7   |  4-5  | 3-5   |  3    |  3    |  3
-|   12  | 11  | 6-7   |  4-5  | 4-5 a |  3   B|  3    |  3
-|   13  | 13  | 7   a |  5  a | 4-5   |  3-4  |  3 C  |  3
-|   14  | 13  | 7     |  5    | 4-5   |  3-4  |       |  3
-|   15  | 15  | 7    F|  5    | 4-5   |  4   a|       |  3
-|   16  | 15  | 9   c |  5   F|  5  c |  4    |       |  3 B
-|   17  | 17  | 9     | 6-9 a | 5-6   |  4    |  4 a  |  
-|   18  | 17  | 9    G| 7-9 a | 5-6   |  4   B|  4    |  3-4 B
-|   19  | 19  | 10  a | 7-9   | 5-6   |  5-6 a|       |
-|   20  | 19  | 10    | 7-9 B | 5-6   |  5-6  |       |  4-5 a
-|   21  | 21  | 10  F |8-10 c |  6  a |  5-6 B|       |
-|   22  | 21  |12-?  c|8-11   |  6    |  5-6  |       |
-|   23  | 23  |12-?   |8-11   |  6    |  5-6  |       |
-|   24  | 23  |12-?   |8-11 B |  6    |  5-6  | 5-6 a |  
-|   25  | 25  |13-?  a|9-13 a |  6  F |  6   c|       |
-|   26  | 25  |13-?   |9-13   |7-?  a |  6-7  |       |
-|   27  | 27  |13-?   |9-13   |7-?    |  6-7  |       |  5   a
-|   28  | 27  |15-?  c|9-13  B|8-?  a |  6-7  |       |  5
-|   29  | 29  |15-?   |10-15 a|8-?    |  6-7  |       |  5
-|   30  | 29  |15-?   |11-15 aB|8-?   |  6-7 B|       |  5   B
+| n / k |  2       |   3        |   4        |   5        |   6        |   7        |  8
+|-------|----------|------------|------------|------------|------------|------------|-------
+|   1   |  0       |  0         |  0         |  0         |  0         |  0         |  0 
+|   2   |  **1**   |  1         |  1         |  1         |  1         |  1         |  1
+|   3   |  3       |  **1**     |  1         |  1         |  1         |  1         |  1
+|   4   |  **3**   |  3  cd     |  **1**     |  1         |  1         |  1         |  1
+|   5   |  5       |  3   E     |  3  d      |  **1**     |  1         |  1         |  1
+|   6   |  **5**   |  4  e      |  3         |  3  d      |  **1**     |  1         |  1
+|   7   |  7       |  4         |  3         |  3         |  3   d     |  **1**     |  1
+|   8   |  **7**   |  4         |  3   B     |  3         |  3         |  3 d       |  **1**
+|   9   |  9       |  **4**     |  4  c      |  3   C     |  3         |  3         |  3 d
+|   10  |  **9**   | 6-7 c      |  4-5       | 3-5        |  3         |  3         |  3 
+|   11  | 11       | 6-7        |  4-5       | 3-5        |  3         |  3         |  3
+|   12  | **11**   | 6-7        |  4-5       | 4-5 a      |  3   B     |  3         |  3
+|   13  | 13       | 7   a      |  5  a      | 4-5        |  3-4       |  3 C       |  3
+|   14  | **13**   | 7          |  5         | 4-5        |  3-4       |            |  3
+|   15  | 15       | **7**      |  5         | 4-5        |  4   a     |            |  3
+|   16  | **15**   | 9   c      |  **5**     |  5  c      |  4         |            |  3 B
+|   17  | 17       | 9          | 6-9 a      | 5-6        |  4         |  4 a       |  
+|   18  | **17**   | 9    G     | 7-9 a      | 5-6        |  4   B     |  4         |  3-4 B
+|   19  | 19       | 10  a      | 7-9        | 5-6        |  5-6 a     |            |
+|   20  | **19**   | 10         | 7-9 B      | 5-6        |  5-6       |            |  4-5 a
+|   21  | 21       | **10**     |8-10 c      |  6  a      |  5-6 B     |            |
+|   22  | **21**   |12-?  c     |8-11        |  6         |  5-6       |            |
+|   23  | 23       |12-?        |8-11        |  6         |  5-6       |            |
+|   24  | **23**   |12-?        |8-11 B      |  6         |  5-6       | 5-6 a      |  
+|   25  | 25       |13-?  a     |9-13 a      |  **6**     |  6   c     |            |
+|   26  | **25**   |13-?        |9-13        |7-?  a      |  6-7       |            |
+|   27  | 27       |13-?        |9-13        |7-?         |  6-7       |            |  5   a
+|   28  | **27**   |15-?  c     |9-13  B     |8-?  a      |  6-7       |            |  5
+|   29  | 29       |15-?        |10-15 a     |8-?         |  6-7       |            |  5
+|   30  | **29**   |15-?        |11-15 aB    |8-?         |  6-7 B     |            |  5   B
 
 Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`E` to justify upper bounds, which are explained below. 
 No explanation is given when `n <= k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) >= T(n,k) >= T(n,k+1)`.
+
+The bolded values indicate perfect solutions (see below).
+
+## Terminology
+
+* Given a table assignment for 1 or more meals. We say that this is a *valid solution* if every participant meet every other participant at least once.
+* Given a valid solution. We say that it is an *optimal solution* if there is no valid solution (with the same `n` and `k`) with fewer days.
+* Given a valid solution. We say that it is a *perfect solution* if every participant meets every other participant exactly once.
+* Necessarily, every perfect solution is optimal.
 
 ## Properties
 
