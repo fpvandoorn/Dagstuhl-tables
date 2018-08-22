@@ -79,7 +79,7 @@ No explanation is given when `n <= k` or `k = 2` or the value can be derived fro
 * `e`: proven by hand
 * `f`: this follows from the solution of the social golfer's problem, found [here](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/).
 
-Upper bounds:
+### Upper bounds:
 * `A`: `T(km,k) <= T(m,k) + m` if `m` is coprime with `(k-1)!`
 * `B`: `T(nl,kl) <= T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together
 * `C`: `T(nl+1,kl+1) <= T(n,k)`. Same as `B`, but make one group size `l+1`.
@@ -88,11 +88,11 @@ Upper bounds:
 * `T(n,k) <= n/(k-1) + O(1) * log(n)/log(k)` (I think)
 * Conjecture: for all `k`, `T(n,k) - n/(k-1)` is bounded by a constant
 
+## External Links
 
-
-
-(n) needs to be carefully proven
-
+* OEIS: [A318240](https://oeis.org/draft/A318240) and [A318241](https://oeis.org/draft/A318241) (needs more information)
+* Social Golfer Problem: [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html), [2008 master thesis](https://www.metalevel.at/sgp/), [Warwick's old result page](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/), [A107431](https://oeis.org/A107431)
+* [Oberwolfach Problem](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php)
 
 
 
