@@ -1,5 +1,11 @@
 # Dagstuhl's Happy Diner Problem
 
+## The Table Assignment Assignment
+
+What is the minimum number of meals so that each of the `n` conference participants can share at least one meal with every other participant when eating at tables of at most `t` persons? We call this number `T(n,k)`
+
+In particular, we have an unlimited number of tables, and we do not require that any two participants have a meal together exactly once, or that every table is fully occupied.
+
 ## Dagstuhl's Table Table
 
 | n / k |  2  |  3    |  4    |  5    |  6
@@ -28,10 +34,6 @@
 
 Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`E` to justify upper bounds, which are explained below. 
 No explanation is given when `n <= k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) >= T(n,k) >= T(n,k+1)`.
-
-## The Table Assignment Assignment
-
-What is the minimum number of meals so that each of the `n` conference participants can share at least one meal with every other participant when eating at tables of at most `t` persons? We call this number `T(n,k)`
 
 ## Properties
 
