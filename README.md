@@ -83,6 +83,8 @@ The bolded values indicate perfect solutions (see below).
   * For every 1-dimensional subspace `L` of `V` the sets of 1-dimensional affine spaces parallel to `L` forms a partition of `V`. This defines a table assignment for a single meal.
   * The set of all table assignments determined by all 1-dimensional subspaces in this way forms a perfect `(n,k)`-solution. The reason that it is perfect follows from the fact that 1-dimensional affine spaces stand in bijective correspondence to pairs of points in `V`.
   * This idea is due to Neil Strickland.
+* A perfect `(n,3)`-solution for `n ≥ 3` is called a *Kirkman Triple System* and is possible iff `n ≡ 3 mod 6`.
+  * This is (supposed to be) proven in *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson (1971). We couldn't find a copy of this paper.
 * Other known specific values. 
   * `T(32,4)=11` is a perfect solution. This follows from `G`.
 
@@ -143,7 +145,9 @@ The bolded values indicate perfect solutions (see below).
 
 * OEIS: we are currently writing draft sequences [A318240](https://oeis.org/draft/A318240) and [A318241](https://oeis.org/draft/A318241).
 * Social Golfer Problem: [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html), [2008 master thesis](https://www.metalevel.at/sgp/), [Warwick's old result page](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/), [A107431](https://oeis.org/A107431).
+* Kirkman Triple System: [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html), [Dutch dissertation by Pieter Mulder](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19) (pdf available on request).
 * [Oberwolfach Problem](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php).
+
 
 ## Contributing
 
