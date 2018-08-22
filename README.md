@@ -2,7 +2,7 @@
 
 ## The Table Assignment Assignment
 
-What is the minimum number of meals so that each of the `n` conference participants can share at least one meal with every other participant when eating at tables of at most `k` persons? We call this number `T(n,k)`
+What is the minimum number of meals so that each of the `n` conference participants can share at least one meal with every other participant when eating at tables of at most `k` persons? We call this number `T(n,k)`.
 
 In particular, we have an unlimited number of tables, and we do not require that any two participants have a meal together exactly once, or that every table is fully occupied.
 
@@ -127,6 +127,11 @@ The bolded values indicate perfect solutions (see below).
 
 ### Solutions computed by hand
 
+#### `T(6,3)`
+
+* TODO: write why `T(6,3) >= 4`
+* A similar argument *might* show that `T(12,3) >= 7`. (but `T(18,3) = 9`, so it is not generally true that `T(6k,3) > 3k`.)
+
 ## Questions
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
 
@@ -136,9 +141,11 @@ The bolded values indicate perfect solutions (see below).
 
 ## External Links
 
-* OEIS: [A318240](https://oeis.org/draft/A318240) and [A318241](https://oeis.org/draft/A318241) (needs more information).
+* OEIS: we are currently writing draft sequences [A318240](https://oeis.org/draft/A318240) and [A318241](https://oeis.org/draft/A318241).
 * Social Golfer Problem: [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html), [2008 master thesis](https://www.metalevel.at/sgp/), [Warwick's old result page](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/), [A107431](https://oeis.org/A107431).
 * [Oberwolfach Problem](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php).
 
+## Contributing
 
+* Contributions are welcome! Feel free to add any information. Please provide links or justifications of claims you make.
 
