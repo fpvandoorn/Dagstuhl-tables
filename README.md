@@ -28,7 +28,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   16  | 15  | 9   c |  5   F|  5+ c |  
 |   17  | 17  | 9     | 6-9 a |       |  
 |   18  | 17  | 9    G| 7-9 a |       |  3-4 B
-|   19  | 19  | 10  a |7-9 B  |       |  
+|   19  | 19  | 10  a |7-9    |       |  
 |   20  | 19  | 10    |7-9 B  |       |  3-7 B
 |   21  | 21  | 10   F|8-10 c |  6+ a |  
 
