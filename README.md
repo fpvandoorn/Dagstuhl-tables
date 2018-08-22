@@ -120,15 +120,15 @@ The bolded values indicate perfect solutions (see below).
   * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`.
   * The solutions of the social golfer's problem, can be found [here](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/). Additionally, [this](https://www.metalevel.at/sgp/) website shows `G(8,4)=10`.
 * `H`: see Known Values.
-* if `n <= 3^{m+1}` then `T(n,3) <= n/2 + (5/2)m`. So `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`.
+* if `n <= 3^{m+1}` then `T(n,3) <= n/2 + (5/2)m`. So `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`. This follows from an inductive argument using `A`.
 
 
-## Conjectures
+## Questions
+* For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied.
 
-* Weak: `T(n,k) <= n/(k-1) + O(1) * log(n)`
-* Strong: For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
-* There always exists an optimal solution in which, during every meal, at most one table is not completely occupied.
-
+### Conjectures
+* `T(n,k) <= n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
+* For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
 
 ## External Links
 
