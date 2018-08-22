@@ -29,8 +29,8 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   17  | 17  | 9     | 6-9 a | 5-9   |  4
 |   18  | 17  | 9    G| 7-9 a | 5-9   |  4   B
 |   19  | 19  | 10  a | 7-9   |5-10   |  5-7 a
-|   20  | 19  | 10    | 7-9 B |5-10   |  5-7 B
-|   21  | 21  | 10   F|8-10 c |6-10 a | 5-10
+|   20  | 19  | 10    | 7-9 B |5-10   |  5-7 
+|   21  | 21  | 10   F|8-10 c |6-10 a |  5-7 B
 
 Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`E` to justify upper bounds, which are explained below. 
 No explanation is given when `n <= k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) >= T(n,k) >= T(n,k+1)`.
