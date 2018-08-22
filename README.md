@@ -79,7 +79,7 @@ The bolded values indicate perfect solutions (see below).
 * `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution. 
   * Consider the field `F` of order `k`, and a vector field `V` with cardinality `n` over `F`.
   * For every 1-dimensional subspace `L` of `V` the sets of 1-dimensional affine spaces parallel to `L` forms a partition of `V`. This defines a table assignment for a single meal.
-  * The set of table assignments determined by a 1-dimensional subspace in this way forms a perfect `(n,k)`-solution. The reason that it is perfect follows from the fact that 1-dimensional affine spaces stand in bijective correspondence to pairs of points in `V`.
+  * The set of all table assignments determined by all 1-dimensional subspaces in this way forms a perfect `(n,k)`-solution. The reason that it is perfect follows from the fact that 1-dimensional affine spaces stand in bijective correspondence to pairs of points in `V`.
   * This idea is due to Neil Strickland.
 * Other known specific values. 
   * `T(32,4)=11` is a perfect solution. This follows from `G`.
