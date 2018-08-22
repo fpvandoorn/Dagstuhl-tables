@@ -31,15 +31,15 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   19  | 19  | 10  a | 7-9   | 5-6   |  5-6 a|       |
 |   20  | 19  | 10    | 7-9 B | 5-6   |  5-6  |       |  4-5 a
 |   21  | 21  | 10  F |8-10 c |  6  a |  5-6 B|       |
-|   22  | 21  |12-?  c|8-?    |  6    |  5-6  |       |
-|   23  | 23  |12-?   |8-?    |  6    |  5-6  |       |
-|   24  | 23  |12-?   |8-?    |  6    |  5-6  | 5-6 a |  
-|   25  | 25  |13-?  a|9-?  a |  6  F |  6   c|       |
-|   26  | 25  |13-?   |9-?    |7-?  a |  6-?  |       |
-|   27  | 27  |13-?   |9-?    |7-?    |  6-?  |       |  5   a
-|   28  | 27  |15-?  c|9-?    |8-?  a |  6-?  |       |  5
-|   29  | 29  |15-?   |10-?  a|8-?    |  6-?  |       |  5
-|   30  | 29  |15-?   |11-?  a|8-?    |  6-?  |       |  5   B
+|   22  | 21  |12-?  c|8-11   |  6    |  5-6  |       |
+|   23  | 23  |12-?   |8-11   |  6    |  5-6  |       |
+|   24  | 23  |12-?   |8-11 B |  6    |  5-6  | 5-6 a |  
+|   25  | 25  |13-?  a|9-13 a |  6  F |  6   c|       |
+|   26  | 25  |13-?   |9-13   |7-?  a |  6-7  |       |
+|   27  | 27  |13-?   |9-13   |7-?    |  6-7  |       |  5   a
+|   28  | 27  |15-?  c|9-13  B|8-?  a |  6-7  |       |  5
+|   29  | 29  |15-?   |10-15 a|8-?    |  6-7  |       |  5
+|   30  | 29  |15-?   |11-15 aB|8-?   |  6-7 B|       |  5   B
 
 Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`E` to justify upper bounds, which are explained below. 
 No explanation is given when `n <= k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) >= T(n,k) >= T(n,k+1)`.
