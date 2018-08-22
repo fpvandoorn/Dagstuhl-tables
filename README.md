@@ -85,8 +85,15 @@ No explanation is given when `n <= k` or `k = 2` or the value can be derived fro
 * `C`: `T(nl+1,kl+1) <= T(n,k)`. Same as `B`, but make one group size `l+1`.
 * `E`: found solution by hand
 * if `n <= 3^{m+1}` then `T(n,3) <= n/2 + (5/2)m` (so `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`.
-* `T(n,k) <= n/(k-1) + O(1) * log(n)/log(k)` (I think)
-* Conjecture: for all `k`, `T(n,k) - n/(k-1)` is bounded by a constant
+
+
+## Conjectures
+
+
+* For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant.
+* `T(n,k) <= n/(k-1) + O(1) * log(n)/log(k)`
+* There always exists an optimal solution in which, during every meal, at most one table is not completely occupied.
+
 
 ## External Links
 
