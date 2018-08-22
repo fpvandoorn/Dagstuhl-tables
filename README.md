@@ -14,7 +14,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   2   |  **1**   |  1         |  1         |  1         |  1         |  1         |  1
 |   3   |  3       |  **1**     |  1         |  1         |  1         |  1         |  1
 |   4   |  **3**   |  3  cd     |  **1**     |  1         |  1         |  1         |  1
-|   5   |  5       |  3   E     |  3  d      |  **1**     |  1         |  1         |  1
+|   5   |  5       |  3   C     |  3  d      |  **1**     |  1         |  1         |  1
 |   6   |  **5**   |  4  e      |  3         |  3  d      |  **1**     |  1         |  1
 |   7   |  7       |  4         |  3         |  3         |  3   d     |  **1**     |  1
 |   8   |  **7**   |  4         |  3   B     |  3         |  3         |  3 d       |  **1**
@@ -126,14 +126,6 @@ The bolded values indicate perfect solutions (see below).
 * if `n <= 3^{m+1}` then `T(n,3) <= n/2 + (5/2)m`. So `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`. This follows from an inductive argument using `A`.
 
 ### Solutions computed by hand
-
-#### `T(5,3)`
-We name the participants 1 through 5.  The following is a solution:
-```
-Day 1: 123 45
-Day 2: 124 35
-Day 3: 125 34
-```
 
 ## Questions
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
