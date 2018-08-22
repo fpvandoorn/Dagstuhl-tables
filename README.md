@@ -18,28 +18,28 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   6   |  **5**   |  4  e      |  3         |  3  d      |  **1**     |  1         |  1
 |   7   |  7       |  4         |  3         |  3         |  3   d     |  **1**     |  1
 |   8   |  **7**   |  4         |  3   B     |  3         |  3         |  3 d       |  **1**
-|   9   |  9       |  **4** A   |  4  c      |  3   C     |  3         |  3         |  3 d
+|   9   |  9       |  **4** AH  |  4  c      |  3   C     |  3         |  3         |  3 d
 |   10  |  **9**   | 6-7 c      |  4-5       | 3-5        |  3         |  3         |  3 
 |   11  | 11       | 6-7        |  4-5       | 3-5        |  3         |  3         |  3
 |   12  | **11**   | 6-7        |  4-5       | 4-5 a      |  3   B     |  3         |  3
-|   13  | 13       | 7   a      |  5  a      | 4-5        |  3-4       |  3 C       |  3
-|   14  | **13**   | 7          |  5         | 4-5        |  3-4       |            |  3
+|   13  | 13       |  7  a      |  5  a      | 4-5        |  3-4       |  3 C       |  3
+|   14  | **13**   |  7         |  5         | 4-5        |  3-4       |            |  3
 |   15  | 15       | **7**  F   |  5         | 4-5        |  4   a     |            |  3
-|   16  | **15**   | 9   c      |  **5**  H  |  5  c      |  4         |            |  3 B
-|   17  | 17       | 9          | 6-9 a      | 5-6        |  4         |  4 a       |  
-|   18  | **17**   | 9    G     | 7-9 a      | 5-6        |  4   B     |  4         |  3-4 B
-|   19  | 19       | 10  a      | 7-9        | 5-6        |  5-6 a     |            |
-|   20  | **19**   | 10         | 7-9 B      | 5-6        |  5-6       |            |  4-5 a
+|   16  | **15**   |  9   c     |  **5**  H  |  5  c      |  4         |            |  3 B
+|   17  | 17       |  9         | 6-9 a      | 5-6        |  4         |  4 a       |  
+|   18  | **17**   |  9    G    | 7-9 a      | 5-6        |  4   B     |  4         |  3-4 B
+|   19  | 19       |  10  a     | 7-9        | 5-6        |  5-6 a     |            |
+|   20  | **19**   |  10        | 7-9 B      | 5-6        |  5-6       |            |  4-5 a
 |   21  | 21       | **10** F   |8-10 c      |  6  a      |  5-6 B     |            |
-|   22  | **21**   |12-?  c     |8-11        |  6         |  5-6       |            |
-|   23  | 23       |12-?        |8-11        |  6         |  5-6       |            |
-|   24  | **23**   |12-?        |8-11 B      |  6         |  5-6       | 5-6 a      |  
-|   25  | 25       |13-?  a     |9-11 a      |  **6**  F  |  6   c     |            |
-|   26  | **25**   |13-?        |9-11        |7-?  a      |  6-7       |            |
-|   27  | 27       |13-?        |9-11        |7-?         |  6-7       |            |  5   a
+|   22  | **21**   |12-13  c    |8-11        |  6         |  5-6       |            |
+|   23  | 23       |12-13       |8-11        |  6         |  5-6       |            |
+|   24  | **23**   |12-13       |8-11 B      |  6         |  5-6       | 5-6 a      |  
+|   25  | 25       |  13  a     |9-11 a      |  **6**  AH |  6   c     |            |
+|   26  | **25**   |  13        |9-11        |7-?  a      |  6-7       |            |
+|   27  | 27       | **13**  AH |9-11        |7-?         |  6-7       |            |  5   a
 |   28  | **27**   |15-?  c     |9-11        |8-?  a      |  6-7       |            |  5
 |   29  | 29       |15-?        |10-11 a     |8-?         |  6-7       |            |  5
-|   30  | **29**   |15-?        |  11  a G  |8-?         |  6-7 B     |            |  5   B
+|   30  | **29**   |15-?        |  11  a G   |8-?         |  6-7 B     |            |  5   B
 
 Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`H` to justify upper bounds, which are explained below. 
 No explanation is given when `n <= k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) >= T(n,k) >= T(n,k+1)`.
@@ -52,11 +52,13 @@ The bolded values indicate perfect solutions (see below).
 * A valid solution with `n` participants and table size of at most `k` is called a `(n,k)`-*solution*.
 * Given a valid solution. We say that it is an *optimal solution* if there is no valid solution (with the same `n` and `k`) with fewer days.
 * Given a valid solution. We say that it is a *perfect solution* if every participant meets every other participant exactly once.
+
+## Properties
+
+### Perfect Solutions
 * Necessarily, every perfect solution is optimal.
 * Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`). 
 * A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
-
-## Properties
 
 ### Known Values
 * `T(n,2) = n` if `n` is odd, `T(n,2)=n-1` if `n` is even.
@@ -102,7 +104,7 @@ The bolded values indicate perfect solutions (see below).
   This means that after every meal, the number of participants participant A has met is divisible by `k-1`, so it can never equal `n-1`.
   * A special case is `T(6m+1,3) >= 3m+1`.
 * `d`: see Known Values.
-* `e`: proven by hand for this special case.
+* `e`: proven by hand for this special case. (We don't use `e` if another letter applies.)
 
 ### Upper Bounds:
 * `A`: `T(km,k) <= T(m,k) + m` if `m` is coprime with `(k-1)!`.
@@ -113,12 +115,13 @@ The bolded values indicate perfect solutions (see below).
 * `B`: `T(nl,kl) <= T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together.
 * `C`: `T(nl+1,kl+1) <= T(n,k)`. Same as `B`, but make one group size `l+1`.
 * `D`: see Known Values.
-* `E`: found solution by hand for this special case, see below.
+* `E`: found solution by hand for this special case, see below. (We don't use `E` if another letter applies.)
 * From a good solution of the social golfer's problem (see External Links) we can retrieve a solution to the Happy Diner Problem. 
   * Denote the solution to tha social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
   * `F`: If `G(m,k)*(k-1) = m*k - 1` then `T(m*k,k) = G(m,k)`.
   * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`.
   * The solutions of the social golfer's problem, can be found [here](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/). Additionally, [this](https://www.metalevel.at/sgp/) website shows `G(8,4)=10`.
+  * (we don't use `F` and `G` if another letter applies.)
 * `H`: see Known Values.
 * if `n <= 3^{m+1}` then `T(n,3) <= n/2 + (5/2)m`. So `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`. This follows from an inductive argument using `A`.
 
@@ -133,7 +136,7 @@ Day 3: 125 34
 ```
 
 ## Questions
-* For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied.
+* For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
 
 ### Conjectures
 * `T(n,k) <= n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
