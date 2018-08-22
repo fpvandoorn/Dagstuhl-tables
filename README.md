@@ -42,7 +42,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   30  | **29**   |15-?        |  11  a G   |8-?         |  6-7 B     |            |  5   B
 
 Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`H` to justify upper bounds, which are explained below. 
-No explanation is given when `n <= k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) >= T(n,k) >= T(n,k+1)`.
+No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
 
 The bolded values indicate perfect solutions (see below).
 
@@ -69,10 +69,10 @@ The bolded values indicate perfect solutions (see below).
       the first m days on day i let person i sit with i+m and person i+j with i-j.
       the next 2k:=m-1 days, on day 2k-1 and 2k let person i sit with person i+2k-1 and i-(2k-1). If i is even it will sit with i+2k-1 first, and if i is odd it will sit with i-(2k-1) first.
     * Suppose `n` is odd, then we can use the solution for `n+1` participants, dropping 1 participant.
-* `T(n,k) = 1` if `n <= k`.
-* If `k < n <= (3/2)k` then `T(n,k) = 3`.
+* `T(n,k) = 1` if `n ≤ k`.
+* If `k < n ≤ (3/2)k` then `T(n,k) = 3`.
   * `d`: It cannot be done in 2 days, because on day 1 there are at least 2 tables. All participants on table 1 need to be sit with all participants not on table 1 on day 2, but that means that everyone needs to sit together on day 2. Contradiction.
-  * `D`: It can be done in 3 days. Suppose `2k-n >= Ceil(k/2)`, i.e. `2k-n >= k/2`, i.e. `3k >= 2n`.
+  * `D`: It can be done in 3 days. Suppose `2k-n ≥ Ceil(k/2)`, i.e. `2k-n ≥ k/2`, i.e. `3k ≥ 2n`.
     Then 3 sets of size `k` can cover all pairs: 
     On day 1 sit participants `1--k` together.
     On day 2 sit `(k+1)--n` and participants `1--Ceil(k/2)` together.
@@ -87,33 +87,33 @@ The bolded values indicate perfect solutions (see below).
   * `T(32,4)=11` is a perfect solution. This follows from `G`.
 
 ### Relations:
-* `T(n+1,k) >= T(n,k) >= T(n,k+1)`. If a value in the table can be derived from these inequalities, they are no other explanation is given.
+* `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`. If a value in the table can be derived from these inequalities, they are no other explanation is given.
 
 
 ### Lower Bounds:
-* `T(n,k) >= (n-1)/(k-1)` (special case of `a`). Every participant can see only `k-1` participants per meal, and needs to see `n-1` participants.
-* `a`: Suppose `n = m*k+l` with `0 <= l < k`.
+* `T(n,k) ≥ (n-1)/(k-1)` (special case of `a`). Every participant can see only `k-1` participants per meal, and needs to see `n-1` participants.
+* `a`: Suppose `n = m*k+l` with `0 ≤ l < k`.
   There are `n(n-1)/2` pairs. 
   At most `m*k*(k-1)/2+l*(l-1)/2` pairs can be formed per meal.
   So `T(n,k)` is at least equal to the quotient of these 2.
 * `c`: If `n = m*k+1` then this bound is `n(n-1)/(m*k*(k-1)) = n/(k-1)`. 
-  Suppose `k - 1 | n` (i.e. `n == -(k-1) mod k(k-1)`). Then
-  `T(n,k) >= n/(k-1)+1`, because if it's possible after `n/(k-1)` days, we need to form `m*k*(k-1)/2` new connections every meal. This means that
+  Suppose `k - 1 | n` (i.e. `n ≡ -(k-1) mod k(k-1)`). Then
+  `T(n,k) ≥ n/(k-1)+1`, because if it's possible after `n/(k-1)` days, we need to form `m*k*(k-1)/2` new connections every meal. This means that
   * Every table needs to be size `k`, except for 1 table of size 1 every meal.
   * Nobody can meet the same person twice.
   This means that after every meal, the number of participants participant A has met is divisible by `k-1`, so it can never equal `n-1`.
-  * A special case is `T(6m+1,3) >= 3m+1`.
+  * A special case is `T(6m+1,3) ≥ 3m+1`.
 * `d`: see Known Values.
 * `e`: proven by hand for this special case. (We don't use `e` if another letter applies.)
 
 ### Upper Bounds:
-* `A`: `T(km,k) <= T(m,k) + m` if `m` is coprime with `(k-1)!`.
+* `A`: `T(km,k) ≤ T(m,k) + m` if `m` is coprime with `(k-1)!`.
   * Divide the participants into `k` groups of `m` people. On the first `T(m,k)` days, everyone meets every participant of their group.
   * Number the participants in each group using the remainder classes modulo `m`.
-  * On the `m` days after that, on day `i` (`0<=i<m`) make a table with participant `j` from the first group, `j+i` from the second group, `j+2i` from the third group, and so on. If `m` has no divisor smaller than `k`, then every participant will meet every participant from another group this way.
+  * On the `m` days after that, on day `i` (`0≤i<m`) make a table with participant `j` from the first group, `j+i` from the second group, `j+2i` from the third group, and so on. If `m` has no divisor smaller than `k`, then every participant will meet every participant from another group this way.
   * In particular, this shows that if there is a perfect `(m,k)`-solution and `m` is coprime with `(k-1)!` then there is a perfect `(km,k)`-solution. In particular, if `p` is prime there is a perfect `(p^k,p)`-solution.
-* `B`: `T(nl,kl) <= T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together.
-* `C`: `T(nl+1,kl+1) <= T(n,k)`. Same as `B`, but make one group size `l+1`.
+* `B`: `T(nl,kl) ≤ T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together.
+* `C`: `T(nl+1,kl+1) ≤ T(n,k)`. Same as `B`, but make one group size `l+1`.
 * `D`: see Known Values.
 * `E`: found solution by hand for this special case, see below. (We don't use `E` if another letter applies.)
 * From a good solution of the social golfer's problem (see External Links) we can retrieve a solution to the Happy Diner Problem. 
@@ -123,20 +123,20 @@ The bolded values indicate perfect solutions (see below).
   * The solutions of the social golfer's problem, can be found [here](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/). Additionally, [this](https://www.metalevel.at/sgp/) website shows `G(8,4)=10`.
   * (we don't use `F` and `G` if another letter applies.)
 * `H`: see Known Values.
-* if `n <= 3^{m+1}` then `T(n,3) <= n/2 + (5/2)m`. So `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`. This follows from an inductive argument using `A`.
+* if `n ≤ 3^{m+1}` then `T(n,3) ≤ n/2 + (5/2)m`. So `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`. This follows from an inductive argument using `A`.
 
 ### Solutions computed by hand
 
 #### `T(6,3)`
 
-* TODO: write why `T(6,3) >= 4`
-* A similar argument *might* show that `T(12,3) >= 7`. (but `T(18,3) = 9`, so it is not generally true that `T(6k,3) > 3k`.)
+* TODO: write why `T(6,3) ≥ 4`
+* A similar argument *might* show that `T(12,3) ≥ 7`. (but `T(18,3) = 9`, so it is not generally true that `T(6k,3) > 3k`.)
 
 ## Questions
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
 
 ### Conjectures
-* `T(n,k) <= n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
+* `T(n,k) ≤ n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
 * For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
 
 ## External Links
