@@ -39,7 +39,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   27  | 27       |13-?        |9-11        |7-?         |  6-7       |            |  5   a
 |   28  | **27**   |15-?  c     |9-11        |8-?  a      |  6-7       |            |  5
 |   29  | 29       |15-?        |10-11 a     |8-?         |  6-7       |            |  5
-|   30  | **29**   |15-?        |  11  a G'  |8-?         |  6-7 B     |            |  5   B
+|   30  | **29**   |15-?        |  11  a G  |8-?         |  6-7 B     |            |  5   B
 
 Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`H` to justify upper bounds, which are explained below. 
 No explanation is given when `n <= k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) >= T(n,k) >= T(n,k+1)`.
@@ -82,7 +82,7 @@ The bolded values indicate perfect solutions (see below).
   * The set of table assignments determined by a 1-dimensional subspace in this way forms a perfect `(n,k)`-solution. The reason that it is perfect follows from the fact that 1-dimensional affine spaces stand in bijective correspondence to pairs of points in `V`.
   * This idea is due to Neil Strickland.
 * Other known specific values. 
-  * `G'`: `T(32,4)=11` is a perfect solution, which follows from upper bound `G` and [this](https://www.metalevel.at/sgp/) webpage.
+  * `T(32,4)=11` is a perfect solution. This follows from `G`.
 
 ### Relations:
 * `T(n+1,k) >= T(n,k) >= T(n,k+1)`. If a value in the table can be derived from these inequalities, they are no other explanation is given.
