@@ -113,7 +113,7 @@ The bolded values indicate perfect solutions (see below).
 * `B`: `T(nl,kl) <= T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together.
 * `C`: `T(nl+1,kl+1) <= T(n,k)`. Same as `B`, but make one group size `l+1`.
 * `D`: see Known Values.
-* `E`: found solution by hand for this special case.
+* `E`: found solution by hand for this special case, see below.
 * From a good solution of the social golfer's problem (see External Links) we can retrieve a solution to the Happy Diner Problem. 
   * Denote the solution to tha social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
   * `F`: If `G(m,k)*(k-1) = m*k - 1` then `T(m*k,k) = G(m,k)`.
@@ -122,6 +122,15 @@ The bolded values indicate perfect solutions (see below).
 * `H`: see Known Values.
 * if `n <= 3^{m+1}` then `T(n,3) <= n/2 + (5/2)m`. So `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`. This follows from an inductive argument using `A`.
 
+### Solutions computed by hand
+
+#### `T(5,3)`
+We name the participants 1 through 5.  The following is a solution:
+```
+Day 1: 123 45
+Day 2: 124 35
+Day 3: 125 34
+```
 
 ## Questions
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied.
