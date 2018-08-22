@@ -19,18 +19,18 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   7   |  7  |  4    |  3    |  3    |  3  d
 |   8   |  7  |  4    |  3   B|  3    |  3  
 |   9   |  9  |  4   A|  4  c |  3   C|  3  
-|   10  |  9  | 6-7 c |       |       |  3   B
-|   11  | 11  | 6-7   |       |       |  
-|   12  | 11  | 6-7   |       |  4+ a |  
-|   13  | 13  | 7   a |  5+ a |       |  
-|   14  | 13  | 7     |       |       |  
-|   15  | 15  | 7    F|       |       |  
-|   16  | 15  | 9-11 c|       |  5+ c |  
-|   17  | 17  | 9-11  |  6+ a |       |  
-|   18  | 17  | 9-11  |  7+ a |       |  
-|   19  | 19  |10-11 a|       |       |  
-|   20  | 19  |10-11  |       |       |  
-|   21  | 21  |10-11 A|  8+ c |  6+ a |  
+|   10  |  9  | 6-7 c |  4-5  |       |  3   B
+|   11  | 11  | 6-7   |  4-5  |       |  
+|   12  | 11  | 6-7   |  4-5  |  4+ a |  
+|   13  | 13  | 7   a |  5  a |       |  
+|   14  | 13  | 7     |  5    |       |  
+|   15  | 15  | 7    F|  5    |       |  
+|   16  | 15  | 9   c |  5   F|  5+ c |  
+|   17  | 17  | 9     | 6-9 a |       |  
+|   18  | 17  | 9    G| 7-9 a |       |  
+|   19  | 19  | 10  a |7-10   |       |  
+|   20  | 19  | 10    |7-10   |       |  
+|   21  | 21  | 10   F|8-10 c |  6+ a |  
 
 Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`E` to justify upper bounds, which are explained below. 
 No explanation is given when `n <= k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) >= T(n,k) >= T(n,k+1)`.
