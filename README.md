@@ -38,7 +38,6 @@ No explanation is given when `n <= k` or `k = 2` or the value can be derived fro
 ## Properties
 
 ### Known Values
-
 * `T(n,2) = n` if `n` is odd, `T(n,2)=n-1` if `n` is even 
   * The lower bound is given by `c`, see below. 
   * The upper bound can be obtained as follows.
@@ -73,24 +72,26 @@ No explanation is given when `n <= k` or `k = 2` or the value can be derived fro
   * Nobody can meet the same person twice
   This means that after every meal, the number of participants participant A has met is divisible by `k-1`, so it can never equal `n-1`.
   * A special case is `T(6m+1,3) >= 3m+1`.
-* `d`: see Known values
+* `d`: see Known Values
 * `e`: proven by hand
 * `f`: this follows from the solution of the social golfer's problem, found [here](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/).
 
 ### Upper Bounds:
 * `A`: `T(km,k) <= T(m,k) + m` if `m` is coprime with `(k-1)!`
-* `B`: `T(nl,kl) <= T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together
+  * Divide the participants into `k` groups of `m` people. On the first `T(m,k)` days, everyone meets every participant of their group.
+  * Number the participants in each group using the remainder classes modulo `m`
+  * On the `m` days after that, on day `i` (`0<=i<m`) make a table with participant `j` from the first group, `j+i` from the second group, `j+2i` from the third group, and so on. If `m` has no divisor smaller than `k`, then every participant will meet every participant from another group this way.
+* `B`: `T(nl,kl) <= T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together.
 * `C`: `T(nl+1,kl+1) <= T(n,k)`. Same as `B`, but make one group size `l+1`.
-* `D`: see Known values
+* `D`: see Known Values
 * `E`: found solution by hand
-* if `n <= 3^{m+1}` then `T(n,3) <= n/2 + (5/2)m` (so `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`.
+* if `n <= 3^{m+1}` then `T(n,3) <= n/2 + (5/2)m`. So `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`.
 
 
 ## Conjectures
 
-
-* For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant.
-* `T(n,k) <= n/(k-1) + O(1) * log(n)/log(k)`
+* Weak: `T(n,k) <= n/(k-1) + O(1) * log(n)`
+* Strong: For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
 * There always exists an optimal solution in which, during every meal, at most one table is not completely occupied.
 
 
