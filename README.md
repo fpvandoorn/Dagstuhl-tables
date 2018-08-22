@@ -29,15 +29,15 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   17  | 17       |  9         | 6-9 a      | 5-6        |  4         |  4 a       |  
 |   18  | **17**   |  9    G    | 7-9 a      | 5-6        |  4   B     |  4         |  3-4 B
 |   19  | 19       |  10  a     | 7-9        | 5-6        |  5-6 a     |            |
-|   20  | **19**   |  10        | 7-9 B      | 5-6        |  5-6       |            |  4-5 a
-|   21  | 21       | **10** F   |8-10 c      |  6  a      |  5-6 B     |            |
-|   22  | **21**   |12-13  c    |8-11        |  6         |  5-6       |            |
-|   23  | 23       |12-13       |8-11        |  6         |  5-6       |            |
-|   24  | **23**   |12-13       |8-11 B      |  6         |  5-6       | 5-6 a      |  
-|   25  | 25       |  13  a     |9-11 a      |  **6**  AH |  6   c     |            |
-|   26  | **25**   |  13        |9-11        |7-?  a      |  6-7       |            |
-|   27  | 27       | **13**  AH |9-11        |7-?         |  6-7       |            |  5   a
-|   28  | **27**   |15-?  c     |9-11        |8-?  a      |  6-7       |            |  5
+|   20  | **19**   |  10        | 7-9        | 5-6        |  5-6       |            |  4-5 a
+|   21  | 21       | **10** F   | 8-9 c      |  6  a      |  5-6 B     |            |
+|   22  | **21**   |  12   c    | 8-9        |  6         |  5-6       |            |
+|   23  | 23       |  12        | 8-9        |  6         |  5-6       |            |
+|   24  | **23**   |  12  G     | 8-9        |  6         |  5-6       | 5-6 a      |  
+|   25  | 25       |  13  a     |  9  a      |  **6**  AH |  6   c     |            |
+|   26  | **25**   |  13        |  9         |7-?  a      |  6-7       |            |
+|   27  | 27       | **13**  AH |  9         |7-?         |  6-7       |            |  5   a
+|   28  | **27**   |15-?  c     | **9**  F   |8-?  a      |  6-7       |            |  5
 |   29  | 29       |15-?        |10-11 a     |8-?         |  6-7       |            |  5
 |   30  | **29**   |15-?        |  11  a G   |8-?         |  6-7 B     |            |  5   B
 
@@ -52,6 +52,7 @@ The bolded values indicate perfect solutions (see below).
 * A valid solution with `n` participants and table size of at most `k` is called a `(n,k)`-*solution*.
 * Given a valid solution. We say that it is an *optimal solution* if there is no valid solution (with the same `n` and `k`) with fewer days.
 * Given a valid solution. We say that it is a *perfect solution* if every participant meets every other participant exactly once.
+* The *Social Golfer Problem* is similar: what is the maximum possible of meals such that no two participants sit at the same table? `G(m,k)` is the maximal number with `m*k` participants and where each table contains **exactly** `k` participants.
 
 ## Properties
 
@@ -64,10 +65,10 @@ The bolded values indicate perfect solutions (see below).
 * `T(n,2) = n` if `n` is odd, `T(n,2)=n-1` if `n` is even.
   * The lower bound is given by `c`, see below. 
   * The upper bound can be obtained as follows.
-    * Suppose `n = 4m`: split it up in 2 groups of size 2m, first do those groups independently in 2m-1 days, then in the next 2m days on day i let person j in group 1 sit with person i+j (mod 2m) in group 2.
-    * Suppose `n = 2m` with m odd:
-      the first m days on day i let person i sit with i+m and person i+j with i-j.
-      the next 2k:=m-1 days, on day 2k-1 and 2k let person i sit with person i+2k-1 and i-(2k-1). If i is even it will sit with i+2k-1 first, and if i is odd it will sit with i-(2k-1) first.
+    * Suppose `n = 4m`: split it up in 2 groups of size `2m`, first do those groups independently in `2m-1` days, then in the next `2m` days on day `i` let person `j` in group 1 sit with person `i+j (mod 2m)` in group 2.
+    * Suppose `n = 2m` with `m` odd:
+      * For the first `m` days: on day `i` let person `i` sit with `i+m` and person `i+j` with `i-j`.
+      * For the next `m-1` days, on day `2k-1` and `2k` let person `i` sit with the persons `i+2k-1` and `i-(2k-1)`. If `i` is even it will sit with `i+2k-1` first, and if `i` is odd it will sit with `i-(2k-1)` first.
     * Suppose `n` is odd, then we can use the solution for `n+1` participants, dropping 1 participant.
 * `T(n,k) = 1` if `n ≤ k`.
 * If `k < n ≤ (3/2)k` then `T(n,k) = 3`.
@@ -119,11 +120,14 @@ The bolded values indicate perfect solutions (see below).
 * `D`: see Known Values.
 * `E`: found solution by hand for this special case, see below. (We don't use `E` if another letter applies.)
 * From a good solution of the social golfer's problem (see External Links) we can retrieve a solution to the Happy Diner Problem. 
-  * Denote the solution to tha social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
-  * `F`: If `G(m,k)*(k-1) = m*k - 1` then `T(m*k,k) = G(m,k)`.
-  * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`.
-  * The solutions of the social golfer's problem, can be found [here](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/). Additionally, [this](https://www.metalevel.at/sgp/) website shows `G(8,4)=10`.
-  * (we don't use `F` and `G` if another letter applies.)
+  * Denote the solution to the social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
+  * `F`: If `G(m,k)*(k-1) = m*k - 1` then `T(m*k,k) = G(m,k)`, because this gives a perfect `(m*k,k)`-solution.
+  * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
+  * The solutions of the social golfer's problem, can be found at the following links:
+    * [Warwick's old result page](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/) has various perfect solutions with a small number of participants. 
+    * [Markus Triska master thesis (2008)](https://www.metalevel.at/sgp/) has `G(8,4) = 10`.
+    * [Edd Pegg Jr. Math Game page](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
+  * (we don't use `F` and `G` if another letter applies.
 * `H`: see Known Values.
 * if `n ≤ 3^{m+1}` then `T(n,3) ≤ n/2 + (5/2)m`. So `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`. This follows from an inductive argument using `A`.
 
@@ -133,10 +137,13 @@ The bolded values indicate perfect solutions (see below).
 
 * TODO: write why `T(6,3) ≥ 4`
 * A similar argument *might* show that `T(12,3) ≥ 7`. (but `T(18,3) = 9`, so it is not generally true that `T(6k,3) > 3k`.)
+  * `G(4,3) = 4`, i.e. there is no solution where 12 participants sit with different people for 5 days with a table size of 3 which might indicate that `T(12,3) ≥ 7`.
 
 ## Questions
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
-
+* If `n ≡ k mod k(k-1)` is there always a perfect `(n,k)`-solution? There is no reason to believe this, but it is true for all values where the answer is known.
+  * It is true for `k = 3`. For `k = 4` it's true when `n ≤ 28`.
+  
 ### Conjectures
 * `T(n,k) ≤ n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
 * For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
@@ -144,12 +151,13 @@ The bolded values indicate perfect solutions (see below).
 ## External Links
 
 * OEIS: we are currently writing draft sequences [A318240](https://oeis.org/draft/A318240) and [A318241](https://oeis.org/draft/A318241).
-* Social Golfer Problem: [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html), [2008 master thesis](https://www.metalevel.at/sgp/), [Warwick's old result page](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/), [A107431](https://oeis.org/A107431).
-* Kirkman Triple System: [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html), [Dutch dissertation by Pieter Mulder](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19) (pdf available on request).
+* Social Golfer Problem: [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html), [Markus Triska master thesis (2008)](https://www.metalevel.at/sgp/), [Warwick's result page (2002)](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/), [Edd Pegg Jr. Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html), [A107431](https://oeis.org/A107431).
+* Kirkman Triple System: [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html), [Dutch dissertation by Pieter Mulder (1917)](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19) (pdf available on request).
+  * *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson, 1971. (please send pdf if you can access it.)
+  * *Kirkman triple systems and their generalizations: A survey*, Rees and Wallis, 2002. (please send pdf if you can access it.) [Springer](https://link.springer.com/chapter/10.1007/978-1-4613-0245-2_13)
 * [Oberwolfach Problem](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php).
 
 
 ## Contributing
 
 * Contributions are welcome! Feel free to add any information. Please provide links or justifications of claims you make.
-
