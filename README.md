@@ -10,7 +10,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 
 | n / k |  2       |   3        |   4        |   5        |   6        |   7        |  8
 |-------|----------|------------|------------|------------|------------|------------|-------
-|   1   |  0       |  0         |  0         |  0         |  0         |  0         |  0 
+|   1   |  **0**   |  **0**     |  **0**     |  **0**     |  **0**     |  **0**     |  **0**
 |   2   |  **1**   |  1         |  1         |  1         |  1         |  1         |  1
 |   3   |  3       |  **1**     |  1         |  1         |  1         |  1         |  1
 |   4   |  **3**   |  3  cd     |  **1**     |  1         |  1         |  1         |  1
@@ -53,7 +53,7 @@ The bolded values indicate perfect solutions (see below).
 * Given a valid solution. We say that it is an *optimal solution* if there is no valid solution (with the same `n` and `k`) with fewer days.
 * Given a valid solution. We say that it is a *perfect solution* if every participant meets every other participant exactly once.
 * Necessarily, every perfect solution is optimal.
-* Necessary requirements for a perfect `(n,k)`-solution to exist are `k | n` and `k - 1 | n - 1`. 
+* Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`). 
 * A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
 
 ## Properties
@@ -109,6 +109,7 @@ The bolded values indicate perfect solutions (see below).
   * Divide the participants into `k` groups of `m` people. On the first `T(m,k)` days, everyone meets every participant of their group.
   * Number the participants in each group using the remainder classes modulo `m`.
   * On the `m` days after that, on day `i` (`0<=i<m`) make a table with participant `j` from the first group, `j+i` from the second group, `j+2i` from the third group, and so on. If `m` has no divisor smaller than `k`, then every participant will meet every participant from another group this way.
+  * In particular, this shows that if there is a perfect `(m,k)`-solution and `m` is coprime with `(k-1)!` then there is a perfect `(km,k)`-solution. In particular, if `p` is prime there is a perfect `(p^k,p)`-solution.
 * `B`: `T(nl,kl) <= T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together.
 * `C`: `T(nl+1,kl+1) <= T(n,k)`. Same as `B`, but make one group size `l+1`.
 * `D`: see Known Values.
