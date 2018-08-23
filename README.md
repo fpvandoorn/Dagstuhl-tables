@@ -17,12 +17,12 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   5   |  5       |  3   C     |  3  d      |  **1**     |  1         |  1         |  1
 |   6   |  **5**   |  4  e      |  3         |  3  d      |  **1**     |  1         |  1
 |   7   |  7       |  4         |  3         |  3         |  3   d     |  **1**     |  1
-|   8   |  **7**   |  4         |  3   B     |  3         |  3         |  3 d       |  **1**
+|   8   |  **7**   |  4         |  3  B      |  3         |  3         |  3 d       |  **1**
 |   9   |  9       |  **4** AH  |  4  c      |  3   C     |  3         |  3         |  3 d
 |   10  |  **9**   | 6-7 c      |  4  E      | 3-4        |  3         |  3         |  3 
-|   11  | 11       | 6-7        |  4-5       | 3-5        |  3         |  3         |  3
-|   12  | **11**   | 6-7        |  4-5       | 4-5 a      |  3   B     |  3         |  3
-|   13  | 13       |  7  a      |  5  a      | 4-5        |  3-4       |  3 C       |  3
+|   11  | 11       | 6-7        |  5  e      | 3-5        |  3         |  3         |  3
+|   12  | **11**   | 6-7        |  5         | 4-5 a      |  3   B     |  3         |  3
+|   13  | 13       |  7  a      |  5         | 4-5        |  3-4       |  3 C       |  3
 |   14  | **13**   |  7         |  5         | 4-5        |  3-4       |            |  3
 |   15  | 15       | **7**  F   |  5         | 4-5        |  4   a     |            |  3
 |   16  | **15**   |  9   c     |  **5**  H  |  5  c      |  4         |            |  3 B
@@ -147,6 +147,15 @@ The bolded values indicate perfect solutions (see below).
 1280 4679 35
 045 1267 389
 ```
+
+#### `T(11,4) ≥ 5`
+
+* Suppose there is a solution in 4 days. 
+* The only configurations which are not dominated are `(4,4,3)` and `(3,3,3,2)`. The first adds at most 15 connections, the second at most 10.
+* Therefore, on at least 3 days we need a (4,4,3) configuration. WLOG day 1 is distributed `1234 5678 ABC`. 
+* For the other days any table of size 4 has 1 pair in common with day 1, so adds at most 5 new connections. Therefore, at lost 13 new connections can be added during each day.
+* This means we cannot get 55 connections, therefore we get a contradiction.
+
 
 ## Questions
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
