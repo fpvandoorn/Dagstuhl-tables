@@ -21,11 +21,11 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   9   |  9       |  **4** AH  |  4  c      |  3   C     |  3         |  3         |  3 d
 |   10  |  **9**   | 6-7 c      |  4  E      |  4   e     |  3         |  3         |  3 
 |   11  | 11       | 6-7        |  5  e      | 4-5        |  3         |  3         |  3
-|   12  | **11**   | 6-7        |  5         | 4-5 a      |  3   B     |  3         |  3
-|   13  | 13       |  7  a      |  5         | 4-5        |  3-4       |  3 C       |  3
-|   14  | **13**   |  7         |  5         | 4-5        |  3-4       |            |  3
-|   15  | 15       | **7**  F   |  5         | 4-5        |  4   a     |            |  3
-|   16  | **15**   |  9   c     |  **5**  H  |  5  c      |  4         |            |  3 B
+|   12  | **11**   | 6-7        |  5         | 4-5        |  3   B     |  3         |  3
+|   13  | 13       |  7  a      |  5         |  5   e     |  4   e     |  3 C       |  3
+|   14  | **13**   |  7         |  5         |  5         |  4         |            |  3
+|   15  | 15       | **7**  F   |  5         |  5         |  4         |            |  3
+|   16  | **15**   |  9   c     |  **5**  H  |  5         |  4         |            |  3 B
 |   17  | 17       |  9         | 6-9 a      | 5-6        |  4         |  4 a       |  
 |   18  | **17**   |  9    G    | 7-9 a      | 5-6        |  4   B     |  4         |  3-4
 |   19  | 19       |  10  a     | 7-9        | 5-6        |  5-6 a     |            |
@@ -189,6 +189,24 @@ The bolded values indicate perfect solutions (see below).
 * From now on `(5,5)` has at most 12 new conns, `(4,4,2)` has at most 9 new conns and `(4,3,3)` has at most 8 new conns.
 * This means we cannot get 45 connections, therefore we have no valid solution in 3 days.
 
+#### `T(13,6) ≥ 4`
+* Suppose there is a valid solution in 3 days. 
+* The configurations with at least 26 connections which are not dominated are `(6,6,1)` and `(6,5,2)`, one of which has to occur at least once.
+  * Suppose day 1 is `(6,6,1)`. Then no other day can have more than 20 connections. Day 2 has 
+    * `(6,6,1)` at most 11+9 = 20 connections
+    * `(6,5,2)` at most 11+8+1 = 20 connections (actually, less)
+    * `(6,4,3)` and `(5,5,3)` and `(5,4,4)` also have less than 20 connections, all other configurations are dominated.
+  * Suppose no day is `(6,6,1)`. Then every day needs 26 connections exactly, which is impossible.
+
+#### `T(13,5) ≥ 5`
+* This solution was found part by hand, part by computer brute-force.
+* Suppose there is a valid solution in 4 days. 
+* `(5,5,3)` or `(5,4,4)` has to occur at least once. 
+* If `(5,5,3)` never occurs, then from day 2 on at most 18 connections are possible. Contradiction.
+* So day 1 is `(5,5,3)` (23 connections).
+* From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is (5,5,3) with 8+8+3 new connections. This can be done in 1 way (up to renaming participants)
+* Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
+* For none of those 8 ways, there is a valid 4th day.
 
 ## Questions
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
