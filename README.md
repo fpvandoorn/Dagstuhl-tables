@@ -163,7 +163,7 @@ The bolded values indicate perfect solutions (see below).
 * Kirkman Triple System: 
   * [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html), 
   * [Dutch dissertation by Pieter Mulder (1917)](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19) (pdf available on request).
-  * *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson, 1971. (please send pdf if you can access it.)
+  * *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson, 1971. In [Proc. of Symp. in Pure Math, Vol 19](http://www.ams.org/books/pspum/019/). (please send pdf if you can access it.)
   * *Kirkman triple systems and their generalizations: A survey*, Rees and Wallis, 2002. (please send pdf if you can access it.) [Springer](https://link.springer.com/chapter/10.1007/978-1-4613-0245-2_13)
 * Oberwolfach Problem: [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php).
 
