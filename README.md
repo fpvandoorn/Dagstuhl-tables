@@ -19,8 +19,8 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   7   |  7       |  4         |  3         |  3         |  3   d     |  **1**     |  1
 |   8   |  **7**   |  4         |  3  B      |  3         |  3         |  3 d       |  **1**
 |   9   |  9       |  **4** AH  |  4  c      |  3   C     |  3         |  3         |  3 d
-|   10  |  **9**   | 6-7 c      |  4  E      | 3-4        |  3         |  3         |  3 
-|   11  | 11       | 6-7        |  5  e      | 3-5        |  3         |  3         |  3
+|   10  |  **9**   | 6-7 c      |  4  E      |  4   e     |  3         |  3         |  3 
+|   11  | 11       | 6-7        |  5  e      | 4-5        |  3         |  3         |  3
 |   12  | **11**   | 6-7        |  5         | 4-5 a      |  3   B     |  3         |  3
 |   13  | 13       |  7  a      |  5         | 4-5        |  3-4       |  3 C       |  3
 |   14  | **13**   |  7         |  5         | 4-5        |  3-4       |            |  3
@@ -155,6 +155,13 @@ The bolded values indicate perfect solutions (see below).
 * Therefore, on at least 3 days we need a (4,4,3) configuration. WLOG day 1 is distributed `1234 5678 ABC`. 
 * For the other days any table of size 4 has 1 pair in common with day 1, so adds at most 5 new connections. Therefore, at lost 13 new connections can be added during each day.
 * This means we cannot get 55 connections, therefore we get a contradiction.
+
+#### `T(10,5) ≥ 4`
+* Suppose there is a valid solution in 3 days. 
+* The only configurations which are not dominated are `(5,5)` (<= 20 conns), `(4,4,2)` (<= 13 conns) and `(4,3,3)` (<= 12 conns).
+* Therefore, we need (5,5) at least once. WLOG day 1 is distributed `01234 56789`. 
+* From now on `(5,5)` has at most 12 new conns, `(4,4,2)` has at most 9 new conns and `(4,3,3)` has at most 8 new conns.
+* This means we cannot get 45 connections, therefore we have no valid solution in 3 days.
 
 
 ## Questions
