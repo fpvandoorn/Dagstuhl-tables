@@ -41,7 +41,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   29  | 29       |15-?        |10-11 a     |8-11        |  6-7       |            |  5
 |   30  | **29**   |15-?        |  11  a G   |8-11        |  6-7 B     |            |  5   B
 
-Legend: we use lowercase `a`-`e` to justify lower bounds and upper case `A`-`H` to justify upper bounds, which are explained below. 
+Legend: we use lower case `a`-`e` to justify lower bounds and upper case `A`-`H` to justify upper bounds, which are explained below.
 No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
 
 The bolded values indicate perfect solutions (see below).
@@ -106,7 +106,7 @@ The bolded values indicate perfect solutions (see below).
   * Nobody can meet the same person twice.
   This means that after every meal, the number of participants participant A has met is divisible by `k-1`, so it can never equal `n-1`.
   * A special case is `T(6m+1,3) ≥ 3m+1`.
-* `d`: see Known Values.
+* `d`: see *Known Values*.
 * `e`: proven by hand for this special case. (We don't use `e` if another letter applies.)
 
 ### Upper Bounds:
@@ -117,7 +117,7 @@ The bolded values indicate perfect solutions (see below).
   * In particular, this shows that if there is a perfect `(m,k)`-solution and `m` is coprime with `(k-1)!` then there is a perfect `(km,k)`-solution. In particular, if `p` is prime there is a perfect `(p^k,p)`-solution.
 * `B`: `T(nl,kl) ≤ T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together.
 * `C`: `T(nl+1,kl+1) ≤ T(n,k)`. Same as `B`, but make one group size `l+1`.
-* `D`: see Known Values.
+* `D`: see *Known Values*.
 * `E`: found solution by hand for this special case, see below. (We don't use `E` if another letter applies.)
 * From a good solution of the social golfer's problem (see External Links) we can retrieve a solution to the Happy Diner Problem. 
   * Denote the solution to the social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
@@ -127,9 +127,8 @@ The bolded values indicate perfect solutions (see below).
     * [Warwick's old result page](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/) has various perfect solutions with a small number of participants. 
     * [Markus Triska master thesis (2008)](https://www.metalevel.at/sgp/) has `G(8,4) = 10`.
     * [Edd Pegg Jr. Math Game page](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
-  * (we don't use `F` and `G` if another letter applies.
-* `H`: see Known Values.
-* if `n ≤ 3^{m+1}` then `T(n,3) ≤ n/2 + (5/2)m`. So `T(n,3)` is only logarithmically above the easiest lower bound `(n-1)/(k-1)`. This follows from an inductive argument using `A`.
+  * (We don't use `F` and `G` if another letter applies.)
+* `H`: see *Known Values*.
 
 ### Solutions computed by hand
 
@@ -147,6 +146,8 @@ The bolded values indicate perfect solutions (see below).
 ### Conjectures
 * `T(n,k) ≤ n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
 * For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
+  * This is true for `k = 3`. In fact, the optimal `(n,3)`-solution is at most 1 higher than the value obtained from the lower bound `c`. 
+    The reason for this is that for every `m` there is a perfect `(6m+3,3)`-solution (see *Known values*), and the lower bound for `6m-2` given by `c` is only 1 lower than the value for `6m+3`.
 
 ## External Links
 
