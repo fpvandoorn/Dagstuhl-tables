@@ -86,6 +86,7 @@ The bolded values indicate perfect solutions (see below).
   * This idea is due to Neil Strickland.
 * `J`: A perfect `(n,3)`-solution for `n ≥ 3` is called a *Kirkman Triple System* and is possible iff `n ≡ 3 mod 6`.
   * This is (supposed to be) proven in *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson (1971). We couldn't find a copy of this paper.
+  * Together with lower bound `a`, this gives that `T(6k+1,3) = T(6k+2,3) = T(6k+3,3) = 3k+1`.
 * Other known specific values. 
   * `T(32,4)=11` is a perfect solution. This follows from `G`.
 
@@ -105,7 +106,6 @@ The bolded values indicate perfect solutions (see below).
   * Every table needs to be size `k`, except for 1 table of size 1 every meal.
   * Nobody can meet the same person twice.
   This means that after every meal, the number of participants participant A has met is divisible by `k-1`, so it can never equal `n-1`.
-  * A special case is `T(6m+1,3) ≥ 3m+1`.
 * `d`: see *Known Values*.
 * `e`: proven by hand for this special case. (We don't use `e` if another letter applies.)
 
@@ -140,7 +140,7 @@ The bolded values indicate perfect solutions (see below).
 
 ## Questions
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
-* If `n ≡ k mod k(k-1)` is there always a perfect `(n,k)`-solution? There is no reason to believe this, but it is true for all values where the answer is known.
+* If `n ≡ k mod k(k-1)` is there always a perfect `(n,k)`-solution? Is it true if we assume `k` is a prime power or a prime number? There is no reason to believe this, but it is true for all values where the answer is known.
   * It is true for `k = 3`. For `k = 4` it's true when `n ≤ 28`.
   
 ### Conjectures
