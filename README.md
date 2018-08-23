@@ -27,7 +27,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   15  | 15       | **7**  F   |  5         | 4-5        |  4   a     |            |  3
 |   16  | **15**   |  9   c     |  **5**  H  |  5  c      |  4         |            |  3 B
 |   17  | 17       |  9         | 6-9 a      | 5-6        |  4         |  4 a       |  
-|   18  | **17**   |  9    G    | 7-9 a      | 5-6        |  4   B     |  4         |  3-4 B
+|   18  | **17**   |  9    G    | 7-9 a      | 5-6        |  4   B     |  4         |  3-4
 |   19  | 19       |  10  a     | 7-9        | 5-6        |  5-6 a     |            |
 |   20  | **19**   |  10        | 7-9        | 5-6        |  5-6       |            |  4 aB
 |   21  | 21       | **10** F   | 8-9 c      |  6  a      |  5-6 B     |            |
@@ -91,8 +91,12 @@ The bolded values indicate perfect solutions (see below).
   * `T(32,4)=11` is a perfect solution. This follows from `G`.
 
 ### Relations:
-* `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`. If a value in the table can be derived from these inequalities, they are no other explanation is given. (See also `K` below for a generalisation.)
-
+* `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`. 
+  * If a value in the table can be derived from these inequalities, no other explanation is given.
+* `T(n,k) ≤ T(n,m) * T(m,k)`. 
+  * If we have a seating arrangement for `n` participants at table size `m`, then we can give a seating arrangement for table size `k` by simulating tables of size `m` over `T(m,k)` meals.
+  * This subsumes the relation `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)` above since `T(k,k+1)=1`.
+  * This can give extra information when `m > k`, in this case, we can get a lower bound for `T(n,m)` in terms of `T(n,k)` and `T(m,k)`.
 
 ### Lower Bounds:
 * `T(n,k) ≥ (n-1)/(k-1)` (special case of `a`). Every participant can see only `k-1` participants per meal, and needs to see `n-1` participants.
@@ -129,7 +133,6 @@ The bolded values indicate perfect solutions (see below).
     * [Edd Pegg Jr.'s Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
   * (We don't use `F` and `G` if another letter applies.)
 * `H`, `J`: see *Known Values*.
-* `K`: `T(n,k) ≤ T(n,m) * T(m,k)`. If we have a seating arrangement for `n` participants at table size `m`, then we can give a seating arrangement for table size `k` by simulating tables of size `m` over `T(m,k)` meals. This subsumes the relation `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)` above since `T(k,k+1)=1`.
 
 ### Solutions computed by hand
 
