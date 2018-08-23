@@ -91,7 +91,7 @@ The bolded values indicate perfect solutions (see below).
   * `T(32,4)=11` is a perfect solution. This follows from `G`.
 
 ### Relations:
-* `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`. If a value in the table can be derived from these inequalities, they are no other explanation is given.
+* `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`. If a value in the table can be derived from these inequalities, they are no other explanation is given. (See also `K` below for a generalisation.)
 
 
 ### Lower Bounds:
