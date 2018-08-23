@@ -124,9 +124,9 @@ The bolded values indicate perfect solutions (see below).
   * `F`: If `G(m,k)*(k-1) = m*k - 1` then `T(m*k,k) = G(m,k)`, because this gives a perfect `(m*k,k)`-solution.
   * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
   * The solutions of the social golfer's problem, can be found at the following links:
-    * [Warwick's old result page](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/) has various perfect solutions with a small number of participants. 
-    * [Markus Triska master thesis (2008)](https://www.metalevel.at/sgp/) has `G(8,4) = 10`.
-    * [Edd Pegg Jr. Math Game page](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
+    * [Warwick's result page (2002)](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/) has various perfect solutions with a small number of participants. 
+    * [Markus Triska's master thesis (2008)](https://www.metalevel.at/sgp/) has `G(8,4) = 10`.
+    * [Edd Pegg Jr.'s Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
   * (We don't use `F` and `G` if another letter applies.)
 * `H`, `J`: see *Known Values*.
 
@@ -151,12 +151,21 @@ The bolded values indicate perfect solutions (see below).
 
 ## External Links
 
-* OEIS: we are currently writing draft sequences [A318240](https://oeis.org/draft/A318240) and [A318241](https://oeis.org/draft/A318241).
-* Social Golfer Problem: [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html), [Markus Triska master thesis (2008)](https://www.metalevel.at/sgp/), [Warwick's result page (2002)](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/), [Edd Pegg Jr. Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html), [A107431](https://oeis.org/A107431).
-* Kirkman Triple System: [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html), [Dutch dissertation by Pieter Mulder (1917)](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19) (pdf available on request).
+* Dagstuhl's Happy Diner Problem: we are currently writing draft sequences [A318240](https://oeis.org/draft/A318240) and [A318241](https://oeis.org/draft/A318241).
+  * We couldn't find any other place where partial solutions of this problem has been given.
+  * On [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php) the problem has been stated and finding the perfect `(n,3)`-solutions is a special case of the Oberwolfach Problem.
+* Social Golfer Problem: 
+  * [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html) 
+  * [Warwick's result page (2002)](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/)
+  * [Markus Triska's master thesis (2008)](https://www.metalevel.at/sgp/)
+  * [Edd Pegg Jr.'s Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html)
+  * [A107431](https://oeis.org/A107431).
+* Kirkman Triple System: 
+  * [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html), 
+  * [Dutch dissertation by Pieter Mulder (1917)](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19) (pdf available on request).
   * *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson, 1971. (please send pdf if you can access it.)
   * *Kirkman triple systems and their generalizations: A survey*, Rees and Wallis, 2002. (please send pdf if you can access it.) [Springer](https://link.springer.com/chapter/10.1007/978-1-4613-0245-2_13)
-* [Oberwolfach Problem](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php).
+* Oberwolfach Problem: [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php).
 
 
 ## Contributing
