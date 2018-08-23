@@ -19,7 +19,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   7   |  7       |  4         |  3         |  3         |  3   d     |  **1**     |  1
 |   8   |  **7**   |  4         |  3   B     |  3         |  3         |  3 d       |  **1**
 |   9   |  9       |  **4** AH  |  4  c      |  3   C     |  3         |  3         |  3 d
-|   10  |  **9**   | 6-7 c      |  4-5       | 3-5        |  3         |  3         |  3 
+|   10  |  **9**   | 6-7 c      |  4  E      | 3-4        |  3         |  3         |  3 
 |   11  | 11       | 6-7        |  4-5       | 3-5        |  3         |  3         |  3
 |   12  | **11**   | 6-7        |  4-5       | 4-5 a      |  3   B     |  3         |  3
 |   13  | 13       |  7  a      |  5  a      | 4-5        |  3-4       |  3 C       |  3
@@ -132,11 +132,21 @@ The bolded values indicate perfect solutions (see below).
 
 ### Solutions computed by hand
 
-#### `T(6,3)`
+#### `T(6,3) ≥ 4`
 
-* TODO: write why `T(6,3) ≥ 4`
+* TODO
 * A similar argument *might* show that `T(12,3) ≥ 7`. (but `T(18,3) = 9`, so it is not generally true that `T(6k,3) > 3k`.)
   * `G(4,3) = 4`, i.e. there is no solution where 12 participants sit with different people for 5 days with a table size of 3 which might indicate that `T(12,3) ≥ 7`.
+
+#### `T(10,4) ≤ 4`
+
+* Solution:
+```
+1234 5678 90
+1259 3670 48
+1280 4679 35
+045 1267 389
+```
 
 ## Questions
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
