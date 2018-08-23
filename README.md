@@ -129,7 +129,7 @@ The bolded values indicate perfect solutions (see below).
     * [Edd Pegg Jr.'s Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
   * (We don't use `F` and `G` if another letter applies.)
 * `H`, `J`: see *Known Values*.
-* `K`: `T(n,k) ≤ T(n,m) * T(m,k)`. If we have a seating arrangement for `n` participants at table size `m`, then we can give a seating arrangement for table size `k` by simulating tables of size `m` over `T(m,k)` meals. This subsumes the relation `T(n,k) ≥ T(n,k+1)` above since `T(k,k+1)=1`.
+* `K`: `T(n,k) ≤ T(n,m) * T(m,k)`. If we have a seating arrangement for `n` participants at table size `m`, then we can give a seating arrangement for table size `k` by simulating tables of size `m` over `T(m,k)` meals. This subsumes the relation `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)` above since `T(k,k+1)=1`.
 
 ### Solutions computed by hand
 
