@@ -73,11 +73,11 @@ The bolded values indicate perfect solutions (see below).
 * `T(n,k) = 1` if `n ≤ k`.
 * If `k < n ≤ (3/2)k` then `T(n,k) = 3`.
   * `d`: It cannot be done in 2 days, because on day 1 there are at least 2 tables. All participants on table 1 need to be sit with all participants not on table 1 on day 2, but that means that everyone needs to sit together on day 2. Contradiction.
-  * `D`: It can be done in 3 days. Suppose `2k-n ≥ Ceil(k/2)`, i.e. `2k-n ≥ k/2`, i.e. `3k ≥ 2n`.
-    Then 3 sets of size `k` can cover all pairs: 
-    On day 1 sit participants `1--k` together.
-    On day 2 sit `(k+1)--n` and participants `1--Ceil(k/2)` together.
-    On day 3 sit `Ceil(k/2)+1 -- n` together.
+  * `D`: It can be done in 3 days. Suppose `2k-n ≥ Ceil(k/2)`, i.e. `2k-n ≥ k/2`, i.e. `3k ≥ 2n`. Then 3 sets of size `k` can cover all pairs.
+    * On day 1 sit participants `1--k` together.
+    * On day 2 sit `(k+1)--n` and participants `1--Ceil(k/2)` together.
+    * On day 3 sit `Ceil(k/2)+1 -- n` together.
+    * The upper bound `D` is worse than `B`, which shows that for even `k` we have `T(2k,k+1) ≤ T(2k,k) ≤ T(4,2) = 3`.
 * If `k` is prime and `n` is a power of `k`, then there is a perfect `(n,k)`-solution. This follows from upper bound `A` (by induction) or from the next bullet point.
 * `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution. 
   * Consider the field `F` of order `k`, and a vector field `V` with cardinality `n` over `F`.
