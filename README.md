@@ -37,9 +37,9 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   25  | 25       |  13  a     |  9  a      |  **6**  AH |  6   c     |            |
 |   26  | **25**   |  13        |  9         |7-9  a      |  6-7       |            |
 |   27  | 27       | **13**  AH |  9         |7-9         |  6-7       |            |  5   a
-|   28  | **27**   |15-?  c     | **9**  F   |8-9  a      |  6-7       |            |  5
-|   29  | 29       |15-?        |10-11 a     |8-11        |  6-7       |            |  5
-|   30  | **29**   |15-?        |  11  a G   |8-11        |  6-7 B     |            |  5   B
+|   28  | **27**   | 15-16   c  | **9**  F   |8-9  a      |  6-7       |            |  5
+|   29  | 29       | 15-16      |10-11 a     |8-11        |  6-7       |            |  5
+|   30  | **29**   | 15-16   I  |  11  a G   |8-11        |  6-7 B     |            |  5   B
 
 Legend: we use lower case `a`-`e` to justify lower bounds and upper case `A`-`H` to justify upper bounds, which are explained below.
 No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
@@ -84,7 +84,7 @@ The bolded values indicate perfect solutions (see below).
   * For every 1-dimensional subspace `L` of `V` the sets of 1-dimensional affine spaces parallel to `L` forms a partition of `V`. This defines a table assignment for a single meal.
   * The set of all table assignments determined by all 1-dimensional subspaces in this way forms a perfect `(n,k)`-solution. The reason that it is perfect follows from the fact that 1-dimensional affine spaces stand in bijective correspondence to pairs of points in `V`.
   * This idea is due to Neil Strickland.
-* A perfect `(n,3)`-solution for `n ≥ 3` is called a *Kirkman Triple System* and is possible iff `n ≡ 3 mod 6`.
+* `I`: A perfect `(n,3)`-solution for `n ≥ 3` is called a *Kirkman Triple System* and is possible iff `n ≡ 3 mod 6`.
   * This is (supposed to be) proven in *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson (1971). We couldn't find a copy of this paper.
 * Other known specific values. 
   * `T(32,4)=11` is a perfect solution. This follows from `G`.
@@ -128,7 +128,7 @@ The bolded values indicate perfect solutions (see below).
     * [Markus Triska master thesis (2008)](https://www.metalevel.at/sgp/) has `G(8,4) = 10`.
     * [Edd Pegg Jr. Math Game page](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
   * (We don't use `F` and `G` if another letter applies.)
-* `H`: see *Known Values*.
+* `H`, `I`: see *Known Values*.
 
 ### Solutions computed by hand
 
