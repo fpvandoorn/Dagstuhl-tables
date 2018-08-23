@@ -136,9 +136,26 @@ The bolded values indicate perfect solutions (see below).
 
 ### Solutions computed by hand
 
+* The solution `T(6,3) ≥ 4` is very detailed. Other solutions with the same techniques will have much less explanation. So if you don't understand the reasoning or terminology, read `T(6,3) ≥ 4` first.
+
 #### `T(6,3) ≥ 4`
 
-* TODO
+* Suppose there is a solution in 3 days. 
+* At least 2 days need to have 2 tables with 3 participants (i.e. configuration `(3,3)`). 
+  * The reason is that we need to establish 15 connections between participants over 3 days.
+  * We can establish at most 6 connections during a single day by configuration `(3,3)`.
+  * Configuration `(3,2,1)` is dominated by `(3,3)`: there are at least as much connections established by merging the last two tables, so we can ignore solutions with such a configuration.
+  * Configuration `(2,2,2)` might occur in the optimal solution, but establishes only 3 connections
+  * Any other configuration is dominated by either `(3,3)` or `(2,2,2)`.
+  * If there is at most 1 day with configuration `(3,3)`, then the maximum number of established connections is `6 + 3 + 3 = 12 < 15`, which is not enough.
+* Without loss of generality we can assume that the first day has configuration `(3,3)`, distributed as `123 456` (i.e. `1`, `2` and `3` sit together and `4`, `5` and `6` sit together).
+* Now on the other days, we can establish at most 4 connections.
+  * The reason is that if we use configuration `(3,3)`, then 2 participants on the first table already sat together on table 1, and the same for the second table.
+  * Therefore, configuration `(3,3)` gives at most 4 new connections.
+  * We already saw that the only other non-dominated configuration gives at most 3 new connections.
+* The same holds for day 3.
+* Therefore, the maximal number of connections we can establish is `6 + 4 + 4 = 14 < 15`, which is not enough.
+* So there is no valid`(6,3)`-solution with 3 days.
 * A similar argument *might* show that `T(12,3) ≥ 7`. (but `T(18,3) = 9`, so it is not generally true that `T(6k,3) > 3k`.)
   * `G(4,3) = 4`, i.e. there is no solution where 12 participants sit with different people for 5 days with a table size of 3 which might indicate that `T(12,3) ≥ 7`.
 
