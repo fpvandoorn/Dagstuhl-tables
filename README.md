@@ -96,7 +96,7 @@ The bolded values indicate perfect solutions (see below).
 * `T(n,k) ≤ T(n,m) * T(m,k)`. 
   * If we have a seating arrangement for `n` participants at table size `m`, then we can give a seating arrangement for table size `k` by simulating tables of size `m` over `T(m,k)` meals.
   * This subsumes the relation `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)` above since `T(k,k+1)=1`.
-  * This can give extra information when `m > k`, in this case, we can get a lower bound for `T(n,m)` in terms of `T(n,k)` and `T(m,k)`.
+  * If there is a perfect `(n,m)`-solution and a perfect `(m,k)`-solution then there is a perfect `(n,k)`-solution.
 
 ### Lower Bounds:
 * `T(n,k) ≥ (n-1)/(k-1)` (special case of `a`). Every participant can see only `k-1` participants per meal, and needs to see `n-1` participants.
