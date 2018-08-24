@@ -212,7 +212,7 @@ The bolded values indicate perfect solutions (see below).
 * If `n ≡ k mod k(k-1)` is there always a perfect `(n,k)`-solution? Is it true if we assume `k` is a prime power or a prime number? There is no reason to believe this, but it is true for all values where the answer is known.
   * It is true for `k = 3`. For `k = 4` it's true when `n ≤ 28`.
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
-  * This is false. All optimal `(8,5)`-solutions have at least one day with two tables of four participants. This was found by brute force.
+  * This is false. All optimal `(8,5)`-solutions have at least one day with two tables of four participants. This was found by brute force, but is quite easy to see by hand (to do).
   
 ### Conjectures
 * `T(n,k) ≤ n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
