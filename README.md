@@ -12,34 +12,34 @@ In particular, we have an unlimited number of tables, and we do not require that
 |:-----:|----------|------------|------------|------------|------------|------------|-------
 |   1   |  **0**   |  **0**     |  **0**     |  **0**     |  **0**     |  **0**     |  **0**
 |   2   |  **1**   |  1         |  1         |  1         |  1         |  1         |  1
-|   3   |  3       |  **1**     |  1         |  1         |  1         |  1         |  1
+|   3   |    3     |  **1**     |  1         |  1         |  1         |  1         |  1
 |   4   |  **3**   |  3  cd     |  **1**     |  1         |  1         |  1         |  1
-|   5   |  5       |  3   C     |  3  d      |  **1**     |  1         |  1         |  1
+|   5   |    5     |  3   C     |  3  d      |  **1**     |  1         |  1         |  1
 |   6   |  **5**   |  4  e      |  3         |  3  d      |  **1**     |  1         |  1
-|   7   |  7       |  4         |  3         |  3         |  3   d     |  **1**     |  1
-|   8   |  **7**   |  4         |  3  B      |  3         |  3         |  3 d       |  **1**
-|   9   |  9       |  **4** AH  |  4  c      |  3   C     |  3         |  3         |  3 d
+|   7   |    7     |  4         |  3         |  3         |  3   d     |  **1**     |  1
+|   8   |  **7**   |  4         |  3  B      |  3         |  3         |  3  d      |  **1**
+|   9   |    9     |  **4** AH  |  4  c      |  3   C     |  3         |  3         |  3   d
 |   10  |  **9**   | 6-7 c      |  4  E      |  4   e     |  3         |  3         |  3 
-|   11  | 11       | 6-7        |  5  e      | 4-5        |  3         |  3         |  3
+|   11  |   11     | 6-7        |  5  e      |  4   C     |  3         |  3         |  3
 |   12  | **11**   | 6-7        |  5         | 4-5        |  3   B     |  3         |  3
-|   13  | 13       |  7  a      |  5         |  5   e     |  4   e     |  3 C       |  3
-|   14  | **13**   |  7         |  5         |  5         |  4         |            |  3
-|   15  | 15       | **7**  F   |  5         |  5         |  4         |            |  3
-|   16  | **15**   |  9   c     |  **5**  H  |  5         |  4         |            |  3 B
-|   17  | 17       |  9         | 6-9 a      | 5-6        |  4         |  4 a       |  
-|   18  | **17**   |  9    G    | 7-9 a      | 5-6        |  4   B     |  4         |  3-4
-|   19  | 19       |  10  a     | 7-9        | 5-6        |  5-6 a     |            |
-|   20  | **19**   |  10        | 7-9        | 5-6        |  5-6       |            |  4 aB
-|   21  | 21       | **10** F   | 8-9 c      |  6  a      |  5-6 B     |            |
-|   22  | **21**   |  12   c    | 8-9        |  6         |  5-6       |            |
-|   23  | 23       |  12        | 8-9        |  6         |  5-6       |            |
-|   24  | **23**   |  12  G     | 8-9        |  6         |  5-6       | 5-6 a      |  
-|   25  | 25       |  13  a     |  9  a      |  **6**  AH |  6   c     |            |
-|   26  | **25**   |  13        |  9         |7-9  a      |  6-7       |            |
-|   27  | 27       | **13**  AH |  9         |7-9         |  6-7       |            |  5   a
-|   28  | **27**   | 15-16   c  | **9**  F   |8-9  a      |  6-7       |            |  5
-|   29  | 29       | 15-16      |10-11 a     |8-11        |  6-7       |            |  5
-|   30  | **29**   | 15-16   J  |  11  a G   |8-11        |  6-7 B     |            |  5   B
+|   13  |   13     |  7  a      |  5         |  5   e     |  4   e     |  3  C      |  3
+|   14  | **13**   |  7         |  5         |  5         |  4         | 3-4        |  3
+|   15  |   15     | **7**  F   |  5         |  5         |  4         | 3-4        |  3
+|   16  | **15**   |  9   c     |  **5**  H  |  5         |  4         | 3-4        |  3   B
+|   17  |   17     |  9         | 6-9 a      |  5   C     |  4         |  4  a      | 3-4
+|   18  | **17**   |  9    G    | 7-9 a      | 5-6        |  4   B     |  4         | 3-4
+|   19  |   19     |  10  a     | 7-9        | 5-6        |  5-6 a     |  4  C      | 3-4
+|   20  | **19**   |  10        | 7-9        | 5-6        |  5-6       | 4-6        |  4   aB
+|   21  |   21     | **10** F   | 8-9 c      |  6   a     |  5-6 B     | 4-6        | 4-5
+|   22  | **21**   |  12   c    | 8-9        |  6         |  5-6       | 4-6        | 4-5
+|   23  |   23     |  12        | 8-9        |  6         |  5-6       | 4-6        | 4-5
+|   24  | **23**   |  12  G     | 8-9        |  6         |  5-6       | 5-6 a      | 4-5
+|   25  |   25     |  13  a     |  9  a      |  **6** AH  |  6   c     | 5-6        | 4-5
+|   26  | **25**   |  13        |  9         |  7-9   a   |  6   C     | 5-6        | 4-5
+|   27  |   27     | **13**  AH |  9         |  7-9       |  6-7       | 5-6 C      |  5   a
+|   28  | **27**   | 15-16   c  | **9**  F   |  8-9   a   |  6-7       | 5-7        |  5
+|   29  |   29     | 15-16      |10-11 a     |  8-9   C   |  6-7       | 5-7        |  5
+|   30  | **29**   | 15-16   J  |  11  a G   |  8-11      |  6-7 B     | 5-7        |  5   B
 
 Legend: we use lower case `a`-`e` to justify lower bounds and upper case `A`-`J` to justify upper bounds, which are explained below.
 No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
@@ -91,8 +91,9 @@ The bolded values indicate perfect solutions (see below).
   * `T(32,4)=11` is a perfect solution. This follows from `G`.
 
 ### Relations:
-* `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`. 
-  * If a value in the table can be derived from these inequalities, no other explanation is given.
+* `T(n+1,k) ≥ T(n,k) ≥ T(n+1,k+1) ≥ T(n,k+1)`.
+  * If a value in the table can be derived from the first inequality, no other explanation is given.
+  * The second inequality is a special case of upper bound `C`.
 * `T(n,k) ≤ T(n,m) * T(m,k)`. 
   * If we have a seating arrangement for `n` participants at table size `m`, then we can give a seating arrangement for table size `k` by simulating tables of size `m` over `T(m,k)` meals.
   * This subsumes the relation `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)` above since `T(k,k+1)=1`.
