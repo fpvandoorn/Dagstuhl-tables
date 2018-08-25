@@ -19,8 +19,8 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   7   |    7     |  4         |  3         |  3         |  3   d     |  **1**     |  1
 |   8   |  **7**   |  4         |  3  B      |  3         |  3         |  3  d      |  **1**
 |   9   |    9     |  **4** AH  |  4  c      |  3   C     |  3         |  3         |  3   d
-|   10  |  **9**   | 6-7 c      |  4  E      |  4   e     |  3         |  3         |  3 
-|   11  |   11     | 6-7        |  5  e      |  4   C     |  3         |  3         |  3
+|   10  |  **9**   |  6  c      |  4  E      |  4   e     |  3         |  3         |  3 
+|   11  |   11     |  6  E      |  5  e      |  4   C     |  3         |  3         |  3
 |   12  | **11**   | 6-7        |  5         | 4-5        |  3   B     |  3         |  3
 |   13  |   13     |  7  a      |  5         |  5   e     |  4   e     |  3  C      |  3
 |   14  | **13**   |  7         |  5         |  5         |  4         | 3-4        |  3
@@ -165,9 +165,22 @@ The bolded values indicate perfect solutions (see below).
 * A similar argument *might* show that `T(12,3) ≥ 7`. (but `T(18,3) = 9`, so it is not generally true that `T(6k,3) > 3k`.)
   * `G(4,3) = 4`, i.e. there is no solution where 12 participants sit with different people for 5 days with a table size of 3 which might indicate that `T(12,3) ≥ 7`.
 
+
+#### `T(11,3) ≤ 6`
+* Used Mathematica SAT-solver to find this solution. The Mathematica code was written by Michael Trott and optimized by Floris van Doorn.
+* Solution:
+```
+123 456 789 AB
+157 246 39 8AB
+148 27B 35A 69
+129 34B 67A 58
+12A 59B 368 47
+16B 258 37 49A
+```
+
 #### `T(10,4) ≤ 4`
 
-* Solution:
+* Solution found by hand:
 ```
 1234 5678 90
 1259 3670 48
@@ -190,15 +203,6 @@ The bolded values indicate perfect solutions (see below).
 * From now on `(5,5)` has at most 12 new conns, `(4,4,2)` has at most 9 new conns and `(4,3,3)` has at most 8 new conns.
 * This means we cannot get 45 connections, therefore we have no valid solution in 3 days.
 
-#### `T(13,6) ≥ 4`
-* Suppose there is a valid solution in 3 days. 
-* The configurations with at least 26 connections which are not dominated are `(6,6,1)` and `(6,5,2)`, one of which has to occur at least once.
-  * Suppose day 1 is `(6,6,1)`. Then no other day can have more than 20 connections. Day 2 has 
-    * `(6,6,1)` at most 11+9 = 20 connections
-    * `(6,5,2)` at most 11+8+1 = 20 connections (actually, less)
-    * `(6,4,3)` and `(5,5,3)` and `(5,4,4)` also have less than 20 connections, all other configurations are dominated.
-  * Suppose no day is `(6,6,1)`. Then every day needs 26 connections exactly, which is impossible.
-
 #### `T(13,5) ≥ 5`
 * This solution was found part by hand, part by computer brute-force.
 * Suppose there is a valid solution in 4 days. 
@@ -208,6 +212,15 @@ The bolded values indicate perfect solutions (see below).
 * From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is (5,5,3) with 8+8+3 new connections. This can be done in 1 way (up to renaming participants)
 * Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
 * For none of those 8 ways, there is a valid 4th day.
+
+#### `T(13,6) ≥ 4`
+* Suppose there is a valid solution in 3 days. 
+* The configurations with at least 26 connections which are not dominated are `(6,6,1)` and `(6,5,2)`, one of which has to occur at least once.
+  * Suppose day 1 is `(6,6,1)`. Then no other day can have more than 20 connections. Day 2 has 
+    * `(6,6,1)` at most 11+9 = 20 connections
+    * `(6,5,2)` at most 11+8+1 = 20 connections (actually, less)
+    * `(6,4,3)` and `(5,5,3)` and `(5,4,4)` also have less than 20 connections, all other configurations are dominated.
+  * Suppose no day is `(6,6,1)`. Then every day needs 26 connections exactly, which is impossible.
 
 ## Questions
 * If `n ≡ k mod k(k-1)` is there always a perfect `(n,k)`-solution? Is it true if we assume `k` is a prime power or a prime number? There is no reason to believe this, but it is true for all values where the answer is known.
