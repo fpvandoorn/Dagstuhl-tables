@@ -7,7 +7,6 @@
 In particular, we have an unlimited number of tables, and we do not require that any two participants have a meal together exactly once, or that every table is fully occupied.
 
 ## Dagstuhl's Table Table
-
 | n / k |    2     |   3        |   4        |   5        |   6        |   7        |  8         |
 |:-----:|----------|------------|------------|------------|------------|------------|------------|
 |   1   |  **0**   |  **0**     |  **0**     |  **0**     |  **0**     |  **0**     |  **0**     |
@@ -26,11 +25,11 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   14  | **13**   |    7       |    5       |    5       |    4       |    4   e   |    3       |
 |   15  |   15     |  **7** F   |    5       |    5       |    4       |    4       |    3       |
 |   16  | **15**   |    9   c   |  **5** H   |    5       |    4       |    4       |    3   B   |
-|   17  |   17     |    9       |   6-9  a   |    5   C   |    4       |    4   a   |   3-4      |
+|   17  |   17     |    9       |   6-9  a   |    5   C   |    4       |    4       |   3-4      |
 |   18  | **17**   |    9   G   |   7-9  a   |   5-6      |    4   B   |    4       |   3-4      |
-|   19  |   19     |   10   a   |   7-9      |   5-6      |   5-6 a    |    4   C   |   3-4      |
+|   19  |   19     |   10   a   |   7-9      |   5-6      |   5-6  a   |    4   C   |   3-4      |
 |   20  | **19**   |   10       |   7-9      |   5-6      |   5-6      |   4-6      |    4   a B |
-|   21  |   21     | **10** F   |   8-9  c   |    6   a   |   5-6 B    |   4-6      |   4-5      |
+|   21  |   21     | **10** F   |   8-9  c   |    6   a   |   5-6      |   4-6      |   4-5      |
 |   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |   4-6      |   4-5      |
 |   23  |   23     |   12       |   8-9      |    6       |   5-6      |   4-6      |   4-5      |
 |   24  | **23**   |   12   G   |   8-9      |    6       |   5-6      |   5-6  a   |   4-5      |
@@ -39,12 +38,52 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   27  |   27     | **13** AH  |    9       |   7-9      |   6-7      |   5-6  C   |    5   a   |
 |   28  | **27**   | 15-16  c   |  **9** F   |   8-9  a   |   6-7      |   5-7      |    5       |
 |   29  |   29     | 15-16      |  10-11 a   |   8-9  C   |   6-7      |   5-7      |    5       |
-|   30  | **29**   | 15-16  J   |   11   a G |   8-11     |   6-7 B    |   5-7      |    5   B   |
+|   30  | **29**   | 15-16  J   |   11   a G |   8-11     |   6-7  B   |   5-7      |    5   B   |
 
-Legend: we use lower case `a`-`e` to justify lower bounds and upper case `A`-`J` to justify upper bounds, which are explained below.
+Legend: we use lower-case letters `a`-`e` to justify lower bounds and upper-case letters `A`-`J` to justify upper bounds, which are explained below.
 No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
 
 The bolded values indicate perfect solutions (see below).
+
+### Dual table
+* An entry in this table shows the maximal `n` such that `T(n,k) ≤ T`.
+* This table has the same information as the previous one, organized differently.
+* This table is harder to read, but much more informationally dense.
+* In this table the upper-case letters show why the entry is not smaller (why it is possible to have a solution with this number of participants) and the lower-case letters show why the entry is not larger (why it is not possible to have a solution with one more partipant).
+
+| T / k |  2       |   3         |   4         |   5         |   6         |   7         |  8          |
+|:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|
+|   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      |
+|   2   |    2     |    3     cd |    4     d  |    5     d  |    6     d  |    7     d  |    8     d  |
+|   3   |  **4**   |    5   C e  |    8   B c  |    9   C e  |   12   B e  |   13   C e  | 16-19  B a  |
+|   4   |    4     |  **9** AH   |   10   E e  |   12   E e  |   18   B a  |  19-23 C a  | 20-26  B a  |
+|   5   |  **6**   |    9     c  | **16** H a  | 17-20  C a  | 18-24    c  |             |             |
+|   6   |    6     |   12   E a  | 16-17    a  | **25** AH a | 26-30  C a  |             |             |
+|   7   |  **8**   | **15** F    | 16-20    c  | 25-27    a  |             |             |             |
+|   8   |    8     |   15     c  | 16-24    a  |             |             | **49** AH a |             |
+|   9   | **10**   |   18   G a  | **28** F a  |             |             |             |             |
+|   10  |   10     | **21** F    | 28-29    a  |             |             |             |             |
+|   11  | **12**   |   21     c  |   32   G    |             |             |             |             |
+|   12  |   12     |   24   G a  |             |             |             |             |             |
+|   13  | **14**   | **27** AH   |             |             |             |             |             |
+|   14  |   14     |   27     c  |             |             |             |             |             |
+|   15  | **16**   | 27-30    a  |             |             |             |             |             |
+|   16  |   16     | **33** F    |             |             |             |             |             |
+|   17  | **18**   |   33     c  |             |             |             |             |             |
+|   18  |   18     | 33-36    a  |             |             |             |             |             |
+|   19  | **20**   | **39** F    |             |             |             |             |             |
+|   20  |   20     |   39        |             |             |             |             |             |
+|   21  | **22**   |             | **64** H a  |             |             |             |             |
+|   22  |   22     | **45**      |             |             |             |             |             |
+|   23  | **24**   |   45        |             |             |             |             |             |
+|   24  |   24     |             |             |             |             |             |             |
+|   25  | **26**   | **51**      |             |             |             |             |             |
+|   26  |   26     |   51        |             |             |             |             |             |
+|   27  | **28**   |             |             |             |             |             |             |
+|   28  |   28     | **57**      |             |             |             |             |             |
+|   29  | **30**   |   57        |             |             |             |             |             |
+|   30  |   30     |             |             |             |             |             |             |
+
 
 ## Terminology
 
@@ -88,7 +127,7 @@ The bolded values indicate perfect solutions (see below).
   * This is (supposed to be) proven in *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson (1971). We couldn't find a copy of this paper.
   * Together with lower bound `a`, this gives that `T(6k+1,3) = T(6k+2,3) = T(6k+3,3) = 3k+1`.
 * Other known specific values. 
-  * `T(32,4)=11` is a perfect solution. This follows from `G`.
+  * `T(32,4)=11` is an optimal solution. This follows from `G`.
 
 ### Relations:
 * `T(n+1,k) ≥ T(n,k) ≥ T(n+1,k+1) ≥ T(n,k+1)`.
