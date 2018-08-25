@@ -20,12 +20,12 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   8   |  **7**   |  4         |  3  B      |  3         |  3         |  3  d      |  **1**
 |   9   |    9     |  **4** AH  |  4  c      |  3   C     |  3         |  3         |  3   d
 |   10  |  **9**   |  6  c      |  4  E      |  4   e     |  3         |  3         |  3 
-|   11  |   11     |  6  E      |  5  e      |  4   C     |  3         |  3         |  3
-|   12  | **11**   | 6-7        |  5         | 4-5        |  3   B     |  3         |  3
+|   11  |   11     |  6         |  5  e      |  4         |  3         |  3         |  3
+|   12  | **11**   |  6  E      |  5         |  4   E     |  3   B     |  3         |  3
 |   13  |   13     |  7  a      |  5         |  5   e     |  4   e     |  3  C      |  3
-|   14  | **13**   |  7         |  5         |  5         |  4         | 3-4        |  3
-|   15  |   15     | **7**  F   |  5         |  5         |  4         | 3-4        |  3
-|   16  | **15**   |  9   c     |  **5**  H  |  5         |  4         | 3-4        |  3   B
+|   14  | **13**   |  7         |  5         |  5         |  4         |  4  e      |  3
+|   15  |   15     | **7**  F   |  5         |  5         |  4         |  4         |  3
+|   16  | **15**   |  9   c     |  **5**  H  |  5         |  4         |  4         |  3   B
 |   17  |   17     |  9         | 6-9 a      |  5   C     |  4         |  4  a      | 3-4
 |   18  | **17**   |  9    G    | 7-9 a      | 5-6        |  4   B     |  4         | 3-4
 |   19  |   19     |  10  a     | 7-9        | 5-6        |  5-6 a     |  4  C      | 3-4
@@ -112,7 +112,7 @@ The bolded values indicate perfect solutions (see below).
   * Nobody can meet the same person twice.
   This means that after every meal, the number of participants participant A has met is divisible by `k-1`, so it can never equal `n-1`.
 * `d`: see *Known Values*.
-* `e`: proven by hand for this special case. (We don't use `e` if another letter applies.)
+* `e`: proven for this special case, see below. (We don't use `e` if another letter applies.)
 
 ### Upper Bounds:
 * `A`: `T(km,k) ≤ T(m,k) + m` if `m` is coprime with `(k-1)!`.
@@ -123,7 +123,7 @@ The bolded values indicate perfect solutions (see below).
 * `B`: `T(nl,kl) ≤ T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together.
 * `C`: `T(nl+1,kl+1) ≤ T(n,k)`. Same as `B`, but make one group size `l+1`.
 * `D`: see *Known Values*.
-* `E`: found solution by hand for this special case, see below. (We don't use `E` if another letter applies.)
+* `E`: found solution for this special case, see below. (We don't use `E` if another letter applies.)
 * From a good solution of the social golfer's problem (see External Links) we can retrieve a solution to the Happy Diner Problem. 
   * Denote the solution to the social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
   * `F`: If `G(m,k)*(k-1) = m*k - 1` then `T(m*k,k) = G(m,k)`, because this gives a perfect `(m*k,k)`-solution.
@@ -135,9 +135,10 @@ The bolded values indicate perfect solutions (see below).
   * (We don't use `F` and `G` if another letter applies.)
 * `H`, `J`: see *Known Values*.
 
-### Solutions computed by hand
+### Solutions for individual cases
 
 * The solution `T(6,3) ≥ 4` is very detailed. Other solutions with the same techniques will have much less explanation. So if you don't understand the reasoning, read `T(6,3) ≥ 4` first.
+* The code using the Mathematica SAT-solver was written by Michael Trott and optimized by Floris van Doorn.
 
 #### New terminology
 
@@ -165,17 +166,15 @@ The bolded values indicate perfect solutions (see below).
 * A similar argument *might* show that `T(12,3) ≥ 7`. (but `T(18,3) = 9`, so it is not generally true that `T(6k,3) > 3k`.)
   * `G(4,3) = 4`, i.e. there is no solution where 12 participants sit with different people for 5 days with a table size of 3 which might indicate that `T(12,3) ≥ 7`.
 
-
-#### `T(11,3) ≤ 6`
-* Used Mathematica SAT-solver to find this solution. The Mathematica code was written by Michael Trott and optimized by Floris van Doorn.
-* Solution:
+#### `T(12,3) ≤ 6`
+* Solution found by Mathematica SAT-solver:
 ```
-123 456 789 AB
-157 246 39 8AB
-148 27B 35A 69
-129 34B 67A 58
-12A 59B 368 47
-16B 258 37 49A
+159 278 3AC 46B
+12C 345 8AB 679
+12B 348 79A 56C
+168 25A 39B 47C
+14A 236 57B 89C
+137 249 BC 58 6A
 ```
 
 #### `T(10,4) ≤ 4`
@@ -199,9 +198,18 @@ The bolded values indicate perfect solutions (see below).
 #### `T(10,5) ≥ 4`
 * Suppose there is a valid solution in 3 days. 
 * The only configurations which are not dominated are `(5,5)` (<= 20 conns), `(4,4,2)` (<= 13 conns) and `(4,3,3)` (<= 12 conns).
-* Therefore, we need (5,5) at least once. WLOG day 1 is distributed `01234 56789`. 
+* Therefore, we need `(5,5)` at least once. WLOG day 1 is distributed `01234 56789`. 
 * From now on `(5,5)` has at most 12 new conns, `(4,4,2)` has at most 9 new conns and `(4,3,3)` has at most 8 new conns.
 * This means we cannot get 45 connections, therefore we have no valid solution in 3 days.
+
+#### `T(12,5) ≤ 4`
+* Solution found by Mathematica SAT-solver:
+```
+12345 6789A BC
+1279 38B 456AC
+128C 4579B 36A
+126AB 379C 458
+```
 
 #### `T(13,5) ≥ 5`
 * This solution was found part by hand, part by computer brute-force.
@@ -222,12 +230,19 @@ The bolded values indicate perfect solutions (see below).
     * `(6,4,3)` and `(5,5,3)` and `(5,4,4)` also have less than 20 connections, all other configurations are dominated.
   * Suppose no day is `(6,6,1)`. Then every day needs 26 connections exactly, which is impossible.
 
+#### `T(14,7) ≥ 4`
+* Suppose there is a valid solution in 3 days. 
+* The configuration `(7,7)` has to occur, since there is no way to make at least 61 connections in 2 days otherwise.
+* After `(7,7)` at most 24 connections can be made per day. So there are at most `42 + 24 + 24 = 90 < 91` connections, which is not enough.
+
 ## Questions
 * If `n ≡ k mod k(k-1)` is there always a perfect `(n,k)`-solution? Is it true if we assume `k` is a prime power or a prime number? There is no reason to believe this, but it is true for all values where the answer is known.
   * It is true for `k = 3`. For `k = 4` it's true when `n ≤ 28`.
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
   * This is false. All optimal `(8,5)`-solutions have at least one day with two tables of four participants. This was found by brute force, but is quite easy to see by hand (to do).
-  
+  * It is probably even false that there always is an optimal `(n,k)`-solution where there are `⌈ n/k ⌉` tables each day (where `⌈ x ⌉` is the smallest integer which is at least `x`). 
+    The Mathematica SAT-solver easily found a solution that `T(12,3) ≤ 6`, but didn't terminate within reasonable time when the additional condition was imposed that only 4 tables could be used per day.
+
 ### Conjectures
 * `T(n,k) ≤ n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
 * For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
