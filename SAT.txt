@@ -1,0 +1,45 @@
+(*The SAT Solver is written by Michael Trott and modified by Floris van Doorn.*)
+Clear[SAT]
+SAT[meals_,n_,k_,unsafe1_:True,unsafe2_:True]:=With[{tableCount=If[unsafe1,Ceiling[n/k],Max[1,If[OddQ[k],Floor[2n/(k+1)],Floor[(n+1)/(k/2+1)]]]]},
+(*at least at one meal and at one table person i and j are present*)
+t1=Table[Or@@Flatten@Table[p[m,t,i]\[And]p[m,t,j],{m,meals},{t,tableCount}],{i,n},{j,i-1}];
+(*never are k+1 persons on a table that holds k people*)
+t2=Table[And@@(Not[And@@(p[m,t,#]&/@#)]&/@Subsets[Range[n],{k+1}]),{m,meals},{t,tableCount}];
+(*at each meal every person can only be at one table*)
+t3=Table[Or@@Table[And@@Table[If[f==e,Identity,Not][p[m,f,j]],{f,tableCount}],{e,tableCount}],{j,n},{m,meals}];
+(*symmetry breaking: if person i sits at table t, at every table s < t there sits a person j < i. We disable this condition, because the solver takes longer with this condition than without*)
+(*t4=Table[Or[!p[m,t,i],And@@Table[Or@@Table[p[m,s,j],{j,i-1}],{s,t-1}]],{m,meals},{t,2,tableCount},{i,n}];*)
+(*every person i sits at some table \[LessEqual] i*)
+t5=Table[Or@@Table[p[m,t,i],{t,Min[i,tableCount]}],{m,meals},{i,n}];
+(*on meal 1, use the "optimal" seating arrangement*)
+t6=Table[p[1,Ceiling[i/k],i],{i,n}];
+(*unite conditions*)
+conds=And@@Flatten[{If[unsafe2,t6,{}],t5,t1,t2,t3}];
+ps=Union[Cases[conds,_p,\[Infinity]]];
+si=SatisfiabilityInstances[conds,ps,Method->"SAT"];
+If[si==={},If[unsafe1||unsafe2,"probably UNSAT","UNSAT"],rules=Rule@@@Transpose[{ps,si[[1]]}];
+Table[Cases[rules,HoldPattern@@{p[m,t,_]->True}][[All,1,3]],{m,meals},{t,tableCount}]]]
+
+
+
+SAT[6,12,3,False,False]//Timing
+SAT[4,10,4]//Timing
+SAT[4,12,5]//Timing
+
+
+
+test[l_]:=(
+Print["number of participants: n = ",n=Length[p=Union@Flatten@l]];
+Print["max table size: k = ",k=Max@Flatten[Map[Length,l,{2}],1]];
+If[And@@(nodupes=DuplicateFreeQ@Flatten@#&/@l),
+If[Union[pairs=Sort/@Flatten[Map[Subsets[#,{2}]&,l,{2}],2]]==(allpairs=Sort[Sort/@Subsets[p,{2}]]),
+If[DuplicateFreeQ[pairs]&&Length@Union@Flatten[Map[Length,l,{2}],1]==1,Print["Perfect solution in "<>ToString@Length@l<>" days."],Print["Valid solution in "<>ToString@Length@l<>" days."]],
+Print["Not all participants have met: ",todo=Complement[allpairs,Union@pairs]];If[DuplicateFreeQ[pairs],Print["No duplicate meetings so far."],Print["Duplicate meetings so far: ",Select[Tally[pairs],#[[2]]>1&][[All,1]]]]],
+Print["A participant has been seated twice during meal ",Position[nodupes,False][[1,1]]]])
+toshortstring[l_]:=StringRiffle[l/.{x_Integer:>If[x<10,ToString@x,FromCharacterCode[ToCharacterCode["A"][[1]]+x-10]]},"\n"," ",""]
+format[meals_,n_,k_,unsafe1_:True,unsafe2_:True]:=With[{l=Select[#,#=!={}&]&/@SAT[meals,n,k,unsafe1,unsafe2]},If[Head[l]===List,test[l];toshortstring[l]]]
+
+
+
+format[4,9,3]
+format[6,12,3,False,False]
