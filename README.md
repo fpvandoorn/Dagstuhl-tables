@@ -291,7 +291,7 @@ The bolded values indicate perfect solutions (see below).
 ## External Links
 
 * Dagstuhl's Happy Diner Problem: we are currently writing draft sequences [A318240](https://oeis.org/draft/A318240) and [A318241](https://oeis.org/draft/A318241).
-  * We couldn't find any other place where partial solutions of this problem has been given.
+  * We couldn't find any other place where partial solutions of this problem were given.
   * On [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php) the problem has been stated and finding the perfect `(n,3)`-solutions is a special case of the Oberwolfach Problem.
 * Social Golfer Problem: 
   * [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html) 
