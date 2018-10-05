@@ -1,0 +1,779 @@
+\documentclass[a4paper]{article}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\begin{document}
+
+\section{Dagstuhl's Happy Diner
+Problem}\label{dagstuhls-happy-diner-problem}
+
+\subsection{The Table Assignment
+Assignment}\label{the-table-assignment-assignment}
+
+\textbf{The Problem Statement}: What is the minimum number of meals so
+that each of the $n$ conference participants can share at least
+one meal with every other participant when eating at tables of at most
+$k$ persons? We call this number $T(n,k)$.
+
+In particular, we have an unlimited number of tables, and we do not
+require that any two participants have a meal together exactly once, or
+that every table is fully occupied.
+
+\subsection{Dagstuhl's Table Table}\label{dagstuhls-table-table}
+
+\begin{tabular}{@{}clllllll@{}}
+\hline
+n / k & 2 & 3 & 4 & 5 & 6 & 7 & 8\tabularnewline
+\hline
+1 & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} &
+\textbf{0} & \textbf{0}\tabularnewline
+2 & \textbf{1} & 1 & 1 & 1 & 1 & 1 & 1\tabularnewline
+3 & 3 & \textbf{1} & 1 & 1 & 1 & 1 & 1\tabularnewline
+4 & \textbf{3} & 3 cd & \textbf{1} & 1 & 1 & 1 & 1\tabularnewline
+5 & 5 & 3 C & 3 d & \textbf{1} & 1 & 1 & 1\tabularnewline
+6 & \textbf{5} & 4 e & 3 & 3 d & \textbf{1} & 1 & 1\tabularnewline
+7 & 7 & 4 & 3 & 3 & 3 d & \textbf{1} & 1\tabularnewline
+8 & \textbf{7} & 4 & 3 B & 3 & 3 & 3 d & \textbf{1}\tabularnewline
+9 & 9 & \textbf{4} AH & 4 c & 3 C & 3 & 3 & 3 d\tabularnewline
+10 & \textbf{9} & 6 c & 4 E & 4 e & 3 & 3 & 3\tabularnewline
+11 & 11 & 6 & 5 e & 4 & 3 & 3 & 3\tabularnewline
+12 & \textbf{11} & 6 E & 5 & 4 E & 3 B & 3 & 3\tabularnewline
+13 & 13 & 7 a & 5 & 5 e & 4 e & 3 C & 3\tabularnewline
+14 & \textbf{13} & 7 & 5 & 5 & 4 & 4 e & 3\tabularnewline
+15 & 15 & \textbf{7} F & 5 & 5 & 4 & 4 & 3\tabularnewline
+16 & \textbf{15} & 9 c & \textbf{5} H & 5 & 4 & 4 & 3 B\tabularnewline
+17 & 17 & 9 & 6-9 a & 5 C & 4 & 4 & 3-4\tabularnewline
+18 & \textbf{17} & 9 G & 7-9 a & 5-6 & 4 B & 4 & 3-4\tabularnewline
+19 & 19 & 10 a & 7-9 & 5-6 & 5-6 a & 4 C & 3-4\tabularnewline
+20 & \textbf{19} & 10 & 7-9 & 5-6 & 5-6 & 4-6 & 4 a B\tabularnewline
+21 & 21 & \textbf{10} F & 8-9 c & 6 a & 5-6 & 4-6 & 4-5\tabularnewline
+22 & \textbf{21} & 12 c & 8-9 & 6 & 5-6 & 4-6 & 4-5\tabularnewline
+23 & 23 & 12 & 8-9 & 6 & 5-6 & 4-6 & 4-5\tabularnewline
+24 & \textbf{23} & 12 G & 8-9 & 6 & 5-6 & 5-6 a & 4-5\tabularnewline
+25 & 25 & 13 a & 9 a & \textbf{6} AH & 6 c & 5-6 & 4-5\tabularnewline
+26 & \textbf{25} & 13 & 9 & 7-9 a & 6 C & 5-6 & 4-5\tabularnewline
+27 & 27 & \textbf{13} AH & 9 & 7-9 & 6-7 & 5-6 C & 5 a\tabularnewline
+28 & \textbf{27} & 15-16 c & \textbf{9} F & 8-9 a & 6-7 & 5-7 &
+5\tabularnewline
+29 & 29 & 15-16 & 10-11 a & 8-9 C & 6-7 & 5-7 & 5\tabularnewline
+30 & \textbf{29} & 15-16 J & 11 a G & 8-11 & 6-7 B & 5-7 & 5
+B\tabularnewline
+\hline
+\end{tabular}
+
+Legend: we use lower-case letters $a$-$e$ to justify lower
+bounds and upper-case letters $A$-$J$ to justify upper
+bounds, which are explained below. No explanation is given when
+$n\leq k$ or $k=2$ or the value can be derived from
+the inequalities $T(n+1,k)\geq T(n,k)\geq T(n,k+1)$.
+
+The bolded values indicate perfect solutions (see below).
+
+\subsubsection{Dual table}\label{dual-table}
+
+\begin{itemize}
+\item
+  An entry in this table shows the maximal $n$ such that
+  $T(n,k)\leq T$.
+\item
+  This table has the same information as the previous one, organized
+  differently.
+\item
+  This table is harder to read, but much more informationally dense.
+\item
+  In this table the upper-case letters show why the entry is not smaller
+  (why it is possible to have a solution with this number of
+  participants) and the lower-case letters show why the entry is not
+  larger (why it is not possible to have a solution with one more
+  partipant).
+\end{itemize}
+
+\begin{tabular}[]{@{}clllllll@{}}
+\hline
+T / k & 2 & 3 & 4 & 5 & 6 & 7 & 8\tabularnewline
+\hline
+1 & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} &
+\textbf{7} & \textbf{8}\tabularnewline
+2 & 2 & 3 cd & 4 d & 5 d & 6 d & 7 d & 8 d\tabularnewline
+3 & \textbf{4} & 5 C e & 8 B c & 9 C e & 12 B e & 13 C e & 16-19 B
+a\tabularnewline
+4 & 4 & \textbf{9} AH & 10 E e & 12 E e & 18 B a & 19-23 C a & 20-26 B
+a\tabularnewline
+5 & \textbf{6} & 9 c & \textbf{16} H a & 17-20 C a & 18-24 c &
+&\tabularnewline
+6 & 6 & 12 E a & 16-17 a & \textbf{25} AH a & 26-30 C a &
+&\tabularnewline
+7 & \textbf{8} & \textbf{15} F & 16-20 c & 25-27 a & & &\tabularnewline
+8 & 8 & 15 c & 16-24 a & & & \textbf{49} AH a &\tabularnewline
+9 & \textbf{10} & 18 G a & \textbf{28} F a & & & &\tabularnewline
+10 & 10 & \textbf{21} F & 28-29 a & & & &\tabularnewline
+11 & \textbf{12} & 21 c & 32 G & & & &\tabularnewline
+12 & 12 & 24 G a & & & & &\tabularnewline
+13 & \textbf{14} & \textbf{27} AH & & & & &\tabularnewline
+14 & 14 & 27 c & & & & &\tabularnewline
+15 & \textbf{16} & 27-30 a & & & & &\tabularnewline
+16 & 16 & \textbf{33} F & & & & &\tabularnewline
+17 & \textbf{18} & 33 c & & & & &\tabularnewline
+18 & 18 & 33-36 a & & & & &\tabularnewline
+19 & \textbf{20} & \textbf{39} F & & & & &\tabularnewline
+20 & 20 & 39 & & & & &\tabularnewline
+21 & \textbf{22} & & \textbf{64} H a & & & &\tabularnewline
+22 & 22 & \textbf{45} & & & & &\tabularnewline
+23 & \textbf{24} & 45 & & & & &\tabularnewline
+24 & 24 & & & & & &\tabularnewline
+25 & \textbf{26} & \textbf{51} & & & & &\tabularnewline
+26 & 26 & 51 & & & & &\tabularnewline
+27 & \textbf{28} & & & & & &\tabularnewline
+28 & 28 & \textbf{57} & & & & &\tabularnewline
+29 & \textbf{30} & 57 & & & & &\tabularnewline
+30 & 30 & & & & & &\tabularnewline
+\hline
+\end{tabular}
+
+\subsection{Terminology}\label{terminology}
+
+\begin{itemize}
+\item
+  Given a table assignment for 1 or more meals. We say that this is a
+  \emph{valid solution} if every participant meet every other
+  participant at least once.
+\item
+  A valid solution with $n$ participants and table size of at
+  most $k$ is called a $(n,k)$-\emph{solution}.
+\item
+  Given a valid solution. We say that it is an \emph{optimal solution}
+  if there is no valid solution (with the same $n$ and
+  $k$) with fewer days.
+\item
+  Given a valid solution. We say that it is a \emph{perfect solution} if
+  every participant meets every other participant exactly once.
+\item
+  The \emph{Social Golfer Problem} is similar: what is the maximum
+  possible of meals such that no two participants sit at the same table?
+  $G(m,k)$ is the maximal number with $m*k$ participants
+  and where each table contains \textbf{exactly} $k$
+  participants.
+\end{itemize}
+
+\subsection{Properties}\label{properties}
+
+\subsubsection{Perfect Solutions}\label{perfect-solutions}
+
+\begin{itemize}
+\item
+  Necessarily, every perfect solution is optimal.
+\item
+  Necessary requirements for a perfect $(n,k)$-solution to exist
+  are $k-1|n-1$ and
+  $k|n$ (or $n=1$).
+\item
+  A perfect $(n,k)$-solution exists iff
+  $T(n,k)=(n-1)/(k-1)$.
+\end{itemize}
+
+\subsubsection{Known Values}\label{known-values}
+
+\begin{itemize}
+\item
+  $T(n,2)=n$ if $n$ is odd, $T(n,2)=n-1$ if
+  $n$ is even.
+\item
+  The lower bound is given by $c$, see below.
+\item
+  The upper bound can be obtained as follows.
+
+  \begin{itemize}
+  \item
+    Suppose $n=4m$: split it up in 2 groups of size
+    $2m$, first do those groups independently in $2m-1$
+    days, then in the next $2m$ days on day $i$ let person
+    $j$ in group 1 sit with person $i+j(\mod2m)$ in
+    group 2.
+  \item
+    Suppose $n=2m$ with $m$ odd:
+  \item
+    For the first $m$ days: on day $i$ let person
+    $i$ sit with $i+m$ and person $i+j$ with
+    $i-j$.
+  \item
+    For the next $m-1$ days, on day $2k-1$ and $2k$
+    let person $i$ sit with the persons $i+2k-1$ and
+    $i-(2k-1)$. If $i$ is even it will sit with
+    $i+2k-1$ first, and if $i$ is odd it will sit with
+    $i-(2k-1)$ first.
+  \item
+    Suppose $n$ is odd, then we can use the solution for
+    $n+1$ participants, dropping 1 participant.
+  \end{itemize}
+\item
+  $T(n,k)=1$ if $n\leq k$.
+\item
+  If $k<n\leq (3/2)k$ then $T(n,k)=3$.
+\item
+  $d$: It cannot be done in 2 days, because on day 1 there are at
+  least 2 tables. All participants on table 1 need to be sit with all
+  participants not on table 1 on day 2, but that means that everyone
+  needs to sit together on day 2. Contradiction.
+\item
+  $D$: It can be done in 3 days. Suppose
+  $2k-n\geq Ceil(k/2)$, i.e. $2k-n\geq k/2$, i.e.
+  $3k\geq 2n$. Then 3 sets of size $k$ can cover all
+  pairs.
+
+  \begin{itemize}
+  \item
+    On day 1 sit participants $1-\/-k$ together.
+  \item
+    On day 2 sit $(k+1)-\/-n$ and participants
+    $1-\/-Ceil(k/2)$ together.
+  \item
+    On day 3 sit $Ceil(k/2)+1-\/-n$ together.
+  \item
+    The upper bound $D$ is worse than $B$, which shows
+    that for even $k$ we have
+    $T(2k,k+1)\leq T(2k,k)\leq T(4,2)=3$.
+  \end{itemize}
+\item
+  If $k$ is prime and $n$ is a power of $k$, then
+  there is a perfect $(n,k)$-solution. This follows from upper
+  bound $A$ (by induction) or from the next bullet point.
+\item
+  $H$: If $k$ is a prime power and $n$ is a power
+  of $k$, then there is a perfect $(n,k)$-solution.
+\item
+  Consider the field $F$ of order $k$, and a vector field
+  $V$ with cardinality $n$ over $F$.
+\item
+  For every 1-dimensional subspace $L$ of $V$ the sets of
+  1-dimensional affine spaces parallel to $L$ forms a partition
+  of $V$. This defines a table assignment for a single meal.
+\item
+  The set of all table assignments determined by all 1-dimensional
+  subspaces in this way forms a perfect $(n,k)$-solution. The
+  reason that it is perfect follows from the fact that 1-dimensional
+  affine spaces stand in bijective correspondence to pairs of points in
+  $V$.
+\item
+  This idea is due to Neil Strickland.
+\item
+  $J$: A perfect $(n,3)$-solution for $n\geq 3$ is
+  called a \emph{Kirkman Triple System} and is possible iff
+  $n\equiv3\mod6$.
+\item
+  This is (supposed to be) proven in \emph{Solution of Kirkman's
+  schoolgirl problem}, Ray-Chaudhuri and Wilson (1971). We couldn't find
+  a copy of this paper.
+\item
+  Together with lower bound $a$, this gives that
+  $T(6k+1,3)=T(6k+2,3)=T(6k+3,3)=3k+1$.
+\item
+  Other known specific values.
+\item
+  $T(32,4)=11$ is an optimal solution. This follows from
+  $G$.
+\end{itemize}
+
+\subsubsection{Relations:}\label{relations}
+
+\begin{itemize}
+\item
+  $T(n+1,k)\geq T(n,k)\geq T(n+1,k+1)\geq T(n,k+1)$.
+\item
+  If a value in the table can be derived from the first inequality, no
+  other explanation is given.
+\item
+  The second inequality is a special case of upper bound $C$.
+\item
+  $T(n,k)\leq T(n,m)*T(m,k)$.
+\item
+  If we have a seating arrangement for $n$ participants at table
+  size $m$, then we can give a seating arrangement for table size
+  $k$ by simulating tables of size $m$ over
+  $T(m,k)$ meals.
+\item
+  This subsumes the relation $T(n+1,k)\geq T(n,k)\geq T(n,k+1)$
+  above since $T(k,k+1)=1$.
+\item
+  If there is a perfect $(n,m)$-solution and a perfect
+  $(m,k)$-solution then there is a perfect
+  $(n,k)$-solution.
+\end{itemize}
+
+\subsubsection{Lower Bounds:}\label{lower-bounds}
+
+\begin{itemize}
+
+\item
+  $T(n,k)\geq (n-1)/(k-1)$ (special case of $a$). Every
+  participant can see only $k-1$ participants per meal, and needs
+  to see $n-1$ participants.
+\item
+  $a$: Suppose $n=m*k+l$ with
+  $0\leq l<k$. There are $n(n-1)/2$ pairs.
+  At most $m*k*(k-1)/2+l*(l-1)/2$ pairs can be formed per meal.
+  So $T(n,k)$ is at least equal to the quotient of these 2.
+\item
+  $c$: If $n=m*k+1$ then this bound is
+  $n(n-1)/(m*k*(k-1))=n/(k-1)$. Suppose
+  $k-1|n$ (i.e.
+  $n\equiv -(k-1)\mod k(k-1)$). Then
+  $T(n,k)\geq n/(k-1)+1$, because if it's possible after
+  $n/(k-1)$ days, we need to form $m*k*(k-1)/2$ new
+  connections every meal. This means that
+\item
+  Every table needs to be size $k$, except for 1 table of size 1
+  every meal.
+\item
+  Nobody can meet the same person twice. This means that after every
+  meal, the number of participants participant A has met is divisible by
+  $k-1$, so it can never equal $n-1$.
+\item
+  $d$: see \emph{Known Values}.
+\item
+  $e$: proven for this special case, see below. (We don't use
+  $e$ if another letter applies.)
+\end{itemize}
+
+\subsubsection{Upper Bounds:}\label{upper-bounds}
+
+\begin{itemize}
+\item
+  $A$: $T(km,k)\leq T(m,k)+m$ if $m$ is coprime
+  with $(k-1)!$.
+\item
+  Divide the participants into $k$ groups of $m$ people.
+  On the first $T(m,k)$ days, everyone meets every participant of
+  their group.
+\item
+  Number the participants in each group using the remainder classes
+  modulo $m$.
+\item
+  On the $m$ days after that, on day $i$
+  ($0\leq i<m$) make a table with participant $j$
+  from the first group, $j+i$ from the second group,
+  $j+2i$ from the third group, and so on. If $m$ has no
+  divisor smaller than $k$, then every participant will meet
+  every participant from another group this way.
+\item
+  In particular, this shows that if there is a perfect
+  $(m,k)$-solution and $m$ is coprime with $(k-1)!$
+  then there is a perfect $(km,k)$-solution. In particular, if
+  $p$ is prime there is a perfect $(p^k,p)$-solution.
+\item
+  $B$: $T(nl,kl)\leq T(n,k)$. This can be seen by making
+  $n$ groups of $l$ people each and always seating all
+  people in a single group together.
+\item
+  $C$: $T(nl+1,kl+1)\leq T(n,k)$. Same as $B$, but
+  make one group size $l+1$.
+\item
+  $D$: see \emph{Known Values}.
+\item
+  $E$: found solution for this special case, see below. (We don't
+  use $E$ if another letter applies.)
+\item
+  From a good solution of the social golfer's problem (see External
+  Links) we can retrieve a solution to the Happy Diner Problem.
+\item
+  Denote the solution to the social golfer's problem with $m$
+  groups and $k$ golfers per group (so $m*k$ golfers
+  total) by $G(m,k)$.
+\item
+  $F$: If $G(m,k)*(k-1)=m*k-1$ then
+  $T(m*k,k)=G(m,k)$, because this gives a perfect
+  $(m*k,k)$-solution.
+\item
+  $G$: If $G(m,k)*(k-1)=m*k-2$ then
+  $T(m*k,k)=G(m,k)+1$. This is a lower bound by
+  $a$ and a upper bound using the solution to $G(m,k)$:
+  take the solution to $G(m,k)$ for the first $G(m,k)$
+  meals. Then everyone has seen all other participants, but 1. For the
+  last meal, have one table for each of the pair of participants which
+  still need to see each other.
+\item
+  The solutions of the social golfer's problem, can be found at the
+  following links:
+
+  \begin{itemize}
+
+  \item
+    \href{http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/}{Warwick's
+    result page (2002)} has various perfect solutions with a small
+    number of participants.
+  \item
+    \href{https://www.metalevel.at/sgp/}{Markus Triska's master thesis
+    (2008)} has $G(8,4)=10$.
+  \item
+    \href{http://www.mathpuzzle.com/MAA/54-Golf\%20Tournaments/mathgames_08_14_07.html}{Edd
+    Pegg Jr.'s Math Game page (2007)} has $G(8,3)=11$ and
+    $G(7,4)=9$ and $G(9,4)=11$.
+  \end{itemize}
+\item
+  (We don't use $F$ and $G$ if another letter applies.)
+\item
+  $H$, $J$: see \emph{Known Values}.
+\end{itemize}
+
+\subsubsection{Solutions for individual
+cases}\label{solutions-for-individual-cases}
+
+\begin{itemize}
+
+\item
+  The solution $T(6,3)\geq 4$ is very detailed. Other solutions
+  with the same techniques will have much less explanation. So if you
+  don't understand the reasoning, read $T(6,3)\geq 4$ first.
+\item
+  The code using the Mathematica SAT-solver was written by Michael Trott
+  and optimized by Floris van Doorn.
+\end{itemize}
+
+\paragraph{New terminology}\label{new-terminology}
+
+\begin{itemize}
+
+\item
+  A \emph{configuration} is an assignment for the \emph{number} of
+  participants to each table (but not stating which participant goes
+  where).
+\item
+  A \emph{distribution} is a seating assignment for a single meal.
+\item
+  We say that a configuration $C$ is dominated if it has two
+  tables with $a$ and $b$ participants and
+  $a+b\leq k$.
+\item
+  In this case, we can merge these two tables and still have a valid
+  solution, so we may assume we have a solution without dominated
+  configurations.
+\end{itemize}
+
+\paragraph{$T(6,3) \geq  4$}
+
+\begin{itemize}
+
+\item
+  Suppose there is a solution in 3 days.
+\item
+  At least 2 days need configuration $(3,3)$.
+\item
+  The reason is that we need to establish 15 connections between
+  participants over 3 days.
+\item
+  We can establish at most 6 connections during a single day by
+  configuration $(3,3)$.
+\item
+  Configuration $(2,2,2)$ is not dominated, but establishes only
+  3 connections
+\item
+  Any other configuration is dominated by either $(3,3)$ or
+  $(2,2,2)$.
+\item
+  If there is at most 1 day with configuration $(3,3)$, then the
+  maximum number of established connections is
+  $6+3+3=12<15$, which is not enough.
+\item
+  Without loss of generality we can assume that the first day has
+  configuration $(3,3)$, distributed as $123456$ (i.e.
+  $1$, $2$ and $3$ sit together and $4$,
+  $5$ and $6$ sit together).
+\item
+  Now on the other days, we can establish at most 4 connections.
+\item
+  The reason is that if we use configuration $(3,3)$, then 2
+  participants on the first table already sat together on table 1, and
+  the same for the second table.
+\item
+  Therefore, configuration $(3,3)$ gives at most 4 new
+  connections.
+\item
+  We already saw that the only other non-dominated configuration gives
+  at most 3 new connections.
+\item
+  Therefore, the maximal number of connections we can establish is
+  $6+4+4=14<15$, which is not enough.
+\item
+  So there is no valid $(6,3)$-solution with 3 days.
+\item
+  A similar argument \emph{might} show that $T(12,3)\geq 7$. (but
+  $T(18,3)=9$, so it is not generally true that
+  $T(6k,3)>3k$.)
+\item
+  $G(4,3)=4$, i.e.~there is no solution where 12 participants
+  sit with different people for 5 days with a table size of 3 which
+  might indicate that $T(12,3)\geq 7$.
+\end{itemize}
+
+\paragraph{$T(12,3) \leq  6$}
+
+\begin{itemize}
+\item
+  Solution found by Mathematica SAT-solver:
+
+\begin{verbatim}
+159 278 3AC 46B
+12C 345 8AB 679
+12B 348 79A 56C
+168 25A 39B 47C
+14A 236 57B 89C
+137 249 BC 58 6A
+\end{verbatim}
+\end{itemize}
+
+\paragraph{$T(10,4) \leq  4$}
+
+\begin{itemize}
+\item
+  Solution found by hand:
+
+\begin{verbatim}
+1234 5678 90
+1259 3670 48
+1280 4679 35
+045 1267 389
+\end{verbatim}
+\end{itemize}
+
+\paragraph{$T(11,4) \geq  5$}
+
+\begin{itemize}
+
+\item
+  Suppose there is a solution in 4 days.
+\item
+  The only configurations which are not dominated are $(4,4,3)$
+  and $(3,3,3,2)$. The first adds at most 15 connections, the
+  second at most 10.
+\item
+  Therefore, on at least 3 days we need a (4,4,3) configuration. WLOG
+  day 1 is distributed $12345678ABC$.
+\item
+  For the other days any table of size 4 has 1 pair in common with day
+  1, so adds at most 5 new connections. Therefore, at lost 13 new
+  connections can be added during each day.
+\item
+  This means we cannot get 55 connections, therefore we get a
+  contradiction.
+\end{itemize}
+
+\paragraph{$T(10,5) \geq  4$}
+
+\begin{itemize}
+
+\item
+  Suppose there is a valid solution in 3 days.
+\item
+  The only configurations which are not dominated are $(5,5)$
+  (<= 20 conns), $(4,4,2)$ (<= 13 conns) and
+  $(4,3,3)$ (<= 12 conns).
+\item
+  Therefore, we need $(5,5)$ at least once. WLOG day 1 is
+  distributed $0123456789$.
+\item
+  From now on $(5,5)$ has at most 12 new conns, $(4,4,2)$
+  has at most 9 new conns and $(4,3,3)$ has at most 8 new conns.
+\item
+  This means we cannot get 45 connections, therefore we have no valid
+  solution in 3 days.
+\end{itemize}
+
+\paragraph{$T(12,5) \leq  4$}
+
+\begin{itemize}
+\item
+  Solution found by Mathematica SAT-solver:
+
+\begin{verbatim}
+12345 6789A BC
+1279 38B 456AC
+128C 4579B 36A
+126AB 379C 458
+\end{verbatim}
+\end{itemize}
+
+\paragraph{$T(13,5) \geq  5$}
+
+\begin{itemize}
+
+\item
+  This solution was found part by hand, part by computer brute-force.
+\item
+  Suppose there is a valid solution in 4 days.
+\item
+  $(5,5,3)$ or $(5,4,4)$ has to occur at least once.
+\item
+  If $(5,5,3)$ never occurs, then from day 2 on at most 18
+  connections are possible. Contradiction.
+\item
+  So day 1 is $(5,5,3)$ (23 connections).
+\item
+  From then on, at most 19 connections are possible, which has to occur
+  at least once, so day 2 is (5,5,3) with 8+8+3 new connections. This
+  can be done in 1 way (up to renaming participants)
+\item
+  Then there are 8 ways for day 3 to have 18 connections (and more is
+  impossible), possibly counting things twice. We found this number by
+  brute force.
+\item
+  For none of those 8 ways, there is a valid 4th day.
+\end{itemize}
+
+\paragraph{$T(13,6) \geq  4$}
+
+\begin{itemize}
+
+\item
+  Suppose there is a valid solution in 3 days.
+\item
+  The configurations with at least 26 connections which are not
+  dominated are $(6,6,1)$ and $(6,5,2)$, one of which has
+  to occur at least once.
+\item
+  Suppose day 1 is $(6,6,1)$. Then no other day can have more
+  than 20 connections. Day 2 has
+
+  \begin{itemize}
+
+  \item
+    $(6,6,1)$ at most 11+9 = 20 connections
+  \item
+    $(6,5,2)$ at most 11+8+1 = 20 connections (actually, less)
+  \item
+    $(6,4,3)$ and $(5,5,3)$ and $(5,4,4)$ also have
+    less than 20 connections, all other configurations are dominated.
+  \end{itemize}
+\item
+  Suppose no day is $(6,6,1)$. Then every day needs 26
+  connections exactly, which is impossible.
+\end{itemize}
+
+\paragraph{$T(14,7)\geq 4$}
+
+\begin{itemize}
+
+\item
+  Suppose there is a valid solution in 3 days.
+\item
+  The configuration $(7,7)$ has to occur, since there is no way
+  to make at least 61 connections in 2 days otherwise.
+\item
+  After $(7,7)$ at most 24 connections can be made per day. So
+  there are at most $42+24+24=90<91$
+  connections, which is not enough.
+\end{itemize}
+
+\subsection{Questions}\label{questions}
+
+\begin{itemize}
+
+\item
+  If $n\equiv k\mod k(k-1)$ is there always a perfect
+  $(n,k)$-solution? Is it true if we assume $k$ is a prime
+  power or a prime number? There is no reason to believe this, but it is
+  true for all values where the answer is known.
+\item
+  It is true for $k=3$. For $k=4$ it's true when
+  $n\leq 28$.
+\item
+  For every $n$ and $k$ is there an optimal
+  $(n,k)$-solution in which, during every meal, at most one table
+  is not completely occupied?
+\item
+  This is false. All optimal $(8,5)$-solutions have at least one
+  day with two tables of four participants. This was found by brute
+  force, but is quite easy to see by hand (to do).
+\item
+  It is probably even false that there always is an optimal
+  $(n,k)$-solution where there are $\lceil n/k\rceil$ tables each
+  day (where $\lceil x\rceil$ is the smallest integer which is at least
+  $x$). The Mathematica SAT-solver easily found a solution that
+  $T(12,3)\leq 6$, but didn't terminate within reasonable time
+  when the additional condition was imposed that only 4 tables could be
+  used per day.
+\end{itemize}
+
+\subsubsection{Conjectures}\label{conjectures}
+
+\begin{itemize}
+
+\item
+  $T(n,k)\leq n/(k-1)+O(1)*log(n)$. This should follow
+  from an inductive argument using $A$.
+\item
+  For all $k$, $T(n,k)-n/(k-1)$ is bounded by a
+  constant (independent of $n$, possibly dependent on
+  $k$).
+\item
+  This is true for $k=3$. In fact, the optimal
+  $(n,3)$-solution is at most 1 higher than the value obtained
+  from the lower bound $c$. The reason for this is that for every
+  $m$ there is a perfect $(6m+3,3)$-solution (see
+  \emph{Known values}), and the lower bound for $6m-2$ given by
+  $c$ is only 1 lower than the value for $6m+3$.
+\end{itemize}
+
+\subsection{External Links}\label{external-links}
+
+\begin{itemize}
+
+\item
+  Dagstuhl's Happy Diner Problem: we are currently writing draft
+  sequences \href{https://oeis.org/draft/A318240}{A318240} and
+  \href{https://oeis.org/draft/A318241}{A318241}.
+\item
+  We couldn't find any other place where partial solutions of this
+  problem were given.
+\item
+  On
+  \href{http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php}{Sarah's
+  Oberwolfach Problem Page} the problem has been stated and finding the
+  perfect $(n,3)$-solutions is a special case of the Oberwolfach
+  Problem.
+\item
+  Social Golfer Problem:
+\item
+  \href{http://mathworld.wolfram.com/SocialGolferProblem.html}{Wolfram
+  Mathworld}
+\item
+  \href{http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/}{Warwick's
+  result page (2002)}
+\item
+  \href{https://www.metalevel.at/sgp/}{Markus Triska's master thesis
+  (2008)}
+\item
+  \href{http://www.mathpuzzle.com/MAA/54-Golf\%20Tournaments/mathgames_08_14_07.html}{Edd
+  Pegg Jr.'s Math Game page (2007)}
+\item
+  \href{https://oeis.org/A107431}{A107431}.
+\item
+  Kirkman Triple System:
+\item
+  \href{http://mathworld.wolfram.com/KirkmanTripleSystem.html}{Wolfram
+  Mathworld},
+\item
+  \href{https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19}{Dutch
+  dissertation by Pieter Mulder (1917)} (pdf available on request).
+\item
+  \emph{Solution of Kirkman's schoolgirl problem}, Ray-Chaudhuri and
+  Wilson, 1971. In \href{http://www.ams.org/books/pspum/019/}{Proc. of
+  Symp. in Pure Math, Vol 19}. (please send pdf if you can access it.)
+\item
+  \emph{Kirkman triple systems and their generalizations: A survey},
+  Rees and Wallis, 2002. (please send pdf if you can access it.)
+  \href{https://link.springer.com/chapter/10.1007/978-1-4613-0245-2_13}{Springer}
+\item
+  Oberwolfach Problem:
+  \href{http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php}{Sarah's
+  Oberwolfach Problem Page}.
+\end{itemize}
+
+\subsection{Contributing}\label{contributing}
+
+\begin{itemize}
+
+\item
+  Contributions are welcome! Feel free to add any information. Please
+  provide links or justifications of claims you make.
+\end{itemize}
+
+
+\end{document}
