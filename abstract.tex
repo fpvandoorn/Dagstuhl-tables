@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \begin{document}
 
+We have investigated Dagstuhl's Happy Diner Problem to find optimal seating arrangements during the meals at Dagstuhl. 
+
 \textbf{The problem statement:} What is the minimum number of meals so
 that each of the $n$ conference participants can share at least one
 meal with every other participant when eating at tables of at most $k$
@@ -25,8 +27,8 @@ Github~\cite{dagstuhl-gh}, and is ongoing.
   entries in the table without any further exhaustive searches.
 \item We have manually computed certain entries $T(n,k)$, allowing us
   to fill in certain regions of the table.
-\item We have used Mathematica's built-in SAT solver to compute
-  $T(n,k)$ for higher values of $n$ and $k$.
+\item We collaborated with Michael Trott to use Mathematica's built-in SAT solver to find upper bounds for 
+  $T(n,k)$ for certain values of $n$ and $k$.
 \item We have compared this problem with various related problems,
   such as the Oberwolfach problem~\cite{oberwolfach}, the Social
   Golfer problem~\cite{golf-mathworld,golf-oeis}, and finding Kirkman
@@ -43,44 +45,43 @@ We have summarized the results in Table~\ref{tab:dagstuhl}.
 \begin{table}
   \centering
 \begin{tabular}{@{}c|lllllll@{}}
-n / k & 2 & 3 & 4 & 5 & 6 & 7 & 8\tabularnewline
+$n$ / $k$ & 2 & 3 & 4 & 5 & 6 & 7 & 8\tabularnewline
 \hline
 1 & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} &
 \textbf{0} & \textbf{0}\tabularnewline
 2 & \textbf{1} & 1 & 1 & 1 & 1 & 1 & 1\tabularnewline
 3 & 3 & \textbf{1} & 1 & 1 & 1 & 1 & 1\tabularnewline
-4 & \textbf{3} & 3 cd & \textbf{1} & 1 & 1 & 1 & 1\tabularnewline
-5 & 5 & 3 C & 3 d & \textbf{1} & 1 & 1 & 1\tabularnewline
-6 & \textbf{5} & 4 e & 3 & 3 d & \textbf{1} & 1 & 1\tabularnewline
-7 & 7 & 4 & 3 & 3 & 3 d & \textbf{1} & 1\tabularnewline
-8 & \textbf{7} & 4 & 3 B & 3 & 3 & 3 d & \textbf{1}\tabularnewline
-9 & 9 & \textbf{4} AH & 4 c & 3 C & 3 & 3 & 3 d\tabularnewline
-10 & \textbf{9} & 6 c & 4 E & 4 e & 3 & 3 & 3\tabularnewline
-11 & 11 & 6 & 5 e & 4 & 3 & 3 & 3\tabularnewline
-12 & \textbf{11} & 6 E & 5 & 4 E & 3 B & 3 & 3\tabularnewline
-13 & 13 & 7 a & 5 & 5 e & 4 e & 3 C & 3\tabularnewline
-14 & \textbf{13} & 7 & 5 & 5 & 4 & 4 e & 3\tabularnewline
-15 & 15 & \textbf{7} F & 5 & 5 & 4 & 4 & 3\tabularnewline
-16 & \textbf{15} & 9 c & \textbf{5} H & 5 & 4 & 4 & 3 B\tabularnewline
-17 & 17 & 9 & 6-9 a & 5 C & 4 & 4 & 3-4\tabularnewline
-18 & \textbf{17} & 9 G & 7-9 a & 5-6 & 4 B & 4 & 3-4\tabularnewline
-19 & 19 & 10 a & 7-9 & 5-6 & 5-6 a & 4 C & 3-4\tabularnewline
-20 & \textbf{19} & 10 & 7-9 & 5-6 & 5-6 & 4-6 & 4 a B\tabularnewline
-21 & 21 & \textbf{10} F & 8-9 c & 6 a & 5-6 & 4-6 & 4-5\tabularnewline
-22 & \textbf{21} & 12 c & 8-9 & 6 & 5-6 & 4-6 & 4-5\tabularnewline
+4 & \textbf{3} & 3 & \textbf{1} & 1 & 1 & 1 & 1\tabularnewline
+5 & 5 & 3 & 3 & \textbf{1} & 1 & 1 & 1\tabularnewline
+6 & \textbf{5} & 4 & 3 & 3 & \textbf{1} & 1 & 1\tabularnewline
+7 & 7 & 4 & 3 & 3 & 3 & \textbf{1} & 1\tabularnewline
+8 & \textbf{7} & 4 & 3 & 3 & 3 & 3 & \textbf{1}\tabularnewline
+9 & 9 & \textbf{4} & 4 & 3 & 3 & 3 & 3\tabularnewline
+10 & \textbf{9} & 6 & 4 & 4 & 3 & 3 & 3\tabularnewline
+11 & 11 & 6 & 5 & 4 & 3 & 3 & 3\tabularnewline
+12 & \textbf{11} & 6 & 5 & 4 & 3 & 3 & 3\tabularnewline
+13 & 13 & 7 & 5 & 5 & 4 & 3 & 3\tabularnewline
+14 & \textbf{13} & 7 & 5 & 5 & 4 & 4 & 3\tabularnewline
+15 & 15 & \textbf{7} & 5 & 5 & 4 & 4 & 3\tabularnewline
+16 & \textbf{15} & 9 & \textbf{5} & 5 & 4 & 4 & 3\tabularnewline
+17 & 17 & 9 & 6-9 & 5 & 4 & 4 & 3-4\tabularnewline
+18 & \textbf{17} & 9 & 7-9 & 5-6 & 4 & 4 & 3-4\tabularnewline
+19 & 19 & 10 & 7-9 & 5-6 & 5-6 & 4 & 3-4\tabularnewline
+20 & \textbf{19} & 10 & 7-9 & 5-6 & 5-6 & 4-6 & 4\tabularnewline
+21 & 21 & \textbf{10} & 8-9 & 6 & 5-6 & 4-6 & 4-5\tabularnewline
+22 & \textbf{21} & 12 & 8-9 & 6 & 5-6 & 4-6 & 4-5\tabularnewline
 23 & 23 & 12 & 8-9 & 6 & 5-6 & 4-6 & 4-5\tabularnewline
-24 & \textbf{23} & 12 G & 8-9 & 6 & 5-6 & 5-6 a & 4-5\tabularnewline
-25 & 25 & 13 a & 9 a & \textbf{6} AH & 6 c & 5-6 & 4-5\tabularnewline
-26 & \textbf{25} & 13 & 9 & 7-9 a & 6 C & 5-6 & 4-5\tabularnewline
-27 & 27 & \textbf{13} AH & 9 & 7-9 & 6-7 & 5-6 C & 5 a\tabularnewline
-28 & \textbf{27} & 15-16 c & \textbf{9} F & 8-9 a & 6-7 & 5-7 &
+24 & \textbf{23} & 12 & 8-9 & 6 & 5-6 & 5-6 & 4-5\tabularnewline
+25 & 25 & 13 & 9 & \textbf{6} & 6 & 5-6 & 4-5\tabularnewline
+26 & \textbf{25} & 13 & 9 & 7-9 & 6 & 5-6 & 4-5\tabularnewline
+27 & 27 & \textbf{13} & 9 & 7-9 & 6-7 & 5-6 & 5\tabularnewline
+28 & \textbf{27} & 15-16 & \textbf{9} & 8-9 & 6-7 & 5-7 &
 5\tabularnewline
-29 & 29 & 15-16 & 10-11 a & 8-9 C & 6-7 & 5-7 & 5\tabularnewline
-30 & \textbf{29} & 15-16 J & 11 a G & 8-11 & 6-7 B & 5-7 & 5
-B\tabularnewline
+29 & 29 & 15-16 & 10-11 & 8-9 & 6-7 & 5-7 & 5\tabularnewline
+30 & \textbf{29} & 15-16 & 11 & 8-11 & 6-7 & 5-7 & 5\tabularnewline
 \end{tabular}
 \caption{Table of solutions $T(n,k)$, or ranges of possible
-  solutions.  The letters correspond to explanations.  Bold numbers
+  solutions.  Bold numbers
   are optimal solutions in the sense that every conference
   participants shares a meal with every other participant
   \emph{exactly} once.}
@@ -103,6 +104,9 @@ B\tabularnewline
   M.\ Wilson. \textsl{Solution of Kirkman's schoolgirl problem}. In
   Proc.\ of Symp.\ in Pure Math, Vol 19, 1971.
 \end{thebibliography}
+
+\clearpage
+
 \section{Dagstuhl's Happy Diner
 Problem}\label{dagstuhls-happy-diner-problem}
 
