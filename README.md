@@ -202,8 +202,6 @@ The bolded values indicate perfect solutions (see below).
   * We already saw that the only other non-dominated configuration gives at most 3 new connections.
 * Therefore, the maximal number of connections we can establish is `6 + 4 + 4 = 14 < 15`, which is not enough.
 * So there is no valid `(6,3)`-solution with 3 days.
-* A similar argument *might* show that `T(12,3) ≥ 7`. (but `T(18,3) = 9`, so it is not generally true that `T(6k,3) > 3k`.)
-  * `G(4,3) = 4`, i.e. there is no solution where 12 participants sit with different people for 5 days with a table size of 3 which might indicate that `T(12,3) ≥ 7`.
 
 #### `T(12,3) ≤ 6`
 * Solution found by Mathematica SAT-solver:
