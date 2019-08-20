@@ -43,7 +43,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 Legend:
 * We use lower-case letters `a`-`f` (or `↘`) to justify lower bounds and upper-case letters `A`-`J` (or `↖`) to justify upper bounds, which are explained below.
 * No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
-* We have the relation `T(n+1,k+1) ≤ T(n,k)` (see *Relations*). If we use this as an upper bound we write `↖` (the value in this cell is at most the value to the top-right of this cell) and as a lower bound we write `↘` (this value is at least the value to the bottom-left).
+* We have the relation `T(n+1,k+1) ≤ T(n,k)` (see [Relations](#relations)). If we use this as an upper bound we write `↖` (the value in this cell is at most the value to the top-right of this cell) and as a lower bound we write `↘` (this value is at least the value to the bottom-left).
 * The bolded values indicate perfect solutions (see below).
 
 ### Dual table
@@ -140,7 +140,7 @@ Legend:
   * `T(32,4)=11` is an optimal solution. This follows from `G`.
 
 ### Lower Bounds:
-* `↘`/`→`: The relation `T(n,k) ≥ T(n+1,k+1)` can sometimes be used as a lower bound. See *Relations*.
+* `↘`/`→`: The relation `T(n,k) ≥ T(n+1,k+1)` can sometimes be used as a lower bound. See [Relations](#relations).
 * `T(n,k) ≥ (n-1)/(k-1)` (special case of `a`). Every participant can see only `k-1` participants per meal, and needs to see `n-1` participants.
 * `a`: Suppose `n = m*k+l` with `0 ≤ l < k`.
   There are `n(n-1)/2` pairs.
@@ -158,7 +158,7 @@ Legend:
 * `e`: proven for this special case, see below. (We don't use `e` if another letter applies.)
 * `f`: If `k` is odd then `T(2k,k) ≥ 4`.
   * This also implies that for even `k` we have `T(2k+1,k) ≥ T(2(k+1),k+1) ≥ 4`
-  * For the proof we will use the terminology given under *Solutions for Individual Cases*. Note that all non-dominated distributions use 2 or 3 tables.
+  * For the proof we will use the terminology given under [Solutions for Individual Cases](#solutions-for-individual-cases). Note that all non-dominated distributions use 2 or 3 tables.
   * Suppose this can be done in 3 days.
   * Suppose the assignment for day 1 is `{a, b, c}` with `k ≥ |a| ≥ |b| ≥ |c| ≥ 0`. We may assume that `|a|` is the largest among all table sizes on all days.
   * Let `x ∈ a` and let `x ∈ a₂ ⊆ a`, `b₂ ⊆ b` and `c₂ ⊆ c` be the participants of the table containing `x` on day 2. We may assume that `b₂ ≠ ∅` (by interchanging day 2 and 3), and from this we can conclude that `a₂ ≠ a` (otherwise `|a|` was not largest).
@@ -175,7 +175,7 @@ Legend:
   * Since `k` is odd, we have `max(|a₂|, |a \ a₂|) > k / 2` and `max(|b₂|, |b \ a₂|) > k / 2`, which means that on either day 2 or day 3 there was a table with more that `k` participants. Contradiction!
 
 ### Upper Bounds:
-* `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See *Relations*.
+* `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See [Relations](#relations).
 * `A`: `T(km,k) ≤ T(m,k) + m` if `m` is coprime with `(k-1)!`.
   * Divide the participants into `k` groups of `m` people. On the first `T(m,k)` days, everyone meets every participant of their group.
   * Number the participants in each group using the remainder classes modulo `m`.
@@ -194,11 +194,11 @@ Legend:
     * [Markus Triska's master thesis (2008)](https://www.metalevel.at/sgp/) has `G(8,4) = 10`.
     * [Edd Pegg Jr.'s Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
   * (We don't use `F` and `G` if another letter applies.)
-* `H`, `J`: see *Known Values*.
+* `H`, `J`: see [Known Values](#known-values).
 
 ### Solutions for Individual Cases
 
-* The solution `T(6,3) ≥ 4` is very detailed. Other solutions with the same techniques will have much less explanation. So if you don't understand the reasoning, read `T(6,3) ≥ 4` first (See *Obsolete Cases*).
+* The solution `T(6,3) ≥ 4` is very detailed. Other solutions with the same techniques will have much less explanation. So if you don't understand the reasoning, read `T(6,3) ≥ 4` first (See [Obsolete Cases](#obsolete-cases)).
 * The code using the Mathematica SAT-solver was written by Michael Trott and optimized by Floris van Doorn.
 
 #### New terminology
@@ -318,7 +318,7 @@ Legend:
 * `T(n,k) ≤ n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
 * For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
   * This is true for `k = 3`. In fact, the optimal `(n,3)`-solution is at most 1 higher than the value obtained from the lower bound `c`.
-    The reason for this is that for every `m` there is a perfect `(6m+3,3)`-solution (see *Known values*), and the lower bound for `6m-2` given by `c` is only 1 lower than the value for `6m+3`.
+    The reason for this is that for every `m` there is a perfect `(6m+3,3)`-solution (see [Known Values](#known-values)), and the lower bound for `6m-2` given by `c` is only 1 lower than the value for `6m+3`.
 
 ## External Links
 
