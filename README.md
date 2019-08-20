@@ -17,11 +17,11 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   6   |  **5**   |    4   f   |    3       |    3   d   |  **1**     |    1       |    1       |
 |   7   |    7     |    4       |    3       |    3       |    3   d   |  **1**     |    1       |
 |   8   |  **7**   |    4       |    3   B   |    3       |    3       |    3   d   |  **1**     |
-|   9   |    9     |  **4** AH  |    4   cf  |    3  `↖`  |    3       |    3       |    3   d   |
-|   10  |  **9**   |    6   c   |    4   E   |    4   f   |    3       |    3       |    3       |
+|   9   |    9     |  **4** AH  |    4  c`↘` |    3  `↖`  |    3       |    3       |    3   d   |
+|   10  |  **9**   |    6   c   |    4  `↖`  |    4   f   |    3       |    3       |    3       |
 |   11  |   11     |    6       |    5   e   |    4       |    3       |    3       |    3       |
 |   12  | **11**   |    6   E   |    5       |    4   E   |    3   B   |    3       |    3       |
-|   13  |   13     |    7   a   |    5       |    5   e   |    4   f   |    3  `↖`  |    3       |
+|   13  |   13     |    7   a   |    5       |    5   e   |    4  `↘`  |    3  `↖`  |    3       |
 |   14  | **13**   |    7       |    5       |    5       |    4       |    4   f   |    3       |
 |   15  |   15     |  **7** F   |    5       |    5       |    4       |    4       |    3       |
 |   16  | **15**   |    9   c   |  **5** H   |    5       |    4       |    4       |    3   B   |
@@ -41,24 +41,25 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   30  | **29**   | 15-16  J   |   11   a G |   8-11     |   6-7  B   |   5-7      |    5   B   |
 
 Legend:
-* We use lower-case letters `a`-`e` to justify lower bounds and upper-case letters `A`-`J` (or `↖`) to justify upper bounds, which are explained below.
+* We use lower-case letters `a`-`f` (or `↘`) to justify lower bounds and upper-case letters `A`-`J` (or `↖`) to justify upper bounds, which are explained below.
 * No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
-* The explanation `↖` is given for an upper bound if it follows from `T(n+1,k+1) ≤ T(n,k)`
+* We have the relation `T(n+1,k+1) ≤ T(n,k)` (see *Relations*). If we use this as an upper bound we write `↖` (the value in this cell is at most the value to the top-right of this cell) and as a lower bound we write `↘` (this value is at least the value to the bottom-left).
 * The bolded values indicate perfect solutions (see below).
 
 ### Dual table
 * An entry in this table shows the maximal `n` such that `T(n,k) ≤ T`.
 * This table has the same information as the previous one, organized differently.
 * This table is harder to read, but much more informationally dense.
-* In this table the upper-case letters show why the entry is not smaller (why it is possible to have a solution with this number of participants) and the lower-case letters show why the entry is not larger (why it is not possible to have a solution with one more partipant).
-* The arrow `←` is used if the reason that the entry is not larger follows from `T(n+1,k+1) ≤ T(n,k)`. This means that moving one step to the right increases the value in the table by at least 1.
+* In this table the upper-case (or `←`) letters show why the entry is not smaller (why it is possible to have a solution with this number of participants) and the lower-case (or `→`) letters show why the entry is not larger (why it is not possible to have a solution with one more partipant).
+* The use of `T(n+1,k+1) ≤ T(n,k)` is indicated with `←` and `→`. `←` means that this cell strictly greater than the cell to the left, while `→` means that this cell is strictly smaller than the cell to the right.
+* Sometimes two cells point at each other (e.g. `(T,k) = (4,4)` and `(T,k) = (4,5)`). This looks circular, but it is not. It means that the upper bound of the left cell follows from the upper bound of the right cell and the lower bound of the right cell follows from the lower bound of the left cell.
 
 | T / k |  2       |   3         |   4         |   5         |   6         |   7         |  8          |
 |:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      |
 |   2   |    2     |    3     cd |    4     d  |    5     d  |    6     d  |     7    d  |    8     d  |
-|   3   |  **4**   |    5  `←`e  |    8   B c  |    9  `←`e  |   12   B e  |    13 `←`e  |   16   B a  |
-|   4   |    4     |  **9** AH   |   10   E e  |   12   E e  |   18   B a  |  19-23`←`a  | 20-26  B a  |
+|   3   |  **4**   |    5  `←`f  |    8 B c`→` |    9  `←`f  |   12   B`→` |    13 `←`f  |   16   B`→` |
+|   4   |    4     |  **9** AH   |   10  `←`e  |   12   E e  |   18   B a  |  19-23`←`a  | 20-26  B a  |
 |   5   |  **6**   |    9     c  | **16** H a  | 17-20 `←`a  | 18-24    c  |             |             |
 |   6   |    6     |   12   E a  | 16-17    a  | **25** AH a | 26-30 `←`a  |             |             |
 |   7   |  **8**   | **15** F    | 16-20    c  | 25-27    a  |             |             |             |
@@ -139,6 +140,7 @@ Legend:
   * `T(32,4)=11` is an optimal solution. This follows from `G`.
 
 ### Lower Bounds:
+* `↘`/`→`: The relation `T(n,k) ≥ T(n+1,k+1)` can sometimes be used as a lower bound. See *Relations*.
 * `T(n,k) ≥ (n-1)/(k-1)` (special case of `a`). Every participant can see only `k-1` participants per meal, and needs to see `n-1` participants.
 * `a`: Suppose `n = m*k+l` with `0 ≤ l < k`.
   There are `n(n-1)/2` pairs.
@@ -173,7 +175,7 @@ Legend:
   * Since `k` is odd, we have `max(|a₂|, |a \ a₂|) > k / 2` and `max(|b₂|, |b \ a₂|) > k / 2`, which means that on either day 2 or day 3 there was a table with more that `k` participants. Contradiction!
 
 ### Upper Bounds:
-* `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can often be used as an upper bound. See *Relations*.
+* `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See *Relations*.
 * `A`: `T(km,k) ≤ T(m,k) + m` if `m` is coprime with `(k-1)!`.
   * Divide the participants into `k` groups of `m` people. On the first `T(m,k)` days, everyone meets every participant of their group.
   * Number the participants in each group using the remainder classes modulo `m`.
@@ -237,13 +239,15 @@ Legend:
 
 #### `T(10,4) ≤ 4`
 
-* Solution found by hand:
+* `T(10,4) ≤ T(9,3) = 4`.
+* Alternative solution found by hand:
 ```
 1234 5678 90
 1259 3670 48
 1280 4679 35
 045 1267 389
 ```
+
 
 #### `T(11,4) ≥ 5`
 
