@@ -97,12 +97,12 @@ The bolded values indicate perfect solutions (see below).
 
 ### Perfect Solutions
 * Necessarily, every perfect solution is optimal.
-* Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`). 
+* Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`).
 * A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
 
 ### Known Values
 * `T(n,2) = n` if `n` is odd, `T(n,2)=n-1` if `n` is even.
-  * The lower bound is given by `c`, see below. 
+  * The lower bound is given by `c`, see below.
   * The upper bound can be obtained as follows.
     * Suppose `n = 4m`: split it up in 2 groups of size `2m`, first do those groups independently in `2m-1` days, then in the next `2m` days on day `i` let person `j` in group 1 sit with person `i+j (mod 2m)` in group 2.
     * Suppose `n = 2m` with `m` odd:
@@ -118,7 +118,7 @@ The bolded values indicate perfect solutions (see below).
     * On day 3 sit `Ceil(k/2)+1 -- n` together.
     * The upper bound `D` is worse than `B`, which shows that for even `k` we have `T(2k,k+1) ≤ T(2k,k) ≤ T(4,2) = 3`.
 * If `k` is prime and `n` is a power of `k`, then there is a perfect `(n,k)`-solution. This follows from upper bound `A` (by induction) or from the next bullet point.
-* `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution. 
+* `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution.
   * Consider the field `F` of order `k`, and a vector field `V` with cardinality `n` over `F`.
   * For every 1-dimensional subspace `L` of `V` the sets of 1-dimensional affine spaces parallel to `L` forms a partition of `V`. This defines a table assignment for a single meal.
   * The set of all table assignments determined by all 1-dimensional subspaces in this way forms a perfect `(n,k)`-solution. The reason that it is perfect follows from the fact that 1-dimensional affine spaces stand in bijective correspondence to pairs of points in `V`.
@@ -126,14 +126,14 @@ The bolded values indicate perfect solutions (see below).
 * `J`: A perfect `(n,3)`-solution for `n ≥ 3` is called a *Kirkman Triple System* and is possible iff `n ≡ 3 mod 6`.
   * This is (supposed to be) proven in *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson (1971). We couldn't find a copy of this paper.
   * Together with lower bound `a`, this gives that `T(6k+1,3) = T(6k+2,3) = T(6k+3,3) = 3k+1`.
-* Other known specific values. 
+* Other known specific values.
   * `T(32,4)=11` is an optimal solution. This follows from `G`.
 
 ### Relations:
 * `T(n+1,k) ≥ T(n,k) ≥ T(n+1,k+1) ≥ T(n,k+1)`.
   * If a value in the table can be derived from the first inequality, no other explanation is given.
   * The second inequality is a special case of upper bound `C`.
-* `T(n,k) ≤ T(n,m) * T(m,k)`. 
+* `T(n,k) ≤ T(n,m) * T(m,k)`.
   * If we have a seating arrangement for `n` participants at table size `m`, then we can give a seating arrangement for table size `k` by simulating tables of size `m` over `T(m,k)` meals.
   * This subsumes the relation `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)` above since `T(k,k+1)=1`.
   * If there is a perfect `(n,m)`-solution and a perfect `(m,k)`-solution then there is a perfect `(n,k)`-solution.
@@ -141,10 +141,10 @@ The bolded values indicate perfect solutions (see below).
 ### Lower Bounds:
 * `T(n,k) ≥ (n-1)/(k-1)` (special case of `a`). Every participant can see only `k-1` participants per meal, and needs to see `n-1` participants.
 * `a`: Suppose `n = m*k+l` with `0 ≤ l < k`.
-  There are `n(n-1)/2` pairs. 
+  There are `n(n-1)/2` pairs.
   At most `m*k*(k-1)/2+l*(l-1)/2` pairs can be formed per meal.
   So `T(n,k)` is at least equal to the quotient of these 2.
-* `c`: If `n = m*k+1` then this bound is `n(n-1)/(m*k*(k-1)) = n/(k-1)`. 
+* `c`: If `n = m*k+1` then this bound is `n(n-1)/(m*k*(k-1)) = n/(k-1)`.
   Suppose `k - 1 | n` (i.e. `n ≡ -(k-1) mod k(k-1)`). Then
   `T(n,k) ≥ n/(k-1)+1`, because if it's possible after `n/(k-1)` days, we need to form `m*k*(k-1)/2` new connections every meal. This means that
   * Every table needs to be size `k`, except for 1 table of size 1 every meal.
@@ -163,12 +163,12 @@ The bolded values indicate perfect solutions (see below).
 * `C`: `T(nl+1,kl+1) ≤ T(n,k)`. Same as `B`, but make one group size `l+1`.
 * `D`: see *Known Values*.
 * `E`: found solution for this special case, see below. (We don't use `E` if another letter applies.)
-* From a good solution of the social golfer's problem (see External Links) we can retrieve a solution to the Happy Diner Problem. 
+* From a good solution of the social golfer's problem (see External Links) we can retrieve a solution to the Happy Diner Problem.
   * Denote the solution to the social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
   * `F`: If `G(m,k)*(k-1) = m*k - 1` then `T(m*k,k) = G(m,k)`, because this gives a perfect `(m*k,k)`-solution.
   * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
   * The solutions of the social golfer's problem, can be found at the following links:
-    * [Warwick's result page (2002)](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/) has various perfect solutions with a small number of participants. 
+    * [Warwick's result page (2002)](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/) has various perfect solutions with a small number of participants.
     * [Markus Triska's master thesis (2008)](https://www.metalevel.at/sgp/) has `G(8,4) = 10`.
     * [Edd Pegg Jr.'s Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
   * (We don't use `F` and `G` if another letter applies.)
@@ -188,8 +188,8 @@ The bolded values indicate perfect solutions (see below).
 
 #### `T(6,3) ≥ 4`
 
-* Suppose there is a solution in 3 days. 
-* At least 2 days need configuration `(3,3)`. 
+* Suppose there is a solution in 3 days.
+* At least 2 days need configuration `(3,3)`.
   * The reason is that we need to establish 15 connections between participants over 3 days.
   * We can establish at most 6 connections during a single day by configuration `(3,3)`.
   * Configuration `(2,2,2)` is not dominated, but establishes only 3 connections
@@ -228,16 +228,16 @@ The bolded values indicate perfect solutions (see below).
 
 #### `T(11,4) ≥ 5`
 
-* Suppose there is a solution in 4 days. 
+* Suppose there is a solution in 4 days.
 * The only configurations which are not dominated are `(4,4,3)` and `(3,3,3,2)`. The first adds at most 15 connections, the second at most 10.
-* Therefore, on at least 3 days we need a (4,4,3) configuration. WLOG day 1 is distributed `1234 5678 ABC`. 
+* Therefore, on at least 3 days we need a (4,4,3) configuration. WLOG day 1 is distributed `1234 5678 ABC`.
 * For the other days any table of size 4 has 1 pair in common with day 1, so adds at most 5 new connections. Therefore, at lost 13 new connections can be added during each day.
 * This means we cannot get 55 connections, therefore we get a contradiction.
 
 #### `T(10,5) ≥ 4`
-* Suppose there is a valid solution in 3 days. 
+* Suppose there is a valid solution in 3 days.
 * The only configurations which are not dominated are `(5,5)` (<= 20 conns), `(4,4,2)` (<= 13 conns) and `(4,3,3)` (<= 12 conns).
-* Therefore, we need `(5,5)` at least once. WLOG day 1 is distributed `01234 56789`. 
+* Therefore, we need `(5,5)` at least once. WLOG day 1 is distributed `01234 56789`.
 * From now on `(5,5)` has at most 12 new conns, `(4,4,2)` has at most 9 new conns and `(4,3,3)` has at most 8 new conns.
 * This means we cannot get 45 connections, therefore we have no valid solution in 3 days.
 
@@ -252,8 +252,8 @@ The bolded values indicate perfect solutions (see below).
 
 #### `T(13,5) ≥ 5`
 * This solution was found part by hand, part by computer brute-force.
-* Suppose there is a valid solution in 4 days. 
-* `(5,5,3)` or `(5,4,4)` has to occur at least once. 
+* Suppose there is a valid solution in 4 days.
+* `(5,5,3)` or `(5,4,4)` has to occur at least once.
 * If `(5,5,3)` never occurs, then from day 2 on at most 18 connections are possible. Contradiction.
 * So day 1 is `(5,5,3)` (23 connections).
 * From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is (5,5,3) with 8+8+3 new connections. This can be done in 1 way (up to renaming participants)
@@ -261,16 +261,16 @@ The bolded values indicate perfect solutions (see below).
 * For none of those 8 ways, there is a valid 4th day.
 
 #### `T(13,6) ≥ 4`
-* Suppose there is a valid solution in 3 days. 
+* Suppose there is a valid solution in 3 days.
 * The configurations with at least 26 connections which are not dominated are `(6,6,1)` and `(6,5,2)`, one of which has to occur at least once.
-  * Suppose day 1 is `(6,6,1)`. Then no other day can have more than 20 connections. Day 2 has 
+  * Suppose day 1 is `(6,6,1)`. Then no other day can have more than 20 connections. Day 2 has
     * `(6,6,1)` at most 11+9 = 20 connections
     * `(6,5,2)` at most 11+8+1 = 20 connections (actually, less)
     * `(6,4,3)` and `(5,5,3)` and `(5,4,4)` also have less than 20 connections, all other configurations are dominated.
   * Suppose no day is `(6,6,1)`. Then every day needs 26 connections exactly, which is impossible.
 
 #### `T(14,7) ≥ 4`
-* Suppose there is a valid solution in 3 days. 
+* Suppose there is a valid solution in 3 days.
 * The configuration `(7,7)` has to occur, since there is no way to make at least 61 connections in 2 days otherwise.
 * After `(7,7)` at most 24 connections can be made per day. So there are at most `42 + 24 + 24 = 90 < 91` connections, which is not enough.
 
@@ -279,29 +279,29 @@ The bolded values indicate perfect solutions (see below).
   * It is true for `k = 3`. For `k = 4` it's true when `n ≤ 28`.
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
   * This is false. All optimal `(8,5)`-solutions have at least one day with two tables of four participants. This was found by brute force, but is quite easy to see by hand (to do).
-  * It is probably even false that there always is an optimal `(n,k)`-solution where there are `⌈ n/k ⌉` tables each day (where `⌈ x ⌉` is the smallest integer which is at least `x`). 
+  * It is probably even false that there always is an optimal `(n,k)`-solution where there are `⌈ n/k ⌉` tables each day (where `⌈ x ⌉` is the smallest integer which is at least `x`).
     The Mathematica SAT-solver easily found a solution that `T(12,3) ≤ 6`, but didn't terminate within reasonable time when the additional condition was imposed that only 4 tables could be used per day.
 
 ### Conjectures
 * `T(n,k) ≤ n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
 * For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
-  * This is true for `k = 3`. In fact, the optimal `(n,3)`-solution is at most 1 higher than the value obtained from the lower bound `c`. 
+  * This is true for `k = 3`. In fact, the optimal `(n,3)`-solution is at most 1 higher than the value obtained from the lower bound `c`.
     The reason for this is that for every `m` there is a perfect `(6m+3,3)`-solution (see *Known values*), and the lower bound for `6m-2` given by `c` is only 1 lower than the value for `6m+3`.
 
 ## External Links
 
-* Dagstuhl's Happy Diner Problem: we are currently writing draft sequences [A318240](https://oeis.org/draft/A318240) and [A318241](https://oeis.org/draft/A318241).
-  * We couldn't find any other place where partial solutions of this problem were given.
-  * On [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php) the problem has been stated and finding the perfect `(n,3)`-solutions is a special case of the Oberwolfach Problem.
-* Social Golfer Problem: 
-  * [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html) 
+* Dagstuhl's Happy Diner Problem:
+  * We submitted two sequences to the OEIS: [A318240](https://oeis.org/A318240) and [A318241](https://oeis.org/A318241).
+  * The problem is stated on [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php). Finding the perfect `(n,3)`-solutions is a special case of the Oberwolfach Problem.
+* Social Golfer Problem:
+  * [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html)
   * [Warwick's result page (2002)](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/)
   * [Markus Triska's master thesis (2008)](https://www.metalevel.at/sgp/)
   * [Edd Pegg Jr.'s Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html)
   * [A107431](https://oeis.org/A107431).
-* Kirkman Triple System: 
-  * [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html), 
-  * [Dutch dissertation by Pieter Mulder (1917)](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19) (pdf available on request).
+* Kirkman Triple System:
+  * [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html),
+  * [Dutch dissertation by Pieter Mulder (1917)](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19).
   * *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson, 1971. In [Proc. of Symp. in Pure Math, Vol 19](http://www.ams.org/books/pspum/019/). (please send pdf if you can access it.)
   * *Kirkman triple systems and their generalizations: A survey*, Rees and Wallis, 2002. (please send pdf if you can access it.) [Springer](https://link.springer.com/chapter/10.1007/978-1-4613-0245-2_13)
 * Oberwolfach Problem: [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php).
