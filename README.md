@@ -13,52 +13,54 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   2   |  **1**   |    1       |    1       |    1       |    1       |    1       |    1       |
 |   3   |    3     |  **1**     |    1       |    1       |    1       |    1       |    1       |
 |   4   |  **3**   |    3   cd  |  **1**     |    1       |    1       |    1       |    1       |
-|   5   |    5     |    3   C   |    3   d   |  **1**     |    1       |    1       |    1       |
-|   6   |  **5**   |    4   e   |    3       |    3   d   |  **1**     |    1       |    1       |
+|   5   |    5     |    3   ↖   |    3   d   |  **1**     |    1       |    1       |    1       |
+|   6   |  **5**   |    4   f   |    3       |    3   d   |  **1**     |    1       |    1       |
 |   7   |    7     |    4       |    3       |    3       |    3   d   |  **1**     |    1       |
 |   8   |  **7**   |    4       |    3   B   |    3       |    3       |    3   d   |  **1**     |
-|   9   |    9     |  **4** AH  |    4   c   |    3   C   |    3       |    3       |    3   d   |
-|   10  |  **9**   |    6   c   |    4   E   |    4   e   |    3       |    3       |    3       |
+|   9   |    9     |  **4** AH  |    4   cf  |    3   ↖   |    3       |    3       |    3   d   |
+|   10  |  **9**   |    6   c   |    4   E   |    4   f   |    3       |    3       |    3       |
 |   11  |   11     |    6       |    5   e   |    4       |    3       |    3       |    3       |
 |   12  | **11**   |    6   E   |    5       |    4   E   |    3   B   |    3       |    3       |
-|   13  |   13     |    7   a   |    5       |    5   e   |    4   e   |    3   C   |    3       |
-|   14  | **13**   |    7       |    5       |    5       |    4       |    4   e   |    3       |
+|   13  |   13     |    7   a   |    5       |    5   e   |    4   f   |    3   ↖   |    3       |
+|   14  | **13**   |    7       |    5       |    5       |    4       |    4   f   |    3       |
 |   15  |   15     |  **7** F   |    5       |    5       |    4       |    4       |    3       |
 |   16  | **15**   |    9   c   |  **5** H   |    5       |    4       |    4       |    3   B   |
-|   17  |   17     |    9       |   6-9  a   |    5   C   |    4       |    4       |   3-4      |
-|   18  | **17**   |    9   G   |   7-9  a   |   5-6      |    4   B   |    4       |   3-4      |
-|   19  |   19     |   10   a   |   7-9      |   5-6      |   5-6  a   |    4   C   |   3-4      |
-|   20  | **19**   |   10       |   7-9      |   5-6      |   5-6      |   4-6      |    4   a B |
+|   17  |   17     |    9       |   6-9  a   |    5   ↖   |    4       |    4       |    4   f   |
+|   18  | **17**   |    9   G   |   7-9  a   |   5-6      |    4   B   |    4       |    4       |
+|   19  |   19     |   10   a   |   7-9      |   5-6      |   5-6  a   |    4   ↖   |    4       |
+|   20  | **19**   |   10       |   7-9      |   5-6      |   5-6      |   4-6      |    4   B   |
 |   21  |   21     | **10** F   |   8-9  c   |    6   a   |   5-6      |   4-6      |   4-5      |
 |   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |   4-6      |   4-5      |
 |   23  |   23     |   12       |   8-9      |    6       |   5-6      |   4-6      |   4-5      |
 |   24  | **23**   |   12   G   |   8-9      |    6       |   5-6      |   5-6  a   |   4-5      |
 |   25  |   25     |   13   a   |    9   a   |  **6** AH  |    6   c   |   5-6      |   4-5      |
-|   26  | **25**   |   13       |    9       |   7-9  a   |    6   C   |   5-6      |   4-5      |
-|   27  |   27     | **13** AH  |    9       |   7-9      |   6-7      |   5-6  C   |    5   a   |
+|   26  | **25**   |   13       |    9       |   7-9  a   |    6   ↖   |   5-6      |   4-5      |
+|   27  |   27     | **13** AH  |    9       |   7-9      |   6-7      |   5-6  ↖   |    5   a   |
 |   28  | **27**   | 15-16  c   |  **9** F   |   8-9  a   |   6-7      |   5-7      |    5       |
-|   29  |   29     | 15-16      |  10-11 a   |   8-9  C   |   6-7      |   5-7      |    5       |
+|   29  |   29     | 15-16      |  10-11 a   |   8-9  ↖   |   6-7      |   5-7      |    5       |
 |   30  | **29**   | 15-16  J   |   11   a G |   8-11     |   6-7  B   |   5-7      |    5   B   |
 
-Legend: we use lower-case letters `a`-`e` to justify lower bounds and upper-case letters `A`-`J` to justify upper bounds, which are explained below.
-No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
-
-The bolded values indicate perfect solutions (see below).
+Legend:
+* We use lower-case letters `a`-`e` to justify lower bounds and upper-case letters `A`-`J` (or `↖`) to justify upper bounds, which are explained below.
+* No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
+* The explanation `↖` is given for an upper bound if it follows from `T(n+1,k+1) ≤ T(n,k)`
+* The bolded values indicate perfect solutions (see below).
 
 ### Dual table
 * An entry in this table shows the maximal `n` such that `T(n,k) ≤ T`.
 * This table has the same information as the previous one, organized differently.
 * This table is harder to read, but much more informationally dense.
 * In this table the upper-case letters show why the entry is not smaller (why it is possible to have a solution with this number of participants) and the lower-case letters show why the entry is not larger (why it is not possible to have a solution with one more partipant).
+* The arrow `←` is used if the reason that the entry is not larger follows from `T(n+1,k+1) ≤ T(n,k)`. This means that moving one step to the right increases the value in the table by at least 1.
 
 | T / k |  2       |   3         |   4         |   5         |   6         |   7         |  8          |
 |:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      |
-|   2   |    2     |    3     cd |    4     d  |    5     d  |    6     d  |    7     d  |    8     d  |
-|   3   |  **4**   |    5   C e  |    8   B c  |    9   C e  |   12   B e  |   13   C e  | 16-19  B a  |
-|   4   |    4     |  **9** AH   |   10   E e  |   12   E e  |   18   B a  |  19-23 C a  | 20-26  B a  |
-|   5   |  **6**   |    9     c  | **16** H a  | 17-20  C a  | 18-24    c  |             |             |
-|   6   |    6     |   12   E a  | 16-17    a  | **25** AH a | 26-30  C a  |             |             |
+|   2   |    2     |    3     cd |    4     d  |    5     d  |    6     d  |     7    d  |    8     d  |
+|   3   |  **4**   |    5   ← e  |    8   B c  |    9   ← e  |   12   B e  |    13  ← e  |   16   B a  |
+|   4   |    4     |  **9** AH   |   10   E e  |   12   E e  |   18   B a  |  19-23 ← a  | 20-26  B a  |
+|   5   |  **6**   |    9     c  | **16** H a  | 17-20  ← a  | 18-24    c  |             |             |
+|   6   |    6     |   12   E a  | 16-17    a  | **25** AH a | 26-30  ← a  |             |             |
 |   7   |  **8**   | **15** F    | 16-20    c  | 25-27    a  |             |             |             |
 |   8   |    8     |   15     c  | 16-24    a  |             |             | **49** AH a |             |
 |   9   | **10**   |   18   G a  | **28** F a  |             |             |             |             |
@@ -90,7 +92,7 @@ The bolded values indicate perfect solutions (see below).
 * Given a table assignment for 1 or more meals. We say that this is a *valid solution* if every participant meet every other participant at least once.
 * A valid solution with `n` participants and table size of at most `k` is called a `(n,k)`-*solution*.
 * Given a valid solution. We say that it is an *optimal solution* if there is no valid solution (with the same `n` and `k`) with fewer days.
-* Given a valid solution. We say that it is a *perfect solution* if every participant meets every other participant exactly once.
+* Given a valid solution. We say that it is a *perfect solution* if every participant meets every other participant exactly once and all tables have `k` every meal.
 * The *Social Golfer Problem* is similar: what is the maximum possible of meals such that no two participants sit at the same table? `G(m,k)` is the maximal number with `m*k` participants and where each table contains **exactly** `k` participants.
 
 ## Properties
@@ -100,23 +102,30 @@ The bolded values indicate perfect solutions (see below).
 * Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`).
 * A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
 
+### Relations:
+* `T(n+1,k) ≥ T(n,k) ≥ T(n+1,k+1) ≥ T(n,k+1)`.
+  * If a value in the table can be derived from the first inequality, no other explanation is given.
+  * The second inequality follows by treating two of the `n+1` people as a single person (always seating them together), and then applying a `(n,k)`-solution.
+* `T(n,k) ≤ T(n,m) * T(m,k)`.
+  * If we have a seating arrangement for `n` participants at table size `m`, then we can give a seating arrangement for table size `k` by simulating tables of size `m` over `T(m,k)` meals.
+  * This subsumes the relation `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)` above since `T(k,k+1)=1`.
+  * If there is a perfect `(n,m)`-solution and a perfect `(m,k)`-solution then there is a perfect `(n,k)`-solution.
+
 ### Known Values
+* `T(n,k) = 1` if `n ≤ k` trivially.
 * `T(n,2) = n` if `n` is odd, `T(n,2)=n-1` if `n` is even.
-  * The lower bound is given by `c`, see below.
+  * The lower bound is given by `a`, see below.
   * The upper bound can be obtained as follows.
     * Suppose `n = 4m`: split it up in 2 groups of size `2m`, first do those groups independently in `2m-1` days, then in the next `2m` days on day `i` let person `j` in group 1 sit with person `i+j (mod 2m)` in group 2.
     * Suppose `n = 2m` with `m` odd:
       * For the first `m` days: on day `i` let person `i` sit with `i+m` and person `i+j` with `i-j`.
       * For the next `m-1` days, on day `2k-1` and `2k` let person `i` sit with the persons `i+2k-1` and `i-(2k-1)`. If `i` is even it will sit with `i+2k-1` first, and if `i` is odd it will sit with `i-(2k-1)` first.
     * Suppose `n` is odd, then we can use the solution for `n+1` participants, dropping 1 participant.
-* `T(n,k) = 1` if `n ≤ k`.
-* If `k < n ≤ (3/2)k` then `T(n,k) = 3`.
-  * `d`: It cannot be done in 2 days, because on day 1 there are at least 2 tables. All participants on table 1 need to be sit with all participants not on table 1 on day 2, but that means that everyone needs to sit together on day 2. Contradiction.
-  * `D`: It can be done in 3 days. Suppose `2k-n ≥ Ceil(k/2)`, i.e. `2k-n ≥ k/2`, i.e. `3k ≥ 2n`. Then 3 sets of size `k` can cover all pairs.
-    * On day 1 sit participants `1--k` together.
-    * On day 2 sit `(k+1)--n` and participants `1--Ceil(k/2)` together.
-    * On day 3 sit `Ceil(k/2)+1 -- n` together.
-    * The upper bound `D` is worse than `B`, which shows that for even `k` we have `3 ≤ T(2k+1,k+1) ≤ T(2k,k) ≤ T(4,2) = 3`.
+* If `k` is even and `k < n ≤ 2k` then `T(n,k) = 3`. Also, if `k` is odd and `k < n < 2k` then `T(n,k) = 3`. These are *all* the values for `(n,k)` where `T(n,k) = 3`.
+  * If `n > k` then `T(n,k) ≥ 3` is explained by the lower bound `d`.
+  * If `k` is even and `n ≤ 2k` then `T(n,k) ≤ 3` is explained by the upper bound `B`.
+  * If `k` is odd and `n ≤ 2k` then `T(n,k) ≤ 3` is explained by the upper bound `B`.
+  * For smaller `n` we have `T(n,k) = 1` and for larger `n` we have `T(n,k) ≥ 4` by lower bound `f`.
 * If `k` is prime and `n` is a power of `k`, then there is a perfect `(n,k)`-solution. This follows from upper bound `A` (by induction) or from the next bullet point.
 * `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution.
   * Consider the field `F` of order `k`, and a vector field `V` with cardinality `n` over `F`.
@@ -129,41 +138,52 @@ The bolded values indicate perfect solutions (see below).
 * Other known specific values.
   * `T(32,4)=11` is an optimal solution. This follows from `G`.
 
-### Relations:
-* `T(n+1,k) ≥ T(n,k) ≥ T(n+1,k+1) ≥ T(n,k+1)`.
-  * If a value in the table can be derived from the first inequality, no other explanation is given.
-  * The second inequality is a special case of upper bound `C`.
-* `T(n,k) ≤ T(n,m) * T(m,k)`.
-  * If we have a seating arrangement for `n` participants at table size `m`, then we can give a seating arrangement for table size `k` by simulating tables of size `m` over `T(m,k)` meals.
-  * This subsumes the relation `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)` above since `T(k,k+1)=1`.
-  * If there is a perfect `(n,m)`-solution and a perfect `(m,k)`-solution then there is a perfect `(n,k)`-solution.
-
 ### Lower Bounds:
 * `T(n,k) ≥ (n-1)/(k-1)` (special case of `a`). Every participant can see only `k-1` participants per meal, and needs to see `n-1` participants.
 * `a`: Suppose `n = m*k+l` with `0 ≤ l < k`.
   There are `n(n-1)/2` pairs.
   At most `m*k*(k-1)/2+l*(l-1)/2` pairs can be formed per meal.
   So `T(n,k)` is at least equal to the quotient of these 2.
-* `c`: If `n = m*k+1` then this bound is `n(n-1)/(m*k*(k-1)) = n/(k-1)`.
-  Suppose `k - 1 | n` (i.e. `n ≡ -(k-1) mod k(k-1)`). Then
+* `b`: *obsolete*.
+* `c`: If `n = m*k+1` then the bound from `a` is `n(n-1)/(m*k*(k-1)) = n/(k-1)`.
+  Suppose `k - 1 | n` (i.e. `n ≡ -(k-1) mod k(k-1)`) and `k > 2`. Then
   `T(n,k) ≥ n/(k-1)+1`, because if it's possible after `n/(k-1)` days, we need to form `m*k*(k-1)/2` new connections every meal. This means that
   * Every table needs to be size `k`, except for 1 table of size 1 every meal.
   * Nobody can meet the same person twice.
   This means that after every meal, the number of participants participant A has met is divisible by `k-1`, so it can never equal `n-1`.
-* `d`: see *Known Values*.
+* `d`: If `n > k` then `T(n,k) ≥ 3`.
+  * It cannot be done in 2 days, because on day 1 there are at least 2 tables. All participants on table 1 need to be sit with all participants not on table 1 on day 2, but that means that everyone needs to sit together on day 2. Contradiction.
 * `e`: proven for this special case, see below. (We don't use `e` if another letter applies.)
+* `f`: If `k` is odd then `T(2k,k) ≥ 4`.
+  * This also implies that for even `k` we have `T(2k+1,k) ≥ T(2(k+1),k+1) ≥ 4`
+  * For the proof we will use the terminology given under *Solutions for individual cases*. Note that all non-dominated distributions use 2 or 3 tables.
+  * Suppose this can be done in 3 days.
+  * Suppose the assignment for day 1 is `{a, b, c}` with `k ≥ |a| ≥ |b| ≥ |c| ≥ 0`. We may assume that `|a|` is the largest among all table sizes on all days.
+  * Let `x ∈ a` and let `x ∈ a₂ ⊆ a`, `b₂ ⊆ b` and `c₂ ⊆ c` be the participants of the table containing `x` on day 2. We may assume that `b₂ ≠ ∅` (by interchanging day 2 and 3), and from this we can conclude that `a₂ ≠ a` (otherwise `|a|` was not largest).
+  * Now on day 3, all of the following must be true
+    * Everyone in `a₂` has to meet everyone in `b \ b₂` and `c \ c₂`, so they must all be at the same table.
+    * Everyone in `a \ a₂` has to meet everyone in `b₂` and `c₂`.
+    * Everyone in `b₂` has to additionally meet everyone in `c \ c₂`.
+  * Since not everyone can be at the same table, this means that `c₂ = c`.
+  * The table assignment on day 3 must be `{ a₂ ∪ (b \ b₂), (a \ a₂) ∪ b₂ ∪ c }`.
+  * `b₂ ≠ b`, since otherwise `|a₂ ∪ b₂ ∪ c₂| > k`.
+  * Everyone in `b \ b₂` has never seen anyone in `c`, which means that `c = ∅`.
+  * This means that `|a| = |b| = k`
+  * Everyone in `a \ a₂` and everyone in `b \ b₂` must have seen each other on day 2, so the table assignment on day 2 was `{ a₂ ∪ b₂ (a \ a₂) ∪ (b \ b₂) }`.
+  * Since `k` is odd, we have `max(|a₂|, |a \ a₂|) > k / 2` and `max(|b₂|, |b \ a₂|) > k / 2`, which means that on either day 2 or day 3 there was a table with more that `k` participants. Contradiction!
 
 ### Upper Bounds:
+* `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can often be used as an upper bound. See *Relations*.
 * `A`: `T(km,k) ≤ T(m,k) + m` if `m` is coprime with `(k-1)!`.
   * Divide the participants into `k` groups of `m` people. On the first `T(m,k)` days, everyone meets every participant of their group.
   * Number the participants in each group using the remainder classes modulo `m`.
   * On the `m` days after that, on day `i` (`0≤i<m`) make a table with participant `j` from the first group, `j+i` from the second group, `j+2i` from the third group, and so on. If `m` has no divisor smaller than `k`, then every participant will meet every participant from another group this way.
   * In particular, this shows that if there is a perfect `(m,k)`-solution and `m` is coprime with `(k-1)!` then there is a perfect `(km,k)`-solution. In particular, if `p` is prime there is a perfect `(p^k,p)`-solution.
 * `B`: `T(nl,kl) ≤ T(n,k)`. This can be seen by making `n` groups of `l` people each and always seating all people in a single group together.
-* `C`: `T(nl+1,kl+1) ≤ T(n,k)`. Same as `B`, but make one group size `l+1`.
-* `D`: see *Known Values*.
+* `C`: *obsolete*.
+* `D`: *obsolete*.
 * `E`: found solution for this special case, see below. (We don't use `E` if another letter applies.)
-* From a good solution of the social golfer's problem (see External Links) we can retrieve a solution to the Happy Diner Problem.
+* From a good solution of the social golfer's problem (see *External Links*) we can retrieve a solution to the Happy Diner Problem.
   * Denote the solution to the social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
   * `F`: If `G(m,k)*(k-1) = m*k - 1` then `T(m*k,k) = G(m,k)`, because this gives a perfect `(m*k,k)`-solution.
   * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
@@ -188,6 +208,7 @@ The bolded values indicate perfect solutions (see below).
 
 #### `T(6,3) ≥ 4`
 
+* This is a special case of `f`.
 * Suppose there is a solution in 3 days.
 * At least 2 days need configuration `(3,3)`.
   * The reason is that we need to establish 15 connections between participants over 3 days.
@@ -233,6 +254,7 @@ The bolded values indicate perfect solutions (see below).
 * This means we cannot get 55 connections, therefore we get a contradiction.
 
 #### `T(10,5) ≥ 4`
+* This is a special case of `f`.
 * Suppose there is a valid solution in 3 days.
 * The only configurations which are not dominated are `(5,5)` (<= 20 conns), `(4,4,2)` (<= 13 conns) and `(4,3,3)` (<= 12 conns).
 * Therefore, we need `(5,5)` at least once. WLOG day 1 is distributed `01234 56789`.
@@ -259,6 +281,7 @@ The bolded values indicate perfect solutions (see below).
 * For none of those 8 ways, there is a valid 4th day.
 
 #### `T(13,6) ≥ 4`
+* This is a special case of `f`.
 * Suppose there is a valid solution in 3 days.
 * The configurations with at least 26 connections which are not dominated are `(6,6,1)` and `(6,5,2)`, one of which has to occur at least once.
   * Suppose day 1 is `(6,6,1)`. Then no other day can have more than 20 connections. Day 2 has
@@ -266,8 +289,10 @@ The bolded values indicate perfect solutions (see below).
     * `(6,5,2)` at most 11+8+1 = 20 connections (actually, less)
     * `(6,4,3)` and `(5,5,3)` and `(5,4,4)` also have less than 20 connections, all other configurations are dominated.
   * Suppose no day is `(6,6,1)`. Then every day needs 26 connections exactly, which is impossible.
+* Alternatively, this can be derived from `T(13,6) ≥ T(14,7) ≥ 4`
 
 #### `T(14,7) ≥ 4`
+* This is a special case of `f`.
 * Suppose there is a valid solution in 3 days.
 * The configuration `(7,7)` has to occur, since there is no way to make at least 61 connections in 2 days otherwise.
 * After `(7,7)` at most 24 connections can be made per day. So there are at most `42 + 24 + 24 = 90 < 91` connections, which is not enough.
