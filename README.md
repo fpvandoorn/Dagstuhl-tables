@@ -50,24 +50,32 @@ Legend:
 * An entry in this table shows the maximal `n` such that `T(n,k) ≤ T`.
 * This table has the same information as the previous one, organized differently.
 * This table is harder to read, but much more informationally dense.
+* If you want to read a value of `T(n,k)` from this table:
+  * Look at the `k`-th column.
+  * Find the first row that is possibly at least `n`, then the value of `T` of this row is the minimum possible value of `T(n,k)`.
+  * Find the first row that is definitely at least `n`, then `T` gives is the maximum possible value of `T(n,k)`.
+  * For example, to find `T(14,3)` we see that `T = 7` is the first value which is at least `14`, so `T(14,3) = 7`.
+  * For example, to find `T(24,6)`, as of August 2019 the `T = 5` entry is `18-24` and the `T = 6` entry is `26-30`. We see that `T = 5` is possibly 24, and possibly smaller, but `T = 6` is definitely at least 24. So `T(24,6)` is either 5 or 6.
+  * We can conclude that `T(25,6) = T(26,6) = 6`. Even though the exact values in the table are not known, we do know that `T = 6` is the smallest value where the entry is at least 25 or 26.
+  * With this information `T(27,6)` can also be larger than 6.
 * In this table the upper-case (or `←`) letters show why the entry is not smaller (why it is possible to have a solution with this number of participants) and the lower-case (or `→`) letters show why the entry is not larger (why it is not possible to have a solution with one more partipant).
 * The use of `T(n+1,k+1) ≤ T(n,k)` is indicated with `←` and `→`. `←` means that this cell strictly greater than the cell to the left, while `→` means that this cell is strictly smaller than the cell to the right.
 * Sometimes two cells point at each other (e.g. `(T,k) = (4,4)` and `(T,k) = (4,5)`). This looks circular, but it is not. It means that the upper bound of the left cell follows from the upper bound of the right cell and the lower bound of the right cell follows from the lower bound of the left cell.
 
 | T / k |  2       |   3         |   4         |   5         |   6         |   7         |  8          |     9       |
 |:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
-|   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      |  **9**      |
-|   2   |    2     |    3     cd |    4     d  |    5     d  |    6     d  |     7    d  |    8     d  |    9        |
-|   3   |  **4**   |    5  `←`f  |    8 B c`→` |    9  `←`f  |   12   B`→` |    13 `←`f  |   16   B`→` |   17  `←`f  |
-|   4   |    4     |  **9** AH   |   10  `←`e  |   12   E e  | 18-19  B a  |  19-23`←`a  | 20-26  B a  |  27-30 B a  |
-|   5   |  **6**   |    9     c  | **16** H a  | 17-20 `←`a  | 18-24    c  |             |             |             |
-|   6   |    6     |   12   E a  | 16-17    a  | **25** AH a | 26-30 `←`a  |             |             |             |
-|   7   |  **8**   | **15** F    | 16-20    c  | 25-27    a  |             |             |             |             |
-|   8   |    8     |   15     c  | 16-24    a  |             |             | **49** AH a |             |             |
-|   9   | **10**   |   18   G a  | **28** F a  |             |             |             |             |             |
-|   10  |   10     | **21** F    | 28-29    a  |             |             |             |             |             |
-|   11  | **12**   |   21     c  |   32   G    |             |             |             |             |             |
-|   12  |   12     |   24   G a  |             |             |             |             |             |             |
+|   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       |
+|   2   |    2     |    3     cd |    4     d  |    5     d  |    6     d  |    7      d |    8     d  |   9         |
+|   3   |  **4**   |    5  `←`f  |    8 B c`→` |    9  `←`f  |   12   B`→` |   13   `←`f |   16   B`→` |  17    `←`f |
+|   4   |    4     |  **9** AH   |   10  `←`e  |   12   E e  | 18-19  B a  | 19-23  `←`a | 20-26  B a  | 27-30   B a |
+|   5   |  **6**   |    9     c  | **16** H a  | 17-20 `←`a  | 18-24    c  | 19-29    a  | 32-34  B a  | 33-38  `←`a |
+|   6   |    6     |   12   E a  | 16-17    a  | **25** AH a | 26-30 `←`a  | 27-35  `←`c | 32-41    a  | 36-47   B a |
+|   7   |  **8**   | **15** F    | 16-20    c  | 25-27     a | 30-36  B a  | 31-42  `←`a | 32-48    c  | 45-55   B a |
+|   8   |    8     |   15     c  | 16-24    a  | 25-31     a | 30-39    a  | **49** AH a | 50-56 `←`a  | 51-63  `←`c |
+|   9   | **10**   |   18   G a  | **28** F a  | 29-35  `←`c | 36-44  B a  | 49-52     a | 56-64  B a  | 57-72  `←`a |
+|   10  |   10     | **21** F    | 28-29    a  | 29-40     a | 42-49  B a  | 49-58     a | 56-68    a  | 63-81   B a |
+|   11  | **12**   |   21     c  |   32   G a  | 33-45  `←`a | 42-54    c  | 49-65     a | 64-75  B a  | 65-86  `←`a |
+|   12  |   12     |   24   G a  | 32-36    a  | 33-47     a | 48-60  B a  | 49-71     a | 64-82    a  | 72-94   B a |
 |   13  | **14**   | **27** AH   |             |             |             |             |             |             |
 |   14  |   14     |   27     c  |             |             |             |             |             |             |
 |   15  | **16**   | 27-30    a  |             |             |             |             |             |             |
