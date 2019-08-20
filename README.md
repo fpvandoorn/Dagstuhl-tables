@@ -116,7 +116,7 @@ The bolded values indicate perfect solutions (see below).
     * On day 1 sit participants `1--k` together.
     * On day 2 sit `(k+1)--n` and participants `1--Ceil(k/2)` together.
     * On day 3 sit `Ceil(k/2)+1 -- n` together.
-    * The upper bound `D` is worse than `B`, which shows that for even `k` we have `T(2k,k+1) ≤ T(2k,k) ≤ T(4,2) = 3`.
+    * The upper bound `D` is worse than `B`, which shows that for even `k` we have `3 ≤ T(2k+1,k+1) ≤ T(2k,k) ≤ T(4,2) = 3`.
 * If `k` is prime and `n` is a power of `k`, then there is a perfect `(n,k)`-solution. This follows from upper bound `A` (by induction) or from the next bullet point.
 * `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution.
   * Consider the field `F` of order `k`, and a vector field `V` with cardinality `n` over `F`.
