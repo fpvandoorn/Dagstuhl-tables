@@ -158,7 +158,7 @@ Legend:
 * `e`: proven for this special case, see below. (We don't use `e` if another letter applies.)
 * `f`: If `k` is odd then `T(2k,k) ≥ 4`.
   * This also implies that for even `k` we have `T(2k+1,k) ≥ T(2(k+1),k+1) ≥ 4`
-  * For the proof we will use the terminology given under *Solutions for individual cases*. Note that all non-dominated distributions use 2 or 3 tables.
+  * For the proof we will use the terminology given under *Solutions for Individual Cases*. Note that all non-dominated distributions use 2 or 3 tables.
   * Suppose this can be done in 3 days.
   * Suppose the assignment for day 1 is `{a, b, c}` with `k ≥ |a| ≥ |b| ≥ |c| ≥ 0`. We may assume that `|a|` is the largest among all table sizes on all days.
   * Let `x ∈ a` and let `x ∈ a₂ ⊆ a`, `b₂ ⊆ b` and `c₂ ⊆ c` be the participants of the table containing `x` on day 2. We may assume that `b₂ ≠ ∅` (by interchanging day 2 and 3), and from this we can conclude that `a₂ ≠ a` (otherwise `|a|` was not largest).
@@ -196,9 +196,9 @@ Legend:
   * (We don't use `F` and `G` if another letter applies.)
 * `H`, `J`: see *Known Values*.
 
-### Solutions for individual cases
+### Solutions for Individual Cases
 
-* The solution `T(6,3) ≥ 4` is very detailed. Other solutions with the same techniques will have much less explanation. So if you don't understand the reasoning, read `T(6,3) ≥ 4` first.
+* The solution `T(6,3) ≥ 4` is very detailed. Other solutions with the same techniques will have much less explanation. So if you don't understand the reasoning, read `T(6,3) ≥ 4` first (See *Obsolete Cases*).
 * The code using the Mathematica SAT-solver was written by Michael Trott and optimized by Floris van Doorn.
 
 #### New terminology
@@ -207,24 +207,6 @@ Legend:
 * A *distribution* is a seating assignment for a single meal.
 * We say that a configuration `C` is dominated if it has two tables with `a` and `b` participants and `a + b ≤ k`.
   * In this case, we can merge these two tables and still have a valid solution, so we may assume we have a solution without dominated configurations.
-
-#### `T(6,3) ≥ 4`
-
-* This is a special case of `f`.
-* Suppose there is a solution in 3 days.
-* At least 2 days need configuration `(3,3)`.
-  * The reason is that we need to establish 15 connections between participants over 3 days.
-  * We can establish at most 6 connections during a single day by configuration `(3,3)`.
-  * Configuration `(2,2,2)` is not dominated, but establishes only 3 connections
-  * Any other configuration is dominated by either `(3,3)` or `(2,2,2)`.
-  * If there is at most 1 day with configuration `(3,3)`, then the maximum number of established connections is `6 + 3 + 3 = 12 < 15`, which is not enough.
-* Without loss of generality we can assume that the first day has configuration `(3,3)`, distributed as `123 456` (i.e. `1`, `2` and `3` sit together and `4`, `5` and `6` sit together).
-* Now on the other days, we can establish at most 4 connections.
-  * The reason is that if we use configuration `(3,3)`, then 2 participants on the first table already sat together on table 1, and the same for the second table.
-  * Therefore, configuration `(3,3)` gives at most 4 new connections.
-  * We already saw that the only other non-dominated configuration gives at most 3 new connections.
-* Therefore, the maximal number of connections we can establish is `6 + 4 + 4 = 14 < 15`, which is not enough.
-* So there is no valid `(6,3)`-solution with 3 days.
 
 #### `T(12,3) ≤ 6`
 * Solution found by Mathematica SAT-solver:
@@ -237,18 +219,6 @@ Legend:
 137 249 BC 58 6A
 ```
 
-#### `T(10,4) ≤ 4`
-
-* `T(10,4) ≤ T(9,3) = 4`.
-* Alternative solution found by hand:
-```
-1234 5678 90
-1259 3670 48
-1280 4679 35
-045 1267 389
-```
-
-
 #### `T(11,4) ≥ 5`
 
 * Suppose there is a solution in 4 days.
@@ -256,14 +226,6 @@ Legend:
 * Therefore, on at least 3 days we need a (4,4,3) configuration. WLOG day 1 is distributed `1234 5678 ABC`.
 * For the other days any table of size 4 has 1 pair in common with day 1, so adds at most 5 new connections. Therefore, at lost 13 new connections can be added during each day.
 * This means we cannot get 55 connections, therefore we get a contradiction.
-
-#### `T(10,5) ≥ 4`
-* This is a special case of `f`.
-* Suppose there is a valid solution in 3 days.
-* The only configurations which are not dominated are `(5,5)` (<= 20 conns), `(4,4,2)` (<= 13 conns) and `(4,3,3)` (<= 12 conns).
-* Therefore, we need `(5,5)` at least once. WLOG day 1 is distributed `01234 56789`.
-* From now on `(5,5)` has at most 12 new conns, `(4,4,2)` has at most 9 new conns and `(4,3,3)` has at most 8 new conns.
-* This means we cannot get 45 connections, therefore we have no valid solution in 3 days.
 
 #### `T(12,5) ≤ 4`
 * Solution found by Mathematica SAT-solver:
@@ -284,6 +246,48 @@ Legend:
 * Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
 * For none of those 8 ways, there is a valid 4th day.
 
+### Obsolete Cases:
+
+* These were once cases we had to do individually, but now follow from other values or a general principle.
+* They might still be useful as examples.
+
+#### `T(6,3) ≥ 4`
+
+* This is a special case of `f`.
+* Suppose there is a solution in 3 days.
+* At least 2 days need configuration `(3,3)`.
+  * The reason is that we need to establish 15 connections between participants over 3 days.
+  * We can establish at most 6 connections during a single day by configuration `(3,3)`.
+  * Configuration `(2,2,2)` is not dominated, but establishes only 3 connections
+  * Any other configuration is dominated by either `(3,3)` or `(2,2,2)`.
+  * If there is at most 1 day with configuration `(3,3)`, then the maximum number of established connections is `6 + 3 + 3 = 12 < 15`, which is not enough.
+* Without loss of generality we can assume that the first day has configuration `(3,3)`, distributed as `123 456` (i.e. `1`, `2` and `3` sit together and `4`, `5` and `6` sit together).
+* Now on the other days, we can establish at most 4 connections.
+  * The reason is that if we use configuration `(3,3)`, then 2 participants on the first table already sat together on table 1, and the same for the second table.
+  * Therefore, configuration `(3,3)` gives at most 4 new connections.
+  * We already saw that the only other non-dominated configuration gives at most 3 new connections.
+* Therefore, the maximal number of connections we can establish is `6 + 4 + 4 = 14 < 15`, which is not enough.
+* So there is no valid `(6,3)`-solution with 3 days.
+
+#### `T(10,4) ≤ 4`
+
+* This also follows from `T(10,4) ≤ T(9,3) = 4`.
+* Alternative solution found by hand:
+```
+1234 5678 90
+1259 3670 48
+1280 4679 35
+045 1267 389
+```
+
+#### `T(10,5) ≥ 4`
+* This is a special case of `f`.
+* Suppose there is a valid solution in 3 days.
+* The only configurations which are not dominated are `(5,5)` (<= 20 conns), `(4,4,2)` (<= 13 conns) and `(4,3,3)` (<= 12 conns).
+* Therefore, we need `(5,5)` at least once. WLOG day 1 is distributed `01234 56789`.
+* From now on `(5,5)` has at most 12 new conns, `(4,4,2)` has at most 9 new conns and `(4,3,3)` has at most 8 new conns.
+* This means we cannot get 45 connections, therefore we have no valid solution in 3 days.
+
 #### `T(13,6) ≥ 4`
 * This is a special case of `f`.
 * Suppose there is a valid solution in 3 days.
@@ -300,6 +304,7 @@ Legend:
 * Suppose there is a valid solution in 3 days.
 * The configuration `(7,7)` has to occur, since there is no way to make at least 61 connections in 2 days otherwise.
 * After `(7,7)` at most 24 connections can be made per day. So there are at most `42 + 24 + 24 = 90 < 91` connections, which is not enough.
+
 
 ## Questions
 * If `n ≡ k mod k(k-1)` is there always a perfect `(n,k)`-solution? Is it true if we assume `k` is a prime power or a prime number? There is no reason to believe this, but it is true for all values where the answer is known.
