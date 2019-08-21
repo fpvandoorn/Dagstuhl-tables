@@ -25,11 +25,11 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   14  | **13**   |    7       |    5       |    5       |    4       |    4   f   |    3       |
 |   15  |   15     |  **7** F   |    5       |    5       |    4       |    4       |    3       |
 |   16  | **15**   |    9   c   |  **5** H   |    5       |    4       |    4       |    3   B   |
-|   17  |   17     |    9       |   6-9  a   |    5  `↖`  |    4       |    4       |    4   f   |
-|   18  | **17**   |    9   G   |   7-9  a   |   5-6      |    4   B   |    4       |    4       |
-|   19  |   19     |   10   a   |   7-9      |    6   g   |    5   g   |    4  `↖`  |    4       |
-|   20  | **19**   |   10       |   7-9      |    6       |    5       |   5-6  g   |    4   B   |
-|   21  |   21     | **10** F   |   8-9  c   |    6   a   |    5   E   |   5-6      |   4-5      |
+|   17  |   17     |    9       |   6-8  a   |    5  `↖`  |    4       |    4       |    4   f   |
+|   18  | **17**   |    9   G   |   7-8  a   |   5-6      |    4   B   |    4       |    4       |
+|   19  |   19     |   10   a   |   7-8      |    6   g   |    5   g   |    4  `↖`  |    4       |
+|   20  | **19**   |   10       |   7-8  A   |    6       |    5       |   5-6  g   |    4   B   |
+|   21  |   21     | **10** F   |   8-9  c   |    6       |    5   E   |   5-6      |   4-5      |
 |   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |   5-6      |   4-5      |
 |   23  |   23     |   12       |   8-9      |    6       |    6   g   |   5-6      |    5   g   |
 |   24  | **23**   |   12   G   |   8-9      |    6       |    6       |   5-6      |    5       |
@@ -224,7 +224,7 @@ Legend:
 
 ### Solutions for Individual Cases
 
-* The solution `T(6,3) ≥ 4` is very detailed. Other solutions with the same techniques will have much less explanation. So if you don't understand the reasoning, read `T(6,3) ≥ 4` first (See [Obsolete Cases](#obsolete-cases)).
+* The solution `T(6,3) ≥ 4` is very detailed. Other solutions with the same techniques will have much less explanation. So if you don't understand the reasoning, read `T(6,3) ≥ 4` first (See [Examples](#examples)).
 * The code using the Mathematica SAT-solver was written by Michael Trott and optimized by Floris van Doorn.
 
 #### New terminology
@@ -276,7 +276,8 @@ Legend:
 * For none of those 8 ways, there is a valid 4th day.
 
 #### `T(21,6) ≤ 5`
-* This was found by modifying `T(16,4) = 5`, in the same method as `K`.
+* This was found by modifying `T(16,4) = 5`, using the same method as `K`.
+* `K` only shows that `T(20,6) ≤ 5`.
 ```
 1234HI 5678JK 9ABCL DEFG
 179DHL 26AFIK 38CE 45BGJ
@@ -284,10 +285,12 @@ Legend:
 15AEHJ 289GIL 36BDK 47CF
 ```
 
-### Obsolete Cases:
+### Examples
 
-* These were once cases we had to do individually, but now follow from other values or a general principle.
-* They might still be useful as examples.
+* Examples of specific upper and lower bounds.
+* These now all follow from other values or a general principle.
+* Often they were cases we had to do individually previously.
+* Examples that do not follow from other principles are listed under [Solutions for Individual Cases](#solutions-for-individual-cases).
 
 #### `T(6,3) ≥ 4`
 
