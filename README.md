@@ -185,6 +185,7 @@ Legend:
   * This means that `|a| = |b| = k`
   * Everyone in `a \ a₂` and everyone in `b \ b₂` must have seen each other on day 2, so the table assignment on day 2 was `{ a₂ ∪ b₂ (a \ a₂) ∪ (b \ b₂) }`.
   * Since `k` is odd, we have `max(|a₂|, |a \ a₂|) > k / 2` and `max(|b₂|, |b \ a₂|) > k / 2`, which means that on either day 2 or day 3 there was a table with more that `k` participants. Contradiction!
+* Note: For `n < k^2` (and especially for `n < k^2/2`) the bound obtained by `a` and `c` are not very good. The reason is that although on day 1 you might be able to make the caculated number of new connections, every other day many connections were already present on day 1. This means that the number of connections you can make on most (all but one) days is much less, so you need more days to do it. In [Solutions for Individual Cases](#solutions-for-individual-cases) we give many arguments of this form, but it is quite hard to generalize is rigorously (since having a distribution with fewer connections on day 1 might lead to more connections on subsequent days).
 
 ### Upper Bounds:
 * `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See [Relations](#relations).
@@ -267,9 +268,8 @@ Legend:
 * Suppose there is a valid solution in 4 days.
 * 210 connections have to be made, and at most 63 connections can be made per day, with configuration `(7,7,7)`.
 * It is impossible to have a non-dominated solution where 5 tables are used every day.
-* If `(7,7,7)` appears, WLOG on day 1, then at most 48 connections can be made per day, but `63+48+48+48=207<210` is not enough.
-* If `(7,7,7)` doesn't appear, then every day has 4 tables. Then at most 57 connections can be made on day 1, and at most 49 connections on future days (since all 7s lose at least 3 and all 6s lose at least 2).
- This is also not enough.
+* If `(7,7,7)` appears, WLOG on day 1, then at most 48 connections can be made every other day, but `63+48+48+48=207<210` is not enough.
+* If `(7,7,7)` doesn't appear, then every day has 4 tables. Then at most 57 connections can be made on day 1, and at most 49 connections on future days (since all 7s lose at least 3 and all 6s lose at least 2 connections). This is also not enough, since `57+49+49+49=204<210`.
 
 ### Obsolete Cases:
 
