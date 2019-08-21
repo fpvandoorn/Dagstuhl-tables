@@ -54,7 +54,7 @@ Legend:
   * Look at the `k`-th column.
   * Find the smallest `T` that possibly satisfies `n(T,k) ≥ n`. Then `T(n,k) ≥ T`.
   * Find the smallest `T'` that definitely satisfies `n(T',k) ≥ n`. Then `T(n,k) ≤ T'`.
-  * For example, to find `T(14,3)` we see that `T = 7` is the first value where `n(T,3) ≥ 14`, so `T(14,3) = 7`.
+  * For example, to find `T(14,3)` we see that `T = 7` is the first value where `n(T,3) ≥ 14` (since `n(T,3) = 15`), so `T(14,3) = 7`.
   * For example, to find `T(24,6)`, as of August 2019 we see that `n(5,6)` is in the range `18-24` and `n(6,6)` is in the range `26-30`. We see that `n(5,6) ≥ 24` is possible but not guaranteed and that `n(6,6) ≥ 24` is guaranteed. So `T(24,6)` is either 5 or 6.
   * Using similar logic we can conclude that `T(25,6) = T(26,6) = 6`. Even though the exact values in the table are not known, we do know that `T = 6` is the smallest value where `n(T,6)` is at least `n` (for `n` is 25 or 26).
   * With only this information it is possible that `T(27,6) > 6`.
