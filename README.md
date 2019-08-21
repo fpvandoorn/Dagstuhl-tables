@@ -21,7 +21,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   10  |  **9**   |    6   c   |    4  `↖`  |    4   fg  |    3       |    3       |    3       |
 |   11  |   11     |    6       |    5   g   |    4       |    3       |    3       |    3       |
 |   12  | **11**   |    6   E   |    5       |    4   E   |    3   B   |    3       |    3       |
-|   13  |   13     |    7   a   |    5       |    5   g   |    4  `↘`  |    3  `↖`  |    3       |
+|   13  |   13     |    7   a   |    5       |    5   e   |    4  `↘`  |    3  `↖`  |    3       |
 |   14  | **13**   |    7       |    5       |    5       |    4       |    4   f   |    3       |
 |   15  |   15     |  **7** F   |    5       |    5       |    4       |    4       |    3       |
 |   16  | **15**   |    9   c   |  **5** H   |    5       |    4       |    4       |    3   B   |
@@ -68,7 +68,7 @@ Legend:
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       |
 |   2   |    2     |    3     cd |    4      d |    5      d |    6     d  |    7      d |    8      d |   9         |
 |   3   |  **4**   |    5  `←`fg |    8 B c`→` |    9   `←`fg|   12   B`→` |   13   `←`f |   16    B`→`|  17    `←`f |
-|   4   |    4     |  **9** AH   |   10   `←`g |   12    E g |   18   B g  |   19   `←`g | 20-22   B g | 27-28   B g |
+|   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18   B g  |   19   `←`g | 20-22   B g | 27-28   B g |
 |   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 18-22    g  | 19-26     g |   32    B g | 33-34  `←`g |
 |   6   |    6     |   12   E a  | 16-17     a | **25** AH a | 26-27 `←`g  | 27-32  `←`g | 32-37     a | 36-42   B g |
 |   7   |  **8**   | **15** F    | 16-20     c | 25-27     a | 30-36  B a  | 31-42  `←`a | 32-48     c | 45-55   B a |
@@ -261,6 +261,16 @@ Legend:
 126AB 379C 458
 ```
 
+#### `T(13,5) ≥ 5`
+* This solution was found part by hand, part by computer brute-force.
+* Suppose there is a valid solution in 4 days.
+* `(5,5,3)` or `(5,4,4)` has to occur at least once.
+* If `(5,5,3)` never occurs, then from day 2 on at most 18 connections are possible. Contradiction.
+* So day 1 is `(5,5,3)` (23 connections).
+* From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is (5,5,3) with 8+8+3 new connections. This can be done in 1 way (up to renaming participants)
+* Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
+* For none of those 8 ways, there is a valid 4th day.
+
 ### Obsolete Cases:
 
 * These were once cases we had to do individually, but now follow from other values or a general principle.
@@ -302,16 +312,6 @@ Legend:
 * Therefore, we need `(5,5)` at least once. WLOG day 1 is distributed `01234 56789`.
 * From now on `(5,5)` has at most 12 new conns, `(4,4,2)` has at most 9 new conns and `(4,3,3)` has at most 8 new conns.
 * This means we cannot get 45 connections, therefore we have no valid solution in 3 days.
-
-#### `T(13,5) ≥ 5`
-* This solution was found part by hand, part by computer brute-force.
-* Suppose there is a valid solution in 4 days.
-* `(5,5,3)` or `(5,4,4)` has to occur at least once.
-* If `(5,5,3)` never occurs, then from day 2 on at most 18 connections are possible. Contradiction.
-* So day 1 is `(5,5,3)` (23 connections).
-* From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is (5,5,3) with 8+8+3 new connections. This can be done in 1 way (up to renaming participants)
-* Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
-* For none of those 8 ways, there is a valid 4th day.
 
 #### `T(13,6) ≥ 4`
 * This is a special case of `f`.
