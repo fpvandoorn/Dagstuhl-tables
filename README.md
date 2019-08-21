@@ -27,21 +27,21 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   16  | **15**   |    9   c   |  **5** H   |    5       |    4       |    4       |    3   B   |
 |   17  |   17     |    9       |   6-9  a   |    5  `↖`  |    4       |    4       |    4   f   |
 |   18  | **17**   |    9   G   |   7-9  a   |   5-6      |    4   B   |    4       |    4       |
-|   19  |   19     |   10   a   |   7-9      |    6   g   |   5-6  g   |    4  `↖`  |    4       |
-|   20  | **19**   |   10       |   7-9      |    6       |   5-6      |   5-6  g   |    4   B   |
-|   21  |   21     | **10** F   |   8-9  c   |    6   a   |   5-6      |   5-6      |   4-5      |
+|   19  |   19     |   10   a   |   7-9      |    6   g   |    5   g   |    4  `↖`  |    4       |
+|   20  | **19**   |   10       |   7-9      |    6       |    5       |   5-6  g   |    4   B   |
+|   21  |   21     | **10** F   |   8-9  c   |    6   a   |    5   E   |   5-6      |   4-5      |
 |   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |   5-6      |   4-5      |
 |   23  |   23     |   12       |   8-9      |    6       |    6   g   |   5-6      |    5   g   |
 |   24  | **23**   |   12   G   |   8-9      |    6       |    6       |   5-6      |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6** AH  |    6       |   5-6      |    5       |
 |   26  | **25**   |   13       |    9       |   7-9  a   |    6  `↖`  |   5-6      |    5       |
-|   27  |   27     | **13** AH  |    9       |   7-9      |   6-7      |    6 g `↖` |    5       |
-|   28  | **27**   | 15-16  c   |  **9** F   |   8-9  a   |    7   g   |   6-7      |    5       |
-|   29  |   29     | 15-16      |  10-11 a   |   8-9 `↖`  |    7       |   6-7      |    5       |
-|   30  | **29**   | 15-16  J   |   11   a G |   8-11     |    7   B   |   6-7      |    5   B   |
+|   27  |   27     | **13** AH  |    9       |   7-9      |   6-7      |    6 g     |    5       |
+|   28  | **27**   | 15-16  c   |  **9** F   |   8-9  a   |    7   g   |    6       |    5       |
+|   29  |   29     | 15-16      |  10-11 a   |   8-9 `↖`  |    7       |    6       |    5       |
+|   30  | **29**   | 15-16  J   |   11   a G |   8-11     |    7   B   |    6    K  |    5   B   |
 
 Legend:
-* We use lower-case letters `a`-`f` (or `↘`) to justify lower bounds and upper-case letters `A`-`J` (or `↖`) to justify upper bounds, which are explained below.
+* We use lower-case letters `a`-`z` (or `↘`) to justify lower bounds and upper-case letters `A`-`Z` (or `↖`) to justify upper bounds, which are explained below.
 * No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
 * We have the relation `T(n+1,k+1) ≤ T(n,k)` (see [Relations](#relations)). If we use this as an upper bound we write `↖` (the value in this cell is at most the value to the top-right of this cell) and as a lower bound we write `↘` (this value is at least the value to the bottom-left).
 * The bolded values indicate perfect solutions (see below).
@@ -54,11 +54,11 @@ Legend:
 |   2   |    2     |    3     cd |    4      d |    5      d |    6     d  |    7      d |    8      d |   9         |
 |   3   |  **4**   |    5  `←`fg |    8 B c`→` |    9   `←`fg|   12   B`→` |   13   `←`f |   16    B`→`|  17    `←`f |
 |   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18   B g  |   19   `←`g | 20-22   B g | 27-28   B g |
-|   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 18-22    g  | 19-26     g |   32    B g | 33-34  `←`g |
-|   6   |    6     |   12   E a  | 16-17     a | **25** AH a | 26-27 `←`g  | 27-32  `←`g | 32-37     a | 36-42   B g |
+|   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 21-22  E g  | 19-26     g |   32    B g | 33-34  `←`g |
+|   6   |    6     |   12   E a  | 16-17     a | **25** AH a | 26-27 `←`g  | 30-32   K g | 32-37     a | 36-42   B g |
 |   7   |  **8**   | **15** F    | 16-20     c | 25-27     a | 30-36  B a  | 31-39  `←`g | 32-45     g | 45-51   B g |
-|   8   |    8     |   15     c  | 20-24   A a | 25-31     a | 30-39    a  | **49** AH a | 50-53  `←`g | 51-59  `←`g |
-|   9   | **10**   |   18   G a  | **28**  F a | 29-35  `←`c | 36-44  B a  | 49-52     a | **64**  H a | 57-69  `←`g |
+|   8   |    8     |   15     c  | 20-24   A a | 25-31     a | 30-39    a  | **49** AH a | 50-53  `←`g | 54-59   K g |
+|   9   | **10**   |   18   G a  | **28**  F a | 29-35  `←`c | 36-44  B a  | 49-52     a | **64**  H a | 65-69  `←`g |
 |   10  |   10     | **21** F    | 28-29     a | 35-40   A a | 42-49 AB a  | 49-58     a | 64-68     a | **81**  H a |
 |   11  | **12**   |   21     c  |   32    G a | 35-45     a | 42-54    c  | 49-65     a | 64-75     a | 81-86     a |
 |   12  |   12     |   24   G a  | 32-36     a | 35-47     a | 48-60  B a  | 49-71     a | 64-82     a | 81-94     a |
@@ -217,6 +217,10 @@ Legend:
     * [Edd Pegg Jr.'s Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
   * (We don't use `F` and `G` if another letter applies.)
 * `H`, `J`: see [Known Values](#known-values).
+* `K`: From a perfect solution, we can get new solutions with the table size two larger.
+  * Given an `(n,k)`-solution in `T` days and a subset `A ⊆ n` of participants such that no `i+1` participants from `A` sit at the same table during the same meal (let's say that `A` is `i`-*good* in this case), then there is a `(n+|A|,k+i)`-solution in `T` days, by replacing everyone in `A` with a pair of people.
+  * If we start with a perfect `(n,k)`-solution (with `k > 2`) and a 2-good set `A` such that `|A|+(k-2)|A|(|A|-1)/2 < n`, then we can find a 2-good set with one more participant. The reason is that every pair of people in `A` sit at the same table exactly once, with `k-2` other people. Therefore, at most `|A|+(k-2)|A|(|A|-1)/2` other people cannot be added to `A` while keeping `A` 2-good, which means that there is someone we can add to `A` so that the new set is 2-good.
+
 
 ### Solutions for Individual Cases
 
@@ -270,6 +274,15 @@ Legend:
 * From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is (5,5,3) with 8+8+3 new connections. This can be done in 1 way (up to renaming participants)
 * Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
 * For none of those 8 ways, there is a valid 4th day.
+
+#### `T(21,6) ≤ 5`
+* This was found by modifying `T(16,4) = 5`, in the same method as `K`.
+```
+1234HI 5678JK 9ABCL DEFG
+179DHL 26AFIK 38CE 45BGJ
+18BFH 25CDIJ 37AG 469EKL
+15AEHJ 289GIL 36BDK 47CF
+```
 
 ### Obsolete Cases:
 

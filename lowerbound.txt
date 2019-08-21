@@ -1,6 +1,6 @@
 MaxNonDominatedTables[n_,k_]:=If[OddQ[k],Floor[2n/(k+1)],Floor[(n+1)/(k/2+1)]]
 TableRange[n_,k_]:={Ceiling[n/k],MaxNonDominatedTables[n,k]}
-NondominatedConfigs[n_,k_]:=Reverse@SortBy[#,Size]&@Select[IntegerPartitions[n,TableRange[n,k]],#[[1]]<=k&&(#[[-1]]+#[[-2]]>k)&]
+NondominatedConfigs[n_,k_]:=Reverse@SortBy[#,Size]&@Select[IntegerPartitions[n,MaxNonDominatedTables[n,k],Range[k]],(#[[-1]]+#[[-2]]>k)&]
 Size[c_]:=Total[# (#-1)/2&/@c]
 OptimalSize[n_,k_]:=With[{m=Floor[n/k],q=Mod[n,k],tables=Ceiling[n/k]},(m k(k-1)+q(q-1))/2]
 (*Remaining connections after day 1, if the optimal configuration is chosen on day 1.*)
