@@ -27,12 +27,12 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   16  | **15**   |    9   c   |  **5** H   |    5       |    4       |    4       |    3   B   |
 |   17  |   17     |    9       |   6-9  a   |    5  `↖`  |    4       |    4       |    4   f   |
 |   18  | **17**   |    9   G   |   7-9  a   |   5-6      |    4   B   |    4       |    4       |
-|   19  |   19     |   10   a   |   7-9      |   5-6      |   4-6      |    4  `↖`  |    4       |
-|   20  | **19**   |   10       |   7-9      |   5-6      |   5-6  a   |   4-6      |    4   B   |
-|   21  |   21     | **10** F   |   8-9  c   |    6   a   |   5-6      |   4-6      |   4-5      |
-|   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |   4-6      |   4-5      |
-|   23  |   23     |   12       |   8-9      |    6       |   5-6      |   4-6      |   4-5      |
-|   24  | **23**   |   12   G   |   8-9      |    6       |   5-6      |   5-6  a   |   4-5      |
+|   19  |   19     |   10   a   |   7-9      |   5-6      |   5-6  e   |    4  `↖`  |    4       |
+|   20  | **19**   |   10       |   7-9      |   5-6      |   5-6      |   4-6      |    4   B   |
+|   21  |   21     | **10** F   |   8-9  c   |    6   a   |   5-6      |   5-6  e   |   4-5      |
+|   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |   5-6      |   4-5      |
+|   23  |   23     |   12       |   8-9      |    6       |   5-6      |   5-6      |   4-5      |
+|   24  | **23**   |   12   G   |   8-9      |    6       |   5-6      |   5-6      |   4-5      |
 |   25  |   25     |   13   a   |    9   a   |  **6** AH  |    6   c   |   5-6      |   4-5      |
 |   26  | **25**   |   13       |    9       |   7-9  a   |    6  `↖`  |   5-6      |   4-5      |
 |   27  |   27     | **13** AH  |    9       |   7-9      |   6-7      |   5-6 `↖`  |    5   a   |
@@ -68,7 +68,7 @@ Legend:
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       |
 |   2   |    2     |    3     cd |    4      d |    5      d |    6     d  |    7      d |    8      d |   9         |
 |   3   |  **4**   |    5  `←`f  |    8 B c`→` |    9   `←`f |   12   B`→` |   13   `←`f |   16    B`→`|  17    `←`f |
-|   4   |    4     |  **9** AH   |   10   `←`e |   12    E e | 18-19  B a  | 19-23  `←`a | 20-26   B a | 27-30   B a |
+|   4   |    4     |  **9** AH   |   10   `←`e |   12    E e |   18   B e  | 19-21  `←`e | 20-26   B a | 27-30   B a |
 |   5   |  **6**   |    9     c  | **16**  H a | 17-20  `←`a | 18-24    c  | 19-29     a | 32-34   B a | 33-38  `←`a |
 |   6   |    6     |   12   E a  | 16-17     a | **25** AH a | 26-30 `←`a  | 27-35  `←`c | 32-41     a | 36-47   B a |
 |   7   |  **8**   | **15** F    | 16-20     c | 25-27     a | 30-36  B a  | 31-42  `←`a | 32-48     c | 45-55   B a |
@@ -136,8 +136,8 @@ Legend:
 * If `k` is even and `k < n ≤ 2k` then `T(n,k) = 3`. Also, if `k` is odd and `k < n < 2k` then `T(n,k) = 3`. These are *all* the values for `(n,k)` where `T(n,k) = 3`.
   * If `n > k` then `T(n,k) ≥ 3` is explained by the lower bound `d`.
   * If `k` is even and `n ≤ 2k` then `T(n,k) ≤ 3` is explained by the upper bound `B`.
-  * If `k` is odd and `n ≤ 2k` then `T(n,k) ≤ 3` is explained by the upper bound `B`.
-  * For smaller `n` we have `T(n,k) = 1` and for larger `n` we have `T(n,k) ≥ 4` by lower bound `f`.
+  * If `k` is odd and `n < 2k` then `T(n,k) ≤ 3` is explained by `T(n,k) ≤ T(n-1,k-1) ≤ 3` by the previous bullet point.
+  * For smaller `n` we have `T(n,k) = 1` trivially and for larger `n` we have `T(n,k) ≥ 4` by lower bound `f`.
 * If `k` is prime and `n` is a power of `k`, then there is a perfect `(n,k)`-solution. This follows from upper bound `A` (by induction) or from the next bullet point.
 * `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution.
   * Consider the field `F` of order `k`, and a vector field `V` with cardinality `n` over `F`.
@@ -258,6 +258,19 @@ Legend:
 * Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
 * For none of those 8 ways, there is a valid 4th day.
 
+#### `T(19,6) ≥ 5`
+* Suppose there is a valid solution in 4 days.
+* 181 connections have to be made, and at most 45 connections can be made per day, with configuration `(6,6,6,1)`. Every other configuration has at most 41 connections.
+* This means that `(6,6,6,1)` has to appear, WLOG on day 1. Now on every other day, the configuration `(6,6,6,1)` can give at most `13+12+12=37` connections, which means that there is no way to get 181 connections in 4 days.
+
+#### `T(21,7) ≥ 5`
+* Suppose there is a valid solution in 4 days.
+* 210 connections have to be made, and at most 63 connections can be made per day, with configuration `(7,7,7)`.
+* It is impossible to have a non-dominated solution where 5 tables are used every day.
+* If `(7,7,7)` appears, WLOG on day 1, then at most 48 connections can be made per day, but `63+48+48+48=207<210` is not enough.
+* If `(7,7,7)` doesn't appear, then every day has 4 tables. Then at most 57 connections can be made on day 1, and at most 49 connections on future days (since all 7s lose at least 3 and all 6s lose at least 2).
+ This is also not enough.
+
 ### Obsolete Cases:
 
 * These were once cases we had to do individually, but now follow from other values or a general principle.
@@ -316,7 +329,6 @@ Legend:
 * Suppose there is a valid solution in 3 days.
 * The configuration `(7,7)` has to occur, since there is no way to make at least 61 connections in 2 days otherwise.
 * After `(7,7)` at most 24 connections can be made per day. So there are at most `42 + 24 + 24 = 90 < 91` connections, which is not enough.
-
 
 ## Questions
 * If `n ≡ k mod k(k-1)` is there always a perfect `(n,k)`-solution? Is it true if we assume `k` is a prime power or a prime number? There is no reason to believe this, but it is true for all values where the answer is known.
