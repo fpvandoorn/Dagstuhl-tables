@@ -14,31 +14,31 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   3   |    3     |  **1**     |    1       |    1       |    1       |    1       |    1       |
 |   4   |  **3**   |    3   cd  |  **1**     |    1       |    1       |    1       |    1       |
 |   5   |    5     |    3  `↖`  |    3   d   |  **1**     |    1       |    1       |    1       |
-|   6   |  **5**   |    4   f   |    3       |    3   d   |  **1**     |    1       |    1       |
+|   6   |  **5**   |    4   fg  |    3       |    3   d   |  **1**     |    1       |    1       |
 |   7   |    7     |    4       |    3       |    3       |    3   d   |  **1**     |    1       |
 |   8   |  **7**   |    4       |    3   B   |    3       |    3       |    3   d   |  **1**     |
 |   9   |    9     |  **4** AH  |    4  c`↘` |    3  `↖`  |    3       |    3       |    3   d   |
-|   10  |  **9**   |    6   c   |    4  `↖`  |    4   f   |    3       |    3       |    3       |
-|   11  |   11     |    6       |    5   e   |    4       |    3       |    3       |    3       |
+|   10  |  **9**   |    6   c   |    4  `↖`  |    4   fg  |    3       |    3       |    3       |
+|   11  |   11     |    6       |    5   g   |    4       |    3       |    3       |    3       |
 |   12  | **11**   |    6   E   |    5       |    4   E   |    3   B   |    3       |    3       |
-|   13  |   13     |    7   a   |    5       |    5   e   |    4  `↘`  |    3  `↖`  |    3       |
+|   13  |   13     |    7   a   |    5       |    5   g   |    4  `↘`  |    3  `↖`  |    3       |
 |   14  | **13**   |    7       |    5       |    5       |    4       |    4   f   |    3       |
 |   15  |   15     |  **7** F   |    5       |    5       |    4       |    4       |    3       |
 |   16  | **15**   |    9   c   |  **5** H   |    5       |    4       |    4       |    3   B   |
 |   17  |   17     |    9       |   6-9  a   |    5  `↖`  |    4       |    4       |    4   f   |
 |   18  | **17**   |    9   G   |   7-9  a   |   5-6      |    4   B   |    4       |    4       |
-|   19  |   19     |   10   a   |   7-9      |   5-6      |   5-6  e   |    4  `↖`  |    4       |
-|   20  | **19**   |   10       |   7-9      |   5-6      |   5-6      |   4-6      |    4   B   |
-|   21  |   21     | **10** F   |   8-9  c   |    6   a   |   5-6      |   5-6  e   |   4-5      |
+|   19  |   19     |   10   a   |   7-9      |    6   g   |   5-6  g   |    4  `↖`  |    4       |
+|   20  | **19**   |   10       |   7-9      |    6       |   5-6      |   5-6  g   |    4   B   |
+|   21  |   21     | **10** F   |   8-9  c   |    6   a   |   5-6      |   5-6      |   4-5      |
 |   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |   5-6      |   4-5      |
-|   23  |   23     |   12       |   8-9      |    6       |   5-6      |   5-6      |   4-5      |
-|   24  | **23**   |   12   G   |   8-9      |    6       |   5-6      |   5-6      |   4-5      |
-|   25  |   25     |   13   a   |    9   a   |  **6** AH  |    6   c   |   5-6      |   4-5      |
-|   26  | **25**   |   13       |    9       |   7-9  a   |    6  `↖`  |   5-6      |   4-5      |
-|   27  |   27     | **13** AH  |    9       |   7-9      |   6-7      |   5-6 `↖`  |    5   a   |
-|   28  | **27**   | 15-16  c   |  **9** F   |   8-9  a   |   6-7      |   5-7      |    5       |
-|   29  |   29     | 15-16      |  10-11 a   |   8-9 `↖`  |   6-7      |   5-7      |    5       |
-|   30  | **29**   | 15-16  J   |   11   a G |   8-11     |   6-7  B   |   5-7      |    5   B   |
+|   23  |   23     |   12       |   8-9      |    6       |    6   g   |   5-6      |    5   g   |
+|   24  | **23**   |   12   G   |   8-9      |    6       |    6       |   5-6      |    5       |
+|   25  |   25     |   13   a   |    9   a   |  **6** AH  |    6       |   5-6      |    5       |
+|   26  | **25**   |   13       |    9       |   7-9  a   |    6  `↖`  |   5-6      |    5       |
+|   27  |   27     | **13** AH  |    9       |   7-9      |   6-7      |    6 g `↖` |    5       |
+|   28  | **27**   | 15-16  c   |  **9** F   |   8-9  a   |    7   g   |   6-7      |    5       |
+|   29  |   29     | 15-16      |  10-11 a   |   8-9 `↖`  |    7       |   6-7      |    5       |
+|   30  | **29**   | 15-16  J   |   11   a G |   8-11     |    7   B   |   6-7      |    5   B   |
 
 Legend:
 * We use lower-case letters `a`-`f` (or `↘`) to justify lower bounds and upper-case letters `A`-`J` (or `↖`) to justify upper bounds, which are explained below.
@@ -67,9 +67,9 @@ Legend:
 |:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       |
 |   2   |    2     |    3     cd |    4      d |    5      d |    6     d  |    7      d |    8      d |   9         |
-|   3   |  **4**   |    5  `←`f  |    8 B c`→` |    9   `←`f |   12   B`→` |   13   `←`f |   16    B`→`|  17    `←`f |
-|   4   |    4     |  **9** AH   |   10   `←`e |   12    E e |   18   B e  | 19-21  `←`e | 20-26   B a | 27-30   B a |
-|   5   |  **6**   |    9     c  | **16**  H a | 17-20  `←`a | 18-24    c  | 19-29     a | 32-34   B a | 33-38  `←`a |
+|   3   |  **4**   |    5  `←`fg |    8 B c`→` |    9   `←`fg|   12   B`→` |   13   `←`f |   16    B`→`|  17    `←`f |
+|   4   |    4     |  **9** AH   |   10   `←`g |   12    E g |   18   B g  |   19   `←`g | 20-22   B g | 27-28   B g |
+|   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 18-22    g  | 19-26     g | 32-34   B a | 33-38  `←`a |
 |   6   |    6     |   12   E a  | 16-17     a | **25** AH a | 26-30 `←`a  | 27-35  `←`c | 32-41     a | 36-47   B a |
 |   7   |  **8**   | **15** F    | 16-20     c | 25-27     a | 30-36  B a  | 31-42  `←`a | 32-48     c | 45-55   B a |
 |   8   |    8     |   15     c  | 20-24   A a | 25-31     a | 30-39    a  | **49** AH a | 50-56  `←`a | 51-63  `←`c |
@@ -170,7 +170,7 @@ Legend:
 * `e`: proven for this special case, see below. (We don't use `e` if another letter applies.)
 * `f`: If `k` is odd then `T(2k,k) ≥ 4`.
   * This also implies that for even `k` we have `T(2k+1,k) ≥ T(2(k+1),k+1) ≥ 4`
-  * For the proof we will use the terminology given under [Solutions for Individual Cases](#solutions-for-individual-cases). Note that all non-dominated distributions use 2 or 3 tables.
+  * For the proof we will use the terminology given under [Solutions for Individual Cases/New terminology](#new-terminology). Note that all non-dominated distributions use 2 or 3 tables.
   * Suppose this can be done in 3 days.
   * Suppose the assignment for day 1 is `{a, b, c}` with `k ≥ |a| ≥ |b| ≥ |c| ≥ 0`. We may assume that `|a|` is the largest among all table sizes on all days.
   * Let `x ∈ a` and let `x ∈ a₂ ⊆ a`, `b₂ ⊆ b` and `c₂ ⊆ c` be the participants of the table containing `x` on day 2. We may assume that `b₂ ≠ ∅` (by interchanging day 2 and 3), and from this we can conclude that `a₂ ≠ a` (otherwise `|a|` was not largest).
@@ -186,6 +186,15 @@ Legend:
   * Everyone in `a \ a₂` and everyone in `b \ b₂` must have seen each other on day 2, so the table assignment on day 2 was `{ a₂ ∪ b₂ (a \ a₂) ∪ (b \ b₂) }`.
   * Since `k` is odd, we have `max(|a₂|, |a \ a₂|) > k / 2` and `max(|b₂|, |b \ a₂|) > k / 2`, which means that on either day 2 or day 3 there was a table with more that `k` participants. Contradiction!
 * Note: For `n < k^2` (and especially for `n < k^2/2`) the bound obtained by `a` and `c` are not very good. The reason is that although on day 1 you might be able to make the caculated number of new connections, every other day many connections were already present on day 1. This means that the number of connections you can make on most (all but one) days is much less, so you need more days to do it. In [Solutions for Individual Cases](#solutions-for-individual-cases) we give many arguments of this form, but it is quite hard to generalize is rigorously (since having a distribution with fewer connections on day 1 might lead to more connections on subsequent days).
+* `g`: Improvement of `a` and `c` when `k < n ≤ k^2 - 2`
+  * For the explanation we will use the terminology given under [Solutions for Individual Cases/New terminology](#new-terminology).
+  * On day 1 at most `s(opt)` connections can be added
+  * On subsequent days fewer connections can be added. We can give an upper bound, and run through all (sensible) pairs of non-dominated configurations to find the maximal number `s` of connections that can
+    be added on day 2 (where we can choose the configuration of day 1 to be as optimal as possible).
+  <!-- * Let `d(c1,c2) = sum_{l ∈ c2} s(l) - max(l - |c1|, 0)`. Then `s(c1,c2) ≤ d(c1,c2) ≤ s(c2)`.
+  * Conjecture: `s(c1, c2) ≤ d(opt,opt)` whenever `s(c2) ≤ s(c1)` and `c1` and `c2` are non-dominated. (this is true, but I haven't figured out the precise argument yet) -->
+  * This means that after `T+1` days at most `s(opt) + T * s` connections can be made, which gives a lower bound for the number of days.
+  * The Mathematica function doing this is given in `lowerbound.txt`. It is not optimal, and is not necessarily increasing in `n`. I'm quite sure it is correct though.
 
 ### Upper Bounds:
 * `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See [Relations](#relations).
@@ -216,10 +225,13 @@ Legend:
 
 #### New terminology
 
-* A *configuration* is an assignment for the *number* of participants to each table (but not stating which participant goes where).
 * A *distribution* is a seating assignment for a single meal.
+* A *configuration* is an assignment for the *number* of participants to each table for a single meal (but not stating which participant goes where).
 * We say that a configuration `C` is dominated if it has two tables with `a` and `b` participants and `a + b ≤ k`.
   * In this case, we can merge these two tables and still have a valid solution, so we may assume we have a solution without dominated configurations.
+* A *connection* is a pair of people sitting at the same table. A *new connection* is a connection that was not yet formed on a previous day. The number of connections a table of size `l` makes is `s(l) = l(l-1)/2`, not all of which might be new connections. The number of new connections `s(c)` of a configuration `c` is the sum.
+* The *optimal configuration* `opt` is the configuration with the most connections. It has `⌊ n / k ⌋` tables of size `k` and one table of size `n mod k`, and it is unique.
+* If `k < n ≤ k^2 - 1` then it is not possible to create `2 * s(opt)` new connections after two days, since at least one pair of participants has to sit at the same table on both days, or a configuration other than the optimal configuration has to be used. Let `s(c1,c2)` the maximum number of new connections `c2` can make on day 2 is `c1` was used on day 1.
 
 #### `T(12,3) ≤ 6`
 * Solution found by Mathematica SAT-solver:
@@ -236,8 +248,8 @@ Legend:
 
 * Suppose there is a solution in 4 days.
 * The only configurations which are not dominated are `(4,4,3)` and `(3,3,3,2)`. The first adds at most 15 connections, the second at most 10.
-* Therefore, on at least 3 days we need a (4,4,3) configuration. WLOG day 1 is distributed `1234 5678 ABC`.
-* For the other days any table of size 4 has 1 pair in common with day 1, so adds at most 5 new connections. Therefore, at lost 13 new connections can be added during each day.
+* Therefore, on at least 3 days we need a `(4,4,3)` configuration, WLOG on day 1.
+* For the other days any table of size 4 has 1 pair in common with day 1, so adds at most 5 new connections. Therefore, at most 13 new connections can be added during each day.
 * This means we cannot get 55 connections, therefore we get a contradiction.
 
 #### `T(12,5) ≤ 4`
@@ -248,28 +260,6 @@ Legend:
 128C 4579B 36A
 126AB 379C 458
 ```
-
-#### `T(13,5) ≥ 5`
-* This solution was found part by hand, part by computer brute-force.
-* Suppose there is a valid solution in 4 days.
-* `(5,5,3)` or `(5,4,4)` has to occur at least once.
-* If `(5,5,3)` never occurs, then from day 2 on at most 18 connections are possible. Contradiction.
-* So day 1 is `(5,5,3)` (23 connections).
-* From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is (5,5,3) with 8+8+3 new connections. This can be done in 1 way (up to renaming participants)
-* Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
-* For none of those 8 ways, there is a valid 4th day.
-
-#### `T(19,6) ≥ 5`
-* Suppose there is a valid solution in 4 days.
-* 181 connections have to be made, and at most 45 connections can be made per day, with configuration `(6,6,6,1)`. Every other configuration has at most 41 connections.
-* This means that `(6,6,6,1)` has to appear, WLOG on day 1. Now on every other day, the configuration `(6,6,6,1)` can give at most `13+12+12=37` connections, which means that there is no way to get 181 connections in 4 days.
-
-#### `T(21,7) ≥ 5`
-* Suppose there is a valid solution in 4 days.
-* 210 connections have to be made, and at most 63 connections can be made per day, with configuration `(7,7,7)`.
-* It is impossible to have a non-dominated solution where 5 tables are used every day.
-* If `(7,7,7)` appears, WLOG on day 1, then at most 48 connections can be made every other day, but `63+48+48+48=207<210` is not enough.
-* If `(7,7,7)` doesn't appear, then every day has 4 tables. Then at most 57 connections can be made on day 1, and at most 49 connections on future days (since all 7s lose at least 3 and all 6s lose at least 2 connections). This is also not enough, since `57+49+49+49=204<210`.
 
 ### Obsolete Cases:
 
@@ -313,6 +303,16 @@ Legend:
 * From now on `(5,5)` has at most 12 new conns, `(4,4,2)` has at most 9 new conns and `(4,3,3)` has at most 8 new conns.
 * This means we cannot get 45 connections, therefore we have no valid solution in 3 days.
 
+#### `T(13,5) ≥ 5`
+* This solution was found part by hand, part by computer brute-force.
+* Suppose there is a valid solution in 4 days.
+* `(5,5,3)` or `(5,4,4)` has to occur at least once.
+* If `(5,5,3)` never occurs, then from day 2 on at most 18 connections are possible. Contradiction.
+* So day 1 is `(5,5,3)` (23 connections).
+* From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is (5,5,3) with 8+8+3 new connections. This can be done in 1 way (up to renaming participants)
+* Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
+* For none of those 8 ways, there is a valid 4th day.
+
 #### `T(13,6) ≥ 4`
 * This is a special case of `f`.
 * Suppose there is a valid solution in 3 days.
@@ -324,11 +324,23 @@ Legend:
   * Suppose no day is `(6,6,1)`. Then every day needs 26 connections exactly, which is impossible.
 * Alternatively, this can be derived from `T(13,6) ≥ T(14,7) ≥ 4`
 
+#### `T(19,6) ≥ 5`
+* Suppose there is a valid solution in 4 days.
+* 181 connections have to be made, and at most 45 connections can be made per day, with configuration `(6,6,6,1)`. Every other configuration has at most 41 connections.
+* This means that `(6,6,6,1)` has to appear, WLOG on day 1. Now on every other day, the configuration `(6,6,6,1)` can give at most `13+12+12=37` connections, which means that there is no way to get 181 connections in 4 days.
+
 #### `T(14,7) ≥ 4`
 * This is a special case of `f`.
 * Suppose there is a valid solution in 3 days.
 * The configuration `(7,7)` has to occur, since there is no way to make at least 61 connections in 2 days otherwise.
 * After `(7,7)` at most 24 connections can be made per day. So there are at most `42 + 24 + 24 = 90 < 91` connections, which is not enough.
+
+#### `T(21,7) ≥ 5`
+* Suppose there is a valid solution in 4 days.
+* 210 connections have to be made, and at most 63 connections can be made per day, with configuration `(7,7,7)`.
+* It is impossible to have a non-dominated solution where 5 tables are used every day.
+* If `(7,7,7)` appears, WLOG on day 1, then at most 48 connections can be made every other day, but `63+48+48+48=207<210` is not enough.
+* If `(7,7,7)` doesn't appear, then every day has 4 tables. Then at most 57 connections can be made on day 1, and at most 49 connections on future days (since all 7s lose at least 3 and all 6s lose at least 2 connections). This is also not enough, since `57+49+49+49=204<210`.
 
 ## Questions
 * If `n ≡ k mod k(k-1)` is there always a perfect `(n,k)`-solution? Is it true if we assume `k` is a prime power or a prime number? There is no reason to believe this, but it is true for all values where the answer is known.
