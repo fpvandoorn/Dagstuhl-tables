@@ -46,22 +46,7 @@ Legend:
 * We have the relation `T(n+1,k+1) ≤ T(n,k)` (see [Relations](#relations)). If we use this as an upper bound we write `↖` (the value in this cell is at most the value to the top-right of this cell) and as a lower bound we write `↘` (this value is at least the value to the bottom-left).
 * The bolded values indicate perfect solutions (see below).
 
-### Dual table
-* An entry in this table shows the maximal `n` such that `T(n,k) ≤ T`. We call this value `n(T,k)`.
-* This table has the same information as the previous one, organized differently.
-* This table is harder to read, but much more informationally dense.
-* If you want to read a value of `T(n,k)` from this table:
-  * Look at the `k`-th column.
-  * Find the smallest `T` that possibly satisfies `n(T,k) ≥ n`. Then `T(n,k) ≥ T`.
-  * Find the smallest `T'` that definitely satisfies `n(T',k) ≥ n`. Then `T(n,k) ≤ T'`.
-  * For example, to find `T(14,3)` we see that `T = 7` is the first value where `n(T,3) ≥ 14` (since `n(T,3) = 15`), so `T(14,3) = 7`.
-  * For example, to find `T(24,6)`, as of August 2019 we see that `n(5,6)` is in the range `18-24` and `n(6,6)` is in the range `26-30`. We see that `n(5,6) ≥ 24` is possible but not guaranteed and that `n(6,6) ≥ 24` is guaranteed. So `T(24,6)` is either 5 or 6.
-  * Using similar logic we can conclude that `T(25,6) = T(26,6) = 6`. Even though the exact values in the table are not known, we do know that `T = 6` is the smallest value where `n(T,6)` is at least `n` (for `n` is 25 or 26).
-  * With only this information it is possible that `T(27,6) > 6`.
-* In this table the upper-case (or `←`) letters show why the entry is not smaller (why it is possible to have a solution with this number of participants) and the lower-case (or `→`) letters show why the entry is not larger (why it is not possible to have a solution with one more partipant).
-* The use of `T(n+1,k+1) ≤ T(n,k)` is indicated with `←` and `→`. `←` means that this cell strictly greater than the cell to the left, while `→` means that this cell is strictly smaller than the cell to the right.
-* Sometimes two cells point at each other (e.g. `(T,k) = (4,4)` and `(T,k) = (4,5)`). This looks circular, but it is not. It means that the upper bound of the left cell follows from the upper bound of the right cell and the lower bound of the right cell follows from the lower bound of the left cell.
-* For `k > 3` and `T > 12` we only put values where either the lower bound or the upper bound is nontrivial (not obtained by `← → a c B`)
+## Dual table
 
 | T / k |  2       |   3         |   4         |   5         |   6         |   7         |  8          |     9       |
 |:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
@@ -97,6 +82,21 @@ Legend:
 |   30  |   30     | 57-60    a  |             |             |             |             |             |             |
 |   31  | **32**   | **63** A    |             |**125** AH a |             |             |             |             |
 
+* An entry in this table shows the maximal `n` such that `T(n,k) ≤ T`. We call this value `n(T,k)`.
+* This table has the same information as the previous one, organized differently.
+* This table is harder to read, but much more informationally dense.
+* If you want to read a value of `T(n,k)` from this table:
+  * Look at the `k`-th column.
+  * Find the smallest `T` that possibly satisfies `n(T,k) ≥ n`. Then `T(n,k) ≥ T`.
+  * Find the smallest `T'` that definitely satisfies `n(T',k) ≥ n`. Then `T(n,k) ≤ T'`.
+  * For example, to find `T(14,3)` we see that `T = 7` is the first value where `n(T,3) ≥ 14` (since `n(T,3) = 15`), so `T(14,3) = 7`.
+  * For example, to find `T(24,6)`, as of August 2019 we see that `n(5,6)` is in the range `18-24` and `n(6,6)` is in the range `26-30`. We see that `n(5,6) ≥ 24` is possible but not guaranteed and that `n(6,6) ≥ 24` is guaranteed. So `T(24,6)` is either 5 or 6.
+  * Using similar logic we can conclude that `T(25,6) = T(26,6) = 6`. Even though the exact values in the table are not known, we do know that `T = 6` is the smallest value where `n(T,6)` is at least `n` (for `n` is 25 or 26).
+  * With only this information it is possible that `T(27,6) > 6`.
+* In this table the upper-case (or `←`) letters show why the entry is not smaller (why it is possible to have a solution with this number of participants) and the lower-case (or `→`) letters show why the entry is not larger (why it is not possible to have a solution with one more partipant).
+* The use of `T(n+1,k+1) ≤ T(n,k)` is indicated with `←` and `→`. `←` means that this cell strictly greater than the cell to the left, while `→` means that this cell is strictly smaller than the cell to the right.
+* Sometimes two cells point at each other (e.g. `(T,k) = (4,4)` and `(T,k) = (4,5)`). This looks circular, but it is not. It means that the upper bound of the left cell follows from the upper bound of the right cell and the lower bound of the right cell follows from the lower bound of the left cell.
+* For `k > 3` and `T > 12` we only put values where either the lower bound or the upper bound is nontrivial (not obtained by `← → a c B`)
 
 ## Terminology
 
