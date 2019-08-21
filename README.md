@@ -72,10 +72,10 @@ Legend:
 |   6   |    6     |   12   E a  | 16-17    a  | **25** AH a | 26-30 `←`a  | 27-35  `←`c | 32-41    a  | 36-47   B a |
 |   7   |  **8**   | **15** F    | 16-20    c  | 25-27     a | 30-36  B a  | 31-42  `←`a | 32-48    c  | 45-55   B a |
 |   8   |    8     |   15     c  | 16-24    a  | 25-31     a | 30-39    a  | **49** AH a | 50-56 `←`a  | 51-63  `←`c |
-|   9   | **10**   |   18   G a  | **28** F a  | 29-35  `←`c | 36-44  B a  | 49-52     a | 56-64  B a  | 57-72  `←`a |
-|   10  |   10     | **21** F    | 28-29    a  | 29-40     a | 42-49  B a  | 49-58     a | 56-68    a  | 63-81   B a |
-|   11  | **12**   |   21     c  |   32   G a  | 33-45  `←`a | 42-54    c  | 49-65     a | 64-75  B a  | 65-86  `←`a |
-|   12  |   12     |   24   G a  | 32-36    a  | 33-47     a | 48-60  B a  | 49-71     a | 64-82    a  | 72-94   B a |
+|   9   | **10**   |   18   G a  | **28** F a  | 29-35  `←`c | 36-44  B a  | 49-52     a | **64** H a  | 57-72  `←`a |
+|   10  |   10     | **21** F    | 28-29    a  | 29-40     a | 42-49  B a  | 49-58     a | 64-68    a  | **81**  H a |
+|   11  | **12**   |   21     c  |   32   G a  | 33-45  `←`a | 42-54    c  | 49-65     a | 64-75    a  | 81-86     a |
+|   12  |   12     |   24   G a  | 32-36    a  | 33-47     a | 48-60  B a  | 49-71     a | 64-82    a  | 81-94     a |
 |   13  | **14**   | **27** AH   |             |             |             |             |             |             |
 |   14  |   14     |   27     c  |             |             |             |             |             |             |
 |   15  | **16**   | 27-30    a  |             |             |             |             |             |             |
@@ -94,6 +94,7 @@ Legend:
 |   28  |   28     | **57**      |             |             |             |             |             |             |
 |   29  | **30**   |   57        |             |             |             |             |             |             |
 |   30  |   30     |             |             |             |             |             |             |             |
+|   31  | **32**   | **63**      |             |**125** AH a |             |             |             |             |
 
 
 ## Terminology
@@ -110,6 +111,7 @@ Legend:
 * Necessarily, every perfect solution is optimal.
 * Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`).
 * A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
+* See [Known Values](#known-values) for some known perfect solutions
 
 ### Relations:
 * `T(n+1,k) ≥ T(n,k) ≥ T(n+1,k+1) ≥ T(n,k+1)`.
@@ -146,6 +148,7 @@ Legend:
   * Together with lower bound `a`, this gives that `T(6k+1,3) = T(6k+2,3) = T(6k+3,3) = 3k+1`.
 * Other known specific values.
   * `T(32,4)=11` is an optimal solution. This follows from `G`.
+  * There are more known values, see tables.
 
 ### Lower Bounds:
 * `↘`/`→`: The relation `T(n,k) ≥ T(n+1,k+1)` can sometimes be used as a lower bound. See [Relations](#relations).
