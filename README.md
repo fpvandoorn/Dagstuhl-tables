@@ -25,7 +25,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   14  | **13**   |    7       |    5       |    5       |    4       |    4   f   |    3       |
 |   15  |   15     |  **7** F   |    5       |    5       |    4       |    4       |    3       |
 |   16  | **15**   |    9   c   |  **5** H   |    5       |    4       |    4       |    3   B   |
-|   17  |   17     |    9       |   6-8  a   |    5  `↖`  |    4       |    4       |    4   f   |
+|   17  |   17     |    9       |   6-7  a E |    5  `↖`  |    4       |    4       |    4   f   |
 |   18  | **17**   |    9   G   |   7-8  a   |   5-6      |    4   B   |    4       |    4       |
 |   19  |   19     |   10   a   |   7-8      |    6   g   |    5   g   |    4  `↖`  |    4       |
 |   20  | **19**   |   10       |   7-8  A   |    6       |    5       |   5-6  g   |    4   B   |
@@ -56,13 +56,13 @@ Legend:
 |   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18   B g  |   19   `←`g | 20-22   B g | 27-28   B g |
 |   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 21-22  E g  | 19-26     g |   32    B g | 33-34  `←`g |
 |   6   |    6     |   12   E a  | 16-17     a | **25** AH a | 26-27 `←`g  | 30-32   K g | 32-37     a | 36-42   B g |
-|   7   |  **8**   | **15** F    | 16-20     c | 25-27     a | 30-36  B a  | 31-39  `←`g | 32-45     g | 45-51   B g |
+|   7   |  **8**   | **15** F    | 17-20   E c | 25-27     a | 30-36  B a  | 31-39  `←`g | 32-45     g | 45-51   B g |
 |   8   |    8     |   15     c  | 20-24   A a | 25-31     a | 30-39    a  | **49** AH a | 50-53  `←`g | 54-59   K g |
 |   9   | **10**   |   18   G a  | **28**  F a | 29-35  `←`c | 36-44  B a  | 49-52     a | **64**  H a | 65-69  `←`g |
 |   10  |   10     | **21** F    | 28-29     a | 35-40   A a | 42-49 AB a  | 49-58     a | 64-68     a | **81**  H a |
 |   11  | **12**   |   21     c  |   32    G a | 35-45     a | 42-54    c  | 49-65     a | 64-75     a | 81-86     a |
 |   12  |   12     |   24   G a  | 32-36     a | 35-47     a | 48-60  B a  | 49-71     a | 64-82     a | 81-94     a |
-|   13  | **14**   | **27** AH   |             |             |             |             |             |             |
+|   13  | **14**   | **27** AH   | 36-40   G a |             |             |             |             |             |
 |   14  |   14     |   27     c  |             |             | 66-69  A a  | 77-84   A a | 88-97   A a | 99-110  A a |
 |   15  | **16**   | 27-30    a  |             | 55-60   A a |             |             |             |             |
 |   16  |   16     | **33** F    | 44-48   A a |             |             | 91-94   A a | 104-112 A a | 117-127 A a |
@@ -89,9 +89,9 @@ Legend:
   * Look at the `k`-th column.
   * Find the smallest `T` that possibly satisfies `n(T,k) ≥ n`. Then `T(n,k) ≥ T`.
   * Find the smallest `T'` that definitely satisfies `n(T',k) ≥ n`. Then `T(n,k) ≤ T'`.
-  * For example, to find `T(14,3)` we see that `T = 7` is the first value where `n(T,3) ≥ 14` (since `n(T,3) = 15`), so `T(14,3) = 7`.
+  * For example, to find `T(14,3)` we see that `T = 7` is the first value where `n(T,3) ≥ 14` (since `n(7,3) = 15`), so `T(14,3) = 7`.
   * For example, to find `T(24,6)`, as of August 2019 we see that `n(5,6)` is in the range `18-24` and `n(6,6)` is in the range `26-30`. We see that `n(5,6) ≥ 24` is possible but not guaranteed and that `n(6,6) ≥ 24` is guaranteed. So `T(24,6)` is either 5 or 6.
-  * Using similar logic we can conclude that `T(25,6) = T(26,6) = 6`. Even though the exact values in the table are not known, we do know that `T = 6` is the smallest value where `n(T,6)` is at least `n` (for `n` is 25 or 26).
+  * Using similar logic we can conclude that `T(25,6) = T(26,6) = 6`. Even though the exact values in the table are not known, we do know that `T = 6` is the smallest value where `n(T,6)` is at least `n` (when `n` is 25 or 26).
   * With only this information it is possible that `T(27,6) > 6`.
 * In this table the upper-case (or `←`) letters show why the entry is not smaller (why it is possible to have a solution with this number of participants) and the lower-case (or `→`) letters show why the entry is not larger (why it is not possible to have a solution with one more partipant).
 * The use of `T(n+1,k+1) ≤ T(n,k)` is indicated with `←` and `→`. `←` means that this cell strictly greater than the cell to the left, while `→` means that this cell is strictly smaller than the cell to the right.
@@ -136,7 +136,7 @@ Legend:
 * If `k` is even and `k < n ≤ 2k` then `T(n,k) = 3`. Also, if `k` is odd and `k < n < 2k` then `T(n,k) = 3`. These are *all* the values for `(n,k)` where `T(n,k) = 3`.
   * If `n > k` then `T(n,k) ≥ 3` is explained by the lower bound `d`.
   * If `k` is even and `n ≤ 2k` then `T(n,k) ≤ 3` is explained by the upper bound `B`.
-  * If `k` is odd and `n < 2k` then `T(n,k) ≤ 3` is explained by `T(n,k) ≤ T(n-1,k-1) ≤ 3` by the previous bullet point.
+  * If `k` is odd and `n < 2k` then `T(n,k) ≤ 3` is explained by `T(n,k) ≤ T(n-1,k-1) ≤ 3`, using the previous bullet point.
   * For smaller `n` we have `T(n,k) = 1` trivially and for larger `n` we have `T(n,k) ≥ 4` by lower bound `f`.
 * If `k` is prime and `n` is a power of `k`, then there is a perfect `(n,k)`-solution. This follows from upper bound `A` (by induction) or from the next bullet point.
 * `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution.
@@ -147,9 +147,7 @@ Legend:
 * `J`: A perfect `(n,3)`-solution for `n ≥ 3` is called a *Kirkman Triple System* and is possible iff `n ≡ 3 mod 6`.
   * This is (supposed to be) proven in *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson (1971). We couldn't find a copy of this paper.
   * Together with lower bound `a`, this gives that `T(6k+1,3) = T(6k+2,3) = T(6k+3,3) = 3k+1`.
-* Other known specific values.
-  * `T(32,4)=11` is an optimal solution. This follows from `G`.
-  * There are more known values, see tables.
+* For the other known values, see the tables.
 
 ### Lower Bounds:
 * `↘`/`→`: The relation `T(n,k) ≥ T(n+1,k+1)` can sometimes be used as a lower bound. See [Relations](#relations).
@@ -185,8 +183,8 @@ Legend:
   * This means that `|a| = |b| = k`
   * Everyone in `a \ a₂` and everyone in `b \ b₂` must have seen each other on day 2, so the table assignment on day 2 was `{ a₂ ∪ b₂ (a \ a₂) ∪ (b \ b₂) }`.
   * Since `k` is odd, we have `max(|a₂|, |a \ a₂|) > k / 2` and `max(|b₂|, |b \ a₂|) > k / 2`, which means that on either day 2 or day 3 there was a table with more that `k` participants. Contradiction!
-* Note: For `n < k^2` (and especially for `n < k^2/2`) the bound obtained by `a` and `c` are not very good. The reason is that although on day 1 you might be able to make the caculated number of new connections, every other day many connections were already present on day 1. This means that the number of connections you can make on most (all but one) days is much less, so you need more days to do it. In [Solutions for Individual Cases](#solutions-for-individual-cases) we give many arguments of this form, but it is quite hard to generalize is rigorously (since having a distribution with fewer connections on day 1 might lead to more connections on subsequent days).
-* `g`: Improvement of `a` and `c` when `k < n ≤ k^2 - 2`
+* `g`: Improvement of `a` when `k < n ≤ k^2 - 2`
+  * The idea for this lower bound is that every day after the first day many connections are already present on day 1. This means that the number of connections you can make on most (all but one) days is much less than calculated at `a`.
   * For the explanation we will use the terminology given under [Solutions for Individual Cases/New terminology](#new-terminology).
   * On day 1 at most `s(opt)` connections can be added
   * On subsequent days fewer connections can be added. We can give an upper bound, and run through all (sensible) pairs of non-dominated configurations to find the maximal number `s` of connections that can
@@ -194,7 +192,7 @@ Legend:
   <!-- * Let `d(c1,c2) = sum_{l ∈ c2} s(l) - max(l - |c1|, 0)`. Then `s(c1,c2) ≤ d(c1,c2) ≤ s(c2)`.
   * Conjecture: `s(c1, c2) ≤ d(opt,opt)` whenever `s(c2) ≤ s(c1)` and `c1` and `c2` are non-dominated. (this is true, but I haven't figured out the precise argument yet) -->
   * This means that after `T+1` days at most `s(opt) + T * s` connections can be made, which gives a lower bound for the number of days.
-  * The Mathematica function doing this is given in `lowerbound.txt`. It is not optimal, and is not necessarily increasing in `n`. I'm quite sure it is correct though.
+  * The Mathematica function doing this is given in `lowerbound.txt`. It is not optimal, and is not necessarily increasing in `n`. In some cases we can probably increase the lower bound by 1 using a similar but more precise argument.
 
 ### Upper Bounds:
 * `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See [Relations](#relations).
@@ -211,10 +209,15 @@ Legend:
   * Denote the solution to the social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
   * `F`: If `G(m,k)*(k-1) = m*k - 1` then `T(m*k,k) = G(m,k)`, because this gives a perfect `(m*k,k)`-solution.
   * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
-  * The solutions of the social golfer's problem, can be found at the following links:
-    * [Warwick's result page (2002)](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/) has various perfect solutions with a small number of participants.
-    * [Markus Triska's master thesis (2008)](https://www.metalevel.at/sgp/) has `G(8,4) = 10`.
-    * [Edd Pegg Jr.'s Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) has `G(8,3) = 11` and `G(7,4) = 9` and `G(9,4) = 11`.
+  * `G`: If `G(m,k)*(k-1) = m*k - 3` then `T(m*k,k) ≤ G(m,k) + 2` (if `k ≥ 3`). After the solution to `G(m,k)` every participant still needs to meet 2 other participants, which can be easily achieved in two days, by splitting everyone up in group of 2 or 3 people.
+  * Many solutions of the social golfer's problem can be found in this [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/).
+    * In particular, this contains `G(8,3) = 11` and `G(7,4) = 9` and `G(8,4) = 10` and `G(9,4) = 11`.
+  * See [External Links](#external-links) for more sources on the social golfer's problem.
+  * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
+    * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions would give `T(30,3) = 15` and `T(36,3) = 18`.
+    * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions would give `T(40,4)=13` and `T(52,4)=17`.
+    * `9 ≤ G(9,5) ≤ 11`.
+    * `G(6,6) < 7`. This implies that `T(36,6) > 7`.
   * (We don't use `F` and `G` if another letter applies.)
 * `H`, `J`: see [Known Values](#known-values).
 * `K`: From a perfect solution, we can get new solutions with the table size two larger.
@@ -256,6 +259,18 @@ Legend:
 * For the other days any table of size 4 has 1 pair in common with day 1, so adds at most 5 new connections. Therefore, at most 13 new connections can be added during each day.
 * This means we cannot get 55 connections, therefore we get a contradiction.
 
+#### `T(17,4) ≤ 7`
+* Solution found by Mathematica SAT-solver:
+```
+1234 5678 9ABC DEFG H
+1469 28EH 7ACG B 35DF
+7 48CD 26BF 1AEG 359H
+1BDH 8A 6CF 379E 245G
+1 45BE 67GH 89DF 23AC
+29 CEH 56AD 38BG 147F
+36E 158C 9G 27BD 4AFH
+```
+
 #### `T(12,5) ≤ 4`
 * Solution found by Mathematica SAT-solver:
 ```
@@ -276,7 +291,7 @@ Legend:
 * For none of those 8 ways, there is a valid 4th day.
 
 #### `T(21,6) ≤ 5`
-* This was found by modifying `T(16,4) = 5`, using the same method as `K`.
+* This was found by manually modifying `T(16,4) = 5`, using the same method as `K`.
 * `K` only shows that `T(20,6) ≤ 5`.
 ```
 1234HI 5678JK 9ABCL DEFG
@@ -288,8 +303,8 @@ Legend:
 ### Examples
 
 * Examples of specific upper and lower bounds.
-* These now all follow from other values or a general principle.
-* Often they were cases we had to do individually previously.
+* These all follow from other values or a general principle.
+* These were found before we had these general principles, and we did them individually.
 * Examples that do not follow from other principles are listed under [Solutions for Individual Cases](#solutions-for-individual-cases).
 
 #### `T(6,3) ≥ 4`
@@ -312,7 +327,7 @@ Legend:
 
 #### `T(10,4) ≤ 4`
 
-* This also follows from `T(10,4) ≤ T(9,3) = 4`.
+* This also follows from `T(10,4) ≤ T(9,3) = 4`. ([Relations](#relations) and either `A` or `H`)
 * Alternative solution found by hand:
 ```
 1234 5678 90
@@ -341,6 +356,7 @@ Legend:
 * Alternatively, this can be derived from `T(13,6) ≥ T(14,7) ≥ 4`
 
 #### `T(19,6) ≥ 5`
+* This also follows from `g`.
 * Suppose there is a valid solution in 4 days.
 * 181 connections have to be made, and at most 45 connections can be made per day, with configuration `(6,6,6,1)`. Every other configuration has at most 41 connections.
 * This means that `(6,6,6,1)` has to appear, WLOG on day 1. Now on every other day, the configuration `(6,6,6,1)` can give at most `13+12+12=37` connections, which means that there is no way to get 181 connections in 4 days.
@@ -352,6 +368,7 @@ Legend:
 * After `(7,7)` at most 24 connections can be made per day. So there are at most `42 + 24 + 24 = 90 < 91` connections, which is not enough.
 
 #### `T(21,7) ≥ 5`
+* This also follows from `T(21,7) ≥ T(20,7) ≥ 5` where the second inequality follows from `g`.
 * Suppose there is a valid solution in 4 days.
 * 210 connections have to be made, and at most 63 connections can be made per day, with configuration `(7,7,7)`.
 * It is impossible to have a non-dominated solution where 5 tables are used every day.
@@ -377,12 +394,15 @@ Legend:
 * Dagstuhl's Happy Diner Problem:
   * We submitted two sequences to the OEIS: [A318240](https://oeis.org/A318240) and [A318241](https://oeis.org/A318241).
   * The problem is stated on [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php). Finding the perfect `(n,3)`-solutions is a special case of the Oberwolfach Problem.
+  * Someone asked the value of `T(18,4) - 1` on [Math Stack Exchange](https://math.stackexchange.com/questions/455459/combinatorics-group-rotation)
 * Social Golfer Problem:
   * [Wolfram Mathworld](http://mathworld.wolfram.com/SocialGolferProblem.html)
   * [Warwick's result page (2002)](http://web.archive.org/web/20050308115423/http://www.icparc.ic.ac.uk/~wh/golf/)
   * [Markus Triska's master thesis (2008)](https://www.metalevel.at/sgp/)
   * [Edd Pegg Jr.'s Math Game page (2007)](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html)
   * [A107431](https://oeis.org/A107431).
+  * [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/)
+  * [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets)
 * Kirkman Triple System:
   * [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html),
   * [Dutch dissertation by Pieter Mulder (1917)](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19).
