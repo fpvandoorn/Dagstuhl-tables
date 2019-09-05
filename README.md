@@ -286,13 +286,14 @@ Legend:
 * `(5,5,3)` or `(5,4,4)` has to occur at least once.
 * If `(5,5,3)` never occurs, then from day 2 on at most 18 connections are possible. Contradiction.
 * So day 1 is `(5,5,3)` (23 connections).
-* From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is (5,5,3) with 8+8+3 new connections. This can be done in 1 way (up to renaming participants)
+* From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is `(5,5,3)` with `8+8+3` new connections. This can be done in 1 way (up to renaming participants)
 * Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
 * For none of those 8 ways, there is a valid 4th day.
 
 #### `T(21,6) ≤ 5`
 * This was found by manually modifying `T(16,4) = 5`, using the same method as `K`.
 * `K` only shows that `T(20,6) ≤ 5`.
+* If you replace `1H`, `2I`, `5J`, `6K` and `9L` by single participants, you get a perfect `(16,4)`-solution
 ```
 1234HI 5678JK 9ABCL DEFG
 179DHL 26AFIK 38CE 45BGJ
