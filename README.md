@@ -298,6 +298,7 @@ Legend:
 179DHL 26AFIK 38CE 45BGJ
 18BFH 25CDIJ 37AG 469EKL
 15AEHJ 289GIL 36BDK 47CF
+16CGHK 27BEI 359FJL 48AD
 ```
 
 ### Examples
@@ -403,11 +404,12 @@ Legend:
   * [A107431](https://oeis.org/A107431).
   * [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/)
   * [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets)
+  * [This page](https://sci.op-research.narkive.com/48AXUzIj/the-social-golfer-problem-40-golfers-in-groups-of-5-for-8-weeks) contains a solution that `G(8,5) ≥ 8`.
 * Kirkman Triple System:
   * [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html),
   * [Dutch dissertation by Pieter Mulder (1917)](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19).
-  * *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson, 1971. In [Proc. of Symp. in Pure Math, Vol 19](http://www.ams.org/books/pspum/019/). (please send pdf if you can access it.)
-  * *Kirkman triple systems and their generalizations: A survey*, Rees and Wallis, 2002. (please send pdf if you can access it.) [Springer](https://link.springer.com/chapter/10.1007/978-1-4613-0245-2_13)
+  * *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson, 1971. In [Proc. of Symp. in Pure Math, Vol 19](http://www.ams.org/books/pspum/019/).
+  * *Kirkman triple systems and their generalizations: A survey*, Rees and Wallis, 2002. [Springer](https://link.springer.com/chapter/10.1007/978-1-4613-0245-2_13)
 * Oberwolfach Problem: [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php).
 
 
