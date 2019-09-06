@@ -13,38 +13,38 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   2   |  **1**   |    1       |    1       |    1       |    1       |    1       |    1       |
 |   3   |    3     |  **1**     |    1       |    1       |    1       |    1       |    1       |
 |   4   |  **3**   |    3   cd  |  **1**     |    1       |    1       |    1       |    1       |
-|   5   |    5     |    3  `↖`  |    3   di  |  **1**     |    1       |    1       |    1       |
+|   5   |    5     |    3   `↖` |    3   di  |  **1**     |    1       |    1       |    1       |
 |   6   |  **5**   |    4   fg  |    3       |    3   di  |  **1**     |    1       |    1       |
 |   7   |    7     |    4       |    3       |    3       |    3   d   |  **1**     |    1       |
-|   8   |  **7**   |    4       |    3   B   |    3       |    3       |    3   d   |  **1**     |
-|   9   |    9     |  **4** AH  |    4  c`↘` |    3  `↖`  |    3       |    3       |    3   d   |
-|   10  |  **9**   |    6   c   |    4  `↖`  |    4   fg  |    3       |    3       |    3       |
+|   8   |  **7**   |    4       |    3     B |    3       |    3       |    3   d   |  **1**     |
+|   9   |    9     |  **4**  AH |    4  c`↘` |    3   `↖` |    3       |    3       |    3   d   |
+|   10  |  **9**   |    6   c   |    4   `↖` |    4   fg  |    3       |    3       |    3       |
 |   11  |   11     |    6       |    5   g   |    4       |    3       |    3       |    3       |
-|   12  | **11**   |    6   E   |    5       |    4   E   |    3   B   |    3       |    3       |
-|   13  |   13     |    7   a   |    5       |    5   e   |    4  `↘`  |    3  `↖`  |    3       |
-|   14  | **13**   |    7       |    5       |    5       |    4       |    4   f   |    3       |
-|   15  |   15     |  **7** F   |    5       |    5       |    4       |    4       |    3       |
-|   16  | **15**   |    9   c   |  **5**   H |    5       |    4       |    4       |    3   B   |
-|   17  |   17     |    9       |    7   i E |    5  `↖`  |    4       |    4       |    4   f   |
-|   18  | **17**   |    9   G   |   7-8  a   |   5-6      |    4   B   |    4       |    4       |
-|   19  |   19     |   10   a   |   7-8      |    6   g   |    5   gi  |    4  `↖`  |    4       |
-|   20  | **19**   |   10       |   7-8  A   |    6       |    5       |   5-6  g   |    4   B   |
-|   21  |   21     | **10** F   |   8-9  c   |    6       |    5   E   |   5-6      |   4-5      |
-|   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |   5-6      |   4-5      |
+|   12  | **11**   |    6     E |    5       |    4     E |    3     B |    3       |    3       |
+|   13  |   13     |    7   a   |    5       |    5   e   |    4  `↘`  |    3   `↖` |    3       |
+|   14  | **13**   |    7       |    5       |    5       |    4       |    4 f     |    3       |
+|   15  |   15     |  **7**   F |    5       |    5       |    4       |    4       |    3       |
+|   16  | **15**   |    9   c   |  **5**   H |    5       |    4       |    4       |    3     B |
+|   17  |   17     |    9       |    7   i E |    5   `↖` |    4       |    4       |    4   f   |
+|   18  | **17**   |    9     G |   7-8      |   5-6      |    4     B |    4       |    4       |
+|   19  |   19     |   10   a   |   7-8      |    6   g   |    5 gi`↘` |    4   `↖` |    4       |
+|   20  | **19**   |   10       |   7-8    A |    6       |    5       |    5 g     |    4  `↖`B |
+|   21  |   21     | **10**   F |   8-9  c   |    6       |    5     E |    5       |   4-5      |
+|   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |    5   `↖` |   4-5      |
 |   23  |   23     |   12       |   8-9      |    6       |    6   g   |   5-6      |    5   g   |
-|   24  | **23**   |   12   G   |   8-9      |    6       |    6       |   5-6      |    5       |
-|   25  |   25     |   13   a   |    9   a   |  **6** AH  |    6       |   5-6      |    5       |
-|   26  | **25**   |   13       |    9       |   7-9  a   |    6  `↖`  |   5-6      |    5       |
-|   27  |   27     | **13** AH  |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
-|   28  | **27**   | 15-16  c   |  **9** F   |   8-9      |    7   g   |    6       |    5       |
-|   29  |   29     | 15-16      |   11   i   |   8-9 `↖`  |    7       |    6       |    5       |
-|   30  | **29**   | 15-16  J   |   11   a G |   8-11     |    7   B   |    6    K  |    5   B   |
+|   24  | **23**   |   12     G |   8-9      |    6       |    6       |   5-6      |    5       |
+|   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |   5-6      |    5       |
+|   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |   5-6      |    5       |
+|   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
+|   28  | **27**   | 15-16  c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
+|   29  |   29     | 15-16      |   11   i   |   8-9  `↖` |    7       |    6       |    5       |
+|   30  | **29**   | 15-16    J |   11   a G |   8-11     |    7   B   |    6     K |    5     B |
 
 Legend:
 * We use lower-case letters `a`-`z` (or `↘`) to justify lower bounds and upper-case letters `A`-`Z` (or `↖`) to justify upper bounds, which are explained below.
-* No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequalities `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)`.
-* We have the relation `T(n+1,k+1) ≤ T(n,k)` (see [Relations](#relations)). If we use this as an upper bound we write `↖` (the value in this cell is at most the value to the top-right of this cell) and as a lower bound we write `↘` (this value is at least the value to the bottom-left).
-* The bolded values indicate perfect solutions (see below).
+* No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequality `T(n,k) ≤ T(n+1,k)`.
+* We have the relation `T(n+1,k+1) ≤ T(n,k)` (see [Relations](#relations)). If we use this as an upper bound we write `↖` (the value in this cell is at most the value to the top-left of this cell) and as a lower bound we write `↘` (this value is at least the value to the bottom-right).
+* The bolded values indicate perfect solutions (see [Terminology](#terminology)).
 
 ## Dual table
 
@@ -54,7 +54,7 @@ Legend:
 |   2   |    2     |    3     cd |    4     di |    5     di |    6     d  |    7      d |    8      d |   9         |
 |   3   |  **4**   |    5  `←`fg |    8 B c`→` |    9   `←`fg|   12   B`→` |   13   `←`f |   16    B`→`|  17    `←`f |
 |   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18   B gi |   19   `←`g | 20-22   B g |  27     B i |
-|   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 21-22  E g  | 19-26     g |   32   B gi | 33-34  `←`g |
+|   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 21-22  E g  | 22-26  `←`g |   32   B gi | 33-34  `←`g |
 |   6   |    6     |   12   E a  |   16      i | **25** AH a | 26-27 `←`g  | 30-32   K g | 32-37     g | 36-42   B g |
 |   7   |  **8**   | **15** F    | 17-20   E c | 25-26     i | 30-34  B h  | 31-39  `←`g | 32-45     g | 45-51   B g |
 |   8   |    8     |   15     c  | 20-24   A a | 25-30     i | 30-38    i  | **49** AH a | 50-53  `←`g | 54-59   K g |
@@ -389,6 +389,8 @@ Legend:
   * This is false. All optimal `(8,5)`-solutions have at least one day with two tables of four participants. This was found by brute force, but is quite easy to see by hand (to do).
   * It is probably even false that there always is an optimal `(n,k)`-solution where there are `⌈ n/k ⌉` tables each day (where `⌈ x ⌉` is the smallest integer which is at least `x`).
     The Mathematica SAT-solver easily found a solution that `T(12,3) ≤ 6`, but didn't terminate within reasonable time when the additional condition was imposed that only 4 tables could be used per day.
+* In all cases we know the following holds: if there is a perfect `(n,k)` solution, then `T(n+1,k) = T(n,k) + 2`.
+  * Does this always hold? Or maybe `T(n+1,k) ≥ T(n,k) + 2`?
 
 ### Conjectures
 * `T(n,k) ≤ n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
