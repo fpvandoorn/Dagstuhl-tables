@@ -240,8 +240,8 @@ Legend:
   * The external links contain the following good solutions: `G(m,k)` is : `G(8,3) = 11` and `G(7,4) = 9` and `G(8,4) = 10` and `G(9,4) = 11`.
   * From this, we conclude `T(24,3) = 12` and `T(28,4) = 9` and `T(32,4)=11` and `12 ≤ T(36,4) ≤ 13`.
 * The Social Golfer Problem `G(n,n)` is related to finding [mutually orthogonal Latin squares](https://en.wikipedia.org/wiki/Graeco-Latin_square).
-  * If `L(n)` is the maximal number of mutually orthogonal Latin squares of order `n`, then `G(n,n) = L(n) + 2`.
   * [`L(n) = A001438(n)`](https://oeis.org/A001438)
+  * If `L(n)` is the maximal number of mutually orthogonal Latin squares of order `n`, then `G(n,n) = L(n) + 2`.
     * The reason is that the first two days specify a bijection between the participants and the squares in a `n × n` grid (the cell `(i,j)` corresponds to the participant `p(i,j)` that was in group `i` on day 1 and in group `j` on day 2.)
     * Every day `d ≥ 3` produces a Latin square by putting `k` in cell `(i,j)` if participant `p(i,j)` was in group `k`.
     * The fact that this is a Latin square follows from the fact that no pair of participants was in the same group on day `d`, `1` and `2`.
