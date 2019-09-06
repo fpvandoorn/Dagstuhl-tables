@@ -41,7 +41,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   30  | **29**   | 15-16    J |   11     G |   8-11     |    7   B   |    6     K |    5     B |
 
 Legend:
-* We use lower-case letters `a`-`z` (or `↘`) to justify lower bounds and upper-case letters `A`-`Z` (or `↖`) to justify upper bounds, which are explained below.
+* We use lower-case letters `a`-`z` (or `↘`) to justify lower bounds and upper-case letters `A`-`Z` (or `↖`) to justify upper bounds. These bounds are explained under [Lower Bounds](#lower-bounds) and [Upper Bounds](#upper-bounds).
 * No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequality `T(n,k) ≤ T(n+1,k)`.
 * We have the relation `T(n+1,k+1) ≤ T(n,k)` (see [Relations](#relations)). If we use this as an upper bound we write `↖` (the value in this cell is at most the value to the top-left of this cell) and as a lower bound we write `↘` (this value is at least the value to the bottom-right).
 * The bolded values indicate perfect solutions (see [Terminology](#terminology)).
@@ -120,7 +120,7 @@ Legend:
 * A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
 * See [Known Values](#known-values) for some known perfect solutions
 
-### Relations:
+### Relations
 * `T(n+1,k) ≥ T(n,k) ≥ T(n+1,k+1) ≥ T(n,k+1)`.
   * If a value in the table can be derived from the first inequality, no other explanation is given.
   * The second inequality follows by treating two of the `n+1` people as a single person (always seating them together), and then applying a `(n,k)`-solution.
@@ -155,7 +155,7 @@ Legend:
   * Together with lower bound `a`, this gives that `T(6k+1,3) = T(6k+2,3) = T(6k+3,3) = 3k+1`.
 * For the other known values, see the tables.
 
-### Lower Bounds:
+### Lower Bounds
 * `↘`/`→`: The relation `T(n,k) ≥ T(n+1,k+1)` can sometimes be used as a lower bound. See [Relations](#relations).
 * `T(n,k) ≥ (n-1)/(k-1)` (special case of `a`). Every participant can see only `k-1` participants per meal, and needs to see `n-1` participants.
 * `a`: Suppose `n = m*k+l` with `0 ≤ l < k`.
@@ -211,7 +211,7 @@ Legend:
   * We can now check whether it is possible to create at least `n(n-1) / 2d` connections in a single day, with this extra condition on the smallest table size. If not, then `T(n,k) > d`.
   * We don't use `i` if `a` or `c` applies. This bound is always at least as strong as `a` or `c`. When `n < k^2` most of the time `g` is stronger.
 
-### Upper Bounds:
+### Upper Bounds
 * `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See [Relations](#relations).
 * `A`: `T(km,k) ≤ T(m,k) + m` if `m` is coprime with `(k-1)!`.
   * Divide the participants into `k` groups of `m` people. On the first `T(m,k)` days, everyone meets every participant of their group.
@@ -230,8 +230,8 @@ Legend:
 
 
 ### Relation to the Social Golfer Problem
-* The *Social Golfer Problem* is a problem similar to Dagstuhl's Happy Diner Problem: what is the maximum possible of meals such that no two participants sit at the same table more than once? `G(m,k)` is the maximal number of meals with `m*k` participants and where each table contains **exactly** `k` participants.
-* From a good solution of the Social Golfer Problem we can retrieve a solution to the Happy Diner Problem.
+* The *Social Golfer Problem* is a problem similar to Dagstuhl's Happy Diner Problem: given a group of `m*k` golfers playing in `m` groups of `k` golfers each day. No two golfers play together more than once. What is the maximum possible of days they can play? Call this number `G(m,k)`.
+* From a good solution `G(m,k)` of the Social Golfer Problem we can retrieve a `(m*k,k)`-solution to the Happy Diner Problem.
 * `F`: There is a perfect `(m*k,k)`-solution iff `G(m,k) = (m*k - 1) / (k - 1)` iff `T(m*k,k) = (m*k - 1) / (k - 1)`.
 * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
 * `G`: If `G(m,k)*(k-1) = m*k - 3` then `T(m*k,k) ≤ G(m,k) + 2` (if `k ≥ 3`). After the solution to `G(m,k)` every participant still needs to meet 2 other participants, which can be easily achieved in two days, by splitting everyone up in group of 2 or 3 people.
