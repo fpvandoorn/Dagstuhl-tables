@@ -53,7 +53,7 @@ Legend:
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       |
 |   2   |    2     |    3     cd |    4     di |    5     di |    6     d  |    7      d |    8      d |   9         |
 |   3   |  **4**   |    5  `←`fg |    8 B c`→` |    9   `←`fg|   12   B`→` |   13   `←`f |   16    B`→`|  17    `←`f |
-|   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18   B gi |   19   `←`g | 20-22   B g |  27     B i |
+|   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18 B gi`→`|   19   `←`g | 20-22   B g |  27     B i |
 |   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 21-22  E g  | 22-26  `←`g |   32   B gi | 33-34  `←`g |
 |   6   |    6     |   12   E a  |   16      i | **25** AH a | 26-27 `←`g  | 30-32   K g | 32-37     g | 36-42   B g |
 |   7   |  **8**   | **15** F    | 17-20   E c | 25-26     i | 30-34  B h  | 31-39  `←`g | 32-45     g | 45-51   B g |
@@ -111,7 +111,7 @@ Legend:
 * A *connection* is a pair of people sitting at the same table. A *new connection* is a connection that was not yet formed on a previous day. The number of connections a table of size `l` makes is `s(l) = l(l-1)/2`, not all of which might be new connections. The number of new connections `s(c)` of a configuration `c` is the sum.
 * The *optimal configuration* `opt` is the configuration with the most connections. It has `⌊ n / k ⌋` tables of size `k` and one table of size `n mod k`, and it is unique.
 * If `k < n ≤ k^2 - 1` then it is not possible to create `2 * s(opt)` new connections after two days, since at least one pair of participants has to sit at the same table on both days, or a configuration other than the optimal configuration has to be used. Let `s(c1,c2)` the maximum number of new connections `c2` can make on day 2 is `c1` was used on day 1.
-* The *Social Golfer Problem* is similar a similar problem: what is the maximum possible of meals such that no two participants sit at the same table? `G(m,k)` is the maximal number with `m*k` participants and where each table contains **exactly** `k` participants.
+
 ## Properties
 
 ### Perfect Solutions
@@ -209,7 +209,7 @@ Legend:
   * The reason is as follows: Let `A` be any participant sitting at the smallest table in the optimal configuration: it can meet at most `l-1` participants that meal, and at most `k-1` participants every other meal, which is not enough.
   * This means that for any solution in `d` days, the smallest table size is `(n-1)-(d-1)(k-1)`.
   * We can now check whether it is possible to create at least `n(n-1) / 2d` connections in a single day, with this extra condition on the smallest table size. If not, then `T(n,k) > d`.
-  * We don't use `i` if `a` or `c` applies.
+  * We don't use `i` if `a` or `c` applies. This bound is always at least as strong as `a` or `c`. When `n < k^2` most of the time `g` is stronger.
 
 ### Upper Bounds:
 * `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See [Relations](#relations).
@@ -222,25 +222,36 @@ Legend:
 * `C`: *obsolete*.
 * `D`: *obsolete*.
 * `E`: found solution for this special case, see below. (We don't use `E` if another letter applies.)
-* From a good solution of the social golfer's problem (see *External Links*) we can retrieve a solution to the Happy Diner Problem.
-  * Denote the solution to the social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
-  * `F`: There is a perfect `(m*k,k)`-solution iff `G(m,k) = (m*k - 1) / (k - 1)` iff `T(m*k,k) = (m*k - 1) / (k - 1)`.
-  * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
-  * `G`: If `G(m,k)*(k-1) = m*k - 3` then `T(m*k,k) ≤ G(m,k) + 2` (if `k ≥ 3`). After the solution to `G(m,k)` every participant still needs to meet 2 other participants, which can be easily achieved in two days, by splitting everyone up in group of 2 or 3 people.
-  * See [External Links](#external-links) for more sources on the social golfer's problem. In particular many solutions of the social golfer's problem can be found in this [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/).
-    * These contain the solutions for `G(8,3) = 11` and `G(7,4) = 9` and `G(8,4) = 10` and `G(9,4) = 11` and `G(6,6) = 3`.
-    * From this, we conclude `T(24,3) = 12` and `T(28,4) = 9` and `T(32,4)=11` and `12 ≤ T(36,4) ≤ 13` and `T(36,6) > 7`.
-  * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
-    * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions would give `T(30,3) = 15` and `T(36,3) = 18`.
-    * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions would give `T(40,4) = 13` and `T(52,4) = 17`.
-    * `9 ≤ G(9,5) ≤ 11`.
-  * (We don't use `F` and `G` if another letter applies.)
+* `F`, `G`, see [Relation to the Social Golfer Problem](#relation-to-the-social-golfer-problem). (We don't use `F` and `G` if another letter applies.)
 * `H`, `J`: see [Known Values](#known-values).
 * `K`: From a perfect solution, we can get new solutions with the table size two larger.
   * Given an `(n,k)`-solution in `T` days and a subset `A ⊆ n` of participants such that no `i+1` participants from `A` sit at the same table during the same meal (let's say that `A` is `i`-*good* in this case), then there is a `(n+|A|,k+i)`-solution in `T` days, by replacing everyone in `A` with a pair of people.
   * If we start with a perfect `(n,k)`-solution (with `k > 2`) and a 2-good set `A` such that `|A|+(k-2)|A|(|A|-1)/2 < n`, then we can find a 2-good set with one more participant. The reason is that every pair of people in `A` sit at the same table exactly once, with `k-2` other people. Therefore, at most `|A|+(k-2)|A|(|A|-1)/2` other people cannot be added to `A` while keeping `A` 2-good, which means that there is someone we can add to `A` so that the new set is 2-good.
 
 
+### Relation to the Social Golfer Problem
+* The *Social Golfer Problem* is a problem similar to Dagstuhl's Happy Diner Problem: what is the maximum possible of meals such that no two participants sit at the same table more than once? `G(m,k)` is the maximal number of meals with `m*k` participants and where each table contains **exactly** `k` participants.
+* From a good solution of the Social Golfer Problem we can retrieve a solution to the Happy Diner Problem.
+* `F`: There is a perfect `(m*k,k)`-solution iff `G(m,k) = (m*k - 1) / (k - 1)` iff `T(m*k,k) = (m*k - 1) / (k - 1)`.
+* `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
+* `G`: If `G(m,k)*(k-1) = m*k - 3` then `T(m*k,k) ≤ G(m,k) + 2` (if `k ≥ 3`). After the solution to `G(m,k)` every participant still needs to meet 2 other participants, which can be easily achieved in two days, by splitting everyone up in group of 2 or 3 people.
+* A trivial upper bound is `G(m,k) ≤ (mk-1)/(k-1)`. We call a solution to the Social Golfer Problem *good* if it is close to this trivial upper bound.
+* See [External Links](#external-links) for more sources on the Social Golfer Problem. In particular many solutions of the Social Golfer Problem can be found in this [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/).
+  * The external links contain the following good solutions: `G(m,k)` is : `G(8,3) = 11` and `G(7,4) = 9` and `G(8,4) = 10` and `G(9,4) = 11`.
+  * From this, we conclude `T(24,3) = 12` and `T(28,4) = 9` and `T(32,4)=11` and `12 ≤ T(36,4) ≤ 13`.
+* The Social Golfer Problem `G(n,n)` is related to finding [mutually orthogonal Latin squares](https://en.wikipedia.org/wiki/Graeco-Latin_square).
+  * If `L(n)` is the maximal number of mutually orthogonal Latin squares of order `n`, then `G(n,n) = L(n) + 2`.
+  * `L(n) = [A001438](https://oeis.org/A001438)(n)`
+    * The reason is that the first two days specify a bijection between the participants and the squares in a `n × n` grid (the cell `(i,j)` corresponds to the participant `p(i,j)` that was in group `i` on day 1 and in group `j` on day 2.)
+    * Every day `d ≥ 3` produces a Latin square by putting `k` in cell `(i,j)` if participant `p(i,j)` was in group `k`.
+    * The fact that this is a Latin square follows from the fact that no pair of participants was in the same group on day `d`, `1` and `2`.
+    * Days `d₁, d₂ ≥ 3` have no pair of participants in the same group iff the corresponding Latin Squares are orthogonal.
+  * There is no pair of mutually orthogonal squares of order 6, so `L(6) = 1` and `G(6,6) = 3`. In particular there is no perfect `(36,6)`-solution, so `T(36,6) > 7`.
+  * `L(10)` is the smallest unknown value. According to [this Math Stack Exchange answer](https://math.stackexchange.com/q/649893) `L(10) < 9`. This implies that there is no perfect `(100,10)`-solution, so `T(100,10) > 11`.
+* On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
+  * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions would give `T(30,3) = 15` and `T(36,3) = 18`.
+  * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions would give the two perfect solutions `T(40,4) = 13` and `T(52,4) = 17`.
+  * `9 ≤ G(9,5) ≤ 11`.
 
 ### Solutions for Individual Cases
 
@@ -257,14 +268,6 @@ Legend:
 14A 236 57B 89C
 137 249 BC 58 6A
 ```
-
-#### `T(11,4) ≥ 5`
-
-* Suppose there is a solution in 4 days.
-* The only configurations which are not dominated are `(4,4,3)` and `(3,3,3,2)`. The first adds at most 15 connections, the second at most 10.
-* Therefore, on at least 3 days we need a `(4,4,3)` configuration, WLOG on day 1.
-* For the other days any table of size 4 has 1 pair in common with day 1, so adds at most 5 new connections. Therefore, at most 13 new connections can be added during each day.
-* This means we cannot get 55 connections, therefore we get a contradiction.
 
 #### `T(17,4) ≤ 7`
 * Solution found by Mathematica SAT-solver:
@@ -337,13 +340,22 @@ Legend:
 #### `T(10,4) ≤ 4`
 
 * This also follows from `T(10,4) ≤ T(9,3) = 4`. ([Relations](#relations) and either `A` or `H`)
-* Alternative solution found by hand:
+* Solution found by hand:
 ```
 1234 5678 90
 1259 3670 48
 1280 4679 35
 045 1267 389
 ```
+
+#### `T(11,4) ≥ 5`
+
+* This also follows from `g`.
+* Suppose there is a solution in 4 days.
+* The only configurations which are not dominated are `(4,4,3)` and `(3,3,3,2)`. The first adds at most 15 connections, the second at most 10.
+* Therefore, on at least 3 days we need a `(4,4,3)` configuration, WLOG on day 1.
+* For the other days any table of size 4 has 1 pair in common with day 1, so adds at most 5 new connections. Therefore, at most 13 new connections can be added during each day.
+* This means we cannot get 55 connections, therefore we get a contradiction.
 
 #### `T(10,5) ≥ 4`
 * This is a special case of `f`.
@@ -385,6 +397,10 @@ Legend:
 * If `(7,7,7)` doesn't appear, then every day has 4 tables. Then at most 57 connections can be made on day 1, and at most 49 connections on future days (since all 7s lose at least 3 and all 6s lose at least 2 connections). This is also not enough, since `57+49+49+49=204<210`.
 
 ## Questions
+* If `n ≡ k mod k(k-1)` and `n` is a prime power, is there always a perfect `(n,k)`-solution? There is no reason to believe this, but it is true for all values where the answer is known.
+  * It is false when `n` is not a prime power, where the smallest example is immediately a counterexample: there is no perfect `(36,6)`-solution.
+  * It is true for `k = 2` and `k = 3`.
+  * For `k = 4` it's true when `n ≤ 28`. If the data on [this Math Stack Exchange page](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) is accurate, it is also true `n ≤ 64`.
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
   * This is false. All optimal `(8,5)`-solutions have at least one day with two tables of four participants. This was found by brute force, but is quite easy to see by hand (to do).
   * It is probably even false that there always is an optimal `(n,k)`-solution where there are `⌈ n/k ⌉` tables each day (where `⌈ x ⌉` is the smallest integer which is at least `x`).
