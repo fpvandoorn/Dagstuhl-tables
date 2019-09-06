@@ -38,7 +38,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
 |   28  | **27**   | 15-16  c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
 |   29  |   29     | 15-16      |   11   i   |   8-9  `↖` |    7       |    6       |    5       |
-|   30  | **29**   | 15-16    J |   11   a G |   8-11     |    7   B   |    6     K |    5     B |
+|   30  | **29**   | 15-16    J |   11     G |   8-11     |    7   B   |    6     K |    5     B |
 
 Legend:
 * We use lower-case letters `a`-`z` (or `↘`) to justify lower bounds and upper-case letters `A`-`Z` (or `↖`) to justify upper bounds, which are explained below.
