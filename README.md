@@ -13,8 +13,8 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   2   |  **1**   |    1       |    1       |    1       |    1       |    1       |    1       |
 |   3   |    3     |  **1**     |    1       |    1       |    1       |    1       |    1       |
 |   4   |  **3**   |    3   cd  |  **1**     |    1       |    1       |    1       |    1       |
-|   5   |    5     |    3  `↖`  |    3   d   |  **1**     |    1       |    1       |    1       |
-|   6   |  **5**   |    4   fg  |    3       |    3   d   |  **1**     |    1       |    1       |
+|   5   |    5     |    3  `↖`  |    3   di  |  **1**     |    1       |    1       |    1       |
+|   6   |  **5**   |    4   fg  |    3       |    3   di  |  **1**     |    1       |    1       |
 |   7   |    7     |    4       |    3       |    3       |    3   d   |  **1**     |    1       |
 |   8   |  **7**   |    4       |    3   B   |    3       |    3       |    3   d   |  **1**     |
 |   9   |    9     |  **4** AH  |    4  c`↘` |    3  `↖`  |    3       |    3       |    3   d   |
@@ -24,10 +24,10 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   13  |   13     |    7   a   |    5       |    5   e   |    4  `↘`  |    3  `↖`  |    3       |
 |   14  | **13**   |    7       |    5       |    5       |    4       |    4   f   |    3       |
 |   15  |   15     |  **7** F   |    5       |    5       |    4       |    4       |    3       |
-|   16  | **15**   |    9   c   |  **5** H   |    5       |    4       |    4       |    3   B   |
-|   17  |   17     |    9       |   6-7  a E |    5  `↖`  |    4       |    4       |    4   f   |
+|   16  | **15**   |    9   c   |  **5**   H |    5       |    4       |    4       |    3   B   |
+|   17  |   17     |    9       |    7   i E |    5  `↖`  |    4       |    4       |    4   f   |
 |   18  | **17**   |    9   G   |   7-8  a   |   5-6      |    4   B   |    4       |    4       |
-|   19  |   19     |   10   a   |   7-8      |    6   g   |    5   g   |    4  `↖`  |    4       |
+|   19  |   19     |   10   a   |   7-8      |    6   g   |    5   gi  |    4  `↖`  |    4       |
 |   20  | **19**   |   10       |   7-8  A   |    6       |    5       |   5-6  g   |    4   B   |
 |   21  |   21     | **10** F   |   8-9  c   |    6       |    5   E   |   5-6      |   4-5      |
 |   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |   5-6      |   4-5      |
@@ -35,9 +35,9 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   24  | **23**   |   12   G   |   8-9      |    6       |    6       |   5-6      |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6** AH  |    6       |   5-6      |    5       |
 |   26  | **25**   |   13       |    9       |   7-9  a   |    6  `↖`  |   5-6      |    5       |
-|   27  |   27     | **13** AH  |    9       |   7-9      |   6-7      |    6 g     |    5       |
-|   28  | **27**   | 15-16  c   |  **9** F   |   8-9  a   |    7   g   |    6       |    5       |
-|   29  |   29     | 15-16      |  10-11 a   |   8-9 `↖`  |    7       |    6       |    5       |
+|   27  |   27     | **13** AH  |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
+|   28  | **27**   | 15-16  c   |  **9** F   |   8-9      |    7   g   |    6       |    5       |
+|   29  |   29     | 15-16      |   11   i   |   8-9 `↖`  |    7       |    6       |    5       |
 |   30  | **29**   | 15-16  J   |   11   a G |   8-11     |    7   B   |    6    K  |    5   B   |
 
 Legend:
@@ -51,36 +51,36 @@ Legend:
 | T \ k |  2       |   3         |   4         |   5         |   6         |   7         |  8          |     9       |
 |:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       |
-|   2   |    2     |    3     cd |    4      d |    5      d |    6     d  |    7      d |    8      d |   9         |
+|   2   |    2     |    3     cd |    4     di |    5     di |    6     d  |    7      d |    8      d |   9         |
 |   3   |  **4**   |    5  `←`fg |    8 B c`→` |    9   `←`fg|   12   B`→` |   13   `←`f |   16    B`→`|  17    `←`f |
-|   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18   B g  |   19   `←`g | 20-22   B g | 27-28   B g |
-|   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 21-22  E g  | 19-26     g |   32    B g | 33-34  `←`g |
-|   6   |    6     |   12   E a  | 16-17     a | **25** AH a | 26-27 `←`g  | 30-32   K g | 32-37     a | 36-42   B g |
-|   7   |  **8**   | **15** F    | 17-20   E c | 25-27     a | 30-34  B h  | 31-39  `←`g | 32-45     g | 45-51   B g |
-|   8   |    8     |   15     c  | 20-24   A a | 25-31     a | 30-39    a  | **49** AH a | 50-53  `←`g | 54-59   K g |
-|   9   | **10**   |   18   G a  | **28**  F a | 29-35  `←`c | 36-44  B a  | 49-52     a | **64**  H a | 65-69  `←`g |
-|   10  |   10     | **21** F    | 28-29     a | 35-40   A a | 42-49 AB a  | 49-58     a | 64-68     a | **81**  H a |
-|   11  | **12**   |   21     c  |   32    G a | 35-45     a | 42-54    c  | 49-65     a | 64-75     a | 81-86     a |
-|   12  |   12     |   24   G a  | 32-36     a | 35-47     a | 48-60  B a  | 49-71     a | 64-82     a | 81-94     a |
-|   13  | **14**   | **27** AH   | 36-40   G a |             |             |             |             |             |
-|   14  |   14     |   27     c  |             |             | 66-69  A a  | 77-84   A a | 88-97   A a | 99-110  A a |
-|   15  | **16**   | 27-30    a  |             | 55-60   A a |             |             |             |             |
-|   16  |   16     | **33** F    | 44-48   A a |             |             | 91-94   A a | 104-112 A a | 117-127 A a |
-|   17  | **18**   |   33     c  |             |             | 78-84  A c  |             |             |             |
-|   18  |   18     | 33-36    a  | 52-53   A a | 65-71   A a |             |             |             |             |
-|   19  | **20**   | **39** F    |             |             |             |             |             |             |
-|   20  |   20     |   39     c  |             |             |             |             |             | 153-158 A a |
-|   21  | **22**   | 39-42    a  | **64**  H a |             | 102-104 A a | 119-126 A a | 136-146 A a |             |
-|   22  |   22     | **45** A    |             | 85-87   A a |             |             |             |             |
-|   23  | **24**   |   45     c  |             |             |             | 133-136 A a | 152-160 A c | 171-182 A a |
-|   24  |   24     | 45-48    a  |             |             |             |             |             |             |
-|   25  | **26**   | **51** J    | 68-76   A a | 95-100  A a | 114-126 A a |             |             |             |
-|   26  |   26     |   51     c  |             |             |             |             |             |             |
-|   27  | **28**   | 51-54    a  | 76-80   A a |             |             |             |             | 207-216 A a |
-|   28  |   28     | **57** J    |             |             |             |             | 184-194 A a |             |
-|   29  | **30**   |   57     c  |             |  115    A c | 138-144 A c | 161-175 A a |             |             |
-|   30  |   30     | 57-60    a  |             |             |             |             |             |             |
-|   31  | **32**   | **63** A    |             |**125** AH a |             |             |             |             |
+|   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18   B gi |   19   `←`g | 20-22   B g |  27     B i |
+|   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 21-22  E g  | 19-26     g |   32   B gi | 33-34  `←`g |
+|   6   |    6     |   12   E a  |   16      i | **25** AH a | 26-27 `←`g  | 30-32   K g | 32-37     g | 36-42   B g |
+|   7   |  **8**   | **15** F    | 17-20   E c | 25-26     i | 30-34  B h  | 31-39  `←`g | 32-45     g | 45-51   B g |
+|   8   |    8     |   15     c  | 20-24   A a | 25-30     i | 30-38    i  | **49** AH a | 50-53  `←`g | 54-59   K g |
+|   9   | **10**   |   18   G a  | **28**  F a | 29-35  `←`c | 36-42  B i  | 49-51     i | **64**  H a | 65-69  `←`g |
+|   10  |   10     | **21** F    |   28      i | 35-40   A a | 42-48 AB i  | 49-57     i | 64-67     i | **81**  H a |
+|   11  | **12**   |   21     c  |   32    G a | 35-45     a | 42-54    c  | 49-63     i | 64-73     i | 81-85     i |
+|   12  |   12     |   24   G a  | 32-36     a | 35-46     i | 48-60  B a  | 49-70     i | 64-80     i | 81-92     i |
+|   13  | **14**   | **27** AH   | 36-40   G a | 37-50  `←`i |             |             | 72-88   B i | 81-100    i |
+|   14  |   14     |   27     c  | 36-40     i |             | 66-68  A i  | 77-84   A a | 88-96   A i | 99-108  A i |
+|   15  | **16**   | 27-30    a  |             | 55-60   A a | 66-72    i  |             |             | 99-117    i |
+|   16  |   16     | **33** F    | 44-48   A a |             | 66-78    i  | 91-93   A i | 104-112 A a | 117-126 A i |
+|   17  | **18**   |   33     c  |             | 55-66     i | 78-84  A c  | 91-99     i |             |             |
+|   18  |   18     | 33-36    a  |   52    A i | 65-70   A i |             | 91-105    i | 104-123   i |             |
+|   19  | **20**   | **39** F    |             |             |             | 91-112    i | 104-129   i |             |
+|   20  |   20     |   39     c  |             |             | 78-98    i  |             | 104-136   i | 153-157 A i |
+|   21  | **22**   | 39-42    a  | **64**  H a |             |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
+|   22  |   22     | **45** A    |   64      i | 85-86   A i | 102-108   i |             | 136-152   i | 153-172   i |
+|   23  | **24**   |   45     c  |             | 85-90     i |             | 133-135 A i | 152-160 A c | 171-180 A i |
+|   24  |   24     | 45-48    a  |             |             |             | 133-141   i |             | 171-189   i |
+|   25  | **26**   | **51** J    | 68-76   A   | 95-100  A a | 114-126 A a | 133-147   i |             | 171-198   i |
+|   26  |   26     |   51     c  | 68-76     i |             | 114-128   i | 133-154   i | 152-179   i |             |
+|   27  | **28**   | 51-54    a  | 76-80   A a | 95-106    i | 114-132   i |             | 152-185   i | 207-216 A a |
+|   28  |   28     | **57** J    |             | 95-110    i | 114-138   i |             | 184-192 A i |             |
+|   29  | **30**   |   57     c  |             |  115    A c | 138-144 A c | 161-175 A a | 184-200   i | 207-229   i |
+|   30  |   30     | 57-60    a  |             |             |             | 161-177   i | 184-208   i | 207-236   i |
+|   31  | **32**   | **63** A    | 76-88     i |**125** AH a |             | 161-183   i |             | 207-244   i |
 
 * An entry in this table shows the maximal `n` such that `T(n,k) ≤ T`. We call this value `n(T,k)`.
 * This table has the same information as the previous one, organized differently.
@@ -104,8 +104,14 @@ Legend:
 * A valid solution with `n` participants and table size of at most `k` is called a `(n,k)`-*solution*.
 * Given a valid solution. We say that it is an *optimal solution* if there is no valid solution (with the same `n` and `k`) with fewer days.
 * Given a valid solution. We say that it is a *perfect solution* if every participant meets every other participant exactly once and all tables have `k` every meal.
-* The *Social Golfer Problem* is similar: what is the maximum possible of meals such that no two participants sit at the same table? `G(m,k)` is the maximal number with `m*k` participants and where each table contains **exactly** `k` participants.
-
+* A *distribution* is a seating assignment for a single meal.
+* A *configuration* is an assignment for the *number* of participants to each table for a single meal (but not stating which participant goes where).
+* We say that a configuration `C` is dominated if it has two tables with `a` and `b` participants and `a + b ≤ k`.
+  * In this case, we can merge these two tables and still have a valid solution, so we may assume we have a solution without dominated configurations.
+* A *connection* is a pair of people sitting at the same table. A *new connection* is a connection that was not yet formed on a previous day. The number of connections a table of size `l` makes is `s(l) = l(l-1)/2`, not all of which might be new connections. The number of new connections `s(c)` of a configuration `c` is the sum.
+* The *optimal configuration* `opt` is the configuration with the most connections. It has `⌊ n / k ⌋` tables of size `k` and one table of size `n mod k`, and it is unique.
+* If `k < n ≤ k^2 - 1` then it is not possible to create `2 * s(opt)` new connections after two days, since at least one pair of participants has to sit at the same table on both days, or a configuration other than the optimal configuration has to be used. Let `s(c1,c2)` the maximum number of new connections `c2` can make on day 2 is `c1` was used on day 1.
+* The *Social Golfer Problem* is similar a similar problem: what is the maximum possible of meals such that no two participants sit at the same table? `G(m,k)` is the maximal number with `m*k` participants and where each table contains **exactly** `k` participants.
 ## Properties
 
 ### Perfect Solutions
@@ -168,7 +174,8 @@ Legend:
 * `e`: proven for this special case, see below. (We don't use `e` if another letter applies.)
 * `f`: If `k` is odd then `T(2k,k) ≥ 4`.
   * This also implies that for even `k` we have `T(2k+1,k) ≥ T(2(k+1),k+1) ≥ 4`
-  * For the proof we will use the terminology given under [Solutions for Individual Cases/New terminology](#new-terminology). Note that all non-dominated distributions use 2 or 3 tables.
+  <!-- * For the proof we will use the terminology given under [Solutions for Individual Cases/New terminology](#new-terminology).  -->
+  * Note that all non-dominated distributions use 2 or 3 tables.
   * Suppose this can be done in 3 days.
   * Suppose the assignment for day 1 is `{a, b, c}` with `k ≥ |a| ≥ |b| ≥ |c| ≥ 0`. We may assume that `|a|` is the largest among all table sizes on all days.
   * Let `x ∈ a` and let `x ∈ a₂ ⊆ a`, `b₂ ⊆ b` and `c₂ ⊆ c` be the participants of the table containing `x` on day 2. We may assume that `b₂ ≠ ∅` (by interchanging day 2 and 3), and from this we can conclude that `a₂ ≠ a` (otherwise `|a|` was not largest).
@@ -185,7 +192,7 @@ Legend:
   * Since `k` is odd, we have `max(|a₂|, |a \ a₂|) > k / 2` and `max(|b₂|, |b \ a₂|) > k / 2`, which means that on either day 2 or day 3 there was a table with more that `k` participants. Contradiction!
 * `g`: Improvement of `a` when `k < n ≤ k^2 - 2`
   * The idea for this lower bound is that every day after the first day many connections are already present on day 1. This means that the number of connections you can make on most (all but one) days is much less than calculated at `a`.
-  * For the explanation we will use the terminology given under [Solutions for Individual Cases/New terminology](#new-terminology).
+  <!-- * For the explanation we will use the terminology given under [Solutions for Individual Cases/New terminology](#new-terminology). -->
   * On day 1 at most `s(opt)` connections can be added
   * On subsequent days fewer connections can be added. We can give an upper bound, and run through all (sensible) pairs of non-dominated configurations to find the maximal number `s` of connections that can
     be added on day 2 (where we can choose the configuration of day 1 to be as optimal as possible).
@@ -198,6 +205,11 @@ Legend:
   * The only way this solution can work is by making all but 1 table size `k` every meal, and seating every participant exactly once with every other participant.
   * This means that every participant sits at a table of size `k - 1` exactly once.
   * We can add a participant at the empty seat every meal, and then we get a perfect `(n, k)`-solution.
+* `i`: Let `n = mk + l`, and let `d` be the lower bound given by `a`. Suppose that `(d-1)(k-1) + (l-1) < n-1`, then there is no solution in `d` days with an optimal configuration.
+  * The reason is as follows: Let `A` be any participant sitting at the smallest table in the optimal configuration: it can meet at most `l-1` participants that meal, and at most `k-1` participants every other meal, which is not enough.
+  * This means that for any solution in `d` days, the smallest table size is `(n-1)-(d-1)(k-1)`.
+  * We can now check whether it is possible to create at least `n(n-1) / 2d` connections in a single day, with this extra condition on the smallest table size. If not, then `T(n,k) > d`.
+  * We don't use `i` if `a` or `c` applies.
 
 ### Upper Bounds:
 * `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See [Relations](#relations).
@@ -220,7 +232,7 @@ Legend:
     * From this, we conclude `T(24,3) = 12` and `T(28,4) = 9` and `T(32,4)=11` and `12 ≤ T(36,4) ≤ 13` and `T(36,6) > 7`.
   * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
     * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions would give `T(30,3) = 15` and `T(36,3) = 18`.
-    * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions would give `T(40,4)=13` and `T(52,4)=17`.
+    * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions would give `T(40,4) = 13` and `T(52,4) = 17`.
     * `9 ≤ G(9,5) ≤ 11`.
   * (We don't use `F` and `G` if another letter applies.)
 * `H`, `J`: see [Known Values](#known-values).
@@ -234,16 +246,6 @@ Legend:
 
 * The solution `T(6,3) ≥ 4` is very detailed. Other solutions with the same techniques will have much less explanation. So if you don't understand the reasoning, read `T(6,3) ≥ 4` first (See [Examples](#examples)).
 * The code using the Mathematica SAT-solver was written by Michael Trott and optimized by Floris van Doorn.
-
-#### New terminology
-
-* A *distribution* is a seating assignment for a single meal.
-* A *configuration* is an assignment for the *number* of participants to each table for a single meal (but not stating which participant goes where).
-* We say that a configuration `C` is dominated if it has two tables with `a` and `b` participants and `a + b ≤ k`.
-  * In this case, we can merge these two tables and still have a valid solution, so we may assume we have a solution without dominated configurations.
-* A *connection* is a pair of people sitting at the same table. A *new connection* is a connection that was not yet formed on a previous day. The number of connections a table of size `l` makes is `s(l) = l(l-1)/2`, not all of which might be new connections. The number of new connections `s(c)` of a configuration `c` is the sum.
-* The *optimal configuration* `opt` is the configuration with the most connections. It has `⌊ n / k ⌋` tables of size `k` and one table of size `n mod k`, and it is unique.
-* If `k < n ≤ k^2 - 1` then it is not possible to create `2 * s(opt)` new connections after two days, since at least one pair of participants has to sit at the same table on both days, or a configuration other than the optimal configuration has to be used. Let `s(c1,c2)` the maximum number of new connections `c2` can make on day 2 is `c1` was used on day 1.
 
 #### `T(12,3) ≤ 6`
 * Solution found by Mathematica SAT-solver:
@@ -383,8 +385,6 @@ Legend:
 * If `(7,7,7)` doesn't appear, then every day has 4 tables. Then at most 57 connections can be made on day 1, and at most 49 connections on future days (since all 7s lose at least 3 and all 6s lose at least 2 connections). This is also not enough, since `57+49+49+49=204<210`.
 
 ## Questions
-* If `n ≡ k mod k(k-1)` is there always a perfect `(n,k)`-solution? Is it true if we assume `k` is a prime power or a prime number? There is no reason to believe this, but it is true for all values where the answer is known.
-  * It is true for `k = 3`. For `k = 4` it's true when `n ≤ 28`.
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
   * This is false. All optimal `(8,5)`-solutions have at least one day with two tables of four participants. This was found by brute force, but is quite easy to see by hand (to do).
   * It is probably even false that there always is an optimal `(n,k)`-solution where there are `⌈ n/k ⌉` tables each day (where `⌈ x ⌉` is the smallest integer which is at least `x`).
