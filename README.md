@@ -56,7 +56,7 @@ Legend:
 |   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18   B g  |   19   `←`g | 20-22   B g | 27-28   B g |
 |   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 21-22  E g  | 19-26     g |   32    B g | 33-34  `←`g |
 |   6   |    6     |   12   E a  | 16-17     a | **25** AH a | 26-27 `←`g  | 30-32   K g | 32-37     a | 36-42   B g |
-|   7   |  **8**   | **15** F    | 17-20   E c | 25-27     a | 30-36  B a  | 31-39  `←`g | 32-45     g | 45-51   B g |
+|   7   |  **8**   | **15** F    | 17-20   E c | 25-27     a | 30-34  B h  | 31-39  `←`g | 32-45     g | 45-51   B g |
 |   8   |    8     |   15     c  | 20-24   A a | 25-31     a | 30-39    a  | **49** AH a | 50-53  `←`g | 54-59   K g |
 |   9   | **10**   |   18   G a  | **28**  F a | 29-35  `←`c | 36-44  B a  | 49-52     a | **64**  H a | 65-69  `←`g |
 |   10  |   10     | **21** F    | 28-29     a | 35-40   A a | 42-49 AB a  | 49-58     a | 64-68     a | **81**  H a |
@@ -193,6 +193,11 @@ Legend:
   * Conjecture: `s(c1, c2) ≤ d(opt,opt)` whenever `s(c2) ≤ s(c1)` and `c1` and `c2` are non-dominated. (this is true, but I haven't figured out the precise argument yet) -->
   * This means that after `T+1` days at most `s(opt) + T * s` connections can be made, which gives a lower bound for the number of days.
   * The Mathematica function doing this is given in `lowerbound.txt`. It is not optimal, and is not necessarily increasing in `n`. In some cases we can probably increase the lower bound by 1 using a similar but more precise argument.
+* `h`: If there is no perfect `(n,k)`-solution but `k | n` and `k - 1 | n - 1`, then `T(n-1, k) > (n - 1) / (k - 1)`.
+  * The reason is that if `T(n-1, k) = (n - 1) / (k - 1)` is also given by the lower bound `a`.
+  * The only way this solution can work is by making all but 1 table size `k` every meal, and seating every participant exactly once with every other participant.
+  * This means that every participant sits at a table of size `k - 1` exactly once.
+  * We can add a participant at the empty seat every meal, and then we get a perfect `(n, k)`-solution.
 
 ### Upper Bounds:
 * `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See [Relations](#relations).
@@ -207,22 +212,22 @@ Legend:
 * `E`: found solution for this special case, see below. (We don't use `E` if another letter applies.)
 * From a good solution of the social golfer's problem (see *External Links*) we can retrieve a solution to the Happy Diner Problem.
   * Denote the solution to the social golfer's problem with `m` groups and `k` golfers per group (so `m*k` golfers total) by `G(m,k)`.
-  * `F`: If `G(m,k)*(k-1) = m*k - 1` then `T(m*k,k) = G(m,k)`, because this gives a perfect `(m*k,k)`-solution.
+  * `F`: There is a perfect `(m*k,k)`-solution iff `G(m,k) = (m*k - 1) / (k - 1)` iff `T(m*k,k) = (m*k - 1) / (k - 1)`.
   * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
   * `G`: If `G(m,k)*(k-1) = m*k - 3` then `T(m*k,k) ≤ G(m,k) + 2` (if `k ≥ 3`). After the solution to `G(m,k)` every participant still needs to meet 2 other participants, which can be easily achieved in two days, by splitting everyone up in group of 2 or 3 people.
-  * Many solutions of the social golfer's problem can be found in this [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/).
-    * In particular, this contains `G(8,3) = 11` and `G(7,4) = 9` and `G(8,4) = 10` and `G(9,4) = 11`.
-  * See [External Links](#external-links) for more sources on the social golfer's problem.
+  * See [External Links](#external-links) for more sources on the social golfer's problem. In particular many solutions of the social golfer's problem can be found in this [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/).
+    * These contain the solutions for `G(8,3) = 11` and `G(7,4) = 9` and `G(8,4) = 10` and `G(9,4) = 11` and `G(6,6) = 3`.
+    * From this, we conclude `T(24,3) = 12` and `T(28,4) = 9` and `T(32,4)=11` and `12 ≤ T(36,4) ≤ 13` and `T(36,6) > 7`.
   * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
     * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions would give `T(30,3) = 15` and `T(36,3) = 18`.
     * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions would give `T(40,4)=13` and `T(52,4)=17`.
     * `9 ≤ G(9,5) ≤ 11`.
-    * `G(6,6) < 7`. This implies that `T(36,6) > 7`.
   * (We don't use `F` and `G` if another letter applies.)
 * `H`, `J`: see [Known Values](#known-values).
 * `K`: From a perfect solution, we can get new solutions with the table size two larger.
   * Given an `(n,k)`-solution in `T` days and a subset `A ⊆ n` of participants such that no `i+1` participants from `A` sit at the same table during the same meal (let's say that `A` is `i`-*good* in this case), then there is a `(n+|A|,k+i)`-solution in `T` days, by replacing everyone in `A` with a pair of people.
   * If we start with a perfect `(n,k)`-solution (with `k > 2`) and a 2-good set `A` such that `|A|+(k-2)|A|(|A|-1)/2 < n`, then we can find a 2-good set with one more participant. The reason is that every pair of people in `A` sit at the same table exactly once, with `k-2` other people. Therefore, at most `|A|+(k-2)|A|(|A|-1)/2` other people cannot be added to `A` while keeping `A` 2-good, which means that there is someone we can add to `A` so that the new set is 2-good.
+
 
 
 ### Solutions for Individual Cases
