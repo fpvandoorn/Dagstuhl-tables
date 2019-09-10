@@ -239,7 +239,13 @@ Legend:
 * See [External Links](#external-links) for more sources on the Social Golfer Problem. In particular many solutions of the Social Golfer Problem can be found in this [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/).
   * The external links contain the following good solutions: `G(m,k)` is : `G(8,3) = 11` and `G(7,4) = 9` and `G(8,4) = 10` and `G(9,4) = 11`.
   * From this, we conclude `T(24,3) = 12` and `T(28,4) = 9` and `T(32,4)=11` and `12 ≤ T(36,4) ≤ 13`.
-* <a name="latin-squares"></a>The Social Golfer Problem `G(n,n)` is related to finding [mutually orthogonal Latin squares](https://en.wikipedia.org/wiki/Graeco-Latin_square).
+* On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
+  * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions would give `T(30,3) = 15` and `T(36,3) = 18`.
+  * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions would give the two perfect solutions `T(40,4) = 13` and `T(52,4) = 17`.
+  * `9 ≤ G(9,5) ≤ 11`.
+
+#### Latin Squares
+* The Social Golfer Problem `G(n,n)` is related to finding [mutually orthogonal Latin squares](https://en.wikipedia.org/wiki/Graeco-Latin_square).
   * Let `L(n)` is the maximal number of mutually orthogonal Latin squares of order `n`, that is [`L(n) = A001438(n)`](https://oeis.org/A001438).
   * The relation is `G(n,n) = L(n) + 2`.
     * The reason is that the first two days specify a bijection between the participants and the squares in a `n × n` grid (the cell `(i,j)` corresponds to the participant `p(i,j)` that was in group `i` on day 1 and in group `j` on day 2.)
@@ -248,10 +254,6 @@ Legend:
     * Days `d₁, d₂ ≥ 3` have no pair of participants in the same group iff the corresponding Latin Squares are orthogonal.
   * There is no pair of mutually orthogonal squares of order 6, so `L(6) = 1` and `G(6,6) = 3`. In particular there is no perfect `(36,6)`-solution, so `T(36,6) > 7`.
   * `L(10)` is the smallest unknown value. According to [this Math Stack Exchange answer](https://math.stackexchange.com/q/649893) `L(10) < 9`. This implies that there is no perfect `(100,10)`-solution, so `T(100,10) > 11`.
-* On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
-  * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions would give `T(30,3) = 15` and `T(36,3) = 18`.
-  * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions would give the two perfect solutions `T(40,4) = 13` and `T(52,4) = 17`.
-  * `9 ≤ G(9,5) ≤ 11`.
 
 ### Solutions for Individual Cases
 
