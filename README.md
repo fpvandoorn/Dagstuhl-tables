@@ -28,9 +28,9 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   17  |   17     |    9       |    7   i E |    5   `↖` |    4       |    4       |    4   f   |
 |   18  | **17**   |    9     G |   7-8      |   5-6      |    4     B |    4       |    4       |
 |   19  |   19     |   10   a   |   7-8      |    6   g   |    5 gi`↘` |    4   `↖` |    4       |
-|   20  | **19**   |   10       |   7-8    A |    6       |    5       |    5 g     |    4  `↖`B |
-|   21  |   21     | **10**   F |   8-9  c   |    6       |    5     E |    5       |   4-5      |
-|   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |    5   `↖` |   4-5      |
+|   20  | **19**   |   10       |   7-8    A |    6       |    5       |    5 g     |    4       |
+|   21  |   21     | **10**   F |   8-9  c   |    6       |    5     E |    5       |    4       |
+|   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |    5   `↖` |    4     E |
 |   23  |   23     |   12       |   8-9      |    6       |    6   g   |   5-6      |    5   g   |
 |   24  | **23**   |   12     G |   8-9      |    6       |    6       |   5-6      |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |   5-6      |    5       |
@@ -53,7 +53,7 @@ Legend:
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       |
 |   2   |    2     |    3     cd |    4     di |    5     di |    6     d  |    7      d |    8      d |   9         |
 |   3   |  **4**   |    5  `←`fg |    8 B c`→` |    9   `←`fg|   12   B`→` |   13   `←`f |   16    B`→`|  17    `←`f |
-|   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18 B gi`→`|   19   `←`g | 20-22   B g |  27     B i |
+|   4   |    4     |  **9** AH   |   10   `←`g |   12    E e |   18 B gi`→`|   19   `←`g |   22    E g |  27     B i |
 |   5   |  **6**   |    9     c  | **16**  H a | 17-18  `←`g | 21-22  E g  | 22-26  `←`g |   32   B gi | 33-34  `←`g |
 |   6   |    6     |   12   E a  |   16      i | **25** AH a | 26-27 `←`g  | 30-32   K g | 32-37     g | 36-42   B g |
 |   7   |  **8**   | **15** F    | 17-20   E c | 25-26     i | 30-34  B h  | 31-39  `←`g | 32-45     g | 45-51   B g |
@@ -259,6 +259,7 @@ Legend:
 
 * The solution `T(6,3) ≥ 4` is very detailed. Other solutions with the same techniques will have much less explanation. So if you don't understand the reasoning, read `T(6,3) ≥ 4` first (See [Examples](#examples)).
 * The code using the Mathematica SAT-solver was written by Michael Trott and optimized by Floris van Doorn.
+* If the SAT-solver took longer than ~10s, we write the time as an indication for its difficulty.
 
 #### `T(12,3) ≤ 6`
 * Solution found by Mathematica SAT-solver:
@@ -312,6 +313,15 @@ Legend:
 18BFH 25CDIJ 37AG 469EKL
 15AEHJ 289GIL 36BDK 47CF
 16CGHK 27BEI 359FJL 48AD
+```
+
+### `T(22,8) ≤ 4`
+* Solution found by Mathematica SAT-solver: (314s)
+```
+12345678 9ABCDEFG HIJKLM
+47ACIK 1369BDHM 258EFGJL
+258ACHM 136EFGIK 479BDJL
+47EFGHM 136ACJL 2589BDIK
 ```
 
 ### Examples
