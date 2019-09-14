@@ -30,9 +30,9 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   19  |   19     |   10   a   |   7-8      |    6   g   |    5 gi`↘` |    4   `↖` |    4       |
 |   20  | **19**   |   10       |   7-8    A |    6       |    5       |    5 g     |    4       |
 |   21  |   21     | **10**   F |   8-9  c   |    6       |    5       |    5       |    4       |
-|   22  | **21**   |   12   c   |   8-9      |    6       |    5     E |    5       |    4     E |
-|   23  |   23     |   12       |   8-9      |    6       |    6   g   |    5       |    5   g   |
-|   24  | **23**   |   12     G |   8-9      |    6       |    6       |    5       |    5       |
+|   22  | **21**   | 12-13  c   |   8-9      |    6       |    5     E |    5       |    4     E |
+|   23  |   23     | 12-13      |   8-9      |    6       |    6   g   |    5       |    5   g   |
+|   24  | **23**   | 12-13      |   8-9      |    6       |    6       |    5       |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |    5     E |    5       |
 |   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |   5-6      |    5       |
 |   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
@@ -61,14 +61,14 @@ Legend:
 |   9   | **10**   |   18    G a | **28**  F a | 29-35 `←` c | 36-42   B i | 49-51     i | **64**  H a | 65-69 `←` g |
 |   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |
 |   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |
-|   12  |   12     |   24    G a | 32-36     a | 35-46     i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
+|   12  |   12     | 21-24     a | 32-36     a | 35-46     i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
 |   13  | **14**   | **27** AH   | 36-40   G a | 37-50 `←` i |             |             | 72-88   B i | 81-100    i |
 |   14  |   14     |   27      c | 36-40     i |             | 66-68   A i | 77-84   A a | 88-96   A i | 99-108  A i |
 |   15  | **16**   | 27-30     a |             | 55-60   A a | 66-72     i |             |             | 99-117    i |
-|   16  |   16     | **33**  F   | 44-48   A a |             | 66-78     i | 91-93   A i | 104-112 A a | 117-126 A i |
+|   16  |   16     | **33**  J   | 44-48   A a |             | 66-78     i | 91-93   A i | 104-112 A a | 117-126 A i |
 |   17  | **18**   |   33      c |             | 55-66     i | 78-84   A c | 91-99     i |             |             |
 |   18  |   18     | 33-36     a |   52    A i | 65-70   A i |             | 91-105    i | 104-123   i |             |
-|   19  | **20**   | **39**  F   |             |             |             | 91-112    i | 104-129   i |             |
+|   19  | **20**   | **39**  J   |             |             |             | 91-112    i | 104-129   i |             |
 |   20  |   20     |   39      c |             |             | 78-98     i |             | 104-136   i | 153-157 A i |
 |   21  | **22**   | 39-42     a | **64**  H a |             |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
 |   22  |   22     | **45**  A   |   64      i | 85-86   A i | 102-108   i |             | 136-152   i | 153-172   i |
@@ -114,12 +114,6 @@ Legend:
 
 ## Properties
 
-### Perfect Solutions
-* Necessarily, every perfect solution is optimal.
-* Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`).
-* A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
-* See [Known Values](#known-values) for some known perfect solutions
-
 ### Relations
 * `T(n+1,k) ≥ T(n,k) ≥ T(n+1,k+1) ≥ T(n,k+1)`.
   * If a value in the table can be derived from the first inequality, no other explanation is given.
@@ -129,31 +123,29 @@ Legend:
   * This subsumes the relation `T(n+1,k) ≥ T(n,k) ≥ T(n,k+1)` above since `T(k,k+1)=1`.
   * If there is a perfect `(n,m)`-solution and a perfect `(m,k)`-solution then there is a perfect `(n,k)`-solution.
 
-### Known Values
+### Perfect Solutions
+* Necessarily, every perfect solution is optimal.
+* Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`).
+* A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
+* The perfect solutions are in boldface in the tables above.
+* The upper bounds `F`, `H` and `J` all give families of perfect solutions.
+
+### Special Cases
 * `T(n,k) = 1` if `n ≤ k` trivially.
 * `T(n,2) = n` if `n` is odd, `T(n,2)=n-1` if `n` is even.
-  * The lower bound is given by `a`, see below.
+  * The lower bound is given by `a`.
   * The upper bound can be obtained as follows.
     * Suppose `n = 4m`: split it up in 2 groups of size `2m`, first do those groups independently in `2m-1` days, then in the next `2m` days on day `i` let person `j` in group 1 sit with person `i+j (mod 2m)` in group 2.
+      * This also follows from upper bound `A`.
     * Suppose `n = 2m` with `m` odd:
       * For the first `m` days: on day `i` let person `i` sit with `i+m` and person `i+j` with `i-j`.
       * For the next `m-1` days, on day `2k-1` and `2k` let person `i` sit with the persons `i+2k-1` and `i-(2k-1)`. If `i` is even it will sit with `i+2k-1` first, and if `i` is odd it will sit with `i-(2k-1)` first.
-    * Suppose `n` is odd, then we can use the solution for `n+1` participants, dropping 1 participant.
+    * Suppose `n` is odd, then we can use the solution for `n+1` participants.
 * If `k` is even and `k < n ≤ 2k` then `T(n,k) = 3`. Also, if `k` is odd and `k < n < 2k` then `T(n,k) = 3`. These are *all* the values for `(n,k)` where `T(n,k) = 3`.
   * If `n > k` then `T(n,k) ≥ 3` is explained by the lower bound `d`.
   * If `k` is even and `n ≤ 2k` then `T(n,k) ≤ 3` is explained by the upper bound `B`.
   * If `k` is odd and `n < 2k` then `T(n,k) ≤ 3` is explained by `T(n,k) ≤ T(n-1,k-1) ≤ 3`, using the previous bullet point.
   * For smaller `n` we have `T(n,k) = 1` trivially and for larger `n` we have `T(n,k) ≥ 4` by lower bound `f`.
-* If `k` is prime and `n` is a power of `k`, then there is a perfect `(n,k)`-solution. This follows from upper bound `A` (by induction) or from the next bullet point.
-* `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution.
-  * Consider the field `F` of order `k`, and a vector field `V` with cardinality `n` over `F`.
-  * For every 1-dimensional subspace `L` of `V` the sets of 1-dimensional affine spaces parallel to `L` forms a partition of `V`. This defines a table assignment for a single meal.
-  * The set of all table assignments determined by all 1-dimensional subspaces in this way forms a perfect `(n,k)`-solution. The reason that it is perfect follows from the fact that 1-dimensional affine spaces stand in bijective correspondence to pairs of points in `V`.
-  * This idea is due to Neil Strickland.
-* `J`: A perfect `(n,3)`-solution for `n ≥ 3` is called a *Kirkman Triple System* and is possible iff `n ≡ 3 mod 6`.
-  * This is (supposed to be) proven in *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson (1971). We couldn't find a copy of this paper.
-  * Together with lower bound `a`, this gives that `T(6k+1,3) = T(6k+2,3) = T(6k+3,3) = 3k+1`.
-* For the other known values, see the tables.
 
 ### Lower Bounds
 * `↘`/`→`: The relation `T(n,k) ≥ T(n+1,k+1)` can sometimes be used as a lower bound. See [Relations](#relations).
@@ -171,7 +163,7 @@ Legend:
   This means that after every meal, the number of participants participant A has met is divisible by `k-1`, so it can never equal `n-1`.
 * `d`: If `n > k` then `T(n,k) ≥ 3`.
   * It cannot be done in 2 days, because on day 1 there are at least 2 tables. All participants on table 1 need to be sit with all participants not on table 1 on day 2, but that means that everyone needs to sit together on day 2. Contradiction.
-* `e`: proven for this special case, see below. (We don't use `e` if another letter applies.)
+* `e`: proven for this special case, see below.
 * `f`: If `k` is odd then `T(2k,k) ≥ 4`.
   * This also implies that for even `k` we have `T(2k+1,k) ≥ T(2(k+1),k+1) ≥ 4`
   <!-- * For the proof we will use the terminology given under [Solutions for Individual Cases/New terminology](#new-terminology).  -->
@@ -210,6 +202,8 @@ Legend:
   * This means that for any solution in `d` days, the smallest table size is `(n-1)-(d-1)(k-1)`.
   * We can now check whether it is possible to create at least `n(n-1) / 2d` connections in a single day, with this extra condition on the smallest table size. If not, then `T(n,k) > d`.
   * We don't use `i` if `a` or `c` applies. This bound is always at least as strong as `a` or `c`. When `n < k^2` most of the time `g` is stronger.
+* Priority of labels: nothing (it follows from the cell above), then `↘`/`→`, then `a`/`c`, then `d`/`f`/`g`/`h`/`i`, then `e`
+  * If a label with earlier (higher) priority applies, we don't write this label. We do write multiple labels with the same priority.
 
 ### Upper Bounds
 * `↖`/`←`: The relation `T(n+1,k+1) ≤ T(n,k)` can be used as an upper bound. See [Relations](#relations).
@@ -222,12 +216,20 @@ Legend:
 * `C`: *obsolete*.
 * `D`: *obsolete*.
 * `E`: found solution for this special case, see below. (We don't use `E` if another letter applies.)
-* `F`, `G`, see [Relation to the Social Golfer Problem](#relation-to-the-social-golfer-problem). (We don't use `F` and `G` if another letter applies.)
-* `H`, `J`: see [Known Values](#known-values).
+* `F`, `G`: see [Relation to the Social Golfer Problem](#relation-to-the-social-golfer-problem).
+* `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution.
+  * Consider the field `F` of order `k`, and a vector field `V` with cardinality `n` over `F`.
+  * For every 1-dimensional subspace `L` of `V` the sets of 1-dimensional affine spaces parallel to `L` forms a partition of `V`. This defines a table assignment for a single meal.
+  * The set of all table assignments determined by all 1-dimensional subspaces in this way forms a perfect `(n,k)`-solution. The reason that it is perfect follows from the fact that 1-dimensional affine spaces stand in bijective correspondence to pairs of points in `V`.
+  * This idea is due to Neil Strickland.
+  * If `k` is prime (not just a prime power) and `n` is a power of `k`, then the existence of a perfect `(n,k)`-solution also follows from upper bound `A`.
+* `J`: see [Kirkman Triple Systems](#kirkman-triple-systems).
 * `K`: From a perfect solution, we can get new solutions with the table size two larger.
   * Given an `(n,k)`-solution in `T` days and a subset `A ⊆ n` of participants such that no `i+1` participants from `A` sit at the same table during the same meal (let's say that `A` is `i`-*good* in this case), then there is a `(n+|A|,k+i)`-solution in `T` days, by replacing everyone in `A` with a pair of people.
   * If we start with a perfect `(n,k)`-solution (with `k > 2`) and a 2-good set `A` such that `|A|+(k-2)|A|(|A|-1)/2 < n`, then we can find a 2-good set with one more participant. The reason is that every pair of people in `A` sit at the same table exactly once, with `k-2` other people. Therefore, at most `|A|+(k-2)|A|(|A|-1)/2` other people cannot be added to `A` while keeping `A` 2-good, which means that there is someone we can add to `A` so that the new set is 2-good.
-
+* `X`: unverified solutions from [the Social Golfer Problem](#relation-to-the-social-golfer-problem).
+* Priority of labels: nothing (it follows from the cell below), then `↖`/`←`, then `A`/`B`/`H`/`K`, then `F`/`G`, then `E`, then `J`/`X`.
+  * If a label with earlier (higher) priority applies, we don't write this label. We do write multiple labels with the same priority.
 
 ### Relation to the Social Golfer Problem
 * The *Social Golfer Problem* is a problem similar to Dagstuhl's Happy Diner Problem: given a group of `m*k` golfers playing in `m` groups of `k` golfers each day. No two golfers play together more than once. What is the maximum possible of days they can play? Call this number `G(m,k)`.
@@ -235,14 +237,29 @@ Legend:
 * `F`: There is a perfect `(m*k,k)`-solution iff `G(m,k) = (m*k - 1) / (k - 1)` iff `T(m*k,k) = (m*k - 1) / (k - 1)`.
 * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
 * `G`: If `G(m,k)*(k-1) = m*k - 3` then `T(m*k,k) ≤ G(m,k) + 2` (if `k ≥ 3`). After the solution to `G(m,k)` every participant still needs to meet 2 other participants, which can be easily achieved in two days, by splitting everyone up in group of 2 or 3 people.
+* We only use the letters `F` and `G` if we could find an explicit, valid solution.
 * A trivial upper bound is `G(m,k) ≤ (mk-1)/(k-1)`. We call a solution to the Social Golfer Problem *good* if it is close to this trivial upper bound.
 * See [External Links](#external-links) for more sources on the Social Golfer Problem. In particular many solutions of the Social Golfer Problem can be found in this [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/).
-  * The external links contain the following good solutions: `G(m,k)` is : `G(8,3) = 11` and `G(7,4) = 9` and `G(8,4) = 10` and `G(9,4) = 11`.
-  * From this, we conclude `T(24,3) = 12` and `T(28,4) = 9` and `T(32,4)=11` and `12 ≤ T(36,4) ≤ 13`.
-* On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
-  * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions would give `T(30,3) = 15` and `T(36,3) = 18`.
-  * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions would give the two perfect solutions `T(40,4) = 13` and `T(52,4) = 17`.
-  * `9 ≤ G(9,5) ≤ 11`.
+  * The external links contain the following good solutions (only solutions that give new results for the Dagstuhl Happy Dinner Problem are included here):
+    * `G(5,3) = 7` gives `T(15,3) = 7` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/), see also `J`).
+    * `G(6,3) = 8` gives `T(18,3) = 9`. ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/)).
+    * `G(7,3) = 10` gives `T(21,3) = 10`. ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/), see also `J`).
+    * `G(7,4) = 9` gives `T(28,4) = 9`. ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/))
+    * `G(8,4) = 10` gives `T(32,4) = 11`. ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/))
+    * `G(9,4) = 11` gives `12 ≤ T(36,4) ≤ 13`. ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/))
+* `X`: A reasonable claim about the Social Golfer Problem has been made, but without an explicit solution.
+  * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
+    * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions give `T(30,3) = 15` and `T(33,3) = 16` (also from `J`) and `T(36,3) = 18`.
+    * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions give the two perfect solutions `T(40,4) = 13` and `T(52,4) = 17`.
+    * `9 ≤ G(9,5) ≤ 11`.
+  * ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/) and [MG](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) claim that `G(8,3) = 11`, but don't give a valid solution.
+
+#### Kirkman Triple Systems
+
+* `J`: A perfect `(n,3)`-solution for `n ≥ 3` is called a *Kirkman Triple System* and is possible iff `n ≡ 3 mod 6`.
+  * This is (supposed to be) proven in *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson (1971). We couldn't find a copy of this paper.
+  * This shows that `G(2k+1,3) = 3k+1`.
+  * Together with lower bound `a`, this gives that `T(6k+1,3) = T(6k+2,3) = T(6k+3,3) = 3k+1`.
 
 #### Latin Squares
 * The Social Golfer Problem `G(n,n)` is related to finding [mutually orthogonal Latin squares](https://en.wikipedia.org/wiki/Graeco-Latin_square).
@@ -303,7 +320,7 @@ Legend:
 * Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
 * For none of those 8 ways, there is a valid 4th day.
 
-### `T(22,6) ≤ 5`
+#### `T(22,6) ≤ 5`
 * Solution found by Mathematica SAT-solver:
 ```
 123456 789ABC DEFGHI JKLM
@@ -313,7 +330,7 @@ Legend:
 38EK 4579DJ 1ABGHM 26CFIL
 ```
 
-### `T(25,7) ≤ 5`
+#### `T(25,7) ≤ 5`
 * Solution found by Mathematica SAT-solver:
 ```
 235KLP 78BHJM 16ADEG 49CFINO
@@ -323,7 +340,7 @@ Legend:
 367HILO 19JP 245ADFM 8BCEGKN
 ```
 
-### `T(22,8) ≤ 4`
+#### `T(22,8) ≤ 4`
 * Solution found by Mathematica SAT-solver:
 ```
 12345678 9ABCDEFG HIJKLM
@@ -442,9 +459,12 @@ Legend:
 
 ### Conjectures
 * `T(n,k) ≤ n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
+* `T(6k,3) = 3k` for `k > 1`.
+  * This also implies that `T(6k-1,3) = T(6k-2,3) = 3k` for `k ≥ 1`.
+  * Assuming `J`, it is already known that `T(6k,3)` is either `3k` or `3k + 1`.
 * For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
   * This is true for `k = 3`. In fact, the optimal `(n,3)`-solution is at most 1 higher than the value obtained from the lower bound `c`.
-    The reason for this is that for every `m` there is a perfect `(6m+3,3)`-solution (see [Known Values](#known-values)), and the lower bound for `6m-2` given by `c` is only 1 lower than the value for `6m+3`.
+    The reason for this is that for every `m` there is a perfect `(6m+3,3)`-solution (see upper bound `J`), and the lower bound for `6m-2` given by `c` is only 1 lower than the value for `6m+3`.
 
 ## External Links
 
