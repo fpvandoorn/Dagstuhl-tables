@@ -29,11 +29,11 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   18  | **17**   |    9     G |   7-8      |   5-6      |    4     B |    4       |    4       |
 |   19  |   19     |   10   a   |   7-8      |    6   g   |    5 gi`↘` |    4   `↖` |    4       |
 |   20  | **19**   |   10       |   7-8    A |    6       |    5       |    5 g     |    4       |
-|   21  |   21     | **10**   F |   8-9  c   |    6       |    5     E |    5       |    4       |
-|   22  | **21**   |   12   c   |   8-9      |    6       |   5-6      |    5   `↖` |    4     E |
-|   23  |   23     |   12       |   8-9      |    6       |    6   g   |   5-6      |    5   g   |
-|   24  | **23**   |   12     G |   8-9      |    6       |    6       |   5-6      |    5       |
-|   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |   5-6      |    5       |
+|   21  |   21     | **10**   F |   8-9  c   |    6       |    5       |    5       |    4       |
+|   22  | **21**   |   12   c   |   8-9      |    6       |    5     E |    5       |    4     E |
+|   23  |   23     |   12       |   8-9      |    6       |    6   g   |    5       |    5   g   |
+|   24  | **23**   |   12     G |   8-9      |    6       |    6       |    5       |    5       |
+|   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |    5     E |    5       |
 |   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |   5-6      |    5       |
 |   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
 |   28  | **27**   | 15-16  c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
@@ -52,9 +52,9 @@ Legend:
 |:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       |
 |   2   |    2     |    3     cd |    4     di |    5     di |    6     d  |    7      d |    8      d |   9         |
-|   3   |  **4**   |    5 `←` fg |    8 B c`→` |    9 `←` fg |   12  B `→` |   13   `←`f |   16    B`→`|  17   `←` f |
-|   4   |    4     |  **9** AH   |   10  `←` g |   12    E e |   18 B gi`→`|   19   `←`g |   22    E g |  27     B i |
-|   5   |  **6**   |    9      c | **16**  H a | 17-18 `←` g | 21-22   E g | 22-26  `←`g |   32   B gi | 33-34 `←` g |
+|   3   |  **4**   |    5 `←` fg |    8 B c`→` |    9 `←` fg |   12  B `→` |   13  `←` f |   16    B`→`|  17   `←` f |
+|   4   |    4     |  **9** AH   |   10  `←` g |   12    E e |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |
+|   5   |  **6**   |    9      c | **16**  H a | 17-18 `←` g |   22    E g | 25-26   E g |   32   B gi | 33-34 `←` g |
 |   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 30-32   K g | 32-37     g | 36-42   B g |
 |   7   |  **8**   | **15**  F   | 17-20   E c | 25-26     i | 30-34   B h | 31-39  `←`g | 32-45     g | 45-51   B g |
 |   8   |    8     |   15      c | 20-24   A a | 25-30     i | 30-38     i | **49** AH a | 50-53 `←` g | 54-59   K g |
@@ -303,20 +303,28 @@ Legend:
 * Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
 * For none of those 8 ways, there is a valid 4th day.
 
-#### `T(21,6) ≤ 5`
-* This was found by manually modifying `T(16,4) = 5`, using the same method as `K`.
-* `K` only shows that `T(20,6) ≤ 5`.
-* If you replace `1H`, `2I`, `5J`, `6K` and `9L` by single participants, you get a perfect `(16,4)`-solution
+### `T(22,6) ≤ 5`
+* Solution found by Mathematica SAT-solver:
 ```
-1234HI 5678JK 9ABCL DEFG
-179DHL 26AFIK 38CE 45BGJ
-18BFH 25CDIJ 37AG 469EKL
-15AEHJ 289GIL 36BDK 47CF
-16CGHK 27BEI 359FJL 48AD
+123456 789ABC DEFGHI JKLM
+458FIM 26ABDK 379GHL 1CEJ
+3ABFIJ 45CGHK 18DL 2679EM
+45ABEL 3CDM 268GHJ 179FIK
+38EK 4579DJ 1ABGHM 26CFIL
+```
+
+### `T(25,7) ≤ 5`
+* Solution found by Mathematica SAT-solver:
+```
+235KLP 78BHJM 16ADEG 49CFINO
+25EGIJO 1348BFL 6CMNP 79ADHK
+47EFGHP 25689B 3ACDJLN 1IKMO
+46FJK 8ABDIOP 1257CHN 39EGLM
+367HILO 19JP 245ADFM 8BCEGKN
 ```
 
 ### `T(22,8) ≤ 4`
-* Solution found by Mathematica SAT-solver: (314s)
+* Solution found by Mathematica SAT-solver:
 ```
 12345678 9ABCDEFG HIJKLM
 47ACIK 1369BDHM 258EFGJL
@@ -393,6 +401,18 @@ Legend:
 * Suppose there is a valid solution in 4 days.
 * 181 connections have to be made, and at most 45 connections can be made per day, with configuration `(6,6,6,1)`. Every other configuration has at most 41 connections.
 * This means that `(6,6,6,1)` has to appear, WLOG on day 1. Now on every other day, the configuration `(6,6,6,1)` can give at most `13+12+12=37` connections, which means that there is no way to get 181 connections in 4 days.
+
+#### `T(21,6) ≤ 5`
+* This was found by manually modifying `T(16,4) = 5`, using the same method as `K`.
+* `K` only shows that `T(20,6) ≤ 5`.
+* If you replace `1H`, `2I`, `5J`, `6K` and `9L` by single participants, you get a perfect `(16,4)`-solution
+```
+1234HI 5678JK 9ABCL DEFG
+179DHL 26AFIK 38CE 45BGJ
+18BFH 25CDIJ 37AG 469EKL
+15AEHJ 289GIL 36BDK 47CF
+16CGHK 27BEI 359FJL 48AD
+```
 
 #### `T(14,7) ≥ 4`
 * This is a special case of `f`.
