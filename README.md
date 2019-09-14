@@ -30,21 +30,22 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   19  |   19     |   10   a   |   7-8      |    6   g   |    5 gi`↘` |    4   `↖` |    4       |
 |   20  | **19**   |   10       |   7-8    A |    6       |    5       |    5 g     |    4       |
 |   21  |   21     | **10**   F |   8-9  c   |    6       |    5       |    5       |    4       |
-|   22  | **21**   | 12-13  c   |   8-9      |    6       |    5     E |    5       |    4     E |
-|   23  |   23     | 12-13      |   8-9      |    6       |    6   g   |    5       |    5   g   |
-|   24  | **23**   | 12-13      |   8-9      |    6       |    6       |    5       |    5       |
+|   22  | **21**   |   12   c   |   8-9      |    6       |    5     E |    5       |    4     E |
+|   23  |   23     |   12       |   8-9      |    6       |    6   g   |    5       |    5   g   |
+|   24  | **23**   |   12     X |   8-9      |    6       |    6       |    5       |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |    5     E |    5       |
 |   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |   5-6      |    5       |
 |   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
-|   28  | **27**   | 15-16  c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
-|   29  |   29     | 15-16      |   11   i   |   8-9  `↖` |    7       |    6       |    5       |
-|   30  | **29**   | 15-16    J |   11     G |   8-11     |    7   B   |    6     K |    5     B |
+|   28  | **27**   |   15   c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
+|   29  |   29     |   15       |   11   i   |   8-9  `↖` |    7       |    6       |    5       |
+|   30  | **29**   |   15     X |   11     G |   8-11     |    7   B   |    6     K |    5     B |
 
 Legend:
 * We use lower-case letters `a`-`z` (or `↘`) to justify lower bounds and upper-case letters `A`-`Z` (or `↖`) to justify upper bounds. These bounds are explained under [Lower Bounds](#lower-bounds) and [Upper Bounds](#upper-bounds).
 * No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequality `T(n,k) ≤ T(n+1,k)`.
 * We have the relation `T(n+1,k+1) ≤ T(n,k)` (see [Relations](#relations)). If we use this as an upper bound we write `↖` (the value in this cell is at most the value to the top-left of this cell) and as a lower bound we write `↘` (this value is at least the value to the bottom-right).
 * The bolded values indicate perfect solutions (see [Terminology](#terminology)).
+* The upper bound `X` has not been verified by the authors of this table.
 
 ## Dual table
 
@@ -54,23 +55,23 @@ Legend:
 |   2   |    2     |    3     cd |    4     di |    5     di |    6     d  |    7      d |    8      d |   9         |
 |   3   |  **4**   |    5 `←` fg |    8 B c`→` |    9 `←` fg |   12  B `→` |   13  `←` f |   16    B`→`|  17   `←` f |
 |   4   |    4     |  **9** AH   |   10  `←` g |   12    E e |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |
-|   5   |  **6**   |    9      c | **16**  H a | 17-18 `←` g |   22    E g | 25-26   E g |   32   B gi | 33-34 `←` g |
+|   5   |  **6**   |    9      c | **16**  H   | 17-18 `←` g |   22    E g | 25-26   E g |   32   B gi | 33-34 `←` g |
 |   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 30-32   K g | 32-37     g | 36-42   B g |
 |   7   |  **8**   | **15**  F   | 17-20   E c | 25-26     i | 30-34   B h | 31-39  `←`g | 32-45     g | 45-51   B g |
 |   8   |    8     |   15      c | 20-24   A a | 25-30     i | 30-38     i | **49** AH a | 50-53 `←` g | 54-59   K g |
-|   9   | **10**   |   18    G a | **28**  F a | 29-35 `←` c | 36-42   B i | 49-51     i | **64**  H a | 65-69 `←` g |
+|   9   | **10**   |   18    G a | **28**  F   | 29-35 `←` c | 36-42   B i | 49-51     i | **64**  H a | 65-69 `←` g |
 |   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |
 |   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |
-|   12  |   12     | 21-24     a | 32-36     a | 35-46     i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
-|   13  | **14**   | **27** AH   | 36-40   G a | 37-50 `←` i |             |             | 72-88   B i | 81-100    i |
-|   14  |   14     |   27      c | 36-40     i |             | 66-68   A i | 77-84   A a | 88-96   A i | 99-108  A i |
-|   15  | **16**   | 27-30     a |             | 55-60   A a | 66-72     i |             |             | 99-117    i |
+|   12  |   12     |   24    X a | 32-36     a | 35-46     i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
+|   13  | **14**   | **27** AH   | **40**  X   | 37-50 `←` i |             |             | 72-88   B i | 81-100    i |
+|   14  |   14     |   27      c |   40      i |             | 66-68   A i | 77-84   A a | 88-96   A i | 99-108  A i |
+|   15  | **16**   |   30    X a |             | 55-60   A a | 66-72     i |             |             | 99-117    i |
 |   16  |   16     | **33**  J   | 44-48   A a |             | 66-78     i | 91-93   A i | 104-112 A a | 117-126 A i |
-|   17  | **18**   |   33      c |             | 55-66     i | 78-84   A c | 91-99     i |             |             |
-|   18  |   18     | 33-36     a |   52    A i | 65-70   A i |             | 91-105    i | 104-123   i |             |
+|   17  | **18**   |   33      c | **52**  X   | 55-66     i | 78-84   A c | 91-99     i |             |             |
+|   18  |   18     |   36    X a |   52      i | 65-70   A i |             | 91-105    i | 104-123   i |             |
 |   19  | **20**   | **39**  J   |             |             |             | 91-112    i | 104-129   i |             |
 |   20  |   20     |   39      c |             |             | 78-98     i |             | 104-136   i | 153-157 A i |
-|   21  | **22**   | 39-42     a | **64**  H a |             |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
+|   21  | **22**   | 39-42     a | **64**  H   |             |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
 |   22  |   22     | **45**  A   |   64      i | 85-86   A i | 102-108   i |             | 136-152   i | 153-172   i |
 |   23  | **24**   |   45      c |             | 85-90     i |             | 133-135 A i | 152-160 A c | 171-180 A i |
 |   24  |   24     | 45-48     a |             |             |             | 133-141   i |             | 171-189   i |
@@ -97,6 +98,7 @@ Legend:
 * The use of `T(n+1,k+1) ≤ T(n,k)` is indicated with `←` and `→`. `←` means that this cell strictly greater than the cell to the left, while `→` means that this cell is strictly smaller than the cell to the right.
 * Sometimes two cells point at each other (e.g. `(T,k) = (4,4)` and `(T,k) = (4,5)`). This looks circular, but it is not. It means that the upper bound of the left cell follows from the upper bound of the right cell and the lower bound of the right cell follows from the lower bound of the left cell.
 * For `k > 3` and `T > 12` we only put values where either the lower bound or the upper bound is nontrivial (not obtained by `← → a c B`)
+* The upper bounds `J` and `X` have not been verified by the authors of this table.
 
 ## Terminology
 
@@ -250,7 +252,7 @@ Legend:
 * `X`: A reasonable claim about the Social Golfer Problem has been made, but without an explicit solution.
   * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
     * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions give `T(30,3) = 15` and `T(33,3) = 16` (also from `J`) and `T(36,3) = 18`.
-    * `G(10,4) = 13` and `G(11,4) = 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions give the two perfect solutions `T(40,4) = 13` and `T(52,4) = 17`.
+    * `G(10,4) = 13` and `G(11,4) ≥ 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions give the two perfect solutions `T(40,4) = 13` and `T(52,4) = 17`.
     * `9 ≤ G(9,5) ≤ 11`.
   * ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/) and [MG](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) claim that `G(8,3) = 11`, but don't give a valid solution.
 
