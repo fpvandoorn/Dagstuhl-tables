@@ -63,12 +63,12 @@ Legend:
 |   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |
 |   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |
 |   12  |   12     |   24    X a | 32-36     a | 35-46     i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
-|   13  | **14**   | **27** AH   | **40**  X   | 37-50 `←` i |             |             | 72-88   B i | 81-100    i |
+|   13  | **14**   | **27** AH   | **40**  F   | 37-50 `←` i |             |             | 72-88   B i | 81-100    i |
 |   14  |   14     |   27      c |   40      i |             | 66-68   A i | 77-84   A a | 88-96   A i | 99-108  A i |
 |   15  | **16**   |   30    X a |             | 55-60   A a | 66-72     i |             |             | 99-117    i |
-|   16  |   16     | **33**  J   | 44-48   A a |             | 66-78     i | 91-93   A i | 104-112 A a | 117-126 A i |
-|   17  | **18**   |   33      c | **52**  X   | 55-66     i | 78-84   A c | 91-99     i |             |             |
-|   18  |   18     |   36    X a |   52      i | 65-70   A i |             | 91-105    i | 104-123   i |             |
+|   16  |   16     | **33**  J   | 44-48   A a | **65**  F a | 66-78     i | 91-93   A i | 104-112 A a | 117-126 A i |
+|   17  | **18**   |   33      c | **52**  F   | 65-66     i | 78-84   A c | 91-99     i |             |             |
+|   18  |   18     |   36    X a |   52      i | 65-70     i |             | 91-105    i | 104-123   i |             |
 |   19  | **20**   | **39**  J   |             |             |             | 91-112    i | 104-129   i |             |
 |   20  |   20     |   39      c |             |             | 78-98     i |             | 104-136   i | 153-157 A i |
 |   21  | **22**   | 39-42     a | **64**  H   |             |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
@@ -130,6 +130,8 @@ Legend:
 * Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`).
 * A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
 * The perfect solutions are in boldface in the tables above.
+* Perfect solutions are also characterized by [the Social Golfer Problem](#relation-to-the-social-golfer-problem) or [resolvable 2-designs](#relation-to-block-designs).
+* We give various explicit perfect solutions in [literature.md](literature.md)
 * The upper bounds `F`, `H` and `J` all give families of perfect solutions.
 
 ### Special Cases
@@ -218,7 +220,10 @@ Legend:
 * `C`: *obsolete*.
 * `D`: *obsolete*.
 * `E`: found solution for this special case, see below. (We don't use `E` if another letter applies.)
-* `F`, `G`: see [Relation to the Social Golfer Problem](#relation-to-the-social-golfer-problem).
+* `F`, `G`: a solution has been given in the literature. An explicit solution is given in [literature.md](literature.md).
+  * The result in literature was solving a different problem.
+  * See [Relation to the Social Golfer Problem](#relation-to-the-social-golfer-problem).
+  * See [Relation to Block Designs](#relation-to-block-designs).
 * `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution.
   * Consider the field `F` of order `k`, and a vector field `V` with cardinality `n` over `F`.
   * For every 1-dimensional subspace `L` of `V` the sets of 1-dimensional affine spaces parallel to `L` forms a partition of `V`. This defines a table assignment for a single meal.
@@ -242,18 +247,18 @@ Legend:
 * We only use the letters `F` and `G` if we could find an explicit, valid solution.
 * A trivial upper bound is `G(m,k) ≤ (mk-1)/(k-1)`. We call a solution to the Social Golfer Problem *good* if it is close to this trivial upper bound.
 * See [External Links](#external-links) for more sources on the Social Golfer Problem. In particular many solutions of the Social Golfer Problem can be found in this [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/).
-  * The external links contain the following good solutions (only solutions that give new results for the Dagstuhl Happy Dinner Problem are included here):
+  * The external links contain the following good solutions (only solutions that give new results for the Dagstuhl Happy Dinner Problem are included here). Explicit solutions are given in [literature.md](literature.md).
     * `G(5,3) = 7` gives `T(15,3) = 7` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/), see also `J`).
-    * `G(6,3) = 8` gives `T(18,3) = 9`. ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/)).
-    * `G(7,3) = 10` gives `T(21,3) = 10`. ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/), see also `J`).
-    * `G(7,4) = 9` gives `T(28,4) = 9`. ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/))
-    * `G(8,4) = 10` gives `T(32,4) = 11`. ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/))
-    * `G(9,4) = 11` gives `12 ≤ T(36,4) ≤ 13`. ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/))
+    * `G(6,3) = 8` gives `T(18,3) = 9` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/)).
+    * `G(7,3) = 10` gives `T(21,3) = 10` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/), see also `J`).
+    * `G(11,3) = 16` gives `T(33,3) = 16` ([Survey](https://www.jstor.org/stable/1402466), see also `J`).
+    * `G(7,4) = 9` gives `T(28,4) = 9` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/)).
+    * `G(8,4) = 10` gives `T(32,4) = 11` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/)).
+    * `G(10,4) = 13` gives `T(40,4) = 13` ([Survey](https://www.jstor.org/stable/1402466)).
+    * `G(13,4) = 17` gives `T(52,4) = 17` ([CRCB](https://www.sciencedirect.com/science/article/pii/S0097316598929247)).
+    * `G(13,5) = 16` gives `T(65,5) = 16` ([Survey](https://www.jstor.org/stable/1402466)).
 * `X`: A reasonable claim about the Social Golfer Problem has been made, but without an explicit solution.
-  * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the following claims are made, but without giving explicit solutions.
-    * `G(10,3) = 14` and `G(11,3) = 16` and `G(12,3) = 17`. These solutions give `T(30,3) = 15` and `T(33,3) = 16` (also from `J`) and `T(36,3) = 18`.
-    * `G(10,4) = 13` and `G(11,4) ≥ 13` and `G(12,4) ≥ 14` and `G(13,4) = 17`. These solutions give the two perfect solutions `T(40,4) = 13` and `T(52,4) = 17`.
-    * `9 ≤ G(9,5) ≤ 11`.
+  * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the claims `G(10,3) = 14` and `G(12,3) = 17` are made, but without giving explicit solutions. These solutions give `T(30,3) = 15` and `T(36,3) = 18`.
   * ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/) and [MG](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) claim that `G(8,3) = 11`, but don't give a valid solution.
 
 #### Kirkman Triple Systems
@@ -273,6 +278,12 @@ Legend:
     * Days `d₁, d₂ ≥ 3` have no pair of participants in the same group iff the corresponding Latin Squares are orthogonal.
   * There is no pair of mutually orthogonal squares of order 6, so `L(6) = 1` and `G(6,6) = 3`. In particular there is no perfect `(36,6)`-solution, so `T(36,6) > 7`.
   * `L(10)` is the smallest unknown value. According to [this Math Stack Exchange answer](https://math.stackexchange.com/q/649893) `L(10) < 9`. This implies that there is no perfect `(100,10)`-solution, so `T(100,10) > 11`.
+
+### Relation to Block Designs
+* A [resolvable 2-`(n,k,1)` design](https://en.wikipedia.org/wiki/Block_design#Resolvable_2-designs) is an equivalent characterization of a perfect solution.
+  * It is a special case of a [BIBD (or 2-design)](https://en.wikipedia.org/wiki/Block_design#Resolvable_2-designs) with `(v,b,r,k,λ) = (n,b,r,k,1)` (where `b` and `r` can be calculated from the other values).
+    * This 2-design is equivalently characterized as the [Steiner System](https://en.wikipedia.org/wiki/Steiner_system) `S(2,k,n)`.
+
 
 ### Solutions for Individual Cases
 
@@ -488,8 +499,10 @@ Legend:
   * [Dutch dissertation by Pieter Mulder (1917)](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19).
   * *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson, 1971. In [Proc. of Symp. in Pure Math, Vol 19](http://www.ams.org/books/pspum/019/).
   * *Kirkman triple systems and their generalizations: A survey*, Rees and Wallis, 2002. [Springer](https://link.springer.com/chapter/10.1007/978-1-4613-0245-2_13)
+* Block Designs:
+  * *A Survey of Resolvable Solutions of Balanced Incomplete Block Designs*, Sanpei Kageyama, Rev. Inst. Internat. Statist., 40, 269–273. [JSTOR](https://www.jstor.org/stable/1402466)
+  * *On Cyclically Resolvable Cyclic Steiner 2-Designs*, Clement Lam and Ying Miao, Journal of Combinatorial Theory, Series A, Volume 85, Issue 2, February 1999, Pages 194-207. [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0097316598929247)
 * Oberwolfach Problem: [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php).
-
 
 ## Contributing
 
