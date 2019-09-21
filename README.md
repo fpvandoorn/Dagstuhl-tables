@@ -28,11 +28,11 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   17  |   17     |    9       |    7   i E |    5   `↖` |    4       |    4       |    4   f   |
 |   18  | **17**   |    9     G |   7-8      |   5-6      |    4     B |    4       |    4       |
 |   19  |   19     |   10   a   |   7-8      |    6   g   |    5 gi`↘` |    4   `↖` |    4       |
-|   20  | **19**   |   10       |   7-8    A |    6       |    5       |    5 g     |    4       |
-|   21  |   21     | **10**   F |   8-9  c   |    6       |    5       |    5       |    4       |
-|   22  | **21**   |   12   c   |   8-9      |    6       |    5     E |    5       |    4     E |
-|   23  |   23     |   12       |   8-9      |    6       |    6   g   |    5       |    5   g   |
-|   24  | **23**   |   12     X |   8-9      |    6       |    6       |    5       |    5       |
+|   20  | **19**   |   10       |   7-8      |    6       |    5       |    5 g     |    4       |
+|   21  |   21     | **10**   F |    8   c   |    6       |    5       |    5       |    4       |
+|   22  | **21**   |   12   c   |    8       |    6       |    5     E |    5       |    4     E |
+|   23  |   23     |   12       |    8       |    6       |    6   g   |    5       |    5   g   |
+|   24  | **23**   |   12     X |    8     J |    6       |    6       |    5       |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |    5     E |    5       |
 |   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |   5-6      |    5       |
 |   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
@@ -58,30 +58,30 @@ Legend:
 |   5   |  **6**   |    9      c | **16**  H   | 17-18 `←` g |   22    E g | 25-26   E g |   32   B gi | 33-34 `←` g |
 |   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 30-32   K g | 32-37     g | 36-42   B g |
 |   7   |  **8**   | **15**  F   | 17-20   E c | 25-26     i | 30-34   B h | 31-39  `←`g | 32-45     g | 45-51   B g |
-|   8   |    8     |   15      c | 20-24   A a | 25-30     i | 30-38     i | **49** AH a | 50-53 `←` g | 54-59   K g |
+|   8   |    8     |   15      c |   24    J a | 25-30     i | 30-38     i | **49** AH a | 50-53 `←` g | 54-59   K g |
 |   9   | **10**   |   18    G a | **28**  F   | 29-35 `←` c | 36-42   B i | 49-51     i | **64**  H a | 65-69 `←` g |
 |   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |
 |   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |
-|   12  |   12     |   24    X a | 32-36     a | 35-46     i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
-|   13  | **14**   | **27** AH   | **40**  F   | 37-50 `←` i |             |             | 72-88   B i | 81-100    i |
+|   12  |   12     |   24    X a |   36    J a | 37-46 `←` i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
+|   13  | **14**   | **27** AH   | **40**  F   | 41-50 `←` i |             |             | 72-88   B i | 81-100    i |
 |   14  |   14     |   27      c |   40      i |             | 66-68   A i | 77-84   A a | 88-96   A i | 99-108  A i |
 |   15  | **16**   |   30    X a |             | 55-60   A a | 66-72     i |             |             | 99-117    i |
-|   16  |   16     | **33**  J   | 44-48   A a | **65**  F a | 66-78     i | 91-93   A i | 104-112 A a | 117-126 A i |
+|   16  |   16     | **33**  J   |   48    J a | **65**  F a | 66-78     i | 91-93   A i | 104-112 A a | 117-126 A i |
 |   17  | **18**   |   33      c | **52**  F   | 65-66     i | 78-84   A c | 91-99     i |             |             |
 |   18  |   18     |   36    X a |   52      i | 65-70     i |             | 91-105    i | 104-123   i |             |
 |   19  | **20**   | **39**  J   |             |             |             | 91-112    i | 104-129   i |             |
-|   20  |   20     |   39      c |             |             | 78-98     i |             | 104-136   i | 153-157 A i |
-|   21  | **22**   | 39-42     a | **64**  H   |             |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
+|   20  |   20     |   39      c |   60    J a |             | 78-98     i |             | 104-136   i | 153-157 A i |
+|   21  | **22**   |   42    J a | **64**  H   |             |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
 |   22  |   22     | **45**  A   |   64      i | 85-86   A i | 102-108   i |             | 136-152   i | 153-172   i |
 |   23  | **24**   |   45      c |             | 85-90     i |             | 133-135 A i | 152-160 A c | 171-180 A i |
-|   24  |   24     | 45-48     a |             |             |             | 133-141   i |             | 171-189   i |
-|   25  | **26**   | **51**  J   | 68-76   A   | 95-100  A a | 114-126 A a | 133-147   i |             | 171-198   i |
-|   26  |   26     |   51      c | 68-76     i |             | 114-128   i | 133-154   i | 152-179   i |             |
-|   27  | **28**   | 51-54     a | 76-80   A a | 95-106    i | 114-132   i |             | 152-185   i | 207-216 A a |
+|   24  |   24     |   48    J a |   72    J a |             |             | 133-141   i |             | 171-189   i |
+|   25  | **26**   | **51**  J   | **76**  J   | 95-100  A a | 114-126 A a | 133-147   i |             | 171-198   i |
+|   26  |   26     |   51      c |   76      i |             | 114-128   i | 133-154   i | 152-179   i |             |
+|   27  | **28**   |   54    J a |             | 95-106    i | 114-132   i |             | 152-185   i | 207-216 A a |
 |   28  |   28     | **57**  J   |             | 95-110    i | 114-138   i |             | 184-192 A i |             |
-|   29  | **30**   |   57      c |             |  115    A c | 138-144 A c | 161-175 A a | 184-200   i | 207-229   i |
-|   30  |   30     | 57-60     a |             |             |             | 161-177   i | 184-208   i | 207-236   i |
-|   31  | **32**   | **63**  A   | 76-88     i |**125** AH a |             | 161-183   i |             | 207-244   i |
+|   29  | **30**   |   57      c | **88**  J   |  115    A c | 138-144 A c | 161-175 A a | 184-200   i | 207-229   i |
+|   30  |   30     |   60    J a |   88      i |             |             | 161-177   i | 184-208   i | 207-236   i |
+|   31  | **32**   | **63**  A   |             |**125** AH a |             | 161-183   i |             | 207-244   i |
 
 * An entry in this table shows the maximal `n` such that `T(n,k) ≤ T`. We call this value `n(T,k)`.
 * This table has the same information as the previous one, organized differently.
@@ -105,7 +105,7 @@ Legend:
 * Given a table assignment for 1 or more meals. We say that this is a *valid solution* if every participant meet every other participant at least once.
 * A valid solution with `n` participants and table size of at most `k` is called a `(n,k)`-*solution*.
 * Given a valid solution. We say that it is an *optimal solution* if there is no valid solution (with the same `n` and `k`) with fewer days.
-* Given a valid solution. We say that it is a *perfect solution* if every participant meets every other participant exactly once and all tables have `k` every meal.
+* Given a valid solution. We say that it is a *perfect solution* if every participant meets every other participant exactly once and all tables have `k` participants every meal.
 * A *distribution* is a seating assignment for a single meal.
 * A *configuration* is an assignment for the *number* of participants to each table for a single meal (but not stating which participant goes where).
 * We say that a configuration `C` is dominated if it has two tables with `a` and `b` participants and `a + b ≤ k`.
@@ -130,6 +130,7 @@ Legend:
 * Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`).
 * A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
 * The perfect solutions are in boldface in the tables above.
+* Perfect solutions are also called *Kirkman Systems* in the literature.
 * Perfect solutions are also characterized by [the Social Golfer Problem](#relation-to-the-social-golfer-problem) or [resolvable 2-designs](#relation-to-block-designs).
 * We give various explicit perfect solutions in [literature.md](literature.md)
 * The upper bounds `F`, `H` and `J` all give families of perfect solutions.
@@ -230,7 +231,7 @@ Legend:
   * The set of all table assignments determined by all 1-dimensional subspaces in this way forms a perfect `(n,k)`-solution. The reason that it is perfect follows from the fact that 1-dimensional affine spaces stand in bijective correspondence to pairs of points in `V`.
   * This idea is due to Neil Strickland.
   * If `k` is prime (not just a prime power) and `n` is a power of `k`, then the existence of a perfect `(n,k)`-solution also follows from upper bound `A`.
-* `J`: see [Kirkman Triple Systems](#kirkman-triple-systems).
+* `J`: see [Kirkman Systems](#kirkman-systems).
 * `K`: From a perfect solution, we can get new solutions with the table size two larger.
   * Given an `(n,k)`-solution in `T` days and a subset `A ⊆ n` of participants such that no `i+1` participants from `A` sit at the same table during the same meal (let's say that `A` is `i`-*good* in this case), then there is a `(n+|A|,k+i)`-solution in `T` days, by replacing everyone in `A` with a pair of people.
   * If we start with a perfect `(n,k)`-solution (with `k > 2`) and a 2-good set `A` such that `|A|+(k-2)|A|(|A|-1)/2 < n`, then we can find a 2-good set with one more participant. The reason is that every pair of people in `A` sit at the same table exactly once, with `k-2` other people. Therefore, at most `|A|+(k-2)|A|(|A|-1)/2` other people cannot be added to `A` while keeping `A` 2-good, which means that there is someone we can add to `A` so that the new set is 2-good.
@@ -261,12 +262,25 @@ Legend:
   * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the claims `G(10,3) = 14` and `G(12,3) = 17` are made, but without giving explicit solutions. These solutions give `T(30,3) = 15` and `T(36,3) = 18`.
   * ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/) and [MG](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) claim that `G(8,3) = 11`, but don't give a valid solution.
 
-#### Kirkman Triple Systems
+#### Kirkman Systems
 
 * `J`: A perfect `(n,3)`-solution for `n ≥ 3` is called a *Kirkman Triple System* and is possible iff `n ≡ 3 mod 6`.
-  * This is (supposed to be) proven in *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson (1971). We couldn't find a copy of this paper.
+  * This is proven in *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson (1971).
   * This shows that `G(2k+1,3) = 3k+1`.
   * Together with lower bound `a`, this gives that `T(6k+1,3) = T(6k+2,3) = T(6k+3,3) = 3k+1`.
+* `J`: The optimal `(6m,3)`-solution for `m > 1` has `3m` days.
+  * This follows from the study of *Nearly Kirkman Triple Systems*.
+  * A Nearly Kirkman Triple System is a `(6m,3)`-solution in `3m` days where on the first `3m-1` days, all tables have 3 participants, and on the last day every table has 2 participants. In such a solution, all participants meet all other participants exactly once.
+  * A Nearly Kirkman Triple Systems exists for `6m ≥ 18`.
+    * [ANKS](http://engine.scichina.com/publisher/scp/journal/Math%20A1/37/5/10.1360/ya1994-37-5-555?slug=abstract) states this and gives references.
+  * For `6m = 12` there is a optimal `(12,3)`-solution in 6 days which is not a Nearly Kirkman Triple System. (see `E`)
+* `J`: A *Kirkman System* is an alternative name for an optimal solution.
+  * According to [On resolvable designs](https://www.sciencedirect.com/journal/discrete-mathematics/vol/3/issue/4) they exist for all `(n,4)` with `n ≡ 4 mod 12`.
+* `J`: A *Nearly Kirkman System* is an `(n,k)`-solution where all participants meet each other exactly once, on all but 1 days all tables contain `k` participants and on the last day all tables contain `k-1` participants.
+  * A necessary condition for a Nearly Kirkman System is that `n ≡ 0 mod k(k-1)`.
+  * If a Nearly Kirkman System exists for `(n,k)` then `T(n,k) = n / (k-1)`
+  * [ANKS](http://engine.scichina.com/publisher/scp/journal/Math%20A1/37/5/10.1360/ya1994-37-5-555?slug=abstract) proves that for every `k` there is a Nearly Kirkman System for all but finitely many `n ≡ 0 mod k(k-1)`.
+  * It also states that for `k = 4` and `n ≡ 0 mod 12` there is a Nearly Kirkman System for all `n`, except possibly for `n` in `{12, 84, 132, 264, 372, 456, 552, 660, 804, 852}`
 
 #### Latin Squares
 * The Social Golfer Problem `G(n,n)` is related to finding [mutually orthogonal Latin squares](https://en.wikipedia.org/wiki/Graeco-Latin_square).
@@ -280,8 +294,8 @@ Legend:
   * `L(10)` is the smallest unknown value. According to [this Math Stack Exchange answer](https://math.stackexchange.com/q/649893) `L(10) < 9`. This implies that there is no perfect `(100,10)`-solution, so `T(100,10) > 11`.
 
 ### Relation to Block Designs
-* A [resolvable 2-`(n,k,1)` design](https://en.wikipedia.org/wiki/Block_design#Resolvable_2-designs) is an equivalent characterization of a perfect solution.
-  * It is a special case of a [BIBD (or 2-design)](https://en.wikipedia.org/wiki/Block_design#Resolvable_2-designs) with `(v,b,r,k,λ) = (n,b,r,k,1)` (where `b` and `r` can be calculated from the other values).
+* A [resolvable 2-`(n,k,1)` design](https://en.wikipedia.org/wiki/Block_design#Resolvable_2-designs) is an equivalent characterization of a perfect `(n,k)`-solution.
+  * It is a special case of a [BIBD (or 2-design)](https://en.wikipedia.org/wiki/Block_design#Definition_of_a_BIBD_(or_2-design)) with `(v,b,r,k,λ) = (n,b,r,k,1)` (where `b = n(n-1)/(k(k-1))` and `r = (n-1)/(k-1)`).
     * This 2-design is equivalently characterized as the [Steiner System](https://en.wikipedia.org/wiki/Steiner_system) `S(2,k,n)`.
 
 
@@ -459,10 +473,11 @@ Legend:
 * If `(7,7,7)` doesn't appear, then every day has 4 tables. Then at most 57 connections can be made on day 1, and at most 49 connections on future days (since all 7s lose at least 3 and all 6s lose at least 2 connections). This is also not enough, since `57+49+49+49=204<210`.
 
 ## Questions
-* If `n ≡ k mod k(k-1)` and `n` is a prime power, is there always a perfect `(n,k)`-solution? There is no reason to believe this, but it is true for all values where the answer is known.
-  * It is false when `n` is not a prime power, where the smallest example is immediately a counterexample: there is no perfect `(36,6)`-solution.
+* If `n ≡ k mod k(k-1)` when is there a perfect `(n,k)`-solution?
+  * It is not always true when `n` is not a prime power, where the smallest non-trivial example is immediately a counterexample: there is no perfect `(36,6)`-solution.
   * It is true for `k = 2` and `k = 3`.
-  * For `k = 4` it's true when `n ≤ 28`. If the data on [this Math Stack Exchange page](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) is accurate, it is also true `n ≤ 64`.
+  * For `k = 4` it's true according to [On resolvable designs](https://www.sciencedirect.com/journal/discrete-mathematics/vol/3/issue/4).
+  * According to [ANKS](http://engine.scichina.com/publisher/scp/journal/Math%20A1/37/5/10.1360/ya1994-37-5-555?slug=abstract) for every `k` this is true for all but finitely many `n` (Theorem 1, citing *The existence of resolvable block designs. Survey of combinatorial theory*, D Ray-Chaudhuri, R Wilson - 1973).
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
   * This is false. All optimal `(8,5)`-solutions have at least one day with two tables of four participants. This was found by brute force, but is quite easy to see by hand (to do).
   * It is probably even false that there always is an optimal `(n,k)`-solution where there are `⌈ n/k ⌉` tables each day (where `⌈ x ⌉` is the smallest integer which is at least `x`).
@@ -479,7 +494,7 @@ Legend:
   * This is true for `k = 3`. In fact, the optimal `(n,3)`-solution is at most 1 higher than the value obtained from the lower bound `c`.
     The reason for this is that for every `m` there is a perfect `(6m+3,3)`-solution (see upper bound `J`), and the lower bound for `6m-2` given by `c` is only 1 lower than the value for `6m+3`.
 
-## External Links
+## External Links / References
 
 * Dagstuhl's Happy Diner Problem:
   * We submitted two sequences to the OEIS: [A318240](https://oeis.org/A318240) and [A318241](https://oeis.org/A318241).
@@ -494,14 +509,16 @@ Legend:
   * [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/)
   * [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets)
   * [This page](https://sci.op-research.narkive.com/48AXUzIj/the-social-golfer-problem-40-golfers-in-groups-of-5-for-8-weeks) contains a solution that `G(8,5) ≥ 8`.
-* Kirkman Triple System:
+* Kirkman System:
   * [Wolfram Mathworld](http://mathworld.wolfram.com/KirkmanTripleSystem.html),
   * [Dutch dissertation by Pieter Mulder (1917)](https://babel.hathitrust.org/cgi/pt?id=njp.32101065911230;view=1up;seq=19).
   * *Solution of Kirkman's schoolgirl problem*, Ray-Chaudhuri and Wilson, 1971. In [Proc. of Symp. in Pure Math, Vol 19](http://www.ams.org/books/pspum/019/).
   * *Kirkman triple systems and their generalizations: A survey*, Rees and Wallis, 2002. [Springer](https://link.springer.com/chapter/10.1007/978-1-4613-0245-2_13)
+  * [*Asymptotic Existence of Nearly Kirkman Systems*, Hao Chen, Wen-Song Chu](http://engine.scichina.com/publisher/scp/journal/Math%20A1/37/5/10.1360/ya1994-37-5-555?slug=abstract)
 * Block Designs:
   * *A Survey of Resolvable Solutions of Balanced Incomplete Block Designs*, Sanpei Kageyama, Rev. Inst. Internat. Statist., 40, 269–273. [JSTOR](https://www.jstor.org/stable/1402466)
   * *On Cyclically Resolvable Cyclic Steiner 2-Designs*, Clement Lam and Ying Miao, Journal of Combinatorial Theory, Series A, Volume 85, Issue 2, February 1999, Pages 194-207. [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0097316598929247)
+  * [*On resolvable designs*, Haim Hanani, D.K. Ray-Chaudhuri, Richard M. Wilson](https://www.sciencedirect.com/journal/discrete-mathematics/vol/3/issue/4) Discrete Mathematics, 1972, 3:343-357.
 * Oberwolfach Problem: [Sarah's Oberwolfach Problem Page](http://facultyweb.kennesaw.edu/shollid4/oberwolfach.php).
 
 ## Contributing

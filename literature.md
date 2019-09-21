@@ -72,7 +72,7 @@ CHP LMW EGU DOT AKX IQS JVY +FR BNZ
 
 #### `T(30,3) = 15`
 * Follows from `G(10,3) = 14`
-* No explicit solution in literature, mentioned on [SE](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets).
+* No explicit solution found in literature, mentioned on [SE](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets).
 
 #### `T(33,3) = 16`
 * Given in [Survey](https://www.jstor.org/stable/1402466)
@@ -98,7 +98,7 @@ FVW GPU 56H IKO CJR 1LM ADN 7QT 3BS 09E 248
 
 #### `T(36,3) = 18`
 * Follows from `G(12,3) = 17`
-* No explicit solution in literature, mentioned on [SE](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets).
+* No explicit solution found in literature, mentioned on [SE](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets).
 
 #### `T(39,3) = 19`
 * Given in [Survey](https://www.jstor.org/stable/1402466)
