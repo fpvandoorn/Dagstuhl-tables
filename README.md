@@ -32,20 +32,20 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   21  |   21     | **10**   F |    8   c   |    6       |    5       |    5       |    4       |
 |   22  | **21**   |   12   c   |    8       |    6       |    5     E |    5       |    4     E |
 |   23  |   23     |   12       |    8       |    6       |    6   g   |    5       |    5   g   |
-|   24  | **23**   |   12     X |    8     J |    6       |    6       |    5       |    5       |
+|   24  | **23**   |   12     J |    8     J |    6       |    6       |    5       |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |    5     E |    5       |
 |   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |   5-6      |    5       |
 |   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
 |   28  | **27**   |   15   c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
 |   29  |   29     |   15       |   11   i   |   8-9  `↖` |    7       |    6       |    5       |
-|   30  | **29**   |   15     X |   11     G |   8-11     |    7   B   |    6     K |    5     B |
+|   30  | **29**   |   15     J |   11     G |   8-11     |    7   B   |    6     K |    5     B |
 
 Legend:
 * We use lower-case letters `a`-`z` (or `↘`) to justify lower bounds and upper-case letters `A`-`Z` (or `↖`) to justify upper bounds. These bounds are explained under [Lower Bounds](#lower-bounds) and [Upper Bounds](#upper-bounds).
 * No explanation is given when `n ≤ k` or `k = 2` or the value can be derived from the inequality `T(n,k) ≤ T(n+1,k)`.
 * We have the relation `T(n+1,k+1) ≤ T(n,k)` (see [Relations](#relations)). If we use this as an upper bound we write `↖` (the value in this cell is at most the value to the top-left of this cell) and as a lower bound we write `↘` (this value is at least the value to the bottom-right).
 * The bolded values indicate perfect solutions (see [Terminology](#terminology)).
-* The upper bound `X` has not been verified by the authors of this table.
+* The upper bound `J` has not been verified by the authors of this table.
 
 ## Dual table
 
@@ -62,13 +62,13 @@ Legend:
 |   9   | **10**   |   18    G a | **28**  F   | 29-35 `←` c | 36-42   B i | 49-51     i | **64**  H a | 65-69 `←` g |
 |   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |
 |   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |
-|   12  |   12     |   24    X a |   36    J a | 37-46 `←` i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
+|   12  |   12     |   24    J a |   36    J a | 37-46 `←` i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
 |   13  | **14**   | **27** AH   | **40**  F   | 41-50 `←` i |             |             | 72-88   B i | 81-100    i |
 |   14  |   14     |   27      c |   40      i |             | 66-68   A i | 77-84   A a | 88-96   A i | 99-108  A i |
-|   15  | **16**   |   30    X a |             | 55-60   A a | 66-72     i |             |             | 99-117    i |
+|   15  | **16**   |   30    J a |             | 55-60   A a | 66-72     i |             |             | 99-117    i |
 |   16  |   16     | **33**  J   |   48    J a | **65**  F a | 66-78     i | 91-93   A i | 104-112 A a | 117-126 A i |
 |   17  | **18**   |   33      c | **52**  F   | 65-66     i | 78-84   A c | 91-99     i |             |             |
-|   18  |   18     |   36    X a |   52      i | 65-70     i |             | 91-105    i | 104-123   i |             |
+|   18  |   18     |   36    J a |   52      i | 65-70     i |             | 91-105    i | 104-123   i |             |
 |   19  | **20**   | **39**  J   |             |             |             | 91-112    i | 104-129   i |             |
 |   20  |   20     |   39      c |   60    J a |             | 78-98     i |             | 104-136   i | 153-157 A i |
 |   21  | **22**   |   42    J a | **64**  H   |             |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
@@ -98,7 +98,7 @@ Legend:
 * The use of `T(n+1,k+1) ≤ T(n,k)` is indicated with `←` and `→`. `←` means that this cell strictly greater than the cell to the left, while `→` means that this cell is strictly smaller than the cell to the right.
 * Sometimes two cells point at each other (e.g. `(T,k) = (4,4)` and `(T,k) = (4,5)`). This looks circular, but it is not. It means that the upper bound of the left cell follows from the upper bound of the right cell and the lower bound of the right cell follows from the lower bound of the left cell.
 * For `k > 3` and `T > 12` we only put values where either the lower bound or the upper bound is nontrivial (not obtained by `← → a c B`)
-* The upper bounds `J` and `X` have not been verified by the authors of this table.
+* The upper bound `J` has not been verified by the authors of this table.
 
 ## Terminology
 
@@ -235,7 +235,7 @@ Legend:
 * `K`: From a perfect solution, we can get new solutions with the table size two larger.
   * Given an `(n,k)`-solution in `T` days and a subset `A ⊆ n` of participants such that no `i+1` participants from `A` sit at the same table during the same meal (let's say that `A` is `i`-*good* in this case), then there is a `(n+|A|,k+i)`-solution in `T` days, by replacing everyone in `A` with a pair of people.
   * If we start with a perfect `(n,k)`-solution (with `k > 2`) and a 2-good set `A` such that `|A|+(k-2)|A|(|A|-1)/2 < n`, then we can find a 2-good set with one more participant. The reason is that every pair of people in `A` sit at the same table exactly once, with `k-2` other people. Therefore, at most `|A|+(k-2)|A|(|A|-1)/2` other people cannot be added to `A` while keeping `A` 2-good, which means that there is someone we can add to `A` so that the new set is 2-good.
-* `X`: unverified solutions from [the Social Golfer Problem](#relation-to-the-social-golfer-problem).
+<!-- * `X`: unverified solutions from [the Social Golfer Problem](#relation-to-the-social-golfer-problem). -->
 * Priority of labels: nothing (it follows from the cell below), then `↖`/`←`, then `A`/`B`/`H`/`K`, then `F`/`G`, then `E`, then `J`/`X`.
   * If a label with earlier (higher) priority applies, we don't write this label. We do write multiple labels with the same priority.
 
@@ -258,9 +258,9 @@ Legend:
     * `G(10,4) = 13` gives `T(40,4) = 13` ([Survey](https://www.jstor.org/stable/1402466)).
     * `G(13,4) = 17` gives `T(52,4) = 17` ([CRCB](https://www.sciencedirect.com/science/article/pii/S0097316598929247)).
     * `G(13,5) = 16` gives `T(65,5) = 16` ([Survey](https://www.jstor.org/stable/1402466)).
-* `X`: A reasonable claim about the Social Golfer Problem has been made, but without an explicit solution.
+<!-- * `X`: A reasonable claim about the Social Golfer Problem has been made, but without an explicit solution.
   * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the claims `G(10,3) = 14` and `G(12,3) = 17` are made, but without giving explicit solutions. These solutions give `T(30,3) = 15` and `T(36,3) = 18`.
-  * ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/) and [MG](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) claim that `G(8,3) = 11`, but don't give a valid solution.
+  * ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/) and [MG](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) claim that `G(8,3) = 11`, but don't give a valid solution. -->
 
 #### Kirkman Systems
 
