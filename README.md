@@ -133,7 +133,7 @@ Legend:
 * Perfect solutions are also called *Kirkman Systems* in the literature.
 * Perfect solutions are also characterized by [the Social Golfer Problem](#relation-to-the-social-golfer-problem) or [resolvable 2-designs](#relation-to-block-designs).
 * We give various explicit perfect solutions in [literature.md](literature.md)
-* The upper bounds `F`, `H` and `J` all give families of perfect solutions.
+* The upper bounds `F`, `H` and (some of) `J` all give families of perfect solutions.
 
 ### Special Cases
 * `T(n,k) = 1` if `n ≤ k` trivially.
@@ -236,30 +236,33 @@ Legend:
   * Given an `(n,k)`-solution in `T` days and a subset `A ⊆ n` of participants such that no `i+1` participants from `A` sit at the same table during the same meal (let's say that `A` is `i`-*good* in this case), then there is a `(n+|A|,k+i)`-solution in `T` days, by replacing everyone in `A` with a pair of people.
   * If we start with a perfect `(n,k)`-solution (with `k > 2`) and a 2-good set `A` such that `|A|+(k-2)|A|(|A|-1)/2 < n`, then we can find a 2-good set with one more participant. The reason is that every pair of people in `A` sit at the same table exactly once, with `k-2` other people. Therefore, at most `|A|+(k-2)|A|(|A|-1)/2` other people cannot be added to `A` while keeping `A` 2-good, which means that there is someone we can add to `A` so that the new set is 2-good.
 <!-- * `X`: unverified solutions from [the Social Golfer Problem](#relation-to-the-social-golfer-problem). -->
-* Priority of labels: nothing (it follows from the cell below), then `↖`/`←`, then `A`/`B`/`H`/`K`, then `F`/`G`, then `E`, then `J`/`X`.
+* Priority of labels: nothing (it follows from the cell below), then `↖`/`←`, then `A`/`B`/`H`/`K`, then `F`/`G`, then `E`, then `J`<!--/`X`-->.
   * If a label with earlier (higher) priority applies, we don't write this label. We do write multiple labels with the same priority.
 
 <!-- TODO: refactor next 4 sections into "Literature", maybe separate sections for perfect solutions -->
 
-### Relation to the Social Golfer Problem
+### Literature
+
+#### Relation to the Social Golfer Problem
 * The *Social Golfer Problem* is a problem similar to Dagstuhl's Happy Diner Problem: given a group of `m*k` golfers playing in `m` groups of `k` golfers each day. No two golfers play together more than once. What is the maximum possible of days they can play? Call this number `G(m,k)`.
 * From a good solution `G(m,k)` of the Social Golfer Problem we can retrieve a `(m*k,k)`-solution to the Happy Diner Problem.
 * `F`: There is a perfect `(m*k,k)`-solution iff `G(m,k) = (m*k - 1) / (k - 1)` iff `T(m*k,k) = (m*k - 1) / (k - 1)`.
 * `G`: If `G(m,k)*(k-1) = m*k - 2` then `T(m*k,k) = G(m,k) + 1`. This is a lower bound by `a` and a upper bound using the solution to `G(m,k)`: take the solution to `G(m,k)` for the first `G(m,k)` meals. Then everyone has seen all other participants, but 1. For the last meal, have one table for each of the pair of participants which still need to see each other.
-* `G`: If `G(m,k)*(k-1) = m*k - 3` then `T(m*k,k) ≤ G(m,k) + 2` (if `k ≥ 3`). After the solution to `G(m,k)` every participant still needs to meet 2 other participants, which can be easily achieved in two days, by splitting everyone up in group of 2 or 3 people.
+* `G`: If `G(m,k)*(k-1) = m*k - 3` (and `k ≥ 3`) then `T(m*k,k) ≤ G(m,k) + 2`. After the solution to `G(m,k)` every participant still needs to meet 2 other participants, which can be easily achieved in two days, by splitting everyone up in group of 2 or 3 people.
 * We only use the letters `F` and `G` if we could find an explicit, valid solution.
 * A trivial upper bound is `G(m,k) ≤ (mk-1)/(k-1)`. We call a solution to the Social Golfer Problem *good* if it is close to this trivial upper bound.
 * See [External Links](#external-links) for more sources on the Social Golfer Problem. In particular many solutions of the Social Golfer Problem can be found in this [Mathematica Demonstration](http://demonstrations.wolfram.com/SocialGolferProblem/).
   * The external links contain the following good solutions (only solutions that give new results for the Dagstuhl Happy Dinner Problem are included here). Explicit solutions are given in [literature.md](literature.md).
-    * `G(5,3) = 7` gives `T(15,3) = 7` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/), see also `J`).
+    * `G(5,3) = 7` gives `T(15,3) = 7` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/)).
     * `G(6,3) = 8` gives `T(18,3) = 9` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/)).
-    * `G(7,3) = 10` gives `T(21,3) = 10` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/), see also `J`).
-    * `G(11,3) = 16` gives `T(33,3) = 16` ([Survey](https://www.jstor.org/stable/1402466), see also `J`).
+    * `G(7,3) = 10` gives `T(21,3) = 10` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/)).
+    * `G(11,3) = 16` gives `T(33,3) = 16` ([Survey](https://www.jstor.org/stable/1402466)).
     * `G(7,4) = 9` gives `T(28,4) = 9` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/)).
     * `G(8,4) = 10` gives `T(32,4) = 11` ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/)).
     * `G(10,4) = 13` gives `T(40,4) = 13` ([Survey](https://www.jstor.org/stable/1402466)).
     * `G(13,4) = 17` gives `T(52,4) = 17` ([CRCB](https://www.sciencedirect.com/science/article/pii/S0097316598929247)).
     * `G(13,5) = 16` gives `T(65,5) = 16` ([Survey](https://www.jstor.org/stable/1402466)).
+  * Many of these solutions are also found in the literature, see `J`.
 <!-- * `X`: A reasonable claim about the Social Golfer Problem has been made, but without an explicit solution.
   * On [Math Stack Exchange](https://math.stackexchange.com/questions/69325/social-golfer-problem-quintets) the claims `G(10,3) = 14` and `G(12,3) = 17` are made, but without giving explicit solutions. These solutions give `T(30,3) = 15` and `T(36,3) = 18`.
   * ([MD](http://demonstrations.wolfram.com/SocialGolferProblem/) and [MG](http://www.mathpuzzle.com/MAA/54-Golf%20Tournaments/mathgames_08_14_07.html) claim that `G(8,3) = 11`, but don't give a valid solution. -->
@@ -296,13 +299,13 @@ Legend:
   * There is no pair of mutually orthogonal squares of order 6, so `L(6) = 1` and `G(6,6) = 3`. In particular there is no perfect `(36,6)`-solution, so `T(36,6) > 7`.
   * `L(10)` is the smallest unknown value. According to [this Math Stack Exchange answer](https://math.stackexchange.com/q/649893) `L(10) < 9`. This implies that there is no perfect `(100,10)`-solution, so `T(100,10) > 11`.
 
-### Relation to Block Designs
+#### Relation to Block Designs
 * A [resolvable 2-`(n,k,1)` design](https://en.wikipedia.org/wiki/Block_design#Resolvable_2-designs) is an equivalent characterization of a perfect `(n,k)`-solution. This is also called a `(n,k,1)`-RBIBD (resolvable balanced incomplete block design).
   * It is a special case of a [BIBD (or 2-design)](https://en.wikipedia.org/wiki/Block_design#Definition_of_a_BIBD_(or_2-design)) with `(v,b,r,k,λ) = (n,b,r,k,1)` (where `b = n(n-1)/(k(k-1))` and `r = (n-1)/(k-1)`).
     * This 2-design is equivalently characterized as the [Steiner System](https://en.wikipedia.org/wiki/Steiner_system) `S(2,k,n)`.
   * `J`: In [RBIBD5](http://ajc.maths.uq.edu.au/pdf/15/ajc-v15-p177.pdf) it is shown that a `(n,5,1)`-RBIBD exists for all `n ≡ 5 mod 20`, except possibly for `n` in `{45, 185, 225, 345, 465, 645}`.
 * A `(K,λ)`-RGDD (resolvable group divisible design) is a generalization, where the participants are partitioned in groups, and every pair of participants from two different groups meet exactly `λ` times and every pair of distinct participants from the same group never meet. The table sizes must all be in the set `K`.
-  * Dagstuhl's Happy diner problem is asks to find a `({1,...,k},1)`-GDD but where pariticipants can meet each other multiple times.
+  * Dagstuhl's Happy diner problem is asks to find a `({1,...,k},1)`-GDD but where participants can meet each other multiple times.
   * Many solutions to `(K,1)`-RGDDs will give solutions to Dagstuhl's Happy Diner problem.
     * If all groups have size 1, then the solution is immediate.
     * If all groups are size `≤ k` then we get an solution by adding 1 day where all participants meet everyone in their group.
