@@ -71,14 +71,14 @@ Legend:
 |   18  |   18     |   36    J a |   52      i | 65-70     i |             | 91-105    i | 104-123   i |             |
 |   19  | **20**   | **39**  J   |             |             |             | 91-112    i | 104-129   i |             |
 |   20  |   20     |   39      c |   60    J a |             | 78-98     i |             | 104-136   i | 153-157 A i |
-|   21  | **22**   |   42    J a | **64**  H   |             |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
-|   22  |   22     | **45**  A   |   64      i | 85-86   A i | 102-108   i |             | 136-152   i | 153-172   i |
+|   21  | **22**   |   42    J a | **64**  H   | **85**  J a |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
+|   22  |   22     | **45**  A   |   64      i | 85-86     i | 102-108   i |             | 136-152   i | 153-172   i |
 |   23  | **24**   |   45      c |             | 85-90     i |             | 133-135 A i | 152-160 A c | 171-180 A i |
 |   24  |   24     |   48    J a |   72    J a |             |             | 133-141   i |             | 171-189   i |
 |   25  | **26**   | **51**  J   | **76**  J   | 95-100  A a | 114-126 A a | 133-147   i |             | 171-198   i |
-|   26  |   26     |   51      c |   76      i |             | 114-128   i | 133-154   i | 152-179   i |             |
-|   27  | **28**   |   54    J a |             | 95-106    i | 114-132   i |             | 152-185   i | 207-216 A a |
-|   28  |   28     | **57**  J   |             | 95-110    i | 114-138   i |             | 184-192 A i |             |
+|   26  |   26     |   51      c |   76      i | **105** J a | 114-128   i | 133-154   i | 152-179   i |             |
+|   27  | **28**   |   54    J a |             | 105-106   i | 114-132   i |             | 152-185   i | 207-216 A a |
+|   28  |   28     | **57**  J   |             | 105-110   i | 114-138   i |             | 184-192 A i |             |
 |   29  | **30**   |   57      c | **88**  J   |  115    A c | 138-144 A c | 161-175 A a | 184-200   i | 207-229   i |
 |   30  |   30     |   60    J a |   88      i |             |             | 161-177   i | 184-208   i | 207-236   i |
 |   31  | **32**   | **63**  A   |             |**125** AH a |             | 161-183   i |             | 207-244   i |
@@ -198,10 +198,10 @@ Legend:
   * This means that after `T+1` days at most `s(opt) + T * s` connections can be made, which gives a lower bound for the number of days.
   * The Mathematica function doing this is given in `lowerbound.txt`. It is not optimal, and is not necessarily increasing in `n`. In some cases we can probably increase the lower bound by 1 using a similar but more precise argument.
 * `h`: If there is no perfect `(n,k)`-solution but `k | n` and `k - 1 | n - 1`, then `T(n-1, k) > (n - 1) / (k - 1)`.
-  * The reason is that if `T(n-1, k) = (n - 1) / (k - 1)` is also given by the lower bound `a`.
-  * The only way this solution can work is by making all but 1 table size `k` every meal, and seating every participant exactly once with every other participant.
+  * To see this, first notice that `T(n-1, k) ≥ (n - 1) / (k - 1)` is given by the lower bound `a`.
+  * The only way equality can hold is if all but 1 table has size `k` every meal, and seating every participant exactly once with every other participant.
   * This means that every participant sits at a table of size `k - 1` exactly once.
-  * We can add a participant at the empty seat every meal, and then we get a perfect `(n, k)`-solution.
+  * We can add a participant at the empty seat every meal, and then we get a perfect `(n, k)`-solution, which contradicts the assumption.
 * `i`: Let `n = mk + l`, and let `d` be the lower bound given by `a`. Suppose that `(d-1)(k-1) + (l-1) < n-1`, then there is no solution in `d` days with an optimal configuration.
   * The reason is as follows: Let `A` be any participant sitting at the smallest table in the optimal configuration: it can meet at most `l-1` participants that meal, and at most `k-1` participants every other meal, which is not enough.
   * This means that for any solution in `d` days, the smallest table size is `(n-1)-(d-1)(k-1)`.
@@ -238,6 +238,8 @@ Legend:
 <!-- * `X`: unverified solutions from [the Social Golfer Problem](#relation-to-the-social-golfer-problem). -->
 * Priority of labels: nothing (it follows from the cell below), then `↖`/`←`, then `A`/`B`/`H`/`K`, then `F`/`G`, then `E`, then `J`/`X`.
   * If a label with earlier (higher) priority applies, we don't write this label. We do write multiple labels with the same priority.
+
+<!-- TODO: refactor next 4 sections into "Literature", maybe separate sections for perfect solutions -->
 
 ### Relation to the Social Golfer Problem
 * The *Social Golfer Problem* is a problem similar to Dagstuhl's Happy Diner Problem: given a group of `m*k` golfers playing in `m` groups of `k` golfers each day. No two golfers play together more than once. What is the maximum possible of days they can play? Call this number `G(m,k)`.
@@ -276,6 +278,7 @@ Legend:
   * For `6m = 12` there is a optimal `(12,3)`-solution in 6 days which is not a Nearly Kirkman Triple System. (see `E`)
 * `J`: A *Kirkman System* is an alternative name for an optimal solution.
   * According to [On resolvable designs](https://www.sciencedirect.com/journal/discrete-mathematics/vol/3/issue/4) they exist for all `(n,4)` with `n ≡ 4 mod 12`.
+  * [ANKS](http://engine.scichina.com/publisher/scp/journal/Math%20A1/37/5/10.1360/ya1994-37-5-555?slug=abstract) cites papers that show that for every `k` there is a Kirkman System for all but finitely many `n ≡ k mod k(k-1)`.
 * `J`: A *Nearly Kirkman System* is an `(n,k)`-solution where all participants meet each other exactly once, on all but 1 days all tables contain `k` participants and on the last day all tables contain `k-1` participants.
   * A necessary condition for a Nearly Kirkman System is that `n ≡ 0 mod k(k-1)`.
   * If a Nearly Kirkman System exists for `(n,k)` then `T(n,k) = n / (k-1)`
@@ -294,10 +297,15 @@ Legend:
   * `L(10)` is the smallest unknown value. According to [this Math Stack Exchange answer](https://math.stackexchange.com/q/649893) `L(10) < 9`. This implies that there is no perfect `(100,10)`-solution, so `T(100,10) > 11`.
 
 ### Relation to Block Designs
-* A [resolvable 2-`(n,k,1)` design](https://en.wikipedia.org/wiki/Block_design#Resolvable_2-designs) is an equivalent characterization of a perfect `(n,k)`-solution.
+* A [resolvable 2-`(n,k,1)` design](https://en.wikipedia.org/wiki/Block_design#Resolvable_2-designs) is an equivalent characterization of a perfect `(n,k)`-solution. This is also called a `(n,k,1)`-RBIBD (resolvable balanced incomplete block design).
   * It is a special case of a [BIBD (or 2-design)](https://en.wikipedia.org/wiki/Block_design#Definition_of_a_BIBD_(or_2-design)) with `(v,b,r,k,λ) = (n,b,r,k,1)` (where `b = n(n-1)/(k(k-1))` and `r = (n-1)/(k-1)`).
     * This 2-design is equivalently characterized as the [Steiner System](https://en.wikipedia.org/wiki/Steiner_system) `S(2,k,n)`.
-
+  * `J`: In [RBIBD5](http://ajc.maths.uq.edu.au/pdf/15/ajc-v15-p177.pdf) it is shown that a `(n,5,1)`-RBIBD exists for all `n ≡ 5 mod 20`, except possibly for `n` in `{45, 185, 225, 345, 465, 645}`.
+* A `(K,λ)`-RGDD (resolvable group divisible design) is a generalization, where the participants are partitioned in groups, and every pair of participants from two different groups meet exactly `λ` times and every pair of distinct participants from the same group never meet. The table sizes must all be in the set `K`.
+  * Dagstuhl's Happy diner problem is asks to find a `({1,...,k},1)`-GDD but where pariticipants can meet each other multiple times.
+  * Many solutions to `(K,1)`-RGDDs will give solutions to Dagstuhl's Happy Diner problem.
+    * If all groups have size 1, then the solution is immediate.
+    * If all groups are size `≤ k` then we get an solution by adding 1 day where all participants meet everyone in their group.
 
 ### Solutions for Individual Cases
 
