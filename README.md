@@ -202,6 +202,7 @@ Legend:
   * The only way equality can hold is if all but 1 table has size `k` every meal, and seating every participant exactly once with every other participant.
   * This means that every participant sits at a table of size `k - 1` exactly once.
   * We can add a participant at the empty seat every meal, and then we get a perfect `(n, k)`-solution, which contradicts the assumption.
+  * For `(n,k) = (36,6)` there is no perfect solution, see [Latin Squares](#latin-squares).
 * `i`: Let `n = mk + l`, and let `d` be the lower bound given by `a`. Suppose that `(d-1)(k-1) + (l-1) < n-1`, then there is no solution in `d` days with an optimal configuration.
   * The reason is as follows: Let `A` be any participant sitting at the smallest table in the optimal configuration: it can meet at most `l-1` participants that meal, and at most `k-1` participants every other meal, which is not enough.
   * This means that for any solution in `d` days, the smallest table size is `(n-1)-(d-1)(k-1)`.
@@ -484,26 +485,19 @@ Legend:
 * If `(7,7,7)` doesn't appear, then every day has 4 tables. Then at most 57 connections can be made on day 1, and at most 49 connections on future days (since all 7s lose at least 3 and all 6s lose at least 2 connections). This is also not enough, since `57+49+49+49=204<210`.
 
 ## Questions
-* If `n ≡ k mod k(k-1)` when is there a perfect `(n,k)`-solution?
-  * It is not always true when `n` is not a prime power, where the smallest non-trivial example is immediately a counterexample: there is no perfect `(36,6)`-solution.
+* The condition `n ≡ k mod k(k-1)` is necessary for a perfect `(n,k)`-solution to exist. To what extend is it sufficient?
+  * It is true when `k` is a prime power and `n` is a power of `k`, see `H`.
+  * In the smallest case where `k` is not a prime power, the first non-trivial example is immediately a counterexample. There is no perfect `(36,6)`-solution (see [Latin Squares](#latin-squares)).
   * It is true for `k = 2` and `k = 3`.
   * For `k = 4` it's true according to [On resolvable designs](https://www.sciencedirect.com/journal/discrete-mathematics/vol/3/issue/4).
   * According to [ANKS](http://engine.scichina.com/publisher/scp/journal/Math%20A1/37/5/10.1360/ya1994-37-5-555?slug=abstract) for every `k` this is true for all but finitely many `n` (Theorem 1, citing *The existence of resolvable block designs. Survey of combinatorial theory*, D Ray-Chaudhuri, R Wilson - 1973).
+    * This shows that for a fixed `k` the asymptotic behavior of `T(n,k)` is `T(n,k) ≤ (n-1)/(k-1) + O(1)`, i.e. `T(n,k) - (n-1)/(k-1)` is bounded by a constant (possibly depending on `k`).
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
   * This is false. All optimal `(8,5)`-solutions have at least one day with two tables of four participants. This was found by brute force, but is quite easy to see by hand (to do).
   * It is probably even false that there always is an optimal `(n,k)`-solution where there are `⌈ n/k ⌉` tables each day (where `⌈ x ⌉` is the smallest integer which is at least `x`).
     The Mathematica SAT-solver easily found a solution that `T(12,3) ≤ 6`, but didn't terminate within reasonable time when the additional condition was imposed that only 4 tables could be used per day.
 * In all cases we know the following holds: if there is a perfect `(n,k)` solution, then `T(n+1,k) = T(n,k) + 2`.
   * Does this always hold? Or maybe `T(n+1,k) ≥ T(n,k) + 2`?
-
-### Conjectures
-* `T(n,k) ≤ n/(k-1) + O(1) * log(n)`. This should follow from an inductive argument using `A`.
-* `T(6k,3) = 3k` for `k > 1`.
-  * This also implies that `T(6k-1,3) = T(6k-2,3) = 3k` for `k ≥ 1`.
-  * Assuming `J`, it is already known that `T(6k,3)` is either `3k` or `3k + 1`.
-* For all `k`, `T(n,k) - n/(k-1)` is bounded by a constant (independent of `n`, possibly dependent on `k`).
-  * This is true for `k = 3`. In fact, the optimal `(n,3)`-solution is at most 1 higher than the value obtained from the lower bound `c`.
-    The reason for this is that for every `m` there is a perfect `(6m+3,3)`-solution (see upper bound `J`), and the lower bound for `6m-2` given by `c` is only 1 lower than the value for `6m+3`.
 
 ## External Links / References
 
