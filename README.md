@@ -297,7 +297,7 @@ Legend:
     * Every day `d ≥ 3` produces a Latin square by putting `k` in cell `(i,j)` if participant `p(i,j)` was in group `k`.
     * The fact that this is a Latin square follows from the fact that no pair of participants was in the same group on day `d`, `1` and `2`.
     * Days `d₁, d₂ ≥ 3` have no pair of participants in the same group iff the corresponding Latin Squares are orthogonal.
-  * There is no pair of mutually orthogonal squares of order 6, so `L(6) = 1` and `G(6,6) = 3`. In particular there is no perfect `(36,6)`-solution, so `T(36,6) > 7`.
+  * There is no pair of mutually orthogonal squares of order 6, so `L(6) = 1` and `G(6,6) = 3` ([OEIS(https://oeis.org/A001438)). In particular there is no perfect `(36,6)`-solution, so `T(36,6) > 7`.
   * `L(10)` is the smallest unknown value. According to [this Math Stack Exchange answer](https://math.stackexchange.com/q/649893) `L(10) < 9`. This implies that there is no perfect `(100,10)`-solution, so `T(100,10) > 11`.
 
 #### Relation to Block Designs
