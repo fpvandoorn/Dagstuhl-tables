@@ -83,7 +83,8 @@ Legend:
 |   30  |   30     |   60    J a |   88      i |             |             | 161-177   i | 184-208   i | 207-236   i |
 |   31  | **32**   | **63**  A   |             |**125** AH a |             | 161-183   i |             | 207-244   i |
 
-* An entry in this table shows the maximal `n` such that `T(n,k) ≤ T`. We call this value `n(T,k)`.
+* **Dual problem statement**: What is the maximum number of conference participants so that each participant can share at least one of the `T` meals with any other participant when eating at tables of at most `k` participants?
+* This is the maximal `n = n(T,k)` such that `T(n,k) ≤ T`.
 * This table has the same information as the previous one, organized differently.
 * This table is harder to read, but much more informationally dense.
 * If you want to read a value of `T(n,k)` from this table:
