@@ -233,7 +233,7 @@ Legend:
   * The set of all table assignments determined by all 1-dimensional subspaces in this way forms a perfect `(n,k)`-solution. The reason that it is perfect follows from the fact that 1-dimensional affine spaces stand in bijective correspondence to pairs of points in `V`.
   * This idea is due to Neil Strickland.
   * If `k` is prime (not just a prime power) and `n` is a power of `k`, then the existence of a perfect `(n,k)`-solution also follows from upper bound `A`.
-* `J`: see [Kirkman Systems](#kirkman-systems).
+* `J`: see [Kirkman Systems](#kirkman-systems) and [Relation to Block Designs](#relation-to-block-designs).
 * `K`: From a perfect solution, we can get new solutions with the table size two larger.
   * Given an `(n,k)`-solution in `T` days and a subset `A ⊆ n` of participants such that no `i+1` participants from `A` sit at the same table during the same meal (let's say that `A` is `i`-*good* in this case), then there is a `(n+|A|,k+i)`-solution in `T` days, by replacing everyone in `A` with a pair of people.
   * If we start with a perfect `(n,k)`-solution (with `k > 2`) and a 2-good set `A` such that `|A|+(k-2)|A|(|A|-1)/2 < n`, then we can find a 2-good set with one more participant. The reason is that every pair of people in `A` sit at the same table exactly once, with `k-2` other people. Therefore, at most `|A|+(k-2)|A|(|A|-1)/2` other people cannot be added to `A` while keeping `A` 2-good, which means that there is someone we can add to `A` so that the new set is 2-good.
@@ -298,7 +298,7 @@ Legend:
     * Every day `d ≥ 3` produces a Latin square by putting `k` in cell `(i,j)` if participant `p(i,j)` was in group `k`.
     * The fact that this is a Latin square follows from the fact that no pair of participants was in the same group on day `d`, `1` and `2`.
     * Days `d₁, d₂ ≥ 3` have no pair of participants in the same group iff the corresponding Latin Squares are orthogonal.
-  * There is no pair of mutually orthogonal squares of order 6, so `L(6) = 1` and `G(6,6) = 3` ([OEIS(https://oeis.org/A001438)). In particular there is no perfect `(36,6)`-solution, so `T(36,6) > 7`.
+  * There is no pair of mutually orthogonal squares of order 6, so `L(6) = 1` and `G(6,6) = 3` ([OEIS](https://oeis.org/A001438)). In particular there is no perfect `(36,6)`-solution, so `T(36,6) > 7`.
   * `L(10)` is the smallest unknown value. According to [this Math Stack Exchange answer](https://math.stackexchange.com/q/649893) `L(10) < 9`. This implies that there is no perfect `(100,10)`-solution, so `T(100,10) > 11`.
 
 #### Relation to Block Designs
