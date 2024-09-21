@@ -37,7 +37,8 @@ If[DuplicateFreeQ[pairs]&&Length@Union@Flatten[Map[Length,l,{2}],1]==1,Print["Pe
 Print["Not all participants have met: ",todo=Complement[allpairs,Union@pairs]];If[DuplicateFreeQ[pairs],Print["No duplicate meetings so far."],Print["Duplicate meetings so far: ",Select[Tally[pairs],#[[2]]>1&][[All,1]]]]],
 Print["A participant has been seated twice during meal ",Position[nodupes,False][[1,1]]]])
 toshortstring[l_]:=StringRiffle[l/.{x_Integer:>If[x<10,ToString@x,FromCharacterCode[ToCharacterCode["A"][[1]]+x-10]]},"\n"," ",""]
-format[meals_,n_,k_,unsafe1_:True,unsafe2_:True]:=With[{l=Select[#,#=!={}&]&/@SAT[meals,n,k,unsafe1,unsafe2]},If[Head[l]===List,test[l];toshortstring[l]]]
+formatlist[list_]:=With[{l=Select[#,#=!={}&]&/@list},If[Head[l]===List,test[l];toshortstring[l]]]
+format[meals_,n_,k_,unsafe1_:True,unsafe2_:True]:=formatlist@SAT[meals,n,k,unsafe1,unsafe2]
 
 
 

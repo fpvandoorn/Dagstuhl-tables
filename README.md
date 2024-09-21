@@ -25,10 +25,10 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   14  | **13**   |    7       |    5       |    5       |    4       |    4 f     |    3       |
 |   15  |   15     |  **7**   F |    5       |    5       |    4       |    4       |    3       |
 |   16  | **15**   |    9   c   |  **5**   H |    5       |    4       |    4       |    3     B |
-|   17  |   17     |    9       |    7   i E |    5   `↖` |    4       |    4       |    4   f   |
-|   18  | **17**   |    9     G |   7-8      |   5-6      |    4     B |    4       |    4       |
-|   19  |   19     |   10   a   |   7-8      |    6   g   |    5 gi`↘` |    4   `↖` |    4       |
-|   20  | **19**   |   10       |   7-8      |    6       |    5       |    5 g     |    4       |
+|   17  |   17     |    9       |    7   i   |    5   `↖` |    4       |    4       |    4   f   |
+|   18  | **17**   |    9     G |    7       |   5-6      |    4     B |    4       |    4       |
+|   19  |   19     |   10   a   |    7       |    6   g   |    5 gi`↘` |    4   `↖` |    4       |
+|   20  | **19**   |   10       |    7     X |    6       |    5       |    5 g     |    4       |
 |   21  |   21     | **10**   F |    8   c   |    6       |    5       |    5       |    4       |
 |   22  | **21**   |   12   c   |    8       |    6       |    5     E |    5       |    4     E |
 |   23  |   23     |   12       |    8       |    6       |    6   g   |    5       |    5   g   |
@@ -37,8 +37,8 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |   5-6      |    5       |
 |   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
 |   28  | **27**   |   15   c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
-|   29  |   29     |   15       |   11   i   |   8-9  `↖` |    7       |    6       |    5       |
-|   30  | **29**   |   15     J |   11     G |   8-10   A |    7   B   |    6     K |    5     B |
+|   29  |   29     |   15       |   11   i   |   8-9      |    7       |    6       |    5       |
+|   30  | **29**   |   15     J |   11     G |   8-9    X |    7   B   |    6     K |    5     B |
 
 Legend:
 * We use lower-case letters `a`-`z` (or `↘`) to justify lower bounds and upper-case letters `A`-`Z` (or `↖`) to justify upper bounds. These bounds are explained under [Lower Bounds](#lower-bounds) and [Upper Bounds](#upper-bounds).
@@ -57,9 +57,9 @@ Legend:
 |   4   |    4     |  **9** AH   |   10  `←` g |   12    E e |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |
 |   5   |  **6**   |    9      c | **16**  H   | 17-18 `←` g |   22    E g | 25-26   E g |   32   B gi | 33-34 `←` g |
 |   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 30-32   K g | 32-37     g | 36-42   B g |
-|   7   |  **8**   | **15**  F   | 17-20   E c | 25-26     i | 30-34   B h | 31-39  `←`g | 32-45     g | 45-51   B g |
+|   7   |  **8**   | **15**  F   |   20    X c | 25-26     i | 30-34   B h | 31-39  `←`g | 32-45     g | 45-51   B g |
 |   8   |    8     |   15      c |   24    J a | 25-30     i | 30-38     i | **49** AH a | 50-53 `←` g | 54-59   K g |
-|   9   | **10**   |   18    G a | **28**  F   | 29-35 `←` c | 36-42   B i | 49-51     i | **64**  H a | 65-69 `←` g |
+|   9   | **10**   |   18    G a | **28**  F   | 30-35   X c | 36-42   B i | 49-51     i | **64**  H a | 65-69 `←` g |
 |   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |
 |   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |
 |   12  |   12     |   24    J a |   36    J a | 37-46 `←` i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
@@ -223,10 +223,10 @@ Legend:
 * `C`: *obsolete*.
 * `D`: *obsolete*.
 * `E`: found solution for this special case, see below. (We don't use `E` if another letter applies.)
-* `F`, `G`: a solution has been given in the literature. An explicit solution is given in [literature.md](literature.md).
-  * The result in literature was solving a different problem.
+* `F`, `G`, `X`: a solution has been elsewhere, usually in articles. An explicit solution is given in [literature.md](literature.md).
   * See [Relation to the Social Golfer Problem](#relation-to-the-social-golfer-problem).
   * See [Relation to Block Designs](#relation-to-block-designs).
+  * `X`: Some solutions were given on Stack Exchange.
 * `H`: If `k` is a prime power and `n` is a power of `k`, then there is a perfect `(n,k)`-solution.
   * Consider the field `F` of order `k`, and a vector field `V` with cardinality `n` over `F`.
   * For every 1-dimensional subspace `L` of `V` the sets of 1-dimensional affine spaces parallel to `L` forms a partition of `V`. This defines a table assignment for a single meal.
