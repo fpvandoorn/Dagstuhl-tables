@@ -206,7 +206,7 @@ IKHSJ 10MOR TBNQ8 F96LA 4CGEP D7253
 789HM RJPT3 GI5N0 KE2O6 F1A4B CDSQL
 02AHT 1S63C 4LN 5JME
 ```
-* Using a similar algorithm we one with even smaller tables on day 9:
+* Using a similar algorithm we get a solution with even smaller tables on day 9:
 ```
 QAC7K 6NSO2 ELGF8 PIR01 M4B93 D5THJ
 AR54N HCE9B 3IT6L 1GPK2 SDMF7 8OQ0J

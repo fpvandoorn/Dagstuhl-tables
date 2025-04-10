@@ -12,7 +12,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   1   |  **0**   |  **0**     |  **0**     |  **0**     |  **0**     |  **0**     |  **0**     |
 |   2   |  **1**   |    1       |    1       |    1       |    1       |    1       |    1       |
 |   3   |    3     |  **1**     |    1       |    1       |    1       |    1       |    1       |
-|   4   |  **3**   |    3   cd  |  **1**     |    1       |    1       |    1       |    1       |
+|   4   |  **3**   |    3   c   |  **1**     |    1       |    1       |    1       |    1       |
 |   5   |    5     |    3   `↖` |    3   di  |  **1**     |    1       |    1       |    1       |
 |   6   |  **5**   |    4   fg  |    3       |    3   di  |  **1**     |    1       |    1       |
 |   7   |    7     |    4       |    3       |    3       |    3   d   |  **1**     |    1       |
@@ -52,7 +52,7 @@ Legend:
 | T \ k |  2       |   3         |   4         |   5         |   6         |   7         |  8          |     9       |
 |:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       |
-|   2   |    2     |    3     cd |    4     di |    5     di |    6     d  |    7      d |    8      d |   9         |
+|   2   |    2     |    3     c  |    4     di |    5     di |    6     d  |    7      d |    8      d |   9         |
 |   3   |  **4**   |    5 `←` fg |    8 B c`→` |    9 `←` fg |   12  B `→` |   13  `←` f |   16    B`→`|  17   `←` f |
 |   4   |    4     |  **9** AH   |   10  `←` g |   12    E e |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |
 |   5   |  **6**   |    9      c | **16**  H   | 17-18 `←` g |   22    E g | 25-26   E g |   32   B gi | 33-34 `←` g |
@@ -238,7 +238,7 @@ Legend:
   * Given an `(n,k)`-solution in `T` days and a subset `A ⊆ n` of participants such that no `i+1` participants from `A` sit at the same table during the same meal (let's say that `A` is `i`-*good* in this case), then there is a `(n+|A|,k+i)`-solution in `T` days, by replacing everyone in `A` with a pair of people.
   * If we start with a perfect `(n,k)`-solution (with `k > 2`) and a 2-good set `A` such that `|A|+(k-2)|A|(|A|-1)/2 < n`, then we can find a 2-good set with one more participant. The reason is that every pair of people in `A` sit at the same table exactly once, with `k-2` other people. Therefore, at most `|A|+(k-2)|A|(|A|-1)/2` other people cannot be added to `A` while keeping `A` 2-good, which means that there is someone we can add to `A` so that the new set is 2-good.
 <!-- * `X`: unverified solutions from [the Social Golfer Problem](#relation-to-the-social-golfer-problem). -->
-* Priority of labels: nothing (it follows from the cell below), then `↖`/`←`, then `A`/`B`/`H`/`K`, then `F`/`G`, then `E`, then `J`<!--/`X`-->.
+* Priority of labels: nothing (it follows from the cell below), then `↖`/`←`, then `A`/`B`/`H`/`K`, then `F`/`G`, then `E`/`X`, then `J`.
   * If a label with earlier (higher) priority applies, we don't write this label. We do write multiple labels with the same priority.
 
 <!-- TODO: refactor next 4 sections into "Literature", maybe separate sections for perfect solutions -->
@@ -307,7 +307,7 @@ Legend:
     * This 2-design is equivalently characterized as the [Steiner System](https://en.wikipedia.org/wiki/Steiner_system) `S(2,k,n)`.
   * `J`: In [RBIBD5](http://ajc.maths.uq.edu.au/pdf/15/ajc-v15-p177.pdf) it is shown that a `(n,5,1)`-RBIBD exists for all `n ≡ 5 mod 20`, except possibly for `n` in `{45, 185, 225, 345, 465, 645}`.
 * A `(K,λ)`-RGDD (resolvable group divisible design) is a generalization, where the participants are partitioned in groups, and every pair of participants from two different groups meet exactly `λ` times and every pair of distinct participants from the same group never meet. The table sizes must all be in the set `K`.
-  * Dagstuhl's Happy diner problem is asks to find a `({1,...,k},1)`-GDD but where participants can meet each other multiple times.
+  * Dagstuhl's Happy diner problem asks to find a `({1,...,k},1)`-GDD but where participants can meet each other multiple times.
   * Many solutions to `(K,1)`-RGDDs will give solutions to Dagstuhl's Happy Diner problem.
     * If all groups have size 1, then the solution is immediate.
     * If all groups are size `≤ k` then we get an solution by adding 1 day where all participants meet everyone in their group.
@@ -328,6 +328,8 @@ Legend:
 14A 236 57B 89C
 137 249 BC 58 6A
 ```
+* It is impossible to do his with only 4 tables for each meal. This was verified by a SAT-solver.
+<!-- kissat took 16.6s on a laptop (while doing another problem in parallel) -->
 
 #### `T(17,4) ≤ 7`
 * Solution found by Mathematica SAT-solver:
@@ -340,6 +342,7 @@ Legend:
 29 CEH 56AD 38BG 147F
 36E 158C 9G 27BD 4AFH
 ```
+<!-- kissat took 15.2s on a laptop (while doing another problem in parallel) -->
 
 #### `T(12,5) ≤ 4`
 * Solution found by Mathematica SAT-solver:
@@ -349,6 +352,7 @@ Legend:
 128C 4579B 36A
 126AB 379C 458
 ```
+<!-- kissat took 14.3s on a laptop (while doing another problem in parallel) -->
 
 #### `T(13,5) ≥ 5`
 * This solution was found part by hand, part by computer brute-force.
@@ -369,6 +373,7 @@ Legend:
 45ABEL 3CDM 268GHJ 179FIK
 38EK 4579DJ 1ABGHM 26CFIL
 ```
+<!-- kissat took 16.3s on a laptop (while doing another problem in parallel) -->
 
 #### `T(25,7) ≤ 5`
 * Solution found by Mathematica SAT-solver:
@@ -486,7 +491,7 @@ Legend:
 * If `(7,7,7)` doesn't appear, then every day has 4 tables. Then at most 57 connections can be made on day 1, and at most 49 connections on future days (since all 7s lose at least 3 and all 6s lose at least 2 connections). This is also not enough, since `57+49+49+49=204<210`.
 
 ## Questions
-* The condition `n ≡ k mod k(k-1)` is necessary for a perfect `(n,k)`-solution to exist. To what extend is it sufficient?
+* The condition `n ≡ k mod k(k-1)` is necessary for a perfect `(n,k)`-solution to exist. To what extent is it sufficient?
   * It is true when `k` is a prime power and `n` is a power of `k`, see `H`.
   * In the smallest case where `k` is not a prime power, the first non-trivial example is immediately a counterexample. There is no perfect `(36,6)`-solution (see [Latin Squares](#latin-squares)).
   * It is true for `k = 2` and `k = 3`.
@@ -495,8 +500,8 @@ Legend:
     * This shows that for a fixed `k` the asymptotic behavior of `T(n,k)` is `T(n,k) ≤ (n-1)/(k-1) + O(1)`, i.e. `T(n,k) - (n-1)/(k-1)` is bounded by a constant (possibly depending on `k`).
 * For every `n` and `k` is there an optimal `(n,k)`-solution in which, during every meal, at most one table is not completely occupied?
   * This is false. All optimal `(8,5)`-solutions have at least one day with two tables of four participants. This was found by brute force, but is quite easy to see by hand (to do).
-  * It is probably even false that there always is an optimal `(n,k)`-solution where there are `⌈ n/k ⌉` tables each day (where `⌈ x ⌉` is the smallest integer which is at least `x`).
-    The Mathematica SAT-solver easily found a solution that `T(12,3) ≤ 6`, but didn't terminate within reasonable time when the additional condition was imposed that only 4 tables could be used per day.
+  * It is also false that there always is an optimal `(n,k)`-solution where there are `⌈ n/k ⌉` tables each day (where `⌈ x ⌉` is the smallest integer which is at least `x`).
+    The Mathematica SAT-solver easily found a [solution](#solutions-for-individual-cases) that `T(12,3) ≤ 6`. With the help of other SAT-solvers Bernardo Subercaseaux showed that the problem was unsatisfiable under the additional condition that only 4 tables could be used per day.
 * In all cases we know the following holds: if there is a perfect `(n,k)` solution, then `T(n+1,k) = T(n,k) + 2`.
   * Does this always hold? Or maybe `T(n+1,k) ≥ T(n,k) + 2`?
 
