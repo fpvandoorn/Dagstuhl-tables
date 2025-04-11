@@ -20,9 +20,9 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   9   |    9     |  **4**  AH |    4  c`↘` |    3   `↖` |    3       |    3       |    3   d   |
 |   10  |  **9**   |    6   c   |    4   `↖` |    4   fg  |    3       |    3       |    3       |
 |   11  |   11     |    6       |    5   g   |    4       |    3       |    3       |    3       |
-|   12  | **11**   |    6     E |    5       |    4     E |    3     B |    3       |    3       |
-|   13  |   13     |    7   a   |    5       |    5   e   |    4  `↘`  |    3   `↖` |    3       |
-|   14  | **13**   |    7       |    5       |    5       |    4       |    4 f     |    3       |
+|   12  | **11**   |    6     E |    5       |    4       |    3     B |    3       |    3       |
+|   13  |   13     |    7   a   |    5       |    4     E |    4  `↘`  |    3   `↖` |    3       |
+|   14  | **13**   |    7       |    5       |    5   e   |    4       |    4 f     |    3       |
 |   15  |   15     |  **7**   F |    5       |    5       |    4       |    4       |    3       |
 |   16  | **15**   |    9   c   |  **5**   H |    5       |    4       |    4       |    3     B |
 |   17  |   17     |    9       |    7   i   |    5   `↖` |    4       |    4       |    4   f   |
@@ -329,8 +329,8 @@ Legend:
 14A 236 57B 89C
 137 249 BC 58 6A
 ```
-* kissat took 16.6s on a laptop (while doing another problem in parallel)
-* It is impossible to do his with only 4 tables for each meal. This was verified by a SAT-solver.
+* kissat took 16.6s on a laptop
+* It is impossible to do his with only 4 tables for each meal. This was verified by a SAT-solver (after optimization can be done in 8 minutes on a single core?).
 
 #### `T(17,4) ≤ 7`
 * Solution found by SAT-solvers:
@@ -343,27 +343,19 @@ Legend:
 29 CEH 56AD 38BG 147F
 36E 158C 9G 27BD 4AFH
 ```
-* kissat took 15.2s on a laptop (while doing another problem in parallel)
+* kissat took 15.2s on a laptop
 
-#### `T(12,5) ≤ 4`
-* Solution found by SAT-solvers:
+#### `T(13,5) ≤ 4`
+* Solution found with kissat (<0.1s):
 ```
-12345 6789A BC
-1279 38B 456AC
-128C 4579B 36A
-126AB 379C 458
+12345 6789A BCD
+19AB 2367C 458D
+18C 239AD 4567B
+167D 238B 459AC
 ```
-* kissat took 14.3s on a laptop (while doing another problem in parallel)
 
-#### `T(13,5) ≥ 5`
-* This solution was found part by hand, part by computer brute-force.
-* Suppose there is a valid solution in 4 days.
-* `(5,5,3)` or `(5,4,4)` has to occur at least once.
-* If `(5,5,3)` never occurs, then from day 2 on at most 18 connections are possible. Contradiction.
-* So day 1 is `(5,5,3)` (23 connections).
-* From then on, at most 19 connections are possible, which has to occur at least once, so day 2 is `(5,5,3)` with `8+8+3` new connections. This can be done in 1 way (up to renaming participants)
-* Then there are 8 ways for day 3 to have 18 connections (and more is impossible), possibly counting things twice. We found this number by brute force.
-* For none of those 8 ways, there is a valid 4th day.
+#### `T(14,5) ≥ 5`
+* UNSAT found with kissat (8.6s).
 
 #### `T(22,6) ≤ 5`
 * Solution found by SAT-solvers:
@@ -374,7 +366,7 @@ Legend:
 45ABEL 3CDM 268GHJ 179FIK
 38EK 4579DJ 1ABGHM 26CFIL
 ```
-* kissat took 16.3s on a laptop (while doing another problem in parallel)
+* kissat took 16.3s on a laptop
 
 #### `T(25,7) ≤ 5`
 * Solution found by Mathematica SAT-solver:
@@ -385,6 +377,7 @@ Legend:
 46FJK 8ABDIOP 1257CHN 39EGLM
 367HILO 19JP 245ADFM 8BCEGKN
 ```
+* kissat took 7.2s on a laptop
 
 #### `T(22,8) ≤ 4`
 * Solution found by Mathematica SAT-solver:
@@ -394,6 +387,7 @@ Legend:
 258ACHM 136EFGIK 479BDJL
 47EFGHM 136ACJL 2589BDIK
 ```
+* kissat took 7.1s on a laptop
 
 ### Examples
 
@@ -536,3 +530,7 @@ Legend:
 ## Contributing
 
 * Contributions are welcome! Feel free to add any information. Please provide links or justifications of claims you make.
+
+## Errata
+
+* 2025.04.10: `T(13,5)` was incorrectly listed to be 5
