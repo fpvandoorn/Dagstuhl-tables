@@ -47,7 +47,7 @@ def encode(N, K, M, T, S, knf=False):
                 enc.add_clause([f"p_{p1}_{p2}_{m}" for (p1, p2) in itertools.combinations(s4, 2)])
 
     # symmetry breaking: first meal has optimal arrangement
-    if S >= 0:
+    if S >= 1:
         optimal_arrangement = {}
         for p in range(N):
             optimal_arrangement[p] = p // K
@@ -70,18 +70,18 @@ def encode(N, K, M, T, S, knf=False):
     # and 0 < l. (because we can permute the elements at table l on meal 0)
     # furthermore, 0 meets lK no later than (l+1)K (because we can permute the tables on meal 0)
     # furtermore, K meets i no later than i+1 (for 0<i<K-1)
-    # we only require this for S days after day 0, because otherwise the new clauses get too complicated.
+    # we only require this for S-1 days after day 0, the later days have longer clauses.
     if N > K and M > 1:
         for l in range(1, N // K + 1):
             if l < N // K - 1:
-                for m in range(1,min(M - 1, S+1)):
+                for m in range(1,min(M - 1, S)):
                     enc.add_clause([f"p_{0}_{l * K}_{m2}" for m2 in range(1,m+1)] + [f"-p_{0}_{(l + 1) * K}_{m}"])
             for i in range(K - 1):
                 if l * K + i + 1 < N:
-                    for m in range(1,min(M - 1, S+1)):
+                    for m in range(1,min(M - 1, S)):
                         enc.add_clause([f"p_{0}_{l * K + i}_{m2}" for m2 in range(1,m+1)] + [f"-p_{0}_{l * K + i + 1}_{m}"])
         for i in range(1, K - 1):
-            for m in range(1,min(M - 1, S+1)):
+            for m in range(1,min(M - 1, S)):
                 enc.add_clause([f"p_{i}_{K}_{m2}" for m2 in range(1,m+1)] + [f"-p_{i+1}_{K}_{m}"])
 
     return enc
@@ -121,7 +121,7 @@ if __name__ == "__main__":
     argparser.add_argument("-k", "--table_capacity", type=int, default=5, help="Table capacity")
     argparser.add_argument("-m", "--meals", type=int, default=5, help="Number of meals")
     argparser.add_argument("-t", "--table_count", type=int, default=0, help="Number of tables (0 is unlimited)")
-    argparser.add_argument("-s", "--symmetry_break", type=int, default=0, help="Amount of symmetry breaking (-1 is minimum, meals - 2 is maximum). Set max if expected unsat, set to -1,0,1 if sat(?)")
+    argparser.add_argument("-s", "--symmetry_break", type=int, default=0, help="Amount of symmetry breaking (0 is no symmetry breaking, meals - 1 is maximum). Set max if expected unsat, set to 0-2 if sat. It is not clear which of those will be quickest. The semantics is that if you set this to S, then this will only add constrainst for the first S days, and it will only generate clauses of length at most S.")
     argparser.add_argument("-d", "--decode", action="store_true", help="Decode the model")
     argparser.add_argument("--knf", action="store_true", help="Use KNF encoding")
     args = argparser.parse_args()
@@ -134,7 +134,9 @@ if __name__ == "__main__":
     KNF = args.knf
     stats(N_PEOPLE, TABLE_CAPACITY, MEALS, TABLECOUNT)
     encoding = encode(N_PEOPLE, TABLE_CAPACITY, MEALS, TABLECOUNT, SYMMETRY_BREAK, knf=KNF)
-    encoding.serialize(f"formulas/dagstuhl_{N_PEOPLE}_{TABLE_CAPACITY}_{MEALS}{'_' + str(TABLECOUNT) if TABLECOUNT > 0 else ''}.{'knf' if KNF else 'cnf'}")
+    filename = f"formulas/dagstuhl_{N_PEOPLE}_{TABLE_CAPACITY}_{MEALS}{'_' + str(TABLECOUNT) if TABLECOUNT > 0 else ''}.{'knf' if KNF else 'cnf'}"
+    encoding.serialize(filename)
+    print(f"Wrote encoding file to {filename}")
     if DECODE:
         t0 = time.time()
         a, b, result = encoding.solve_and_decode(lambda model: decode(model, N_PEOPLE, MEALS))  # Decode the model
