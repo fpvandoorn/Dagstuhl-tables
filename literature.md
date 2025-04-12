@@ -4,6 +4,7 @@
 #### `T(15,3) = 7`
 * Given in [MD](http://demonstrations.wolfram.com/SocialGolferProblem/)
 * This is a perfect solution!
+* Also found by the authors using a SAT solver
 ```
 ABC DEF GHI JKL MNO
 ADG BEJ CFM HKN ILO
@@ -13,6 +14,16 @@ AHJ BKM CEI DLN FGO
 AFL BIN CJO DHM EGK
 AKO BFH CGN DIJ ELM
 ```
+<!--
+12.9s for s = 6
+9.2s for s = 5
+11.4s for s = 4
+3.3s for s = 3
+13.0s for s = 2
+20.9s for s = 1
+5.7s for s = 0
+-->
+
 
 #### `T(18,3) = 9`
 * Given in [MD](http://demonstrations.wolfram.com/SocialGolferProblem/)
@@ -28,6 +39,17 @@ adG beH cfI AEi BFg CDh
 aDg bEh cFi AeI BfG CdH
 aA bB cC dD eE fF gG hH iI
 ```
+<!--
+>120s for s = 8
+s for s = 7
+s for s = 6
+s for s = 5
+s for s = 4
+s for s = 3
+>120s for s = 2
+>120s for s = 1
+>120s for s = 0
+-->
 
 #### `T(21,3) = 10`
 * Given in [MD](http://demonstrations.wolfram.com/SocialGolferProblem/)
@@ -44,6 +66,18 @@ DFL GHJ AMN CPQ BKU EOS IRT
 CGK JLN DHP BMQ AIS FOT ERU
 STU ADG BEH CFI JMP KNQ LOR
 ```
+<!--
+s for s = 9
+s for s = 8
+s for s = 7
+s for s = 6
+s for s = 5
+s for s = 4
+s for s = 3
+s for s = 2
+s for s = 1
+s for s = 0
+-->
 
 #### `T(24,3) = 12`
 * Follows from `G(8,3) = 11`.
@@ -136,6 +170,15 @@ A90J D4FG 2BI1 E765 C83H
 1H69 CBEJ F5A3 7804 ID2G
 GA35 IEJC 87D0 269H 1F4B
 ```
+<!--
+s for s = 6
+s for s = 5
+s for s = 4
+s for s = 3
+s for s = 2
+s for s = 1
+>120s for s = 0
+-->
 
 #### `T(28,4) = 9`
 * Given in [MD](http://demonstrations.wolfram.com/SocialGolferProblem/)

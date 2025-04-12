@@ -17,7 +17,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   6   |  **5**   |    4   fg  |    3       |    3   di  |  **1**     |    1       |    1       |
 |   7   |    7     |    4       |    3       |    3       |    3   d   |  **1**     |    1       |
 |   8   |  **7**   |    4       |    3     B |    3       |    3       |    3   d   |  **1**     |
-|   9   |    9     |  **4**  AH |    4  c`↘` |    3   `↖` |    3       |    3       |    3   d   |
+|   9   |    9     |  **4**  AH |    4   `↘` |    3   `↖` |    3       |    3       |    3   d   |
 |   10  |  **9**   |    6   c   |    4   `↖` |    4   fg  |    3       |    3       |    3       |
 |   11  |   11     |    6       |    5   g   |    4       |    3       |    3       |    3       |
 |   12  | **11**   |    6     E |    5       |    4       |    3     B |    3       |    3       |
@@ -128,7 +128,7 @@ Legend:
 
 ### Perfect Solutions
 * Necessarily, every perfect solution is optimal.
-* Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`).
+* Necessary requirements for a perfect `(n,k)`-solution to exist are `k - 1 | n - 1` and `k | n` (or `n = 1`), i.e. `n ≡ k (mod k(k-1))`.
 * A perfect `(n,k)`-solution exists iff `T(n,k) = (n-1)/(k-1)`.
 * The perfect solutions are in boldface in the tables above.
 * Perfect solutions are also called *Kirkman Systems* in the literature.
@@ -194,6 +194,7 @@ Legend:
   * On day 1 at most `s(opt)` connections can be added
   * On subsequent days fewer connections can be added. We can give an upper bound, and run through all (sensible) pairs of non-dominated configurations to find the maximal number `s` of connections that can
     be added on day 2 (where we can choose the configuration of day 1 to be as optimal as possible).
+  <!-- Double check: Did we compute reason about this correctly, also considering the possibility that the optimal distribution is never used? -->
   <!-- * Let `d(c1,c2) = sum_{l ∈ c2} s(l) - max(l - |c1|, 0)`. Then `s(c1,c2) ≤ d(c1,c2) ≤ s(c2)`.
   * Conjecture: `s(c1, c2) ≤ d(opt,opt)` whenever `s(c2) ≤ s(c1)` and `c1` and `c2` are non-dominated. (this is true, but I haven't figured out the precise argument yet) -->
   * This means that after `T+1` days at most `s(opt) + T * s` connections can be made, which gives a lower bound for the number of days.
