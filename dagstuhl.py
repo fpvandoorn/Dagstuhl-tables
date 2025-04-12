@@ -20,8 +20,6 @@ def stats(N, K, M, T, S, C):
     print(f"{easy_min_days} is an easy lower bound for the number of meals.")
     if M < easy_min_days:
         print(f"Too few days. Problem will be UNSAT.")
-    if C > 0 and S > 1:
-        print(f"WARNING! Positive `-c` is not currently compatible with `-s` greater than 1.")
     if C > 0 and C * M < conn_needed:
         print(f"Too few connections per meal. Problem will be UNSAT.")
 
@@ -196,7 +194,7 @@ if __name__ == "__main__":
     argparser.add_argument("-k", "--table_capacity", type=int, default=5, help="Table capacity")
     argparser.add_argument("-m", "--meals", type=int, default=5, help="Number of meals")
     argparser.add_argument("-t", "--table_count", type=int, default=0, help="Number of tables (0 is unlimited)")
-    argparser.add_argument("-s", "--symmetry_break", type=int, default=1, help="Amount of symmetry breaking (0 is no symmetry breaking, meals - 1 is maximum). Set max if expected unsat, set to 0-2 if sat. It is not clear which of those will be quickest. The semantics is that if you set this to S, then this will only add constrainst for the first S days, and it will only generate clauses of length at most S.")
+    argparser.add_argument("-s", "--symmetry_break", type=int, default=1, help="Amount of symmetry breaking (0 is no symmetry breaking, meals - 1 is maximum). Set max if expected unsat, set to 0-2 if expected sat. It is not clear which of those will be quickest. The semantics is that if you set this to S, then this will only add constrainst for the first S days, and it will only generate clauses of length at most S.")
     argparser.add_argument("-c", "--max_connections", type=int, default=0, help="Maximum of connections that can be made each meal (0 is unlimited).")
     argparser.add_argument("-d", "--decode", action="store_true", help="Decode the model")
     argparser.add_argument("--knf", action="store_true", help="Use KNF encoding")
