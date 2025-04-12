@@ -327,9 +327,24 @@ Legend:
 14A 236 57B 89C
 137 249 BC 58 6A
 ```
-* kissat took 0.3s on a laptop
+* kissat took 0.1s on a laptop
+<!--
+0.2s for s = 5
+0.4s for s = 4
+0.2s for s = 3
+0.1s for s = 2
+0.4s for s = 1
+0.2s for s = 0
+-->
 * It is impossible to do his with only 4 tables for each meal. This was verified by a SAT-solver (after aggressive symmetry breaking can be done in 134 seconds on a laptop).
-<!-- s = 5 -->
+<!--
+134s for s = 5
+s for s = 4
+s for s = 3
+s for s = 2
+s for s = 1
+s for s = 0
+-->
 
 #### `T(17,4) ≤ 7`
 * Solution found by SAT-solvers:
@@ -358,9 +373,16 @@ Legend:
 18C 239AD 4567B
 167D 238B 459AC
 ```
+<!-- s = 0, but it's always fast. -->
 
 #### `T(14,5) ≥ 5`
-* UNSAT found with kissat (0.1s).
+* UNSAT found with kissat (<0.1s).
+<!--
+<0.1s for s = 3
+0.2s for s = 2
+3.4s for s = 1
+>40s for s = 0
+-->
 
 #### `T(22,6) ≤ 5`
 * Solution found by SAT-solvers:
@@ -390,7 +412,7 @@ Legend:
 367HILO 19JP 245ADFM 8BCEGKN
 ```
 * kissat took 1.7s on a laptop
-<!-- s = 0 -->
+<!-- 1.7s for s = 0 -->
 <!-- 26.6s for s = 1 -->
 
 #### `T(22,8) ≤ 4`
@@ -402,7 +424,7 @@ Legend:
 47EFGHM 136ACJL 2589BDIK
 ```
 * kissat took 0.8s on a laptop
-<!-- s = 0 -->
+<!-- 0.8s for s = 0 -->
 <!-- 1.1s for s = 1 -->
 
 ### Examples
