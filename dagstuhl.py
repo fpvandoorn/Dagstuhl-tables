@@ -2,23 +2,134 @@
 from eznf import modeler
 import argparse, itertools, time, math
 
-# Maximum number of connections made on a day with N participants and K tables per day.
-def max_nr_connections(N, K):
-    return N // K * K * (K - 1) // 2 + (N % K) * ((N % K) - 1) // 2
+def tr(N):
+    """The N-th triangle number"""
+    return N * (N - 1) // 2
 
-# Maximum number of connections made on a day with N participants, with L table of size K, and
-# all other tables smaller. Assumes N >= L * K.
+def sort_by(l, f):
+  """Sort l using f. This probably already exists."""
+  s = list(zip(map(lambda x:f(x), l),l))
+  s.sort()
+  return list(map(lambda x: x[1], s))
+
+def max_nr_connections(N, K):
+    """Maximum number of connections made on a day with N participants and K tables per day."""
+    return N // K * tr(K) + tr(N % K)
+
 def min_nr_connections(N, K, L=1):
-    return L * K * (K - 1) // 2 + max_nr_connections(N - L * K, K - 1)
+    """Maximum number of connections made on a day with N participants, with L tables of size K, and
+    all other tables smaller. Assumes N >= L * K."""
+    return L * tr(K) + max_nr_connections(N - L * K, K - 1)
+
+def configs_aux(N, K, M, acc, pre):
+    """Collection of non-increasing lists with sum N, max M and the sum of the lowest two elements is at least K.
+    Result is collected in acc, and results are prepended by pre."""
+    if N == 0:
+        return acc + [pre]
+    if N <= K:
+        acc += [] if N + pre[-1] <= K or N > pre[-1] else [pre + [N]]
+        return acc
+    for k in range(M, K // 2, -1):
+        acc = configs_aux(N - k, K, k, acc, pre + [k])
+    return acc
+
+def configs(N, K):
+    """List of non-dominated configurations."""
+    return configs_aux(N, K, K, [], [])
+
+def size(conf):
+    """The number of connections of a configuration."""
+    return sum(map(tr, conf))
+
+def overlap_table(conf, t, k=0):
+    """Minimal overlap between configuration conf (minus k on each table) and a table with t people.
+    Overlap means that connections that were formed twice."""
+    people_left = t
+    tables_left = len(conf)
+    acc = 0
+    for i in conf[::-1]:
+        overlap = max(min(i - k, people_left // tables_left), 0)
+        acc += tr(overlap)
+        people_left -= overlap
+        tables_left -= 1
+    return acc
+
+def overlap_aux(conf1, conf2):
+    """(lower bound for) Minimal overlap between two configurations. Not optimal."""
+    # k indicates the number of tables `t` we've seen so far with `t >= len(conf2)`.
+    # we may assume that such tables (when evaluating them in decreasing order) overlaps with at
+    # least 1 person from each table of conf2.
+    # Note: we may not assume that such tables overlap with at least `t // len(conf2)` with
+    # each table from conf2.
+    # Counterexample: `conf1 = conf2 = [9,9,2]`
+    k = 0
+    sum_so_far = 0
+    for t in conf1:
+        sum_so_far += overlap_table(conf2, t, k)
+        if t >= len(conf2) or conf2[t] <= k:
+            k += 1
+    return sum_so_far
+    # return sum(map(lambda t: overlap_table(conf2, t), conf1))
+
+def overlap(conf1, conf2):
+    """(lower bound for) Minimal overlap between two configurations. Not optimal."""
+    i = overlap_aux(conf1, conf2)
+    j = overlap_aux(conf2, conf1)
+    # i != j  is possible for e.g. [5, 5, 5, 5] and [5, 3, 3, 3, 3, 3]
+    return max(i, j)
+
+def min_days(N, conf, confs, K, M):
+    """(lower bound for) minimum number of days needed when day 1 uses conf, and later days can use
+    configurations from confs (`M` is the previous max found, only used for optimization)"""
+    conn = tr(N) - size(conf)
+    max_remainder = max(map(lambda c: size(c) - overlap(conf, c), confs))
+    days = math.ceil(conn / max_remainder)
+    str = ""
+    # check for lower bound `j`
+    if conn == days * max_remainder and days < M:
+        maximal_configs = [c for c in confs if size(c) - overlap(conf, c) == max_remainder]
+        if all(map (lambda c: c[1] == K and len(c) < K, maximal_configs)) and days > 2:
+            days += 1
+            str = f"\nIt is not possible to get the required connections (by argument `j`), so we need at least {days + 1} days."
+    print(f"{conf} only gives {size(conf)} + {days - 1} * {max_remainder} = {(days - 1) * max_remainder + size(conf)} \
+connections in {days} days ({days * max_remainder + size(conf)} in 1 more day).{str}")
+    return 1 + days
+
+def better_lower_bound(N, K):
+    """A lower bound based of the number of meals needed. (`g` in `README.md`)
+    Methodology:
+    * compute all non-dominated first days
+    * count how many new connections later days can make after that first day, assuming that the
+      first day is the best day (w.r.t. some ordering)."""
+    confs = configs(N, K)
+    confs = sort_by(confs, size)
+    print(f"non-dominated configurations: {confs[::-1]}")
+    min_so_far = N
+    while confs:
+        conf = confs.pop()
+        if size(conf) * min_so_far < tr(N):
+            print("remaining configurations cannot possibly create enough connections in fewer days")
+            break
+        min_so_far = min(min_so_far, min_days(N, conf, confs + [conf], K, min_so_far))
+    return min_so_far
 
 def stats(N, K, M, T, S, C):
-    conn_needed = N * (N - 1) // 2
+    """Print some statistics about the given problem."""
+    conn_needed = tr(N)
     conn_per_meal = max_nr_connections(N, K)
     easy_min_days = math.ceil(conn_needed / conn_per_meal)
+    min_days = easy_min_days
+    # maximum number of tables possible in a non-dominated configuration
+    max_nondominated_tables = 1 if N <= K else (N + 1) // (K // 2 + 1) if K % 2 == 0 else (2 * N) // (K + 1)
     print(f"{conn_needed} connections needed.")
     print(f"{conn_per_meal} connections can be made per meal.")
     print(f"{easy_min_days} is an easy lower bound for the number of meals.")
-    if M < easy_min_days:
+    print(f"Optimal solutions have between {math.ceil(N / K)} and {max_nondominated_tables} tables.")
+    if N <= K**2 - 2:
+        min_days = better_lower_bound(N, K)
+        if min_days != easy_min_days:
+            print(f"{min_days} is a better lower bound for the number of meals.")
+    if M < min_days:
         print(f"Too few days. Problem will be UNSAT.")
     if C > 0 and C * M < conn_needed:
         print(f"Too few connections per meal. Problem will be UNSAT.")
@@ -198,6 +309,8 @@ if __name__ == "__main__":
     argparser.add_argument("-c", "--max_connections", type=int, default=0, help="Maximum of connections that can be made each meal (0 is unlimited).")
     argparser.add_argument("-d", "--decode", action="store_true", help="Decode the model")
     argparser.add_argument("--knf", action="store_true", help="Use KNF encoding")
+    argparser.add_argument("--stats_only", action="store_true", help="Don't compute the SAT-encoding")
+    argparser.add_argument("--no_stats", action="store_true", help="Don't compute the stats")
     args = argparser.parse_args()
     N_PEOPLE = args.n_people
     TABLE_CAPACITY = args.table_capacity
@@ -207,7 +320,12 @@ if __name__ == "__main__":
     SYMMETRY_BREAK = args.symmetry_break
     MAX_CONNECTIONS = args.max_connections
     KNF = args.knf
-    stats(N_PEOPLE, TABLE_CAPACITY, MEALS, TABLECOUNT, SYMMETRY_BREAK, MAX_CONNECTIONS)
+    STATS_ONLY = args.stats_only
+    NO_STATS = args.no_stats
+    if not NO_STATS:
+        stats(N_PEOPLE, TABLE_CAPACITY, MEALS, TABLECOUNT, SYMMETRY_BREAK, MAX_CONNECTIONS)
+    if STATS_ONLY:
+        exit()
     encoding = encode(N_PEOPLE, TABLE_CAPACITY, MEALS, TABLECOUNT, SYMMETRY_BREAK, MAX_CONNECTIONS, knf=KNF)
     filename = f"formulas/dagstuhl_{N_PEOPLE}_{TABLE_CAPACITY}_{MEALS}{'_' + str(TABLECOUNT) if TABLECOUNT > 0 else ''}{'_c' + str(MAX_CONNECTIONS) if MAX_CONNECTIONS > 0 else ''}.{'knf' if KNF else 'cnf'}"
     encoding.serialize(filename)

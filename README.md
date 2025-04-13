@@ -22,20 +22,20 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   11  |   11     |    6       |    5   g   |    4       |    3       |    3       |    3       |
 |   12  | **11**   |    6     E |    5       |    4       |    3     B |    3       |    3       |
 |   13  |   13     |    7   a   |    5       |    4     E |    4  `↘`  |    3   `↖` |    3       |
-|   14  | **13**   |    7       |    5       |    5   e   |    4       |    4 f     |    3       |
+|   14  | **13**   |    7       |    5       |    5   g   |    4       |    4 fg    |    3       |
 |   15  |   15     |  **7**   F |    5       |    5       |    4       |    4       |    3       |
 |   16  | **15**   |    9   c   |  **5**   H |    5       |    4       |    4       |    3     B |
-|   17  |   17     |    9       |    7   i   |    5   `↖` |    4       |    4       |    4   f   |
-|   18  | **17**   |    9     G |    7       |   5-6      |    4     B |    4       |    4       |
-|   19  |   19     |   10   a   |    7       |    6   g   |    5 gi`↘` |    4   `↖` |    4       |
+|   17  |   17     |    9       |    7   i   |    5   `↖` |    4       |    4       |    4  `↘`  |
+|   18  | **17**   |    9     G |    7       |    6   e   |    4     B |    4       |    4       |
+|   19  |   19     |   10   a   |    7       |    6       |    5 gi`↘` |    4   `↖` |    4       |
 |   20  | **19**   |   10       |    7     X |    6       |    5       |    5 g     |    4       |
 |   21  |   21     | **10**   F |    8   c   |    6       |    5       |    5       |    4       |
 |   22  | **21**   |   12   c   |    8       |    6       |    5     E |    5       |    4     E |
 |   23  |   23     |   12       |    8       |    6       |    6   g   |    5       |    5   g   |
 |   24  | **23**   |   12     J |    8     J |    6       |    6       |    5       |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |    5     E |    5       |
-|   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |   5-6      |    5       |
-|   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6 g     |    5       |
+|   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |    5 j     |    5       |
+|   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6       |    5       |
 |   28  | **27**   |   15   c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
 |   29  |   29     |   15       |   11   i   |   8-9      |    7       |    6       |    5       |
 |   30  | **29**   |   15     J |   11     G |   8-9    X |    7   B   |    6     K |    5     B |
@@ -48,40 +48,41 @@ Legend:
 * The upper bound `J` has not been verified by the authors of this table.
 
 ## Dual table
-
-| T \ k |  2       |   3         |   4         |   5         |   6         |   7         |  8          |     9       |
-|:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
-|   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       |
-|   2   |    2     |    3     c  |    4     di |    5     di |    6     d  |    7      d |    8      d |   9         |
-|   3   |  **4**   |    5 `←` fg |    8 B c`→` |    9 `←` fg |   12  B `→` |   13  `←` f |   16    B`→`|  17   `←` f |
-|   4   |    4     |  **9** AH   |   10  `←` g |   13    E e |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |
-|   5   |  **6**   |    9      c | **16**  H   | 17-18 `←` g |   22    E g | 25-26   E g |   32   B gi | 33-34 `←` g |
-|   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 30-32   K g | 32-37     g | 36-42   B g |
-|   7   |  **8**   | **15**  F   |   20    X c | 25-26     i | 30-34   B h | 31-39  `←`g | 32-45     g | 45-51   B g |
-|   8   |    8     |   15      c |   24    J a | 25-30     i | 30-38     i | **49** AH a | 50-53 `←` g | 54-59   K g |
-|   9   | **10**   |   18    G a | **28**  F   | 30-35   X c | 36-42   B i | 49-51     i | **64**  H a | 65-69 `←` g |
-|   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |
-|   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |
-|   12  |   12     |   24    J a |   36    J a | 37-46 `←` i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |
-|   13  | **14**   | **27** AH   | **40**  F   | 41-50 `←` i |             |             | 72-88   B i | 81-100    i |
-|   14  |   14     |   27      c |   40      i |             | 66-68   A i | 77-84   A a | 88-96   A i | 99-108  A i |
-|   15  | **16**   |   30    J a |             | 55-60   A a | 66-72     i |             |             | 99-117    i |
-|   16  |   16     | **33**  J   |   48    J a | **65**  F a | 66-78     i | 91-93   A i | 104-112 A a | 117-126 A i |
-|   17  | **18**   |   33      c | **52**  F   | 65-66     i | 78-84   A c | 91-99     i |             |             |
-|   18  |   18     |   36    J a |   52      i | 65-70     i |             | 91-105    i | 104-123   i |             |
-|   19  | **20**   | **39**  J   |             |             |             | 91-112    i | 104-129   i |             |
-|   20  |   20     |   39      c |   60    J a |             | 78-98     i |             | 104-136   i | 153-157 A i |
-|   21  | **22**   |   42    J a | **64**  H   | **85**  J a |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |
-|   22  |   22     | **45**  A   |   64      i | 85-86     i | 102-108   i |             | 136-152   i | 153-172   i |
-|   23  | **24**   |   45      c |             | 85-90     i |             | 133-135 A i | 152-160 A c | 171-180 A i |
-|   24  |   24     |   48    J a |   72    J a |             |             | 133-141   i |             | 171-189   i |
-|   25  | **26**   | **51**  J   | **76**  J   | 95-100  A a | 114-126 A a | 133-147   i |             | 171-198   i |
-|   26  |   26     |   51      c |   76      i | **105** J a | 114-128   i | 133-154   i | 152-179   i |             |
-|   27  | **28**   |   54    J a |             | 105-106   i | 114-132   i |             | 152-185   i | 207-216 A a |
-|   28  |   28     | **57**  J   |             | 105-110   i | 114-138   i |             | 184-192 A i |             |
-|   29  | **30**   |   57      c | **88**  J   |  115    A c | 138-144 A c | 161-175 A a | 184-200   i | 207-229   i |
-|   30  |   30     |   60    J a |   88      i |             |             | 161-177   i | 184-208   i | 207-236   i |
-|   31  | **32**   | **63**  A   |             |**125** AH a |             | 161-183   i |             | 207-244   i |
+<!-- Does `j` work for T(34,6)? -->
+<!-- Todo: update lower bounds in columns 10+ -->
+| T \ k |  2       |   3         |   4         |   5         |    6        |    7        |   8         |    9        |   10        |   11        |   12        |
+|:-----:|----------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
+|   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       | **10**      | **11**      | **12**      |
+|   2   |    2     |    3     c  |    4     di |    5     di |    6     d  |    7      d |    8      d |   9       d |  10       d |  11       d |  12       d |
+|   3   |  **4**   |    5 `←` fg |    8 B c`→` |    9 `←` fg |   12  B `→` |   13 `←` fg |   16    B`→`|  17  `←` fg |  20     B`→`|  21  `←` fg |  24     B`→`|
+|   4   |    4     |  **9** AH   |   10  `←` g |   13    E g |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |  28    `←`g |             |             |
+|   5   |  **6**   |    9      c | **16**  H   |   17  `←` e |   22    E g |   25    E j |   32   B gi |  33   `←` j |  34-38 `←`g |             |             |
+|   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 30-32   K g | 32-37     g | 36-42   B g |  37-50 `←`g |             |             |
+|   7   |  **8**   | **15**  F   |   20    X c | 25-26     i | 30-34   B h | 31-38  `←`j | 32-44     j | 45-50   B j |  46-57 `←`g |             |             |
+|   8   |    8     |   15      c |   24    J a | 25-30     i | 30-38     i | **49** AH a | 50-52 `←` g | 54-59   K g |  55-66 `←`g |             |             |
+|   9   | **10**   |   18    G a | **28**  F   | 30-35   X c | 36-42   B i | 49-51     i | **64**  H a | 65-68 `←` g |  66-76 `←`g |             |             |
+|   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |  82- `←`g |             |             |
+|   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |             |             |             |
+|   12  |   12     |   24    J a |   36    J a | 37-46 `←` i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |             |**121** AH a |             |
+|   13  | **14**   | **27** AH   | **40**  F   | 41-50 `←` i |             |             | 72-88   B i | 81-100    i |             |             |             |
+|   14  |   14     |   27      c |   40      i |             | 66-68   A i | 77-84   A a | 88-96   A i | 99-108  A i |             |             |             |
+|   15  | **16**   |   30    J a |             | 55-60   A a | 66-72     i |             |             | 99-117    i |             |             |             |
+|   16  |   16     | **33**  J   |   48    J a | **65**  F a | 66-78     i | 91-93   A i | 104-112 A a | 117-126 A i |             |             |             |
+|   17  | **18**   |   33      c | **52**  F   | 65-66     i | 78-84   A c | 91-99     i |             |             |             |             |             |
+|   18  |   18     |   36    J a |   52      i | 65-70     i |             | 91-105    i | 104-123   i |             |             |             |             |
+|   19  | **20**   | **39**  J   |             |             |             | 91-112    i | 104-129   i |             |             |             |             |
+|   20  |   20     |   39      c |   60    J a |             | 78-98     i |             | 104-136   i | 153-157 A i |             |             |             |
+|   21  | **22**   |   42    J a | **64**  H   | **85**  J a |   102   A i | 119-126 A a | 136-144 A i | 153-164   i |             |             |             |
+|   22  |   22     | **45**  A   |   64      i | 85-86     i | 102-108   i |             | 136-152   i | 153-172   i |             |             |             |
+|   23  | **24**   |   45      c |             | 85-90     i |             | 133-135 A i | 152-160 A c | 171-180 A i |             |             |             |
+|   24  |   24     |   48    J a |   72    J a |             |             | 133-141   i |             | 171-189   i |             |             |             |
+|   25  | **26**   | **51**  J   | **76**  J   | 95-100  A a | 114-126 A a | 133-147   i |             | 171-198   i |             |             |             |
+|   26  |   26     |   51      c |   76      i | **105** J a | 114-128   i | 133-154   i | 152-179   i |             |             |             |             |
+|   27  | **28**   |   54    J a |             | 105-106   i | 114-132   i |             | 152-185   i | 207-216 A a |             |             |             |
+|   28  |   28     | **57**  J   |             | 105-110   i | 114-138   i |             | 184-192 A i |             |             |             |             |
+|   29  | **30**   |   57      c | **88**  J   |  115    A c | 138-144 A c | 161-175 A a | 184-200   i | 207-229   i |             |             |             |
+|   30  |   30     |   60    J a |   88      i |             |             | 161-177   i | 184-208   i | 207-236   i |             |             |             |
+|   31  | **32**   | **63**  A   |             |**125** AH a |             | 161-183   i |             | 207-244   i |             |             |             |
 
 * **Dual problem statement**: What is the maximum number of conference participants so that each participant can share at least one of the `T` meals with any other participant when eating at tables of at most `k` participants?
 * This is the maximal `n = n(T,k)` such that `T(n,k) ≤ T`.
@@ -171,6 +172,7 @@ Legend:
   * It cannot be done in 2 days, because on day 1 there are at least 2 tables. All participants on table 1 need to be sit with all participants not on table 1 on day 2, but that means that everyone needs to sit together on day 2. Contradiction.
 * `e`: proven for this special case, see below.
 * `f`: If `k` is odd then `T(2k,k) ≥ 4`.
+  * This is likely a special case of `g`.
   * This also implies that for even `k` we have `T(2k+1,k) ≥ T(2(k+1),k+1) ≥ 4`
   <!-- * For the proof we will use the terminology given under [Solutions for Individual Cases/New terminology](#new-terminology).  -->
   * Note that all non-dominated distributions use 2 or 3 tables.
@@ -199,6 +201,7 @@ Legend:
   * Conjecture: `s(c1, c2) ≤ d(opt,opt)` whenever `s(c2) ≤ s(c1)` and `c1` and `c2` are non-dominated. (this is true, but I haven't figured out the precise argument yet) -->
   * This means that after `T+1` days at most `s(opt) + T * s` connections can be made, which gives a lower bound for the number of days.
   * The Mathematica function doing this is given in `lowerbound.txt`. It is not optimal, and is not necessarily increasing in `n`. In some cases we can probably increase the lower bound by 1 using a similar but more precise argument.
+  * The Python program that is part of `dagstuhl.py` is better.
 * `h`: If there is no perfect `(n,k)`-solution but `k | n` and `k - 1 | n - 1`, then `T(n-1, k) > (n - 1) / (k - 1)`.
   * To see this, first notice that `T(n-1, k) ≥ (n - 1) / (k - 1)` is given by the lower bound `a`.
   * The only way equality can hold is if all but 1 table has size `k` every meal, and seating every participant exactly once with every other participant.
@@ -210,7 +213,11 @@ Legend:
   * This means that for any solution in `d` days, the smallest table size is `(n-1)-(d-1)(k-1)`.
   * We can now check whether it is possible to create at least `n(n-1) / 2d` connections in a single day, with this extra condition on the smallest table size. If not, then `T(n,k) > d`.
   * We don't use `i` if `a` or `c` applies. This bound is always at least as strong as `a` or `c`. When `n < k^2` most of the time `g` is stronger.
-* Priority of labels: nothing (it follows from the cell above), then `↘`/`→`, then `a`/`c`, then `d`/`f`/`g`/`h`/`i`, then `e`
+* `j`:
+  * If `k < n ≤ k^2 - 2` and the lower bound by `g` gives a number of days where `s(opt) + T * s = n(n-1)/2`, then all connections starting at day 2 have to be optimal.
+  * This is impossible if `T+1 > 2` and for any possible configuration starting at day 2, there are at least two tables with `k` participants and less than `k` tables.
+  * Proof todo (see `T(18,5)` under Examples)
+* Priority of labels: nothing (it follows from the cell above), then `↘`/`→`, then `a`/`c`, then `d`/`f`/`h`/`i`, then `g`/`j`, then `e`
   * If a label with earlier (higher) priority applies, we don't write this label. We do write multiple labels with the same priority.
 
 ### Upper Bounds
@@ -376,14 +383,15 @@ s for s = 0
 ```
 <!-- s = 0, but it's always fast. -->
 
-#### `T(14,5) ≥ 5`
-* UNSAT found with kissat (<0.1s).
-<!--
-<0.1s for s = 3
-0.2s for s = 2
-3.4s for s = 1
->40s for s = 0
--->
+#### `T(18,5) ≥ 6`
+<!-- same argument likely holds for T(26,7), T(34,6), T(39,7), T(45, 8), T(34, 9), T(51, 9) -->
+* This is an instance of `j`.
+* SAT-solvers can do this with quite some effort (~2 minutes assuming the configuration `5553` exists?).
+* Manual arguments: there are 153 connections to be made, and the only configurations with at least 30 connections are `s(5553)=33` and `s(5544)=32`.
+* If `5553` is never used, then since `s(5544,5544) = 30`, the maximum number of connections is `32+4*30<153`, so this is impossible
+* So assume day 1 is `5553` and note that `s(5553,5553)=30>s(5553, 5544)`. This means that every day must be `5553`, and every table with 5 participants must create 9 new connections after day 1.
+* Given a table of size 5 on day 5, then for every previous day, 2 people already sat together. Since 9 new connections must be formed, this means that 2 people sat together for all 5 meals. Hence there must be 3 pairs of people that sat together every day.
+* There must be a table where 2 such pairs meet. If this is not on day 1, such a table creates at most 8 new connections, which is a contradiction. Hence there is a table on day 1 without any of the pairs. This table must contain 2 people that also sit together on day 5, contradiction.
 
 #### `T(22,6) ≤ 5`
 * Solution found by SAT-solvers:
@@ -480,6 +488,16 @@ s for s = 0
 * Therefore, we need `(5,5)` at least once. WLOG day 1 is distributed `01234 56789`.
 * From now on `(5,5)` has at most 12 new conns, `(4,4,2)` has at most 9 new conns and `(4,3,3)` has at most 8 new conns.
 * This means we cannot get 45 connections, therefore we have no valid solution in 3 days.
+
+#### `T(14,5) ≥ 5`
+* This also follows from `g`.
+* UNSAT found with kissat (<0.1s).
+<!--
+<0.1s for s = 3
+0.2s for s = 2
+3.4s for s = 1
+>40s for s = 0
+-->
 
 #### `T(13,6) ≥ 4`
 * This is a special case of `f`.
