@@ -56,12 +56,12 @@ Legend:
 |   2   |    2     |    3     c  |    4     di |    5     di |    6     d  |    7      d |    8      d |   9       d |  10       d |  11       d |  12       d |
 |   3   |  **4**   |    5 `←` fg |    8 B c`→` |    9 `←` fg |   12  B `→` |   13 `←` fg |   16    B`→`|  17  `←` fg |  20     B`→`|  21  `←` fg |  24     B`→`|
 |   4   |    4     |  **9** AH   |   10  `←` g |   13    E g |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |  28    `←`g |             |             |
-|   5   |  **6**   |    9      c | **16**  H   |   17  `←` e |   22    E g |   25    E j |   32   B gi |  33   `←` j |  34-38 `←`g |             |             |
-|   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 30-32   K g | 32-37     g | 36-42   B g |  37-50 `←`g |             |             |
-|   7   |  **8**   | **15**  F   |   20    X c | 25-26     i | 30-34   B h | 31-38  `←`j | 32-44     j | 45-50   B j |  46-57 `←`g |             |             |
+|   5   |  **6**   |    9      c | **16**  H   |   17  `←` j |   22    E g | 25-26   E g |   32   B gi |  33   `←` j |  34-37 `←`j |             |             |
+|   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 30-32   K g | 32-37     g | 36-42   B g |  50     B g |             |             |
+|   7   |  **8**   | **15**  F   |   20    X c | 25-26     i | 30-34   B h | 31-38  `←`j | 32-44     j | 45-50   B j |  50-56    j |             |             |
 |   8   |    8     |   15      c |   24    J a | 25-30     i | 30-38     i | **49** AH a | 50-52 `←` g | 54-59   K g |  55-66 `←`g |             |             |
-|   9   | **10**   |   18    G a | **28**  F   | 30-35   X c | 36-42   B i | 49-51     i | **64**  H a | 65-68 `←` g |  66-76 `←`g |             |             |
-|   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |  82- `←`g |             |             |
+|   9   | **10**   |   18    G a | **28**  F   | 30-35   X c | 36-42   B i | 49-51     i | **64**  H a | 65-68 `←` g |  66-75 `←`j |             |             |
+|   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |  82-86 `←`g |             |             |
 |   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |             |             |             |
 |   12  |   12     |   24    J a |   36    J a | 37-46 `←` i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |             |**121** AH a |             |
 |   13  | **14**   | **27** AH   | **40**  F   | 41-50 `←` i |             |             | 72-88   B i | 81-100    i |             |             |             |
@@ -215,7 +215,9 @@ Legend:
   * We don't use `i` if `a` or `c` applies. This bound is always at least as strong as `a` or `c`. When `n < k^2` most of the time `g` is stronger.
 * `j`:
   * If `k < n ≤ k^2 - 2` and the lower bound by `g` gives a number of days where `s(opt) + T * s = n(n-1)/2`, then all connections starting at day 2 have to be optimal.
-  * This is impossible if `T+1 > 2` and for any possible configuration starting at day 2, there are at least two tables with `k` participants and less than `k` tables.
+  * This is is usually impossible, so that 1 more day is needed. To fix: it is possible for e.g. `T(50,10)`.
+  <!-- `T+1 > 2` and for any possible configuration starting at day 2, there are at least two tables with `k` participants and less than `k` tables. -->
+  <!-- No! consider T(50,10) FIXME -->
   * Proof todo (see `T(18,5)` under Examples)
 * Priority of labels: nothing (it follows from the cell above), then `↘`/`→`, then `a`/`c`, then `d`/`f`/`h`/`i`, then `g`/`j`, then `e`
   * If a label with earlier (higher) priority applies, we don't write this label. We do write multiple labels with the same priority.

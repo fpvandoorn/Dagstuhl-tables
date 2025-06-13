@@ -16,6 +16,10 @@ def max_nr_connections(N, K):
     """Maximum number of connections made on a day with N participants and K tables per day."""
     return N // K * tr(K) + tr(N % K)
 
+def evenly_nr_connections(N, T):
+    """If we spread N evenly over N tables, how many connections are formed?"""
+    return ((N - 1) % T + 1) * tr(math.ceil(N / T)) + (T - ((N - 1) % T + 1)) * tr(N // T)
+
 def min_nr_connections(N, K, L=1):
     """Maximum number of connections made on a day with N participants, with L tables of size K, and
     all other tables smaller. Assumes N >= L * K."""
@@ -86,11 +90,17 @@ def min_days(N, conf, confs, K, M):
     days = math.ceil(conn / max_remainder)
     str = ""
     # check for lower bound `j`
-    if conn == days * max_remainder and days < M:
+    if conn == days * max_remainder and days + 1 < M:
         maximal_configs = [c for c in confs if size(c) - overlap(conf, c) == max_remainder]
-        if all(map (lambda c: c[1] == K and len(c) < K, maximal_configs)) and days > 2:
+        c = maximal_configs[0]
+        pairs = overlap(conf, c)
+        maxes = len([i for i in c if i == K])
+        conn_per_day = evenly_nr_connections(pairs, maxes)
+        if len(maximal_configs) == 1 and pairs < maxes * (maxes + 2) and (days + 1) * conn_per_day < tr(pairs) and days > 2 and c == conf:
+            str = f"\nDays 2+ use configs {maximal_configs}. There are {pairs} pairs that could only meet {(days + 1) * conn_per_day} < {tr(pairs)} times (argument `j`), so we need at least {days + 2} days."
             days += 1
-            str = f"\nIt is not possible to get the required connections (by argument `j`), so we need at least {days + 1} days."
+        else:
+            str = f"\nDays 2+ use configs {maximal_configs}. Unsure whether it is possible in {days + 1} days ({pairs} pairs need to meet {tr(pairs)} times, {(days + 1) * (pairs - maxes)} naive meetings)."
     print(f"{conf} only gives {size(conf)} + {days - 1} * {max_remainder} = {(days - 1) * max_remainder + size(conf)} \
 connections in {days} days ({days * max_remainder + size(conf)} in 1 more day).{str}")
     return 1 + days
