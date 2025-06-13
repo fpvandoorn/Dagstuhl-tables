@@ -593,4 +593,5 @@ s for s = 0
 
 ## Errata
 
-* 2025.04.10: `T(13,5)` was incorrectly listed to be 5
+* 2025.06.13: argument `j` was incorrect.
+* 2025.04.10: `T(13,5)` was incorrectly listed to be 5.
