@@ -196,7 +196,8 @@ def encode(N, K, M, T, S, C, knf=False):
             else:
                 enc.at_most_k([f"p_{p1}_{p2}_{m}" for p1 in range(N) for p2 in range(p1+1, N)], C)
 
-    # symmetry breaking: first meal has optimal arrangement
+    # "symmetry breaking": first meal has optimal arrangement.
+    # This is not sound, and a separate argument has to be given in case that the optimal arrangement is never used.
     max_table_size = K
     # number of tables that have `max_table_size` people in them
     nr_max_tables = N // K
@@ -315,7 +316,7 @@ if __name__ == "__main__":
     argparser.add_argument("-k", "--table_capacity", type=int, default=5, help="Table capacity")
     argparser.add_argument("-m", "--meals", type=int, default=5, help="Number of meals")
     argparser.add_argument("-t", "--table_count", type=int, default=0, help="Number of tables (0 is unlimited)")
-    argparser.add_argument("-s", "--symmetry_break", type=int, default=1, help="Amount of symmetry breaking (0 is no symmetry breaking, meals - 1 is maximum). Set max if expected unsat, set to 0-2 if expected sat. It is not clear which of those will be quickest. The semantics is that if you set this to S, then this will only add constrainst for the first S days, and it will only generate clauses of length at most S.")
+    argparser.add_argument("-s", "--symmetry_break", type=int, default=1, help="Amount of symmetry breaking (0 is no symmetry breaking, meals - 1 is maximum). Set max if expected unsat, set to 0-2 if expected sat. It is not clear which of those will be quickest. The semantics is that if you set this to S, then this will only add constrainst for the first S days, and it will only generate clauses of length at most S. Note: when set to S > 0, this does assume that at least one day uses the optimal configuration, which is not known to always be true.")
     argparser.add_argument("-c", "--max_connections", type=int, default=0, help="Maximum of connections that can be made each meal (0 is unlimited).")
     argparser.add_argument("-d", "--decode", action="store_true", help="Decode the model")
     argparser.add_argument("--knf", action="store_true", help="Use KNF encoding")
