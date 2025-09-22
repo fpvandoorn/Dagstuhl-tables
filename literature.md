@@ -237,7 +237,7 @@ ACGJ 27HI 18DM NPTW FKUV ELQZ 36ac 45SX 09RY BObd
 * TODO: figure out the explicit solution.
 
 #### `T(30,5) ≤ 9`
-* Given on [Stack Exchange](https://math.stackexchange.com/a/4174844)
+* Given on [Stack Exchange](https://math.stackexchange.com/a/4174844), found by an annealing algorithm,
 ```
 8D6PI MEBS0 FCN92 QRGK7 JOA34 L5HT1
 AQ5ES HBFG3 4D9KR O0L8P ICT2M 1J6N7
