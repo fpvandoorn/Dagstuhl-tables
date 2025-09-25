@@ -30,7 +30,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   19  |   19     |   10   a   |    7       |    6       |    5 gi`↘` |    4   `↖` |    4       |
 |   20  | **19**   |   10       |    7     X |    6       |    5       |    5 g     |    4       |
 |   21  |   21     | **10**   F |    8   c   |    6       |    5       |    5       |    4       |
-|   22  | **21**   |   12   c   |    8       |    6       |    5     E |    5       |    4     E |
+|   22  | **21**   |   12   c   |    8       |    6       |    5     L |    5       |    4     E |
 |   23  |   23     |   12       |    8       |    6       |    6   g   |    5       |    5   g   |
 |   24  | **23**   |   12     J |    8     J |    6       |    6       |    5       |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |    5     E |    5       |
@@ -38,7 +38,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6       |    5       |
 |   28  | **27**   |   15   c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
 |   29  |   29     |   15       |   11   i   |   8-9      |    7       |    6       |    5       |
-|   30  | **29**   |   15     J |   11     G |   8-9    X |    7   B   |    6     K |    5     B |
+|   30  | **29**   |   15     J |   11     G |   8-9    X |    7   B   |    6     E |    5     B |
 
 Legend:
 * We use lower-case letters `a`-`z` (or `↘`) to justify lower bounds and upper-case letters `A`-`Z` (or `↖`) to justify upper bounds. These bounds are explained under [Lower Bounds](#lower-bounds) and [Upper Bounds](#upper-bounds).
@@ -55,7 +55,7 @@ Legend:
 |   2   |    2     |    3     c  |    4     di |    5     di |    6     d  |    7      d |    8      d |   9       d |  10       d |  11       d |  12       d |
 |   3   |  **4**   |    5 `←` fg |    8 B c`→` |    9 `←` fg |   12  B `→` |   13 `←` fg |   16    B`→`|  17  `←` fg |  20     B`→`|  21  `←` fg |  24     B`→`|
 |   4   |    4     |  **9** AH   |   10  `←` g |   13    E g |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |  28    `←`g |             |             |
-|   5   |  **6**   |    9      c | **16**  H   |   17  `←` j |   22    E g |   25    E j |   32   B gi |  33   `←` j |  38     L g |             |             |
+|   5   |  **6**   |    9      c | **16**  H   |   17  `←` j |   22    L g |   25    E j |   32   B gi |  33   `←` j |  38     L g |             |             |
 |   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 31-32   E g | 32-37     g | 36-42   B g |  50     B g |             |             |
 |   7   |  **8**   | **15**  F   |   20    X c | 25-26     i | 30-34   B h | 31-38  `←`j | 32-44     j | 45-50   B j |  50-56    j |             |             |
 |   8   |    8     |   15      c |   24    J a | 26-30   E i | 36-38   E i | **49** AH a | 50-52 `←` g | 54-59   K g |  55-66 `←`g |             |             |
@@ -225,10 +225,10 @@ Legend:
       * There must be a table where 2 such pairs meet. If this is not on day 1, such a table creates at most 8 new connections, which is a contradiction. Hence there is a table on day 1 without any of the pairs. This table must contain 2 people that also sit together on day 5, contradiction.
       * SAT-solvers can do this with quite some effort (~2 minutes assuming the configuration `5553` exists?).
     * For `T(26,7)`, the only way we can form the required 325 connection in 5 days is to use the optimal configuration `7775` every day, and to form 73 connections on day 1 and 63 connections on days 2-5 (there must be at least 10 duplicate connections). This means that 10 pairs must always sit together, and 3 tables must contain always 3 pairs, and 1 table always 1 pair. This means that 5 pairs only sit on tables with 2 other pairs and 1 single participant, so they will meet 10 pairs and 5 single participants, but they need to meet 9 pairs and 7 single participants. So it's impossible in 5 days.
-    * For `T(34,9)` the configuration `9997` must always be used and there must be 3 triples that always sit together on a table of size 9, but the different triples can never meet
-    * `T(39,7) > 7` because otherwise we need configuration 777774 every day, with 6 pairs always sitting together spread over the 5 tables of size 7. These pairs can only have 7 meetings, while 15 are required.
-    * `T(45,8) > 7`, because otherwise we need configuration 888885 every day, with 10 pairs always sitting together. These pairs only have 35 meetings, while 45 are required.
-    * `T(51,9) > 7`, because otherwise we need configuration 999996 every day, with 15 pairs always sitting together. If we collapse these 15 pairs to single participants, we would get a solution to `T(36,6)=7` which doesn't exist. This argument also works for `T(57,10) > 7`.
+    * `T(34,9) > 5`, because otherwise the configuration `9997` must always be used and there must be 3 triples that always sit together on a table of size 9, but the different triples can never meet
+    * `T(39,7) > 7` because otherwise we need configuration `777774` every day, with 6 pairs always sitting together spread over the 5 tables of size 7. These pairs can only have 7 meetings, while 15 are required.
+    * `T(45,8) > 7`, because otherwise we need configuration `888885` every day, with 10 pairs always sitting together. These pairs only have 35 meetings, while 45 are required.
+    * `T(51,9) > 7`, because otherwise we need configuration `999996` every day, with 15 pairs always sitting together. If we collapse these 15 pairs to single participants, we would get a solution to `T(36,6)=7` which doesn't exist. This argument also works for `T(57,10) > 7`.
     * `T(76,10) > 9`, because otherwise we need configuration `10,10,10,10,10,10,10,6` every day, with 15 pairs always sitting together. These pairs only have 81 meetings, while 105 are required.
     * On the other hand, `T(38,10) = 5` and `T(22,6) = 5` are possible (see `L`).
 
@@ -265,7 +265,7 @@ Legend:
   * Given an `(n,k)`-solution in `T` days and a subset `A ⊆ n` of participants. We say that `A` is `i`-*good* if no `i+1` participants from `A` sit at the same table during the same meal.
   * Given an `i`-good set `A` with `m` elements, and `b ≥ 1`, `c ≥ 0`, then there is a `(bn+cm,bk+ci)`-solution in `T` days, by replacing everyone not in `A` by `b` people and everyone in `A` with `b + c` people, that always sit together.
   * For `c = 0` this gives back upper bound `B`.
-  * There is a `(16,4)`-solution with a 6-element 2 good set (take the solution to `T(22,6)` below and let `A` be the group of 6 participants that always sit together). Therefore `T(16b+6c,4b+2c) ≤ 5`
+  * There is a `(16,4)`-solution with a 6-element 2 good set (take the solution to `T(22,6)` given explicitly below and let `A` be the set of 6 pairs that always sit together). Therefore (taking `c = 1`) we have `T(16b+6,4b+2) ≤ 5`.
 * `K`: From a perfect solution, we can get new solutions with the table size two larger.
   * If we start with a perfect `(n,k)`-solution (with `k > 2`) and a 2-good set `A` (see upper bound `L`) such that `|A|+(k-2)|A|(|A|-1)/2 < n`, then we can find a 2-good set with one more participant. The reason is that every pair of people in `A` sit at the same table exactly once, with `k-2` other people. Therefore, at most `|A|+(k-2)|A|(|A|-1)/2` other people cannot be added to `A` while keeping `A` 2-good, which means that there is someone we can add to `A` so that the new set is 2-good.
 <!-- * `X`: unverified solutions from [the Social Golfer Problem](#relation-to-the-social-golfer-problem). -->
