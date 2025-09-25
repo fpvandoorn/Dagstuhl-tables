@@ -34,7 +34,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   23  |   23     |   12       |    8       |    6       |    6   g   |    5       |    5   g   |
 |   24  | **23**   |   12     J |    8     J |    6       |    6       |    5       |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |    5     E |    5       |
-|   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |    5 j     |    5       |
+|   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |   5-6  g  |    5       |
 |   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6       |    5       |
 |   28  | **27**   |   15   c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
 |   29  |   29     |   15       |   11   i   |   8-9      |    7       |    6       |    5       |
@@ -48,7 +48,7 @@ Legend:
 * The upper bound `J` has not been verified by the authors of this table.
 
 ## Dual table
-<!-- Does `j` work for T(34,6)? -->
+<!-- Does `j` work for T(34,6) and T(26,7)? -->
 <!-- Todo: double check all usages of `j` -->
 <!-- Todo: update lower bounds in columns 10+ -->
 | T \ k |  2       |   3         |   4         |   5         |    6        |    7        |   8         |    9        |   10        |   11        |   12        |
