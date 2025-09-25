@@ -7,7 +7,6 @@ OptimalSize[n_,k_]:=With[{m=Floor[n/k],q=Mod[n,k],tables=Ceiling[n/k]},(m k(k-1)
 RemainingConnections[n_,k_]:=n (n-1)/2-OptimalSize[n,k]
 (*If on day 1 there are lc1 tables, then on day 2 on a table of size #, write #=q*lc1+r you have (optimally) r groups of (q+1) participants that already sat together and (lc1-r) groups of q participants that already sat together. *)
 ModifiedSize[lc1_,c2_]:=Total[# (#-1)/2-Floor[#/lc1](#-lc1+Mod[#,lc1])/2&/@c2]
-ModifiedSizeOld[lc1_,c2_]:=Total[# (#-1)/2-Max[0,#-lc1]&/@c2]
 AllConnections[n_,k_]:=(l\[Function]ModifiedSize[l,#]&/@(Drop[#,Position[#,_?(Length[#]==l&),{1},1][[1,1]]-1]&[NondominatedConfigs[n,k]]))/@TableRange[n,k]
 MaxConnections[n_,k_]:=Max[(l\[Function]ModifiedSize[l,#]&/@(Drop[#,Position[#,_?(Length[#]==l&),{1},1][[1,1]]-1]&[NondominatedConfigs[n,k]]))/@TableRange[n,k]]
 ComputationalLowerBound[n_,k_]:=If[n<=k,1,1+Ceiling[RemainingConnections[n,k]/MaxConnections[n,k]]]
