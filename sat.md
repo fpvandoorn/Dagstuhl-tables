@@ -2,7 +2,7 @@ Some solutions are found by SAT-solvers.
 
 * There is a very naive Mathematica SAT-encoding, that is really bad in [here](SAT.nb) (or [here](SAT.txt) in plain text). This was written by Michael Trott and optimized by Floris van Doorn (it is included in this repo).
 * There is a slightly better SAT encoding [here](tables.py) in Python.
-* The most efficient SAT encoder is here [here](dagstuhl.py), also in Python.
+* The most efficient SAT encoder is here [here](dagstuhl.py), also in Python (mostly written by Bernardo Anibal Subercaseaux Roa).
 
 To use the python SAT encoders, run e.g.
 ```
