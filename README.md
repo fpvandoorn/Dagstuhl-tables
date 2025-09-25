@@ -34,7 +34,7 @@ In particular, we have an unlimited number of tables, and we do not require that
 |   23  |   23     |   12       |    8       |    6       |    6   g   |    5       |    5   g   |
 |   24  | **23**   |   12     J |    8     J |    6       |    6       |    5       |    5       |
 |   25  |   25     |   13   a   |    9   a   |  **6**  AH |    6       |    5     E |    5       |
-|   26  | **25**   |   13       |    9       |   7-9  a   |    6   `↖` |   5-6  g  |    5       |
+|   26  | **25**   |   13       |    9       |   7-8  a E |    6   `↖` |   5-6  g  |    5       |
 |   27  |   27     | **13**  AH |    9       |   8-9  i   |   6-7      |    6       |    5       |
 |   28  | **27**   |   15   c   |  **9**   F |   8-9      |    7   g   |    6       |    5       |
 |   29  |   29     |   15       |   11   i   |   8-9      |    7       |    6       |    5       |
@@ -58,9 +58,9 @@ Legend:
 |   3   |  **4**   |    5 `←` fg |    8 B c`→` |    9 `←` fg |   12  B `→` |   13 `←` fg |   16    B`→`|  17  `←` fg |  20     B`→`|  21  `←` fg |  24     B`→`|
 |   4   |    4     |  **9** AH   |   10  `←` g |   13    E g |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |  28    `←`g |             |             |
 |   5   |  **6**   |    9      c | **16**  H   |   17  `←` j |   22    E g | 25-26   E g |   32   B gi |  33   `←` j |  34-37 `←`j |             |             |
-|   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 30-32   K g | 32-37     g | 36-42   B g |  50     B g |             |             |
+|   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 31-32   E g | 32-37     g | 36-42   B g |  50     B g |             |             |
 |   7   |  **8**   | **15**  F   |   20    X c | 25-26     i | 30-34   B h | 31-38  `←`j | 32-44     j | 45-50   B j |  50-56    j |             |             |
-|   8   |    8     |   15      c |   24    J a | 25-30     i | 36-38   E i | **49** AH a | 50-52 `←` g | 54-59   K g |  55-66 `←`g |             |             |
+|   8   |    8     |   15      c |   24    J a | 26-30   E i | 36-38   E i | **49** AH a | 50-52 `←` g | 54-59   K g |  55-66 `←`g |             |             |
 |   9   | **10**   |   18    G a | **28**  F   | 30-35   X c | 36-42     i | 49-51     i | **64**  H a | 65-68 `←` g |  66-75 `←`j |             |             |
 |   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |  82-86 `←`g |             |             |
 |   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |             |             |             |
@@ -396,6 +396,19 @@ s for s = 0
 * Given a table of size 5 on day 5, then for every previous day, 2 people already sat together. Since 9 new connections must be formed, this means that 2 people sat together for all 5 meals. Hence there must be 3 pairs of people that sat together every day.
 * There must be a table where 2 such pairs meet. If this is not on day 1, such a table creates at most 8 new connections, which is a contradiction. Hence there is a table on day 1 without any of the pairs. This table must contain 2 people that also sit together on day 5, contradiction.
 
+#### `T(26,5) ≤ 8`
+* Solution found by Adam Zsolt Wagner using AlphaEvolve:
+```
+5 9 11 16 20 | 2 10 14 22 25 | 4 12 15 18 21 | 0 1 17 19 23 | 3 6 7 8 13 | 24
+8 13 14 15 19 | 0 2 5 6 18 | 11 21 22 23 24 | 3 4 16 17 25 | 1 7 9 10 12 | 20
+1 4 14 17 24 | 5 7 8 21 25 | 6 10 15 16 23 | 2 3 11 12 20 | 9 13 18 19 22 | 0
+2 5 15 17 21 | 0 4 10 11 13 | 7 14 18 20 23 | 1 6 9 19 25 | 8 12 16 22 24 | 3
+1 8 10 11 20 | 0 3 9 14 21 | 2 12 13 16 19 | 4 5 7 17 22 | 6 15 18 24 25 | 23
+3 6 18 22 23 | 0 8 10 12 21 | 7 11 15 19 25 | 9 13 17 20 24 | 1 2 5 14 16 | 4
+6 11 12 14 17 | 0 15 20 22 25 | 2 4 8 9 23 | 1 13 16 18 21 | 3 5 10 19 24 | 7
+8 10 11 17 18 | 1 3 9 15 22 | 4 6 19 20 21 | 0 2 7 16 24 | 5 12 13 23 25 | 14
+```
+
 #### `T(22,6) ≤ 5`
 * Solution found by SAT-solvers:
 ```
@@ -439,6 +452,18 @@ s for s = 0
 * kissat took 1.7s on a laptop
 <!-- 1.7s for s = 0 -->
 <!-- 26.6s for s = 1 -->
+
+#### `T(31,7) ≤ 6`
+* Solution found by Adam Zsolt Wagner using AlphaEvolve:
+```
+3 4 5 6 10 14 15 | 9 11 13 23 26 | 0 17 21 22 24 27 | 1 2 7 16 20 29 | 8 12 18 19 25 28 30
+7 8 13 14 19 22 29 | 0 2 10 15 24 25 26 | 6 11 12 | 4 5 16 17 23 27 28 | 1 3 9 18 20 21 30
+2 11 14 17 18 27 30 | 0 6 7 9 24 28 29 | 1 4 5 8 19 20 26 | 10 12 13 15 16 21 | 3 22 23 25
+2 6 8 19 21 23 | 9 14 16 25 | 1 10 11 15 20 22 28 | 3 7 12 17 26 27 29 | 0 4 5 13 18 24 30
+0 3 8 11 16 19 24 | 14 21 26 28 | 2 4 5 9 12 22 | 1 6 13 17 20 25 27 | 7 10 15 18 23 29 30
+8 9 10 15 17 19 27 | 0 1 12 14 20 23 24 | 2 3 13 28 | 6 16 18 22 26 30 | 4 5 7 11 21 25 29
+```
+
 
 #### `T(22,8) ≤ 4`
 * Solution found by Mathematica SAT-solver:
