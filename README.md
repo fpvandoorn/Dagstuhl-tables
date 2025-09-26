@@ -54,13 +54,13 @@ Legend:
 |   1   |  **2**   |  **3**      |  **4**      |  **5**      |  **6**      |  **7**      |  **8**      | **9**       | **10**      | **11**      | **12**      |
 |   2   |    2     |    3     c  |    4     di |    5     di |    6     d  |    7      d |    8      d |   9       d |  10       d |  11       d |  12       d |
 |   3   |  **4**   |    5 `←` fg |    8 B c`→` |    9 `←` fg |   12  B `→` |   13 `←` fg |   16    B`→`|  17  `←` fg |  20     B`→`|  21  `←` fg |  24     B`→`|
-|   4   |    4     |  **9** AH   |   10  `←` g |   13    E g |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |  28    `←`g |             |             |
-|   5   |  **6**   |    9      c | **16**  H   |   17  `←` j |   22    L g |   25    E j |   32   B gi |  33   `←` j |  38     L g |             |             |
-|   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 31-32   E g | 32-37     g | 40-42   E g |  50     B g |             |             |
-|   7   |  **8**   | **15**  F   |   20    X c | 25-26     i | 30-34   B h | 31-38  `←`j | 32-44     j | 45-50   B j |  50-56    j |             |             |
-|   8   |    8     |   15      c |   24    J a | 26-30   E i | 36-38   E i | **49** AH a | 50-52 `←` g | 54-59   K g |  55-66 `←`g |             |             |
-|   9   | **10**   |   18    G a | **28**  F   | 30-35   X c | 36-42     i | 49-51     i | **64**  H a | 65-68 `←` g |  66-75 `←`j |             |             |
-|   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |  82-86 `←`g |             |             |
+|   4   |    4     |  **9** AH   |   10  `←` g |   13    E g |   18 B gi`→`|   19  `←` g |   22    E g |  27     B i |  28    `←`g | 29-31 `←` g |             |
+|   5   |  **6**   |    9      c | **16**  H   |   17  `←` j |   22    L g |   25    E j |   32   B gi |  33   `←` j |  38     L g | 39-41 `←` j |             |
+|   6   |    6     |   12    E a |   16      i | **25** AH a | 26-27 `←` g | 31-32   E g | 32-37     g | 41-42   E g |  50     B g | 51-52 `←` g |             |
+|   7   |  **8**   | **15**  F   |   20    X c | 25-26     i | 30-34   B h | 31-38  `←`j | 32-44     j | 45-50   B j |  50-56    j | 51-63     g |             |
+|   8   |    8     |   15      c |   24    J a | 26-30   E i | 36-38   E i | **49** AH a | 50-52 `←` g | 54-59   K g |  55-66 `←`g | 56-73 `←` g |             |
+|   9   | **10**   |   18    G a | **28**  F   | 30-35   X c | 36-42     i | 49-51     i | **64**  H a | 65-68 `←` g |  66-75 `←`j | 67-84 `←` g |             |
+|   10  |   10     | **21**  F   |   28      i | 35-40   A a | 42-48  AB i | 49-57     i | 64-67     i | **81**  H a |  82-86 `←`g | 83-94 `←` g |             |
 |   11  | **12**   |   21      c |   32    G a | 35-45     a | 42-54     c | 49-63     i | 64-73     i | 81-85     i |             |             |             |
 |   12  |   12     |   24    J a |   36    J a | 37-46 `←` i | 48-60   B a | 49-70     i | 64-80     i | 81-92     i |             |**121** AH a |             |
 |   13  | **14**   | **27** AH   | **40**  F   | 41-50 `←` i |             |             | 72-88   B i | 81-100    i |             |             |             |
@@ -199,8 +199,7 @@ Legend:
   <!-- * Let `d(c1,c2) = sum_{l ∈ c2} s(l) - max(l - |c1|, 0)`. Then `s(c1,c2) ≤ d(c1,c2) ≤ s(c2)`.
   * Conjecture: `s(c1, c2) ≤ d(opt,opt)` whenever `s(c2) ≤ s(c1)` and `c1` and `c2` are non-dominated. (this is true, but I haven't figured out the precise argument yet) -->
   * This means that after `T+1` days at most `s(opt) + T * s` connections can be made, which gives a lower bound for the number of days.
-  * The Mathematica function doing this is given in `lowerbound.txt`. It is not optimal, and is not necessarily increasing in `n`. In some cases we can probably increase the lower bound by 1 using a similar but more precise argument.
-  * The Python program that is part of `dagstuhl.py` is better.
+  * The Python program that is part of `dagstuhl.py` tries to compute a better lower bound (an older, worse Mathematica function computing this is given in `lowerbound.txt`.)
 * `h`: If there is no perfect `(n,k)`-solution but `k | n` and `k - 1 | n - 1`, then `T(n-1, k) > (n - 1) / (k - 1)`.
   * To see this, first notice that `T(n-1, k) ≥ (n - 1) / (k - 1)` is given by the lower bound `a`.
   * The only way equality can hold is if all but 1 table has size `k` every meal, and seating every participant exactly once with every other participant.
@@ -214,24 +213,27 @@ Legend:
   * We don't use `i` if `a` or `c` applies. This bound is always at least as strong as `a` or `c`. When `n < k^2` most of the time `g` is stronger.
 * `j`:
   * If `k < n ≤ k^2 - 2` and the lower bound by `g` gives a number of days where `s(opt) + T * s = n(n-1)/2`, then all connections starting at day 2 have to be optimal.
-  * This is is usually impossible, so that 1 more day is needed. To fix: it is possible for e.g. `T(50,10)`.
-    * If every day uses the same configuration (which is usually the case under the assumption above), then this means that participants that sat together on both days 1 and 2 will sit together every day. The reason is that every day requires the least number of duplicated connections, and the duplicated connections between day 2 and n must be a subset of the duplicated connections between day 1 and n, so they must have the same duplicated connections, which means those groups sit together every day.
-    This often leads to a contradiction when `n` does not divide `k`, because then these groups don't all spend the same number of days on a smaller table, which means they don't all form the same number of connections with other groups.
-    * For `T(18,5)`:
-      * There are 153 connections to be made, and the only configurations with at least 30 connections are `s(5553)=33` and `s(5544)=32`.
-      * If `5553` is never used, then since `s(5544,5544) = 30`, the maximum number of connections is `32+4*30<153`, so this is impossible
-      * So assume day 1 is `5553` and note that `s(5553,5553)=30>s(5553, 5544)`. This means that every day must be `5553`, and every table with 5 participants must create 9 new connections after day 1.
-      * Given a table of size 5 on day 5, then for every previous day, 2 people already sat together. Since 9 new connections must be formed, this means that 2 people sat together for all 5 meals. Hence there must be 3 pairs of people that sat together every day.
-      * There must be a table where 2 such pairs meet. If this is not on day 1, such a table creates at most 8 new connections, which is a contradiction. Hence there is a table on day 1 without any of the pairs. This table must contain 2 people that also sit together on day 5, contradiction.
-      * SAT-solvers can do this with quite some effort (~2 minutes assuming the configuration `5553` exists?).
-    * For `T(26,7)`, the only way we can form the required 325 connection in 5 days is to use the optimal configuration `7775` every day, and to form 73 connections on day 1 and 63 connections on days 2-5 (there must be at least 10 duplicate connections). This means that 10 pairs must always sit together, and 3 tables must contain always 3 pairs, and 1 table always 1 pair. This means that 5 pairs only sit on tables with 2 other pairs and 1 single participant, so they will meet 10 pairs and 5 single participants, but they need to meet 9 pairs and 7 single participants. So it's impossible in 5 days.
-    * `T(34,9) > 5`, because otherwise the configuration `9997` must always be used and there must be 3 triples that always sit together on a table of size 9, but the different triples can never meet
-    * `T(39,7) > 7` because otherwise we need configuration `777774` every day, with 6 pairs always sitting together spread over the 5 tables of size 7. These pairs can only have 7 meetings, while 15 are required.
-    * `T(45,8) > 7`, because otherwise we need configuration `888885` every day, with 10 pairs always sitting together. These pairs only have 35 meetings, while 45 are required.
-    * `T(51,9) > 7`, because otherwise we need configuration `999996` every day, with 15 pairs always sitting together. If we collapse these 15 pairs to single participants, we would get a solution to `T(36,6)=7` which doesn't exist. This argument also works for `T(57,10) > 7`.
-    * `T(76,10) > 9`, because otherwise we need configuration `10,10,10,10,10,10,10,6` every day, with 15 pairs always sitting together. These pairs only have 81 meetings, while 105 are required.
-    * On the other hand, `T(38,10) = 5` and `T(22,6) = 5` are possible (see `L`).
-
+  * This is is usually impossible, so that 1 more day is needed.
+  * If every day uses the same configuration (which is usually/always the case under the assumption above), then this means that participants that sat together on both days 1 and 2 will sit together every day. The reason is that every day requires the least number of duplicated connections, and the duplicated connections between day 2 and n must be a subset of the duplicated connections between day 1 and n (otherwise day `n` will form fewer new connections than required, because there is distinct overlap with day 1 and day 2). This means that those groups sit together every day.
+  * When we quotient by the groups (i.e. consider the groups as single participants) we get an `(n', k')`-solution for `n' < n` and `k' < k`. We get a contradiction if such a solution doesn't exist. We can also compute how often groups of a particular size will meet, or how often a group that sat at a particular table on day 1 will meet other groups of a certain size. This often leads to contradictions, which are described below.
+  * We can also replace all groups of size `l` by groups of size `l'`, which leads to a contradiction for e.g. `T(42, 11)`.
+  * For `T(18,5)` we work out this argument in detail:
+    * There are 153 connections to be made, and the only configurations with at least 30 connections are `s(5553)=33` and `s(5544)=32`.
+    * If `5553` is never used, then since `s(5544,5544) = 30`, the maximum number of connections is `32+4*30<153`, so this is impossible
+    * So assume day 1 is `5553` and note that `s(5553,5553)=30>s(5553, 5544)`. This means that every day must be `5553`, and every table with 5 participants must create 9 new connections after day 1.
+    * Given a table of size 5 on day 5, then for every previous day, 2 people already sat together. Since 9 new connections must be formed, this means that 2 people sat together for all 5 meals. Hence there must be 3 pairs of people that sat together every day.
+    * There must be a table where 2 such pairs meet. If this is not on day 1, such a table creates at most 8 new connections, which is a contradiction. Hence there is a table on day 1 without any of the pairs. This table must contain 2 people that also sit together on day 5, contradiction.
+    * SAT-solvers can do this with quite some effort (~2 minutes assuming the configuration `5553` exists?).
+  * For `T(26,7)`, the only way we can form the required 325 connection in 5 days is to use the optimal configuration `7775` every day, and to form 73 connections on day 1 and 63 connections on days 2-5 (there must be at least 10 duplicate connections). This means that 10 pairs must always sit together, and 3 tables must contain always 3 pairs, and 1 table always 1 pair. This means that 5 pairs only sit on tables with 2 other pairs and 1 single participant, so they will meet 10 pairs and 5 single participants, but they need to meet 9 pairs and 7 single participants. So it's impossible in 5 days.
+  * `T(34,9) > 5`, because otherwise the configuration `9997` must always be used and there must be 3 triples that always sit together on a table of size 9, but the different triples can never meet
+  * `T(39,7) > 7` because otherwise we need configuration `777774` every day, with 6 pairs always sitting together spread over the 5 tables of size 7. These pairs can only have 7 meetings, while 15 are required.
+  * `T(45,8) > 7`, because otherwise we need configuration `888885` every day, with 10 pairs always sitting together. These pairs only have 35 meetings, while 45 are required.
+  * `T(51,9) > 7`, because otherwise we need configuration `999996` every day, with 15 pairs always sitting together. If we collapse these 15 pairs to single participants, we would get a solution to `T(36,6)=7` which doesn't exist. This argument also works for `T(57,10) > 7`.
+  * `T(76,10) > 9`, because otherwise we need configuration `10,10,10,10,10,10,10,6` every day, with 15 pairs always sitting together. These pairs only have 81 meetings, while 105 are required.
+  * `T(42,11) > 5`, because otherwise we need configuration `11,11,11,9` every day, and the groups consist of 10 triples and 6 pairs. Reducing the size of each group by 1, this would lead to a `(26, 7)`-solution, which is impossible.
+  * On the other hand, `T(38,10) = 5` and `T(22,6) = 5` are possible (see `L`).
+* `k` (currently unused): If `k < n ≤ k^2 - 2` and the lower bound by `g` gives a number of days where `d := d(n, k) := s(opt) + T * s - n(n-1)/2` is only slightly larger than 0, we can hopefully still sometimes derive a contradiction.
+  * Promising candidates are `d(27, 6) = 2`, `d(32, 7) = 4`, `d(37, 8) = 6`, `d(42, 9) = 8`, `d(59, 9) = 6`, `d(86, 10) = 5`.
 
   <!-- same argument likely holds for T(26,7), T(34,6), T(39,7), T(45,8), T(34,9), T(51,9) -->
   <!-- `T+1 > 2` and for any possible configuration starting at day 2, there are at least two tables with `k` participants and less than `k` tables. -->
@@ -488,16 +490,17 @@ s for s = 0
 <!-- 0.8s for s = 0 -->
 <!-- 1.1s for s = 1 -->
 
-#### `T(40,9) ≤ 6`
-* Solution found by Adam Zsolt Wagner using AlphaEvolve:
+#### `T(41,9) ≤ 6`
+* Solution found with the help of Adam Zsolt Wagner using AlphaEvolve:
 ```
-23 18 33 26 17 0 9 19 7 | 27 4 8 36 12 39 35 29 20 | 5 28 3 6 38 31 | 30 32 14 25 2 10 13 16 | 24 11 15 22 37 1 34 21
-5 34 12 9 7 | 18 39 0 3 4 10 32 11 | 15 20 6 14 16 19 24 29 26 | 37 23 33 36 13 28 30 27 21 | 8 1 25 2 38 35 22 17 31
-30 6 13 17 11 12 | 10 32 28 1 29 9 22 20 7 | 24 39 38 33 31 15 23 4 | 8 35 0 18 16 5 14 37 21 | 25 27 3 36 2 19 34 26
-14 3 22 33 12 1 23 16 | 9 25 39 6 2 4 37 7 21 | 13 18 29 30 34 20 38 0 31 | 28 26 35 8 11 19 | 24 10 32 36 5 17 15 27
-4 34 16 39 17 28 14 | 6 27 0 22 1 36 18 | 7 24 9 35 8 3 30 15 13 | 10 38 32 37 12 31 19 26 21 | 25 33 11 20 23 29 2 5
-7 36 38 14 9 31 27 11 16 | 10 32 8 23 35 34 33 6 | 37 29 17 20 3 21 | 22 13 19 39 30 4 5 1 26 | 0 12 24 18 2 25 28 15
+1 3 8 24 27 36 | 10 13 18 28 29 30 31 33 | 0 6 7 11 20 26 34 39 40 | 2 4 5 9 12 17 22 23 38 | 14 15 16 19 21 25 32 35 37
+3 5 18 19 21 27 33 34 40 | 20 22 26 31 36 37 38 | 6 11 12 13 23 24 25 28 32 | 2 4 7 8 16 29 30 35 | 0 1 9 10 14 15 17 39
+0 19 21 22 24 29 30 38 39 | 1 2 4 13 28 34 37 40 | 5 6 8 11 14 15 31 | 7 9 17 18 25 32 33 36 | 3 10 12 16 20 23 26 27 35
+12 14 15 23 29 30 34 36 40 | 8 9 13 17 19 20 21 26 28 | 5 7 10 24 37 | 1 6 11 16 18 22 33 35 38 | 0 2 3 4 25 27 31 32 39
+9 16 17 24 31 34 35 40 | 2 4 6 10 11 19 21 36 | 1 5 20 25 26 29 30 32 | 3 7 13 14 15 22 27 28 38 | 0 8 12 18 23 33 37 39
+0 5 13 16 28 35 36 39 | 2 4 14 15 18 20 24 26 33 | 1 7 12 19 21 23 31 | 8 10 22 25 32 34 38 40 | 3 6 9 11 17 27 29 30 37
 ```
+<!-- annealing gets quite reliably to 8 violations for T(42,9), so that might be impossible. -->
 
 ### Examples
 
