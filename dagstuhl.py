@@ -88,24 +88,35 @@ def min_days(N, conf, confs, K, M):
     conn = tr(N) - size(conf)
     max_remainder = max(map(lambda c: size(c) - overlap(conf, c), confs))
     days = math.ceil(conn / max_remainder)
-    str = ""
     # check for lower bound `j`
-    if conn == days * max_remainder and days + 1 < M:
-        maximal_configs = [c for c in confs if size(c) - overlap(conf, c) == max_remainder]
-        c = maximal_configs[0]
-        pairs = overlap(conf, c)
-        maxes = len([i for i in c if i == K])
-        conn_per_day = evenly_nr_connections(pairs, maxes)
-        if len(maximal_configs) == 1 and pairs < maxes * (maxes + 2) and (days + 1) * conn_per_day < tr(pairs) and days > 2 and c == conf:
-            str = f"\nDays 2+ use configs {maximal_configs}. There are {pairs} pairs that could only meet {(days + 1) * conn_per_day} < {tr(pairs)} times (argument `j`), so we need at least {days + 2} days."
-            days += 1
-        else:
-            str = f"\nDays 2+ use configs {maximal_configs}. Unsure whether it is possible in {days + 1} days ({pairs} pairs need to meet {tr(pairs)} times, {(days + 1) * (pairs - maxes)} naive meetings)."
-    print(f"{conf} only gives {size(conf)} + {days - 1} * {max_remainder} = {(days - 1) * max_remainder + size(conf)} \
-connections in {days} days ({days * max_remainder + size(conf)} in 1 more day).{str}")
+    if (M - 1) * max_remainder < conn:
+        print(f"{conf} cannot be the best configuration for a solution with {M} days. It forms at most {size(conf)} + {M - 1} * {max_remainder} = {(M - 1) * max_remainder + size(conf)} connections.")
+        return 1 + days
+    str = f"({(M - 1) * max_remainder - conn} more than needed)" if (M - 1) * max_remainder > conn else "(precisely what is needed)"
+    print(f"{conf} on day 1 forms at most {size(conf)} + {M - 1} * {max_remainder} = {(M - 1) * max_remainder + size(conf)} connections in {M} days {str}.")
+    possible_configs = [c for c in confs if size(c) - overlap(conf, c) + (M - 2) * max_remainder >= conn]
+    possible_configs.reverse()
+    conns = [size(c) - overlap(conf, c) for c in possible_configs]
+    all_conns = [c * (M - 1) + size(conf) for c in conns]
+    if len(possible_configs) > 1:
+        print(f"Days 2+ use configs {possible_configs} which can make at most {conns} connections per day, and can make at most {all_conns} connections when used exclusively after day 1.")
+        return 1 + days
+    c = possible_configs[0]
+    print(f"Days 2+ must use config {c} which can make at most {conns[0]} connections per day (total {all_conns[0]}).")
+    if conn < days * max_remainder:
+        return 1 + days
+    pairs = overlap(conf, c)
+    maxes = len([i for i in c if i == K])
+    conn_per_day = evenly_nr_connections(pairs, maxes)
+    if pairs < maxes * (maxes + 2) and len(conf) * 2 <= K and (days + 1) * conn_per_day < tr(pairs) and days > 2 and c == conf:
+        print(f"There are {pairs} pairs that could only meet {(days + 1) * conn_per_day} < {tr(pairs)} times (argument `j`), so we need at least {days + 2} days.\n")
+        return 2 + days
+    print(f"Unsure whether it is possible in {days + 1} days ({pairs} pairs need to meet {tr(pairs)} times, computed {(days + 1) * conn_per_day} possible meetings ({(days + 1) * (pairs - maxes)} naive meetings?)).\n")
     return 1 + days
 
-def better_lower_bound(N, K):
+
+
+def better_lower_bound(N, K, M):
     """A lower bound based of the number of meals needed. (`g` in `README.md`)
     Methodology:
     * compute all non-dominated first days
@@ -113,14 +124,17 @@ def better_lower_bound(N, K):
       first day is the best day (w.r.t. some ordering)."""
     confs = configs(N, K)
     confs = sort_by(confs, size)
-    print(f"non-dominated configurations: {confs[::-1]}")
-    min_so_far = N
+    if len(confs) < 20:
+        print(f"non-dominated configurations: {confs[::-1]}")
+    else:
+        print(f"{len(confs)} non-dominated configurations. The first 10 are {confs[:-11:-1]}")
+    min_so_far = N + 2
     while confs:
         conf = confs.pop()
-        if size(conf) * min_so_far < tr(N):
+        if size(conf) * M < tr(N):
             print("remaining configurations cannot possibly create enough connections in fewer days")
             break
-        min_so_far = min(min_so_far, min_days(N, conf, confs + [conf], K, min_so_far))
+        min_so_far = min(min_so_far, min_days(N, conf, confs + [conf], K, M))
     return min_so_far
 
 def stats(N, K, M, T, S, C):
@@ -136,7 +150,7 @@ def stats(N, K, M, T, S, C):
     print(f"{easy_min_days} is an easy lower bound for the number of meals.")
     print(f"Optimal solutions have between {math.ceil(N / K)} and {max_nondominated_tables} tables.")
     if N <= K**2 - 2:
-        min_days = better_lower_bound(N, K)
+        min_days = better_lower_bound(N, K, easy_min_days)
         if min_days != easy_min_days:
             print(f"{min_days} is a better lower bound for the number of meals.")
     if M < min_days:
